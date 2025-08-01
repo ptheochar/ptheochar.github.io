@@ -201,11 +201,10 @@ footer {
   header {
     min-height: 250px;
   }
-
   .profile-img {
     width: 85px;
     height: 85px;
-    margin-top: -45px;
+    margin-top: -45px; /* Adjusting this value to move the image down */
   }
   header h1 {
     font-size: 1.28rem;
