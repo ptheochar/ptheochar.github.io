@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(90deg, #2c3e50, #34495e);
+  color: white;
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem 1rem;
+  position: relative;
+}
+
+.profile-img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #1abc9c;
+  margin-bottom: 1rem;
+  margin-top: -80px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(44, 62, 80, 0.15);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin: 0.5rem 0 1.5rem;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.buttons {
+  margin: 1rem 0 0 0;
+}
+
+.buttons a {
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.btn {
+  background: #1abc9c;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  border: none;
+  font-size: 1rem;
+  transition: background 0.3s;
+  box-shadow: 0 2px 5px rgba(44, 62, 80, 0.1);
+}
+
+.btn:hover {
+  background: #16a085;
+}
+
+section {
+  max-width: 950px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem 2.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(44, 62, 80, 0.07);
+}
+
+section h2 {
+  border-left: 4px solid #1abc9c;
+  padding-left: 0.6rem;
+  margin-bottom: 1.3rem;
+  color: #2c3e50;
+  font-size: 1.45rem;
+}
+
+ul,
+ol {
+  padding-left: 1.1rem;
+}
+
+.role {
+  margin-bottom: 2.3rem;
+}
+
+.role h3 {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.13rem;
+  color: #1abc9c;
+  font-weight: 600;
+}
+
+.role h4 {
+  margin: 0 0 0.15rem 0;
+  font-size: 1.02rem;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.role span {
+  font-size: 0.97rem;
+  color: #7f8c8d;
+}
+
+.role ul {
+  margin: 0.5rem 0 0 0;
+}
+
+.contact-links {
+  margin-top: 1.3rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  color: #34495e;
+  background: #ecf0f1;
+  padding: 7px 15px;
+  border-radius: 16px;
+  font-size: 1rem;
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.contact-links a:hover {
+  background: #1abc9c;
+  color: #fff;
+}
+
+/* Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.39,.575,.565,1.000);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 700px) {
+  section {
+    padding: 1.2rem;
+  }
+
+  .profile-img {
+    width: 95px;
+    height: 95px;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+}
