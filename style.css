@@ -199,12 +199,12 @@ footer {
 
 @media (max-width: 700px) {
   header {
-    min-height: 250px;
+    min-height: 280px; /* Increased header height to provide more space */
   }
   .profile-img {
     width: 85px;
     height: 85px;
-    margin-top: -45px; /* Adjusting this value to move the image down */
+    margin-top: -38px; /* Adjusted to a less aggressive negative margin */
   }
   header h1 {
     font-size: 1.28rem;
