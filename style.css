@@ -1,12 +1,22 @@
+:root {
+  --primary-color: #10ac84;
+  --primary-dark-color: #128669;
+  --background-color: #f4f8fb;
+  --text-color: #222f3e;
+  --secondary-text-color: #7f8c8d;
+  --light-gray: #ecf0f1;
+  --dark-text: #263849;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f8fb;
-  color: #222f3e;
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 header {
-  background: linear-gradient(120deg, #222f3e 60%, #10ac84 100%);
+  background: linear-gradient(120deg, var(--text-color) 60%, var(--primary-color) 100%);
   color: white;
   text-align: center;
   padding: 2.5rem 1rem 2.6rem 1rem;
@@ -17,6 +27,9 @@ header {
   align-items: center;
   justify-content: flex-end;
   overflow: visible;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 .profile-img {
@@ -68,7 +81,9 @@ header p {
   cursor: pointer;
 }
 .btn:hover, .btn:focus {
-  background: #128669;
+  background: var(--primary-dark-color);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(16, 172, 132, 0.2);
 }
 
 .contact-links {
@@ -81,7 +96,7 @@ header p {
 
 .contact-links a {
   color: #222f3e;
-  background: #ecf0f1;
+  background: var(--light-gray);
   padding: 0.47rem 1.18rem;
   border-radius: 20px;
   font-size: 1rem;
@@ -91,7 +106,7 @@ header p {
   transition: background 0.14s, color 0.14s;
 }
 .contact-links a:hover {
-  background: #10ac84;
+  background: var(--primary-color);
   color: #fff;
 }
 
@@ -188,6 +203,28 @@ footer {
 .fade-in.visible {
   opacity: 1;
   transform: none;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.skill-tag {
+  background: var(--light-gray);
+  color: var(--dark-text);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.14s, color 0.14s;
+}
+
+.skill-tag:hover {
+  background: var(--primary-color);
+  color: #fff;
 }
 
 @media (max-width: 1000px) {
