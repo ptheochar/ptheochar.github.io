@@ -7,10 +7,34 @@
 	<title>Panagiotis C. Theocharopoulos - Portfolio</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
+	<nav class="navbar" id="navbar">
+		<div class="nav-container">
+			<a href="#" class="nav-logo">P. Theocharopoulos</a>
+			<ul class="nav-menu" id="nav-menu">
+				<li><a href="#about" class="nav-link">About</a></li>
+				<li><a href="#experience" class="nav-link">Experience</a></li>
+				<li><a href="#education" class="nav-link">Education</a></li>
+				<li><a href="#skills" class="nav-link">Skills</a></li>
+				<li><a href="#awards" class="nav-link">Awards</a></li>
+				<li><a href="#publications" class="nav-link">Publications</a></li>
+			</ul>
+			<div class="mobile-menu-toggle" id="mobile-toggle">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</nav>
+
+	<button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
+
 	<header>
 		<img src="citations.jpg" alt="Panagiotis C. Theocharopoulos, Lead AI Engineer" class="profile-img">
 		<h1>Panagiotis C. Theocharopoulos</h1>
@@ -18,7 +42,7 @@
 		<div class="buttons">
 			<a href="Theocharopoulos_CV.pdf" class="btn" target="_blank">Short CV</a>
 			<a href="PTheocharopoulos_ACV.pdf" class="btn" target="_blank">Full CV</a>
-			<a href="mailto:panos.t95@gmail.com" class="btn">Contact</a>
+			<!-- <a href="mailto:panos.t95@gmail.com" class="btn">Contact</a> -->
 		</div>
 		<div class="contact-links">
 			<a href="mailto:panos.t95@gmail.com"><i class="fas fa-envelope"></i> Email</a>
@@ -32,7 +56,7 @@
 	</header>
 
 
-	<section class="about">
+	<section class="about fade-in" id="about">
 		<h2>About Me</h2>
 		<p>
 			A Lead AI Engineer and researcher, I drive innovation at the intersection of academic research and industry
@@ -45,7 +69,7 @@
 		</p>
 	</section>
 
-	<section class="experience">
+	<section class="experience fade-in" id="experience">
 		<h2>Professional Experience</h2>
 
 		<div class="role">
@@ -159,7 +183,7 @@
 		</div>
 	</section>
 
-	<section class="education fade-in">
+	<section class="education fade-in" id="education">
 		<h2>Education</h2>
 		<div class="role">
 			<h3>PhD in Artificial Intelligence</h3>
@@ -192,7 +216,7 @@
 		</div>
 	</section>
 
-	<section class="skills fade-in">
+	<section class="skills fade-in" id="skills">
 		<h2>Skills & Tools</h2>
 
 		<h3>Technical Skills</h3>
@@ -223,7 +247,7 @@
 		</div>
 	</section>
 
-	<section class="awards fade-in">
+	<section class="awards fade-in" id="awards">
 		<h2>Scholarships & Awards</h2>
 		<ul>
 			<li>IEEE CIS Student Travel Grant Award, SSCI 2025</li>
@@ -234,7 +258,7 @@
 		</ul>
 	</section>
 
-	<section class="research-projects fade-in">
+	<section class="research-projects fade-in" id="research-projects">
 		<h2>Research Projects</h2>
 		<div class="role">
 			<h3>Bridging large omics, genetic, and medical data for the wide application of Precision Medicine in Greece
@@ -250,7 +274,7 @@
 		</div>
 	</section>
 
-	<section class="reviewer-experience fade-in">
+	<section class="reviewer-experience fade-in" id="reviewer-experience">
 		<h2>Reviewer Experience</h2>
 		<div class="role">
 			<ul>
@@ -267,7 +291,7 @@
 		</div>
 	</section>
 
-	<section class="certifications fade-in">
+	<section class="certifications fade-in" id="certifications">
 		<h2>Certifications</h2>
 		<ul>
 			<li>Building RAG Agents with LLMs (NVIDIA, 2024)</li>
@@ -278,7 +302,7 @@
 		</ul>
 	</section>
 
-	<section class="fade-in">
+	<section class="fade-in" id="publications">
 		<h2>Publications</h2>
 
 		<h3>Journal Publications</h3>
@@ -334,6 +358,27 @@
 	</section>
 
 	<script>
+		// Back-to-Top Button Functionality
+		const backToTopButton = document.getElementById('back-to-top');
+		window.addEventListener('scroll', () => {
+			if (window.scrollY > 300) {
+				backToTopButton.classList.add('visible');
+			} else {
+				backToTopButton.classList.remove('visible');
+			}
+		});
+		backToTopButton.addEventListener('click', () => {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		});
+
+		// Progressive reveal animation for list items
+		document.querySelectorAll('.role ul li').forEach((item, index) => {
+			item.style.animationDelay = `${index * 0.1}s`;
+		});
+
 		document.addEventListener('DOMContentLoaded', () => {
 			const observer = new IntersectionObserver((entries, observer) => {
 				entries.forEach(entry => {
@@ -342,7 +387,9 @@
 						observer.unobserve(entry.target);
 					}
 				});
-			}, { threshold: 0.15 });
+			}, {
+				threshold: 0.15
+			});
 
 			document.querySelectorAll('.fade-in').forEach(el => {
 				observer.observe(el);
