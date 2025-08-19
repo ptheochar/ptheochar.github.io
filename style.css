@@ -40,7 +40,7 @@ header {
   border: 4px solid #10ac84;
   margin-bottom: 1.1rem;
   margin-top: -88px;
-  box-shadow: 0 4px 14px rgba(16, 172, 132, 0.12);
+  box-shadow: 0 4px 14px rgba(16,172,132,0.12);
   background: #fff;
   z-index: 2;
   display: block;
