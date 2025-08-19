@@ -2,10 +2,9 @@
   --primary-color: #10ac84;
   --primary-dark-color: #128669;
   --background-color: #f4f8fb;
-  --text-color: #222f3e;
+  --text-color: #263849; /* Consolidated into one dark text color */
   --secondary-text-color: #7f8c8d;
   --light-gray: #ecf0f1;
-  --dark-text: #263849;
 }
 
 body {
