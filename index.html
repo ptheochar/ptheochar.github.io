@@ -60,6 +60,7 @@
 		</div>
 	</header>
 
+	<!-- ADDED: The fade-in class for progressive reveal animation -->
 	<section class="about fade-in" id="about">
 		<h2>About Me</h2>
 		<p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dark);">
@@ -77,6 +78,7 @@
 		</p>
 	</section>
 
+	<!-- ADDED: The fade-in class for progressive reveal animation -->
 	<section class="experience fade-in" id="experience">
 		<h2>Professional Experience</h2>
 		<div class="role">
@@ -177,6 +179,7 @@
 		</div>
 	</section>
 
+	<!-- ADDED: The fade-in class for progressive reveal animation -->
 	<section class="teaching-experience fade-in" id="teaching-experience">
 		<h2>Teaching Experience</h2>
 		<div class="role">
@@ -197,6 +200,7 @@
 		</div>
 	</section>
 
+	<!-- ADDED: The fade-in class for progressive reveal animation -->
 	<section class="education fade-in" id="education">
 		<h2>Education</h2>
 		<div class="role">
@@ -230,6 +234,7 @@
 		</div>
 	</section>
 
+	<!-- UPDATED: The skills section with the new two-column layout -->
 	<section class="skills fade-in" id="skills">
 		<h2>Skills & Tools</h2>
 
@@ -265,6 +270,7 @@
 		</div>
 	</section>
 
+	<!-- ADDED: The fade-in class for progressive reveal animation -->
 	<section class="awards fade-in" id="awards">
 		<h2>Scholarships & Awards</h2>
 		<ul>
@@ -276,6 +282,7 @@
 		</ul>
 	</section>
 
+	<!-- ADDED: The fade-in class for progressive reveal animation -->
 	<section class="research-projects fade-in" id="research-projects">
 		<h2>Research Projects</h2>
 		<div class="role">
@@ -292,6 +299,7 @@
 		</div>
 	</section>
 
+	<!-- ADDED: The fade-in class for progressive reveal animation -->
 	<section class="reviewer-experience fade-in" id="reviewer-experience">
 		<h2>Reviewer Experience</h2>
 		<div class="role">
@@ -309,6 +317,7 @@
 		</div>
 	</section>
 
+	<!-- ADDED: The fade-in class for progressive reveal animation -->
 	<section class="certifications fade-in" id="certifications">
 		<h2>Certifications</h2>
 		<ul>
@@ -320,6 +329,7 @@
 		</ul>
 	</section>
 
+	<!-- ADDED: The fade-in class for progressive reveal animation -->
 	<section class="fade-in" id="publications">
 		<h2>Publications</h2>
 		<h3>Journal Publications</h3>
@@ -412,6 +422,7 @@
 			item.style.animationDelay = `${index * 0.1}s`;
 		});
 
+		// ADDED: Intersection Observer for a clean progressive reveal effect
 		document.addEventListener('DOMContentLoaded', () => {
 			const observer = new IntersectionObserver((entries, observer) => {
 				entries.forEach(entry => {
