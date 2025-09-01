@@ -14,7 +14,7 @@
 	--section-bg-color: #fff;
 	--section-even-bg-color: var(--background-color);
 	--section-shadow: 0 6px 22px rgba(0, 123, 255, 0.09);
-	--navbar-bg-color: var(--text-color);
+	--navbar-bg-color: rgba(33, 37, 41, 0.8); /* UPDATED: Translucent for frosted glass effect */
 	--profile-img-bg: #fff;
 	--contact-link-bg: var(--light-gray);
 	--contact-link-text: var(--text-color);
@@ -33,7 +33,7 @@ html[data-theme='dark'] {
 	--secondary-text-color: #8A94A0;
 	--light-gray: #2C3540;
 	--section-bg-color: #1A222C;
-	--navbar-bg-color: #1A222C;
+	--navbar-bg-color: rgba(26, 34, 44, 0.8); /* UPDATED: Translucent for frosted glass effect */
 	--profile-img-bg: #1A222C;
 	--heading-accent-color: var(--secondary-text-color);
 	--publication-bg-color: var(--section-bg-color);
@@ -67,6 +67,9 @@ h1, h2, h3, h4, h5, h6, .nav-logo, .btn {
 	z-index: 1000;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	transition: top 0.3s ease-in-out, background-color var(--transition-ease);
+	/* ADDED: Frosted glass effect */
+	-webkit-backdrop-filter: blur(8px); /* For Safari */
+	backdrop-filter: blur(8px);
 }
 
 .nav-container {
