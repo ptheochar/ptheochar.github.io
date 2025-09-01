@@ -38,6 +38,7 @@ html[data-theme='dark'] {
 	--heading-accent-color: var(--secondary-text-color);
 	--publication-bg-color: var(--section-bg-color);
 	--section-shadow: 0 6px 22px rgba(0, 0, 0, 0.2);
+	--glow-color: rgba(0, 123, 255, 0.5); /* Primary blue glow */
 }
 
 html {
@@ -130,6 +131,7 @@ h1, h2, h3, h4, h5, h6, .nav-logo, .btn {
 
 .nav-link:hover {
 	color: var(--primary-color);
+	text-shadow: 0 0 5px var(--glow-color);
 }
 
 .nav-link:hover::after {
@@ -349,7 +351,7 @@ header p {
 .btn:focus {
 	background: var(--primary-dark-color);
 	transform: translateY(-3px);
-	box-shadow: var(--shadow-medium);
+	box-shadow: var(--shadow-medium), 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
 }
 
 .contact-links {
@@ -378,7 +380,7 @@ header p {
 	background: var(--primary-dark-color);
 	color: #fff;
 	transform: translateY(-2px);
-	box-shadow: var(--shadow-medium);
+	box-shadow: var(--shadow-medium), 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
 }
 
 /* UPDATED: Lift-and-shadow effect on sections */
@@ -525,6 +527,7 @@ footer {
 	background: var(--primary-dark-color);
 	color: #fff;
 	transform: translateY(-2px);
+	box-shadow: 0 0 8px var(--glow-color);
 }
 
 /* Back-to-Top Button */
