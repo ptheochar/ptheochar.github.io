@@ -52,6 +52,7 @@ body {
 	background: var(--background-color);
 	color: var(--text-color);
 	transition: background-color var(--transition-ease), color var(--transition-ease);
+	text-align: justify; /* ADDED: Justify all body text by default */
 }
 
 h1, h2, h3, h4, h5, h6, .nav-logo, .btn {
@@ -408,6 +409,7 @@ section:nth-of-type(even) {
 .about-text {
 	font-size: 1.1rem;
 	line-height: 1.8;
+	text-align: justify; /* ADDED: Justify text for a cleaner look */
 }
 
 section h2 {
@@ -467,6 +469,7 @@ ol {
 .publications li {
 	margin-bottom: 1.1em;
 	line-height: 1.5;
+	text-align: justify; /* ADDED: Ensure list items are also justified */
 }
 
 footer {
