@@ -23,17 +23,21 @@
 </head>
 
 <body>
+	<nav class="scroll-progress" aria-hidden="true">
+		<span class="scroll-progress__bar" id="scroll-progress"></span>
+	</nav>
+
 	<nav class="navbar" id="navbar">
 		<div class="nav-container">
 			<a href="#" class="nav-logo">P. Theocharopoulos</a>
 			<ul class="nav-menu" id="nav-menu">
-				<li><a href="#about" class="nav-link">About</a></li>
-				<li><a href="#experience" class="nav-link">Experience</a></li>
-				<li><a href="#teaching-experience" class="nav-link">Teaching</a></li>
-				<li><a href="#education" class="nav-link">Education</a></li>
-				<li><a href="#skills" class="nav-link">Skills</a></li>
-				<li><a href="#awards" class="nav-link">Awards</a></li>
-				<li><a href="#publications" class="nav-link">Publications</a></li>
+				<li><a href="#about" class="nav-link" data-section="about">About<span class="nav-dot" aria-hidden="true"></span></a></li>
+				<li><a href="#experience" class="nav-link" data-section="experience">Experience<span class="nav-dot" aria-hidden="true"></span></a></li>
+				<li><a href="#teaching-experience" class="nav-link" data-section="teaching-experience">Teaching<span class="nav-dot" aria-hidden="true"></span></a></li>
+				<li><a href="#education" class="nav-link" data-section="education">Education<span class="nav-dot" aria-hidden="true"></span></a></li>
+				<li><a href="#skills" class="nav-link" data-section="skills">Skills<span class="nav-dot" aria-hidden="true"></span></a></li>
+				<li><a href="#awards" class="nav-link" data-section="awards">Awards<span class="nav-dot" aria-hidden="true"></span></a></li>
+				<li><a href="#publications" class="nav-link" data-section="publications">Publications<span class="nav-dot" aria-hidden="true"></span></a></li>
 				<li class="theme-switch-container" title="Toggle dark mode">
 					<label class="theme-switch" for="theme-toggle">
 						<input type="checkbox" id="theme-toggle" />
@@ -527,6 +531,59 @@
 			const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 			setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
 
+			// Scroll progress indicator
+			const scrollProgressBar = document.getElementById('scroll-progress');
+			const updateScrollProgress = () => {
+				if (!scrollProgressBar) return;
+				const scrollTop = window.scrollY;
+				const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+				const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+				scrollProgressBar.style.width = `${progress * 100}%`;
+			};
+
+			updateScrollProgress();
+
+			// Section highlighting for navbar
+			const navSectionLinks = Array.from(document.querySelectorAll('.nav-link[data-section]'));
+			const sections = navSectionLinks
+				.map(link => document.getElementById(link.dataset.section))
+				.filter(Boolean);
+			const navbarEl = document.getElementById('navbar');
+
+			const setActiveNavLink = (targetLink) => {
+				navSectionLinks.forEach(navLink => {
+					const isActive = navLink === targetLink;
+					navLink.classList.toggle('active', isActive);
+					if (isActive) {
+						navLink.setAttribute('aria-current', 'location');
+					} else {
+						navLink.removeAttribute('aria-current');
+					}
+				});
+			};
+
+			const updateActiveSection = () => {
+				if (!sections.length) {
+					return;
+				}
+
+				const offset = (navbarEl ? navbarEl.offsetHeight : 0) + 48;
+				let activeLink = navSectionLinks[0];
+
+				sections.forEach((section, index) => {
+					const rect = section.getBoundingClientRect();
+					if (rect.top - offset <= 0) {
+						activeLink = navSectionLinks[index];
+					}
+				});
+
+				if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+					activeLink = navSectionLinks[navSectionLinks.length - 1];
+				}
+
+				setActiveNavLink(activeLink);
+			};
+
 			// Publications filtering
 			const filterButtons = document.querySelectorAll('.filter-btn');
 			const publicationCards = Array.from(document.querySelectorAll('.publication-card'));
@@ -571,8 +628,23 @@
 					});
 				});
 
-				applyPublicationFilters();
-			}
+					applyPublicationFilters();
+				}
+
+			const handleScroll = () => {
+				updateScrollProgress();
+				updateActiveSection();
+			};
+
+			const handleResize = () => {
+				updateScrollProgress();
+				updateActiveSection();
+			};
+
+			handleResize();
+
+			window.addEventListener('scroll', handleScroll, { passive: true });
+			window.addEventListener('resize', handleResize);
 
 			// Intersection Observer for a clean progressive reveal effect
 			const observer = new IntersectionObserver((entries, observer) => {
