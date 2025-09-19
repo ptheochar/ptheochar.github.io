@@ -347,55 +347,126 @@
 		</ul>
 		</section>
 
-		<!-- ADDED: The fade-in class for progressive reveal animation -->
-		<section class="fade-in" id="publications">
-		<h2>Publications</h2>
-		<h3>Journal Publications</h3>
-		<ol>
-			<li>
-				<b>P. C. Theocharopoulos</b>, P. Anagnostou, S. V. Georgakopoulos, S. K. Tasoulis, and V. P.
-				Plagianakos, "Large language models for efficient topic modeling," Neural Computing and
-				Applications, Sept. 2025, doi: 10.1007/s00521-025-11593-9.
-			</li>
-			<li>
-				<b>P. C. Theocharopoulos</b>, S. Bersimis, S. V. Georgakopoulos, A. Karaminas, S. K. Tasoulis,
-				and V. P. Plagianakos,
-				"Developing predictive precision medicine models by exploiting real-world data using machine
-				learning methods,"
-				Journal of Applied Statistics, 2024, doi: 10.1080/02664763.2024.2315451.
-			</li>
-			<li>
-				<b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis, and V. P.
-				Plagianakos, "Analysing sentiment change detection of Covid-19 tweets", Neural Computing and
-				Applications, pp. 1–11, 2023.
-			</li>
-		</ol>
+		<!-- ADDED: Filterable publications gallery -->
+		<section class="publications fade-in" id="publications">
+			<div class="section-heading">
+				<h2>Publications</h2>
+				<p>Browse peer-reviewed journal and conference work. Use the filters to focus by type or year.</p>
+			</div>
 
-		<h3>Conference Publications</h3>
-		<ol>
-			<li>
-				<b>P. C. Theocharopoulos</b>, S. Bersimis, S. V. Georgakopoulos, S. K. Tasoulis,
-				and V. P. Plagianakos, "Transforming Medical Practice: Harnessing the Power of Big Data and
-				Machine Learning for Predictive Precision Medicine", 2025 IEEE Symposium Series on Computational
-				Intelligence (SSCI), Trondheim, Norway, 2025.
-			</li>
-			<li>
-				<b>P. C. Theocharopoulos</b>, S. V. Georgakopoulos, S. K. Tasoulis, and V. P. Plagianakos, "Who
-				Writes the Review, Human or AI?", in IEEE 22nd International Conference on Cognitive
-				Informatics and Cognitive Computing (ICCI-CC’23), Stanford, CA, USA, 2023 (Proceedings not published).
-			</li>
-			<li>
-				<b>P. C. Theocharopoulos</b>, P. Anagnostou, A. Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis,
-				and V. P. Plagianakos, "Detection of Fake Generated Scientific Abstracts", in 2023 IEEE
-				Ninth International Conference on Big Data Computing Service and Applications
-				(BigDataService), Athens, Greece, 2023.
-			</li>
-			<li>
-				<b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis, and V. P.
-				Plagianakos, "Text analysis of COVID-19 tweets", in International Conference on Engineering
-				Applications of Neural Networks, Springer, 2022, pp. 517–528.
-			</li>
-		</ol>
+			<div class="publication-filters" aria-label="Filter publications">
+				<div class="filter-group" role="group" aria-label="Filter by type">
+					<span class="filter-group-label">Type</span>
+					<button class="filter-btn active" type="button" data-filter-group="type" data-filter="all" aria-pressed="true">All Types</button>
+					<button class="filter-btn" type="button" data-filter-group="type" data-filter="journal" aria-pressed="false">Journals</button>
+					<button class="filter-btn" type="button" data-filter-group="type" data-filter="conference" aria-pressed="false">Conferences</button>
+				</div>
+				<div class="filter-group" role="group" aria-label="Filter by year">
+					<span class="filter-group-label">Year</span>
+					<button class="filter-btn active" type="button" data-filter-group="year" data-filter="all" aria-pressed="true">All Years</button>
+					<button class="filter-btn" type="button" data-filter-group="year" data-filter="2025" aria-pressed="false">2025</button>
+					<button class="filter-btn" type="button" data-filter-group="year" data-filter="2024" aria-pressed="false">2024</button>
+					<button class="filter-btn" type="button" data-filter-group="year" data-filter="2023" aria-pressed="false">2023</button>
+					<button class="filter-btn" type="button" data-filter-group="year" data-filter="2022" aria-pressed="false">2022</button>
+				</div>
+			</div>
+
+			<div class="publication-grid" id="publication-grid">
+				<article class="publication-card" data-type="journal" data-year="2025">
+					<div class="publication-meta">
+						<span class="pub-tag">Journal</span>
+						<span class="pub-year">2025</span>
+					</div>
+					<h3 class="publication-title">Large language models for efficient topic modeling</h3>
+					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, P. Anagnostou, S. V. Georgakopoulos, S. K. Tasoulis, and V. P. Plagianakos</p>
+					<p class="publication-venue">Neural Computing and Applications</p>
+					<div class="publication-actions">
+						<a class="pub-link" href="https://doi.org/10.1007/s00521-025-11593-9" target="_blank" rel="noopener noreferrer">View DOI</a>
+						<a class="pub-link" href="https://scholar.google.com/scholar?q=Large+language+models+for+efficient+topic+modeling" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+					</div>
+				</article>
+
+				<article class="publication-card" data-type="journal" data-year="2024">
+					<div class="publication-meta">
+						<span class="pub-tag">Journal</span>
+						<span class="pub-year">2024</span>
+					</div>
+					<h3 class="publication-title">Developing predictive precision medicine models by exploiting real-world data using machine learning methods</h3>
+					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V. Georgakopoulos, A. Karaminas, S. K. Tasoulis, and V. P. Plagianakos</p>
+					<p class="publication-venue">Journal of Applied Statistics</p>
+					<div class="publication-actions">
+						<a class="pub-link" href="https://doi.org/10.1080/02664763.2024.2315451" target="_blank" rel="noopener noreferrer">View DOI</a>
+						<a class="pub-link" href="https://scholar.google.com/scholar?q=Developing+predictive+precision+medicine+models+by+exploiting+real-world+data+using+machine+learning+methods" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+					</div>
+				</article>
+
+				<article class="publication-card" data-type="journal" data-year="2023">
+					<div class="publication-meta">
+						<span class="pub-tag">Journal</span>
+						<span class="pub-year">2023</span>
+					</div>
+					<h3 class="publication-title">Analysing sentiment change detection of Covid-19 tweets</h3>
+					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis, and V. P. Plagianakos</p>
+					<p class="publication-venue">Neural Computing and Applications</p>
+					<div class="publication-actions">
+						<a class="pub-link" href="https://scholar.google.com/scholar?q=Analysing+sentiment+change+detection+of+Covid-19+tweets" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+					</div>
+				</article>
+
+				<article class="publication-card" data-type="conference" data-year="2025">
+					<div class="publication-meta">
+						<span class="pub-tag">Conference</span>
+						<span class="pub-year">2025</span>
+					</div>
+					<h3 class="publication-title">Transforming Medical Practice: Harnessing the Power of Big Data and Machine Learning for Predictive Precision Medicine</h3>
+					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V. Georgakopoulos, S. K. Tasoulis, and V. P. Plagianakos</p>
+					<p class="publication-venue">IEEE Symposium Series on Computational Intelligence (SSCI)</p>
+					<div class="publication-actions">
+						<a class="pub-link" href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice:+Harnessing+the+Power+of+Big+Data+and+Machine+Learning+for+Predictive+Precision+Medicine" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+					</div>
+				</article>
+
+				<article class="publication-card" data-type="conference" data-year="2023">
+					<div class="publication-meta">
+						<span class="pub-tag">Conference</span>
+						<span class="pub-year">2023</span>
+					</div>
+					<h3 class="publication-title">Who Writes the Review, Human or AI?</h3>
+					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, S. V. Georgakopoulos, S. K. Tasoulis, and V. P. Plagianakos</p>
+					<p class="publication-venue">IEEE International Conference on Cognitive Informatics and Cognitive Computing (ICCI-CC)</p>
+					<div class="publication-actions">
+						<a class="pub-link" href="https://scholar.google.com/scholar?q=Who+Writes+the+Review,+Human+or+AI%3F" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+					</div>
+				</article>
+
+				<article class="publication-card" data-type="conference" data-year="2023">
+					<div class="publication-meta">
+						<span class="pub-tag">Conference</span>
+						<span class="pub-year">2023</span>
+					</div>
+					<h3 class="publication-title">Detection of Fake Generated Scientific Abstracts</h3>
+					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, P. Anagnostou, A. Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis, and V. P. Plagianakos</p>
+					<p class="publication-venue">IEEE International Conference on Big Data Computing Service and Applications (BigDataService)</p>
+					<div class="publication-actions">
+						<a class="pub-link" href="https://scholar.google.com/scholar?q=Detection+of+Fake+Generated+Scientific+Abstracts" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+					</div>
+				</article>
+
+				<article class="publication-card" data-type="conference" data-year="2022">
+					<div class="publication-meta">
+						<span class="pub-tag">Conference</span>
+						<span class="pub-year">2022</span>
+					</div>
+					<h3 class="publication-title">Text analysis of COVID-19 tweets</h3>
+					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis, and V. P. Plagianakos</p>
+					<p class="publication-venue">International Conference on Engineering Applications of Neural Networks</p>
+					<div class="publication-actions">
+						<a class="pub-link" href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+					</div>
+				</article>
+			</div>
+
+			<p class="publication-empty" id="publication-empty" hidden>No publications match your filters yet.</p>
 		</section>
 	</main>
 
@@ -455,6 +526,53 @@
 			const savedTheme = localStorage.getItem('theme');
 			const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 			setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+			// Publications filtering
+			const filterButtons = document.querySelectorAll('.filter-btn');
+			const publicationCards = Array.from(document.querySelectorAll('.publication-card'));
+			const emptyState = document.getElementById('publication-empty');
+			const activeFilters = { type: 'all', year: 'all' };
+
+			const applyPublicationFilters = () => {
+				let visibleCount = 0;
+				publicationCards.forEach(card => {
+					const matchesType = activeFilters.type === 'all' || card.dataset.type === activeFilters.type;
+					const matchesYear = activeFilters.year === 'all' || card.dataset.year === activeFilters.year;
+					if (matchesType && matchesYear) {
+						card.style.display = '';
+						visibleCount += 1;
+					} else {
+						card.style.display = 'none';
+					}
+				});
+
+				if (emptyState) {
+					emptyState.hidden = visibleCount !== 0;
+				}
+			};
+
+			if (filterButtons.length) {
+				filterButtons.forEach(button => {
+					button.addEventListener('click', () => {
+						const group = button.dataset.filterGroup;
+						const value = button.dataset.filter;
+
+						if (!group) return;
+
+						activeFilters[group] = value;
+
+						document.querySelectorAll(`.filter-btn[data-filter-group="${group}"]`).forEach(groupButton => {
+							const isActive = groupButton === button;
+							groupButton.classList.toggle('active', isActive);
+							groupButton.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+						});
+
+						applyPublicationFilters();
+					});
+				});
+
+				applyPublicationFilters();
+			}
 
 			// Intersection Observer for a clean progressive reveal effect
 			const observer = new IntersectionObserver((entries, observer) => {
