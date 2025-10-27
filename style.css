@@ -35,7 +35,7 @@ html[data-theme='dark'] {
 	--surface-color: #16213c;
 	--surface-muted: rgba(148, 163, 184, 0.12);
 	--text-color: #e2e8f0;
-	--secondary-text-color: #94a3b8;
+	--secondary-text-color: #cbd5e1;
 	--heading-accent-color: #e2e8f0;
 	--light-gray: rgba(148, 163, 184, 0.18);
 	--navbar-bg-color: rgba(15, 23, 42, 0.88);
@@ -79,6 +79,18 @@ p {
 
 a {
 	color: inherit;
+}
+
+/* Focus visibility for keyboard users */
+.nav-link:focus-visible,
+.btn:focus-visible,
+.filter-btn:focus-visible,
+.pub-link:focus-visible,
+.contact-links a:focus-visible,
+#back-to-top:focus-visible,
+.mobile-menu-toggle:focus-visible {
+	outline: 3px solid var(--primary-color);
+	outline-offset: 3px;
 }
 
 /* Navigation Bar */
@@ -818,6 +830,15 @@ footer {
 .fade-in.visible {
 	opacity: 1;
 	transform: none;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation: none !important;
+		transition: none !important;
+		scroll-behavior: auto !important;
+	}
 }
 
 .role ul li {

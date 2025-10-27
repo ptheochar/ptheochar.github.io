@@ -14,6 +14,7 @@
 	<link rel="shortcut icon" href="/assets/favicon.ico">
 
 	<meta name="theme-color" content="#10ac84">
+	<meta name="color-scheme" content="light dark">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,11 +48,11 @@
 					</label>
 				</li>
 			</ul>
-			<div class="mobile-menu-toggle" id="mobile-toggle">
+			<button class="mobile-menu-toggle" id="mobile-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu">
 				<span></span>
 				<span></span>
 				<span></span>
-			</div>
+			</button>
 		</div>
 	</nav>
 
@@ -60,11 +61,11 @@
 	<header>
 		<div class="hero">
 			<div class="hero-media">
-				<img src="citations.jpg" alt="Panagiotis C. Theocharopoulos, Lead AI Engineer" class="profile-img">
+					<img src="citations.jpg" alt="Panagiotis C. Theocharopoulos, Lead AI Engineer" class="profile-img" width="240" height="240" decoding="async" fetchpriority="high">
 			</div>
 			<div class="hero-content">
 				<h1>Panagiotis C. Theocharopoulos</h1>
-				<p>AI Engineer | AI Research Fellow | PhD (c)</p>
+					<p>AI Engineer @ Covariance | Research Fellow @ UTH | PhD Candidate</p>
 				<div class="buttons">
 					<a href="Theocharopoulos_CV.pdf" class="btn" target="_blank">Short CV</a>
 					<a href="PTheocharopoulos_ACV.pdf" class="btn" target="_blank">Full CV</a>
@@ -95,7 +96,7 @@
 			</p>
 			<br>
 			<p class="about-text">
-				As a PhD candidate in Computer Science and Biomedical Informatics at the University of Thessaly, I
+					As a PhD Candidate in Computer Science and Biomedical Informatics at the University of Thessaly, I
 				bridge
 				theoretical research with practical applications, developing state-of-the-art AI solutions for
 				healthcare
@@ -238,7 +239,7 @@
 			<div class="role">
 				<h3>PhD in Artificial Intelligence</h3>
 				<h4>University of Thessaly, Greece</h4>
-				<span>2021 – Present</span>
+				<span>Present (Expected 2026)</span>
 				<ul>
 					<li>Thesis: “Development of Deep Learning methods on big data with a focus on Natural Language
 						Processing”.</li>
@@ -263,7 +264,7 @@
 			<div class="role">
 				<h3>Erasmus+ Exchange Student</h3>
 				<h4>Università degli Studi di Perugia, Italy</h4>
-				<span>2016 – 2017</span>
+				<span>2016/2017</span>
 			</div>
 		</section>
 
@@ -335,20 +336,26 @@
 
 		<!-- ADDED: The fade-in class for progressive reveal animation -->
 		<section class="reviewer-experience fade-in" id="reviewer-experience">
-			<h2>Reviewer Experience</h2>
+					<h2>Peer Review Service</h2>
 			<div class="role">
+				<h3>Journals</h3>
 				<ul>
 					<li>Neural Computing and Applications (Springer)</li>
+					<li>Cluster Computing (Springer)</li>
+					<li>Social Network Analysis and Mining (Springer)</li>
 					<li>International Journal of Information Technology & Decision Making (World Scientific)</li>
 					<li>Public Health (ScienceDirect)</li>
 					<li>Frontiers in Public Health</li>
+					<li>IEEE Transactions on Signal and Information Processing over Networks</li>
+				</ul>
+				<h3>Conferences</h3>
+				<ul>
 					<li>IEEE Symposium Series on Computational Intelligence (SSCI) 2025</li>
 					<li>International Joint Conference on Neural Networks (IJCNN) 2025</li>
 					<li>26th Engineering Applications and Advances of Artificial Intelligence (EAAAI) 2025</li>
 					<li>22nd IEEE Conference on CI/AI in Bioinformatics and Computational Biology (CIBCB) 2025</li>
 					<li>20th International Conference on Availability, Reliability, and Security (ARES) 2025</li>
 					<li>Pacific Symposium on Biocomputing (PSB) 2026</li>
-					<li>IEEE Transactions on Signal and Information Processing over Networks</li>
 				</ul>
 			</div>
 		</section>
@@ -533,6 +540,8 @@
 			mobileToggle.addEventListener('click', function () {
 				navMenu.classList.toggle('active');
 				mobileToggle.classList.toggle('active');
+				const expanded = mobileToggle.classList.contains('active');
+				mobileToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
 			});
 
 			// Close menu when a link is clicked
@@ -541,6 +550,7 @@
 					if (navMenu.classList.contains('active')) {
 						navMenu.classList.remove('active');
 						mobileToggle.classList.remove('active');
+						mobileToggle.setAttribute('aria-expanded', 'false');
 					}
 				});
 			});
