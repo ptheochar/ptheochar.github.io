@@ -1,654 +1,1684 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Panagiotis C. Theocharopoulos - Portfolio</title>
-	<link rel="stylesheet" href="style.css">
-
-	<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-	<link rel="manifest" href="/assets/site.webmanifest">
-	<link rel="shortcut icon" href="/assets/favicon.ico">
-
-	<meta name="theme-color" content="#10ac84">
-	<meta name="color-scheme" content="light dark">
-	<!-- To safely add SRI, compute the hash of the exact file and set integrity accordingly.
-	Example (sha384):
-	  curl -sL 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css' \
-	  | openssl dgst -sha384 -binary | openssl base64 -A
-	Then add: integrity="sha384-<paste-result>" -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<title>Panagiotis C. Theocharopoulos - Creative Portfolio</title>
+	<!-- Load Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<!-- Load Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;700&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
 		rel="stylesheet">
+
+	<!-- Embedded Styles -->
+	<style>
+		/* Base styles */
+		:root {
+			--accent-blue: #08f;
+			--accent-purple: #a855f7;
+			--accent-cyan: #06b6d4;
+			--bg-color: #f8f7f3;
+			--text-color: #111111;
+			--border-color: #111111;
+			--glow-color: rgba(8, 136, 255, 0.4);
+		}
+
+		html.dark {
+			--bg-color: #111111;
+			--text-color: #f8f7f3;
+			--border-color: #f8f7f3;
+			--glow-color: rgba(8, 136, 255, 0.6);
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		body {
+			font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+			background-color: var(--bg-color);
+			color: var(--text-color);
+			transition: background-color 0.3s ease, color 0.3s ease;
+			overflow-x: hidden;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			cursor: none;
+			padding-bottom: 1px;
+			padding-top: 55px;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		.font-display {
+			font-family: 'Space Grotesk', 'Inter', sans-serif;
+		}
+
+		/* --- Aurora Background Effect --- */
+		.aurora-bg {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			pointer-events: none;
+			opacity: 0.6;
+		}
+
+		.aurora-bg::before,
+		.aurora-bg::after {
+			content: '';
+			position: absolute;
+			width: 800px;
+			height: 800px;
+			border-radius: 50%;
+			filter: blur(100px);
+			opacity: 0.5;
+			animation: aurora-float 20s ease-in-out infinite;
+		}
+
+		.aurora-bg::before {
+			background: radial-gradient(circle, var(--accent-blue), transparent 70%);
+			top: -200px;
+			left: -200px;
+			animation-delay: 0s;
+		}
+
+		.aurora-bg::after {
+			background: radial-gradient(circle, var(--accent-purple), transparent 70%);
+			bottom: -200px;
+			right: -200px;
+			animation-delay: -10s;
+		}
+
+		@keyframes aurora-float {
+
+			0%,
+			100% {
+				transform: translate(0, 0) scale(1);
+			}
+
+			33% {
+				transform: translate(100px, -50px) scale(1.1);
+			}
+
+			66% {
+				transform: translate(-50px, 100px) scale(0.9);
+			}
+		}
+
+		/* --- Dot Grid Background --- */
+		.dot-grid-bg {
+			background-image: radial-gradient(circle, rgba(128, 128, 128, 0.08) 1px, transparent 1px);
+			background-size: 24px 24px;
+			background-position: center;
+		}
+
+		/* --- Custom Scrollbar --- */
+		::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: var(--bg-color);
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: var(--text-color);
+			border-radius: 5px;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+			background: var(--accent-blue);
+		}
+
+		/* --- Scroll Progress Bar --- */
+		.scroll-progress {
+			position: fixed;
+			top: 0;
+			left: 0;
+			height: 3px;
+			background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-cyan));
+			z-index: 9999;
+			transform-origin: left;
+			transform: scaleX(0);
+			transition: transform 0.1s ease-out;
+		}
+
+		/* =================================
+          ==  NEW: STICKY SECTION NAV    ==
+          =================================
+        */
+		.section-nav {
+			position: fixed;
+			top: 10px;
+			/* Below progress bar */
+			left: 50%;
+			transform: translateX(-50%);
+			width: calc(100% - 2rem);
+			max-width: 600px;
+			z-index: 2000;
+
+			background: rgba(255, 255, 255, 0.05);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 99px;
+			/* Pill shape */
+			padding: 0.5rem 1rem;
+
+			/* Hide on mobile initially */
+			display: none;
+		}
+
+		@media (min-width: 1024px) {
+
+			/* Show on large screens */
+			.section-nav {
+				display: block;
+			}
+		}
+
+		html.dark .section-nav {
+			background: rgba(22, 33, 60, 0.5);
+			/* Darker glass for dark mode */
+			border: 1px solid rgba(255, 255, 255, 0.08);
+		}
+
+		.section-nav-list {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.section-nav .nav-link {
+			font-family: 'Space Grotesk', 'Inter', sans-serif;
+			font-weight: 500;
+			font-size: 0.9rem;
+			color: var(--text-color);
+			text-decoration: none;
+			padding: 0.25rem 0.5rem;
+			border-radius: 4px;
+			position: relative;
+			opacity: 0.7;
+			transition: opacity 0.3s, color 0.3s;
+		}
+
+		.section-nav .nav-link:hover {
+			opacity: 1;
+			color: var(--accent-blue);
+		}
+
+		.section-nav .nav-link.active {
+			opacity: 1;
+			color: var(--accent-blue);
+			font-weight: 600;
+		}
+
+		/* --- END NEW --- */
+
+
+		/* --- Custom Cursor --- */
+		.cursor-dot {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 8px;
+			height: 8px;
+			background-color: var(--bg-color);
+			border: 1px solid var(--text-color);
+			border-radius: 50%;
+			pointer-events: none;
+			transform: translate(-50%, -50%);
+			mix-blend-mode: difference;
+			transition: width 0.3s cubic-bezier(0.2, 0, 0.2, 1), height 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+			z-index: 9999;
+		}
+
+		.cursor-dot.is-hovering {
+			width: 40px;
+			height: 40px;
+			border: 2px solid var(--text-color);
+		}
+
+		/* --- Intro Loader Animation --- */
+		.loader {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 9990;
+			pointer-events: none;
+		}
+
+		.loader-left,
+		.loader-right {
+			position: absolute;
+			top: 0;
+			width: 51%;
+			height: 100%;
+			background-color: var(--text-color);
+			animation: curtain-reveal 1.2s cubic-bezier(0.8, 0, 0.2, 1) 0.5s forwards;
+		}
+
+		.loader-right {
+			left: 50%;
+			background-color: var(--bg-color);
+		}
+
+		@keyframes curtain-reveal {
+			0% {
+				transform: translateX(0);
+			}
+
+			100% {
+				transform: translateX(-100%);
+			}
+		}
+
+		.loader-right {
+			animation-name: curtain-reveal-right;
+		}
+
+		@keyframes curtain-reveal-right {
+			0% {
+				transform: translateX(0);
+			}
+
+			100% {
+				transform: translateX(100%);
+			}
+		}
+
+		.page-content {
+			visibility: hidden;
+			animation: show-content 0.01s linear 1.7s forwards;
+		}
+
+		@keyframes show-content {
+			to {
+				visibility: visible;
+			}
+		}
+
+		/* --- H1 Text Reveal Animation --- */
+		.h1-line {
+			display: block;
+			overflow: hidden;
+		}
+
+		.h1-line>span {
+			display: block;
+			transform: translateY(110%);
+			animation: text-reveal 1s cubic-bezier(0.1, 0, 0.2, 1) forwards;
+		}
+
+		.h1-line:nth-child(1)>span {
+			animation-delay: 1.8s;
+		}
+
+		.h1-line:nth-child(2)>span {
+			animation-delay: 1.95s;
+		}
+
+		@keyframes text-reveal {
+			0% {
+				transform: translateY(110%);
+			}
+
+			100% {
+				transform: translateY(0);
+			}
+		}
+
+		/* --- Gradient Text --- */
+		.gradient-text {
+			background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-cyan));
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-size: 200% 200%;
+			animation: gradient-shift 8s ease infinite;
+		}
+
+		@keyframes gradient-shift {
+
+			0%,
+			100% {
+				background-position: 0% 50%;
+			}
+
+			50% {
+				background-position: 100% 50%;
+			}
+		}
+
+		/* --- Scroll-Reveal Animations --- */
+		.reveal {
+			opacity: 0;
+			transform: translateY(30px);
+			transition: opacity 1s cubic-bezier(0.1, 0, 0.2, 1), transform 1s cubic-bezier(0.1, 0, 0.2, 1);
+		}
+
+		.reveal.is-visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.reveal-delay-100 {
+			transition-delay: 0.1s;
+		}
+
+		.reveal-delay-200 {
+			transition-delay: 0.2s;
+		}
+
+		.reveal-delay-300 {
+			transition-delay: 0.3s;
+		}
+
+		.reveal-delay-400 {
+			transition-delay: 0.4s;
+		}
+
+		.reveal-delay-500 {
+			transition-delay: 0.5s;
+		}
+
+		/* --- Animated Underlines --- */
+		.animated-underline {
+			position: relative;
+			text-decoration: none;
+		}
+
+		.animated-underline::after {
+			content: '';
+			position: absolute;
+			bottom: -2px;
+			left: 0;
+			width: 0;
+			height: 2px;
+			background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+			transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		.animated-underline:hover::after {
+			width: 100%;
+		}
+
+		/* --- Link Hover Effects --- */
+		.link-arrow {
+			position: relative;
+			text-decoration: none;
+			display: inline-block;
+			transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+		}
+
+		.link-arrow .arrow {
+			display: inline-block;
+			transition: transform 0.25s ease-out;
+		}
+
+		.link-arrow:hover .arrow {
+			transform: translateX(5px);
+		}
+
+		/* --- Glow Effects (Dark Mode) --- */
+		html.dark .glow-on-hover {
+			transition: all 0.3s ease;
+		}
+
+		html.dark .glow-on-hover:hover {
+			box-shadow: 0 0 20px var(--glow-color), 0 0 40px var(--glow-color), 0 0 60px var(--glow-color);
+			transform: translateY(-2px);
+		}
+
+		html.dark .skill-tag:hover {
+			box-shadow: 0 0 15px var(--glow-color), 0 0 30px var(--glow-color);
+		}
+
+		html.dark .link-arrow:hover {
+			text-shadow: 0 0 8px var(--glow-color);
+		}
+
+		/* --- Glassmorphism Cards --- */
+		.glass-card {
+			background: rgba(255, 255, 255, 0.05);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 16px;
+			padding: 2rem;
+			transition: all 0.3s ease;
+		}
+
+		/* --- INTERACTIVE BORDER --- */
+		.interactive-border-card {
+			position: relative;
+			background-clip: padding-box;
+			/* Ensures background doesn't bleed into border area */
+			border: 1px solid transparent;
+			/* Start with a transparent border */
+		}
+
+		.interactive-border-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+			margin: -1px;
+			/* Creates the border effect */
+			border-radius: inherit;
+			/* Matches the card's border-radius */
+			background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+			opacity: 0;
+			transition: opacity 0.4s ease-out;
+		}
+
+		.interactive-border-card:hover::before {
+			opacity: 1;
+			/* Show the gradient border on hover */
+		}
+
+		/* Make the default glass border slightly more subtle */
+		html.dark .glass-card {
+			background: rgba(255, 255, 255, 0.03);
+			border: 1px solid rgba(255, 255, 255, 0.08);
+		}
+
+		/* Override for the interactive ones */
+		html.dark .interactive-border-card {
+			border: 1px solid rgba(255, 255, 255, 0.08);
+		}
+
+		html.dark .interactive-border-card:hover {
+			border-color: transparent;
+		}
+
+		/* === END INTERACTIVE BORDER === */
+
+
+		.glass-card:hover {
+			background: rgba(255, 255, 255, 0.08);
+			transform: translateY(-4px);
+		}
+
+		/* --- Simple Glass Card (for lists) --- */
+		.simple-glass-card {
+			background: rgba(255, 255, 255, 0.05);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 16px;
+			padding: 1.5rem;
+			transition: all 0.3s ease;
+		}
+
+		html.dark .simple-glass-card {
+			background: rgba(255, 255, 255, 0.03);
+			border: 1px solid rgba(255, 255, 255, 0.08);
+		}
+
+		.simple-glass-card:hover {
+			transform: translateY(-4px);
+			background: rgba(255, 255, 255, 0.08);
+		}
+
+
+		/* --- Ripple Effect --- */
+		.ripple {
+			position: relative;
+			overflow: hidden;
+		}
+
+		.ripple::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 0;
+			height: 0;
+			border-radius: 50%;
+			background: rgba(255, 255, 255, 0.3);
+			transform: translate(-50%, -50%);
+			transition: width 0.6s, height 0.6s;
+		}
+
+		.ripple:active::after {
+			width: 300px;
+			height: 300px;
+		}
+
+		/* --- Marquee --- */
+		.marquee {
+			overflow: hidden;
+			position: relative;
+			width: 100%;
+		}
+
+		.marquee-content {
+			display: inline-block;
+			white-space: nowrap;
+			animation: marquee 20s linear infinite;
+			transition: animation-play-state 0.4s ease;
+		}
+
+		.marquee:hover .marquee-content {
+			animation-play-state: paused;
+		}
+
+		.marquee-content>* {
+			display: inline-block;
+			padding-right: 2rem;
+		}
+
+		@keyframes marquee {
+			0% {
+				transform: translateX(0);
+			}
+
+			100% {
+				transform: translateX(-50%);
+			}
+		}
+
+		/* --- Custom list markers --- */
+		.role-list>li,
+		.styled-list>li {
+			position: relative;
+			padding-left: 1.75rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.role-list>li::before,
+		.styled-list>li::before {
+			content: '•';
+			position: absolute;
+			left: 0;
+			top: 0;
+			color: var(--accent-blue);
+			font-size: 1.5rem;
+			line-height: 1.25rem;
+		}
+
+		/* --- Sticky section titles --- */
+		.sticky-title {
+			position: -webkit-sticky;
+			position: sticky;
+			top: 2rem;
+			align-self: flex-start;
+		}
+
+		/* --- Back to Top Button --- */
+		.back-to-top {
+			position: fixed;
+			bottom: 2rem;
+			right: 2rem;
+			background-color: var(--text-color);
+			color: var(--bg-color);
+			border: 2px solid var(--text-color);
+			font-family: 'Space Grotesk', sans-serif;
+			font-size: 1rem;
+			font-weight: 600;
+			padding: 0.5rem 1rem;
+			border-radius: 99px;
+			z-index: 1000;
+			opacity: 0;
+			transform: translateY(20px);
+			visibility: hidden;
+			transition: opacity 0.3s, transform 0.3s, visibility 0.3s, background-color 0.3s, color 0.3s;
+		}
+
+		.back-to-top.is-visible {
+			opacity: 1;
+			transform: translateY(0);
+			visibility: visible;
+		}
+
+		/* --- Skill Matrix Tag Style --- */
+		.skill-tag {
+			background-color: transparent;
+			border: 2px solid var(--border-color);
+			color: var(--text-color);
+			font-family: 'Space Grotesk', 'Inter', sans-serif;
+			font-weight: 500;
+			padding: 0.5rem 1rem;
+			border-radius: 99px;
+			transition: all 0.3s ease;
+			cursor: pointer;
+		}
+
+		.skill-tag:hover {
+			background-color: var(--text-color);
+			color: var(--bg-color);
+			transform: scale(1.05);
+		}
+
+		/* --- Parallax Image Style --- */
+		.parallax-container {
+			perspective: 1000px;
+		}
+
+		.parallax-image {
+			transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+		}
+
+		/* --- Publication Cards with Hover Effects --- */
+		.publication-card {
+			transition: all 0.3s ease;
+			border-left: 3px solid transparent;
+			padding-left: 1rem;
+		}
+
+		.publication-card:hover {
+			border-left-color: var(--accent-blue);
+			transform: translateX(8px);
+		}
+
+		/* --- Micro-interactions for buttons --- */
+		.btn-scale {
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		.btn-scale:hover {
+			transform: translateY(-3px) scale(1.02);
+		}
+
+		.btn-scale:active {
+			transform: translateY(-1px) scale(0.98);
+		}
+
+		/* --- Typewriter Effect --- */
+		.typewriter {
+			overflow: hidden;
+			white-space: nowrap;
+			border-right: 3px solid var(--text-color);
+			animation: typewriter 3s steps(40) 2s forwards, blink 0.75s step-end infinite;
+			width: 0;
+		}
+
+		@keyframes typewriter {
+			from {
+				width: 0;
+			}
+
+			to {
+				width: 100%;
+			}
+		}
+
+		@keyframes blink {
+			50% {
+				border-color: transparent;
+			}
+		}
+
+		/* --- STYLES FOR FILTERS --- */
+		.filter-btn {
+			background-color: transparent;
+			border: 2px solid var(--border-color);
+			color: var(--text-color);
+			font-family: 'Space Grotesk', 'Inter', sans-serif;
+			font-weight: 500;
+			padding: 0.4rem 1rem;
+			border-radius: 99px;
+			transition: all 0.3s ease;
+			cursor: pointer;
+		}
+
+		.filter-btn:hover {
+			background-color: var(--text-color);
+			color: var(--bg-color);
+			transform: scale(1.05);
+		}
+
+		.filter-btn.active {
+			background-color: var(--accent-blue);
+			color: white;
+			border-color: var(--accent-blue);
+		}
+
+		html.dark .filter-btn:hover {
+			box-shadow: 0 0 15px var(--glow-color);
+		}
+
+		html.dark .filter-btn.active {
+			box-shadow: 0 0 20px var(--glow-color);
+		}
+
+		.filter-group-label {
+			font-family: 'Space Grotesk', 'Inter', sans-serif;
+			font-weight: 500;
+			color: var(--text-color);
+		}
+	</style>
 </head>
 
-<body>
-	<nav class="scroll-progress" aria-hidden="true">
-		<span class="scroll-progress__bar" id="scroll-progress"></span>
+<body class="p-4 md:p-8 lg:p-12 dot-grid-bg">
+
+	<!-- Aurora Background -->
+	<div class="aurora-bg"></div>
+
+	<!-- Scroll Progress Bar -->
+	<div class="scroll-progress" id="scroll-progress"></div>
+
+	<!-- 
+      =================================
+      ==  NEW: STICKY SECTION NAV    ==
+      =================================
+    -->
+	<nav class="section-nav" id="section-nav">
+		<ul class="section-nav-list">
+			<li><a href="#about" class="nav-link" data-section="about">About</a></li>
+			<li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+			<li><a href="#teaching" class="nav-link" data-section="teaching">Teaching</a></li>
+			<li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+			<li><a href="#education" class="nav-link" data-section="education">Education</a></li>
+			<li><a href="#publications" class="nav-link" data-section="publications">Publications</a></li>
+		</ul>
 	</nav>
 
-	<nav class="navbar" id="navbar">
-		<div class="nav-container">
-			<a href="#" class="nav-logo">P. Theocharopoulos</a>
-			<ul class="nav-menu" id="nav-menu">
-				<li><a href="#about" class="nav-link" data-section="about">About</a></li>
-				<li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
-				<li><a href="#teaching-experience" class="nav-link" data-section="teaching-experience">Teaching</a></li>
-				<li><a href="#education" class="nav-link" data-section="education">Education</a></li>
-				<li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
-				<li><a href="#awards" class="nav-link" data-section="awards">Awards</a></li>
-				<li><a href="#publications" class="nav-link" data-section="publications">Publications</a></li>
-				<li class="theme-switch-container" title="Toggle dark mode">
-					<label class="theme-switch" for="theme-toggle">
-						<input type="checkbox" id="theme-toggle" />
-						<div class="slider">
-							<i class="fas fa-sun"></i><i class="fas fa-moon"></i>
+
+	<!-- Loader -->
+	<div class="loader">
+		<div class="loader-left"></div>
+		<div class="loader-right"></div>
+	</div>
+
+	<!-- Custom Cursor -->
+	<div class="cursor-dot" id="cursor-dot"></div>
+
+	<!-- Back to Top Button -->
+	<button id="back-to-top" class="back-to-top link-arrow ripple glow-on-hover">
+		Top <span class="arrow">↑</span>
+	</button>
+
+	<div class="page-content">
+		<div class="max-w-7xl mx-auto">
+
+			<!-- HEADER / HERO SECTION -->
+			<header
+				class="w-full min-h-[70vh] md:min-h-[80vh] flex flex-col justify-between border-b-2 border-neutral-900 dark:border-neutral-200 pb-8 mb-12">
+
+				<!-- Top Nav / Socials -->
+				<nav class="w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+					<!-- Dark Mode Toggle -->
+					<div>
+						<button id="theme-toggle"
+							class="font-display font-medium text-lg uppercase text-neutral-600 dark:text-neutral-400 link-arrow animated-underline">
+							<span id="theme-toggle-text">Light</span>
+						</button>
+					</div>
+
+					<ul class="flex flex-wrap gap-x-4 gap-y-2 justify-start md:justify-end">
+						<li><a href="Theocharopoulos_CV.pdf" target="_blank"
+								class="font-display font-medium text-lg link-arrow animated-underline"
+								data-magnetic>Short CV <span class="arrow">→</span></a></li>
+						<li><a href="PTheocharopoulos_ACV.pdf" target="_blank"
+								class="font-display font-medium text-lg link-arrow animated-underline"
+								data-magnetic>Full CV <span class="arrow">→</span></a></li>
+						<li><a href="mailto:panos.t95@gmail.com"
+								class="font-display font-medium text-lg link-arrow animated-underline"
+								data-magnetic>Email <span class="arrow">→</span></a></li>
+						<li><a href="https://linkedin.com/in/ptheochar/" target="_blank"
+								class="font-display font-medium text-lg link-arrow animated-underline"
+								data-magnetic>LinkedIn <span class="arrow">→</span></a></li>
+						<li><a href="https://github.com/ptheochar" target="_blank"
+								class="font-display font-medium text-lg link-arrow animated-underline"
+								data-magnetic>GitHub <span class="arrow">→</span></a></li>
+						<li><a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank"
+								class="font-display font-medium text-lg link-arrow animated-underline"
+								data-magnetic>Scholar <span class="arrow">→</span></a></li>
+					</ul>
+				</nav>
+
+				<!-- Gigantic Name -->
+				<div class="my-16">
+					<h1 class="text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] font-bold leading-none font-display">
+						<span class="h1-line"><span>Panagiotis C.</span></span>
+						<span class="h1-line"><span class="gradient-text">Theocharopoulos</span></span>
+					</h1>
+				</div>
+
+				<!-- Marquee Subtitle -->
+				<div class="w-full border-y-2 border-neutral-900 dark:border-neutral-200 py-4 marquee">
+					<div class="marquee-content">
+						<span class="text-xl md:text-2xl font-medium font-display">AI Engineer @ Covariance</span>
+						<span class="text-xl md:text-2xl font-medium font-display">Research Fellow @ UTH</span>
+						<span class="text-xl md:text-2xl font-medium font-display">PhD Candidate</span>
+						<span class="text-xl md:text-2xl font-medium font-display">LLMs & RAG Systems</span>
+						<!-- Duplicate for seamless scroll -->
+						<span class="text-xl md:text-2xl font-medium font-display">AI Engineer @ Covariance</span>
+						<span class="text-xl md:text-2xl font-medium font-display">Research Fellow @ UTH</span>
+						<span class="text-xl md:text-2xl font-medium font-display">PhD Candidate</span>
+						<span class="text-xl md:text-2xl font-medium font-display">LLMs & RAG Systems</span>
+					</div>
+				</div>
+
+			</header>
+
+			<!-- MAIN CONTENT GRID -->
+			<main class="w-full grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-16">
+
+				<!-- 
+                  =================================
+                  ==  MODIFICATION: ID Added     ==
+                  =================================
+                -->
+				<section id="about" class="lg:col-span-12 grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-8">
+					<h2
+						class="md:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
+						01. About
+					</h2>
+
+
+					<div class="md:col-span-6 text-xl md:text-2xl leading-relaxed font-medium reveal">
+						<p class="mb-6">
+							I am an <span class="gradient-text font-bold">AI Engineer</span> and researcher driving
+							innovation at the intersection of academic
+							research and industry applications. My expertise lies in leading complex machine learning
+							projects with specialization in <strong>Large Language Models (LLMs)</strong>, <strong>RAG
+								systems</strong>, and <strong>Natural Language Processing</strong>.
+						</p>
+						<p>
+							As a PhD Candidate in Computer Science and Biomedical Informatics at the University of
+							Thessaly, I bridge theoretical research with practical applications, developing
+							state-of-the-art AI solutions for healthcare and precision medicine.
+						</p>
+					</div>
+
+
+					<div class="md:col-span-3 reveal reveal-delay-200 parallax-container" id="profile-image-container">
+						<div class="flex flex-col items-start gap-4">
+							<img src="citations.jpg" alt="Panagiotis C. Theocharopoulos"
+								class="w-full h-auto rounded-lg grayscale mb-4 parallax-image" id="profile-image">
+
+							<!-- CV Buttons Removed From Here -->
+
 						</div>
-					</label>
-				</li>
-			</ul>
-			<button class="mobile-menu-toggle" id="mobile-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu">
-				<span></span>
-				<span></span>
-				<span></span>
-			</button>
+					</div>
+				</section>
+
+				<!-- 
+                  =================================
+                  ==  MODIFICATION: ID Added     ==
+                  =================================
+                -->
+				<section id="experience" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
+					<h2
+						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
+						02. Experience
+					</h2>
+
+					<div class="lg:col-span-9 space-y-12">
+						<!-- Role 1 -->
+						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+							<div class="md:col-span-1">
+								<h3 class="font-display font-bold text-xl">AI Engineer</h3>
+								<p class="text-neutral-600 dark:text-neutral-400">Covariance, Athens</p>
+								<p class="text-neutral-500 text-sm uppercase tracking-wider">Jan 2025 – Present</p>
+							</div>
+							<div class="md:col-span-3">
+								<ul class="role-list">
+									<li class="reveal reveal-delay-100">Lead and manage a high-performing data science
+										team focused on healthcare analytics and AI solutions.</li>
+									<li class="reveal reveal-delay-200">Oversee the development of LLM and RAG systems,
+										directing multiple ML projects, and driving technical innovation.</li>
+									<li class="reveal reveal-delay-300">Build internal APIs for model integration and
+										cross-team deployment.</li>
+									<li class="reveal reveal-delay-400">Develop proprietary pipelines for high-accuracy
+										text and table extraction from documents.</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Role 2 -->
+						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+							<div class="md:col-span-1">
+								<h3 class="font-display font-bold text-xl">Senior Data Scientist</h3>
+								<p class="text-neutral-600 dark:text-neutral-400">Covariance, Athens</p>
+								<p class="text-neutral-500 text-sm uppercase tracking-wider">Feb 2024 – Jan 2025</p>
+							</div>
+							<div class="md:col-span-3">
+								<ul class="role-list">
+									<li class="reveal reveal-delay-100">Led end-to-end machine learning projects and
+										architected advanced LLM and RAG solutions.</li>
+									<li class="reveal reveal-delay-200">Played a key role in securing funding by
+										authoring proposals for national and European programs.</li>
+									<li class="reveal reveal-delay-300">Designed fraud detection systems for processing
+										insurance claims using big data analytics.</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Role 3 -->
+						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+							<div class="md:col-span-1">
+								<h3 class="font-display font-bold text-xl">Data Scientist</h3>
+								<p class="text-neutral-600 dark:text-neutral-400">Covariance, Athens</p>
+								<p class="text-neutral-500 text-sm uppercase tracking-wider">Feb 2021 – Feb 2024</p>
+							</div>
+							<div class="md:col-span-3">
+								<ul class="role-list">
+									<li class="reveal reveal-delay-100">Executed data gathering, ETL processes, data
+										wrangling, and statistical analysis.</li>
+									<li class="reveal reveal-delay-200">Built and deployed machine learning models, NLP
+										systems, and web-based data science applications.</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Role 4 -->
+						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+							<div class="md:col-span-1">
+								<h3 class="font-display font-bold text-xl">Research Fellow</h3>
+								<p class="text-neutral-600 dark:text-neutral-400">University of Thessaly</p>
+								<p class="text-neutral-500 text-sm uppercase tracking-wider">Jul 2023 – Present</p>
+							</div>
+							<div class="md:col-span-3">
+								<ul class="role-list">
+									<li class="reveal reveal-delay-100">Developed AI/NLP pipelines for unifying
+										multimodal biomedical data (omics, genetic, clinical).</li>
+									<li class="reveal reveal-delay-200">Contributed to a national precision medicine
+										initiative with multi-institutional partners.</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Role 5 -->
+						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+							<div class="md:col-span-1">
+								<h3 class="font-display font-bold text-xl">Website Administrator</h3>
+								<p class="text-neutral-600 dark:text-neutral-400">University of Thessaly</p>
+								<p class="text-neutral-500 text-sm uppercase tracking-wider">2019 – 2023</p>
+							</div>
+							<div class="md:col-span-3">
+								<ul class="role-list">
+									<li class="reveal reveal-delay-100">Led website development and design, managed
+										databases and servers, and provided technical
+										support.</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Role 7 -->
+						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+							<div class="md:col-span-1">
+								<h3 class="font-display font-bold text-xl">Support Engineer (Intern)</h3>
+								<p class="text-neutral-600 dark:text-neutral-400">Naval Hospital of Athens</p>
+								<p class="text-neutral-500 text-sm uppercase tracking-wider">Jul 2017 – Aug 2017</p>
+							</div>
+							<div class="md:col-span-3">
+								<ul class="role-list">
+									<li class="reveal reveal-delay-100">Maintained servers (Windows, AIX), provided
+										network support (WAN & LAN), and managed MySQL
+										databases.</li>
+									<li class="reveal reveal-delay-200">Configured network devices (CISCO, HP, Mikrotik)
+										and implemented security policies.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 
+                  =================================
+                  ==  MODIFICATION: ID Added     ==
+                  =================================
+                -->
+				<section id="teaching" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
+					<h2
+						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
+						03. Teaching
+					</h2>
+
+					<div class="lg:col-span-9 space-y-12">
+						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+							<div class="md:col-span-1">
+								<h3 class="font-display font-bold text-xl">Teaching Assistant</h3>
+								<p class="text-neutral-600 dark:text-neutral-400">University of Thessaly</p>
+								<p class="text-neutral-500 text-sm uppercase tracking-wider">2019 – 2024</p>
+							</div>
+							<div class="md:col-span-3">
+								<p class="text-xl mb-4">Lecturer and TA for postgraduate and undergraduate courses:</p>
+								<ul class="role-list">
+									<li class="reveal reveal-delay-100"><b>Postgraduate:</b> Data Mining and Big Data
+										Analysis in Medicine and Biology</li>
+									<li class="reveal reveal-delay-200"><b>Undergraduate:</b> Introduction to
+										Programming I & II, Numerical Analysis, Databases</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- 
+                  =================================
+                  ==  MODIFICATION: ID Added     ==
+                  =================================
+                -->
+				<section id="skills" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
+					<h2
+						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
+						04. Skills
+					</h2>
+
+					<div class="lg:col-span-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+
+						<!-- Column 1 -->
+						<div class="reveal reveal-delay-100">
+							<h4
+								class="font-display font-bold text-xl mb-4 border-b-2 border-neutral-900 dark:border-neutral-200 pb-2">
+								AI & Machine Learning</h4>
+							<div class="flex flex-wrap gap-2">
+								<span class="skill-tag">Python</span>
+								<span class="skill-tag">LLMs</span>
+								<span class="skill-tag">RAG Systems</span>
+								<span class="skill-tag">NLP</span>
+								<span class="skill-tag">PyTorch</span>
+								<span class="skill-tag">TensorFlow</span>
+								<span class="skill-tag">Deep Learning</span>
+								<span class="skill-tag">Computer Vision</span>
+							</div>
+						</div>
+
+						<!-- Column 2 -->
+						<div class="reveal reveal-delay-200">
+							<h4
+								class="font-display font-bold text-xl mb-4 border-b-2 border-neutral-900 dark:border-neutral-200 pb-2">
+								Data & Infrastructure</h4>
+							<div class="flex flex-wrap gap-2">
+								<span class="skill-tag">SQL</span>
+								<span class="skill-tag">Microsoft Azure AI</span>
+								<span class="skill-tag">Git</span>
+								<span class="skill-tag">Linux</span>
+								<span class="skill-tag">ETL</span>
+								<span class="skill-tag">Big Data</span>
+							</div>
+						</div>
+
+						<!-- Column 3 -->
+						<div class="reveal reveal-delay-300">
+							<h4
+								class="font-display font-bold text-xl mb-4 border-b-2 border-neutral-900 dark:border-neutral-200 pb-2">
+								Spoken Languages</h4>
+							<div class="flex flex-wrap gap-2">
+								<span class="skill-tag">Greek (Native)</span>
+								<span class="skill-tag">English (Fluent)</span>
+								<span class="skill-tag">German</span>
+								<span class="skill-tag">Italian</span>
+							</div>
+						</div>
+
+					</div>
+				</section>
+
+				<!-- 
+                  =================================
+                  ==  MODIFICATION: ID Added     ==
+                  =================================
+                -->
+				<section id="education" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
+					<h2
+						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
+						05. Education
+					</h2>
+
+					<div class="lg:col-span-9 space-y-6 reveal">
+						<div class="reveal reveal-delay-100 glass-card interactive-border-card">
+							<h3 class="font-display font-bold text-xl">PhD in Artificial Intelligence</h3>
+							<p class="text-neutral-600 dark:text-neutral-400">University of Thessaly (Expected 2026)</p>
+						</div>
+						<div class="reveal reveal-delay-200 glass-card interactive-border-card">
+							<h3 class="font-display font-bold text-xl">MSc in Informatics & Computational Biomedicine
+							</h3>
+							<p class="text-neutral-600 dark:text-neutral-400">University of Thessaly (2020)</p>
+						</div>
+						<div class="reveal reveal-delay-300 glass-card interactive-border-card">
+							<h3 class="font-display font-bold text-xl">Ptychion in Computer Science & Biomedical
+								Informatics</h3>
+							<p class="text-neutral-600 dark:text-neutral-400">University of Thessaly (2019)</p>
+						</div>
+						<div class="reveal reveal-delay-400 glass-card interactive-border-card">
+							<h3 class="font-display font-bold text-xl">Erasmus+ Exchange Student</h3>
+							<p class="text-neutral-600 dark:text-neutral-400">Università degli Studi di Perugia (2017)
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- 
+                  =================================
+                  ==  MODIFICATION: ID Added     ==
+                  =================================
+                -->
+				<section id="awards" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
+					<h2
+						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
+						06. Awards
+					</h2>
+
+					<div class="lg:col-span-9 space-y-6 reveal">
+						<div class="reveal reveal-delay-100 simple-glass-card">
+							<p class="font-display font-medium text-xl">IEEE CIS Student Travel Grant Award, SSCI 2025
+							</p>
+						</div>
+						<div class="reveal reveal-delay-200 simple-glass-card">
+							<p class="font-display font-medium text-xl">Best National Startup of 2022 (Elevate Greece) –
+								Awarded to Covariance</p>
+						</div>
+						<div class="reveal reveal-delay-300 simple-glass-card">
+							<p class="font-display font-medium text-xl">Academic Work Scholarship, University of
+								Thessaly (2019–2021)</p>
+						</div>
+						<div class="reveal reveal-delay-400 simple-glass-card">
+							<p class="font-display font-medium text-xl">Tuition Fee Exemption Scholarship, MSc degree,
+								2019</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- 
+                  =================================
+                  ==  MODIFICATION: ID Added     ==
+                  =================================
+                -->
+				<section id="research" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
+					<h2
+						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
+						07. Research
+					</h2>
+
+					<div class="lg:col-span-9 space-y-12">
+						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+							<div class="md:col-span-1">
+								<h3 class="font-display font-bold text-xl">Precision Medicine in Greece</h3>
+								<p class="text-neutral-500 text-sm uppercase tracking-wider">2024 – 2025</p>
+							</div>
+							<div class="md:col-span-3">
+								<p class="text-xl mb-4">Bridging large omics, genetic, and medical data (TAEDR-0539180)
+								</p>
+								<ul class="role-list">
+									<li class="reveal reveal-delay-100"><b>Role:</b> Research Fellow</li>
+									<li class="reveal reveal-delay-200"><b>Funding:</b> European Union -
+										NextGenerationEU</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 
+                  =================================
+                  ==  MODIFICATION: ID Added     ==
+                  =================================
+                -->
+				<section id="review" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
+					<h2
+						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
+						08. Peer Review
+					</h2>
+
+					<div class="lg:col-span-9 space-y-6 reveal">
+						<div class="reveal reveal-delay-100 simple-glass-card">
+							<h3 class="font-display font-bold text-xl mb-4">Journals</h3>
+							<ul class="styled-list columns-1 md:columns-2 gap-x-8">
+								<li>Neural Computing and Applications</li>
+								<li>Cluster Computing</li>
+								<li>Social Network Analysis and Mining</li>
+								<li>International Journal of Information Technology & Decision Making</li>
+								<li>Public Health</li>
+								<li>Frontiers in Public Health</li>
+								<li>IEEE Transactions on Signal and Information Processing over Networks</li>
+							</ul>
+						</div>
+						<div class="reveal reveal-delay-200 simple-glass-card">
+							<h3 class="font-display font-bold text-xl mb-4">Conferences</h3>
+							<ul class="styled-list columns-1 md:columns-2 gap-x-8">
+								<li>IEEE SSCI 2025</li>
+								<li>IJCNN 2025</li>
+								<li>EAAAI 2025</li>
+								<li>IEEE CIBCB 2025</li>
+								<li>ARES 2025</li>
+								<li>PSB 2026</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<!-- 
+                  =================================
+                  ==  MODIFICATION: ID Added     ==
+                  =================================
+                -->
+				<section id="certifications" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
+					<h2
+						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
+						09. Certifications
+					</h2>
+
+					<div class="lg:col-span-9 space-y-6 reveal">
+						<div class="reveal reveal-delay-100 simple-glass-card">
+							<p class="font-display font-medium text-xl">Building RAG Agents with LLMs (NVIDIA, 2024)</p>
+						</div>
+						<div class="reveal reveal-delay-200 simple-glass-card">
+							<p class="font-display font-medium text-xl">I2I Spin Out Innovation Programme (University of
+								Galway, 2024)</p>
+						</div>
+						<div class="reveal reveal-delay-300 simple-glass-card">
+							<p class="font-display font-medium text-xl">Power BI Financial Reporting & Financial
+								Analysis (Udemy, 2024)</p>
+						</div>
+						<div class="reveal reveal-delay-400 simple-glass-card">
+							<p class="font-display font-medium text-xl">EHDEN’s OMOP-CDM Data Standardization and ETL
+								Processes (EHDEN, 2022)</p>
+						</div>
+						<div class="reveal reveal-delay-500 simple-glass-card">
+							<p class="font-display font-medium text-xl">Pedagogical and Teaching Competence (University
+								of Thessaly, 2019)</p>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- 
+                  =================================
+                  ==  MODIFICATION: ID Added     ==
+                  =================================
+                -->
+				<section id="publications" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
+					<h2
+						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
+						10. Publications
+					</h2>
+
+
+					<div class="lg:col-span-9 lg:col-start-4 mb-8 reveal">
+						<div class="publication-filters flex flex-wrap gap-x-6 gap-y-4">
+							<div class="filter-group flex items-center gap-2 flex-wrap">
+								<span class="filter-group-label text-neutral-500">TYPE</span>
+								<button class="filter-btn active" type="button" data-filter-group="type"
+									data-filter="all">All</button>
+								<button class="filter-btn" type="button" data-filter-group="type"
+									data-filter="journal">Journals</button>
+								<button class="filter-btn" type="button" data-filter-group="type"
+									data-filter="conference">Conferences</button>
+							</div>
+							<div class="filter-group flex items-center gap-2 flex-wrap">
+								<span class="filter-group-label text-neutral-500">YEAR</span>
+								<button class="filter-btn active" type="button" data-filter-group="year"
+									data-filter="all">All</button>
+								<button class="filter-btn" type="button" data-filter-group="year"
+									data-filter="2025">2025</button>
+								<button class="filter-btn" type="button" data-filter-group="year"
+									data-filter="2024">2024</button>
+								<button class="filter-btn" type="button" data-filter-group="year"
+									data-filter="2023">2023</button>
+								<button class="filter-btn" type="button" data-filter-group="year"
+									data-filter="2022">2022</button>
+							</div>
+						</div>
+					</div>
+
+
+
+
+					<div class="lg:col-span-9 lg:col-start-4 space-y-10" id="publication-grid">
+						<!-- Pub 1 -->
+						<article
+							class="border-b border-neutral-300 dark:border-neutral-700 pb-4 reveal publication-card"
+							data-type="journal" data-year="2025">
+							<div class="flex justify-between items-baseline mb-1">
+								<span
+									class="font-display text-sm font-medium text-white bg-[var(--accent-blue)] py-1 px-2 rounded-md">Journal</span>
+								<span class="text-neutral-500 font-display text-sm">2025</span>
+							</div>
+							<h3 class="font-display font-semibold text-2xl my-2">Large language models for efficient
+								topic modeling</h3>
+							<p class="text-neutral-600 dark:text-neutral-400 mb-3"><b>P. C. Theocharopoulos</b>, P.
+								Anagnostou, S. V. Georgakopoulos, S. K. Tasoulis, and V. P. Plagianakos</p>
+							<p class="font-medium text-lg mb-3">Neural Computing and Applications</p>
+							<a href="https://doi.org/10.1007/s00521-025-11593-9" target="_blank"
+								class="font-display font-medium text-lg link-arrow animated-underline">View DOI <span
+									class="arrow">→</span></a>
+						</article>
+
+						<!-- Pub 2 -->
+						<article
+							class="border-b border-neutral-300 dark:border-neutral-700 pb-4 reveal publication-card"
+							data-type="journal" data-year="2024">
+							<div class="flex justify-between items-baseline mb-1">
+								<span
+									class="font-display text-sm font-medium text-white bg-[var(--accent-blue)] py-1 px-2 rounded-md">Journal</span>
+								<span class="text-neutral-500 font-display text-sm">2024</span>
+							</div>
+							<h3 class="font-display font-semibold text-2xl my-2">Developing predictive precision
+								medicine models by exploiting real-world data using machine learning methods</h3>
+							<p class="text-neutral-600 dark:text-neutral-400 mb-3"><b>P. C. Theocharopoulos</b>, S.
+								Bersimis, S. V. Georgakopoulos, A. Karaminas, S. K. Tasoulis, and V. P. Plagianakos</p>
+							<p class="font-medium text-lg mb-3">Journal of Applied Statistics</p>
+							<a href="https://doi.org/10.1080/02664763.2024.2315451" target="_blank"
+								class="font-display font-medium text-lg link-arrow animated-underline">View DOI <span
+									class="arrow">→</span></a>
+						</article>
+
+						<!-- Pub 3 -->
+						<article
+							class="border-b border-neutral-300 dark:border-neutral-700 pb-4 reveal publication-card"
+							data-type="journal" data-year="2023">
+							<div class="flex justify-between items-baseline mb-1">
+								<span
+									class="font-display text-sm font-medium text-white bg-[var(--accent-blue)] py-1 px-2 rounded-md">Journal</span>
+								<span class="text-neutral-500 font-display text-sm">2023</span>
+							</div>
+							<h3 class="font-display font-semibold text-2xl my-2">Analysing sentiment change detection of
+								Covid-19 tweets</h3>
+							<p class="text-neutral-600 dark:text-neutral-400 mb-3"><b>P. C. Theocharopoulos</b>, A.
+								Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis, and V. P. Plagianakos</p>
+							<p class="font-medium text-lg mb-3">Neural Computing and Applications</p>
+							<a href="https://scholar.google.com/scholar?q=Analysing+sentiment+change+detection+of+Covid-19+tweets"
+								target="_blank"
+								class="font-display font-medium text-lg link-arrow animated-underline">Google Scholar
+								<span class="arrow">→</span></a>
+						</article>
+
+						<!-- Pub 4 -->
+						<article
+							class="border-b border-neutral-300 dark:border-neutral-700 pb-4 reveal publication-card"
+							data-type="conference" data-year="2025">
+							<div class="flex justify-between items-baseline mb-1">
+								<span
+									class="font-display text-sm font-medium text-white dark:text-black bg-neutral-800 dark:bg-neutral-300 py-1 px-2 rounded-md">Conference</span>
+								<span class="text-neutral-500 font-display text-sm">2025</span>
+							</div>
+							<h3 class="font-display font-semibold text-2xl my-2">Transforming Medical Practice:
+								Harnessing the Power of Big Data and
+								Machine Learning for Predictive Precision Medicine</h3>
+							<p class="text-neutral-600 dark:text-neutral-400 mb-3"><b>P. C. Theocharopoulos</b>, S.
+								Bersimis, S. V. Georgakopoulos, S.
+								K. Tasoulis, and V. P. Plagianakos</p>
+							<p class="font-medium text-lg mb-3">IEEE Symposium Series on Computational Intelligence
+								(SSCI)</p>
+							<a href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice:+Harnessing+the+Power+of+Big+Data+and+Machine+Learning+for+Predictive+Precision+Medicine"
+								target="_blank"
+								class="font-display font-medium text-lg link-arrow animated-underline">Google Scholar
+								<span class="arrow">→</span></a>
+						</article>
+
+						<!-- Pub 5 -->
+						<article
+							class="border-b border-neutral-300 dark:border-neutral-700 pb-4 reveal publication-card"
+							data-type="conference" data-year="2023">
+							<div class="flex justify-between items-baseline mb-1">
+								<span
+									class="font-display text-sm font-medium text-white dark:text-black bg-neutral-800 dark:bg-neutral-300 py-1 px-2 rounded-md">Conference</span>
+								<span class="text-neutral-500 font-display text-sm">2023</span>
+							</div>
+							<h3 class="font-display font-semibold text-2xl my-2">Who Writes the Review, Human or AI?
+							</h3>
+							<p class="text-neutral-600 dark:text-neutral-400 mb-3"><b>P. C. Theocharopoulos</b>, S. V.
+								Georgakopoulos, S. K. Tasoulis, and V. P. Plagianakos</p>
+							<p class="font-medium text-lg mb-3">IEEE International Conference on Cognitive Informatics
+								and Cognitive Computing (ICCI-CC)</p>
+							<a href="https://scholar.google.com/scholar?q=Who+Writes+the+Review,+Human+or+AI%3F"
+								target="_blank"
+								class="font-display font-medium text-lg link-arrow animated-underline">Google Scholar
+								<span class="arrow">→</span></a>
+						</article>
+
+						<!-- Pub 6 -->
+						<article
+							class="border-b border-neutral-300 dark:border-neutral-700 pb-4 reveal publication-card"
+							data-type="conference" data-year="2023">
+							<div class="flex justify-between items-baseline mb-1">
+								<span
+									class="font-display text-sm font-medium text-white dark:text-black bg-neutral-800 dark:bg-neutral-300 py-1 px-2 rounded-md">Conference</span>
+								<span class="text-neutral-500 font-display text-sm">2023</span>
+							</div>
+							<h3 class="font-display font-semibold text-2xl my-2">Detection of Fake Generated Scientific
+								Abstracts
+							</h3>
+							<p class="text-neutral-600 dark:text-neutral-400 mb-3"><b>P. C. Theocharopoulos</b>, P.
+								Anagnostou, A. Tsoukala, S. V.
+								Georgakopoulos, S. K. Tasoulis, and V. P. Plagianakos</p>
+							<p class="font-medium text-lg mb-3">IEEE International Conference on Big Data Computing
+								Service and
+								Applications (BigDataService)</p>
+							<a href="https://scholar.google.com/scholar?q=Detection+of+Fake+Generated+Scientific+Abstracts"
+								target="_blank"
+								class="font-display font-medium text-lg link-arrow animated-underline">Google Scholar
+								<span class="arrow">→</span></a>
+						</article>
+
+						<!-- Pub 7 -->
+						<article
+							class="border-b border-neutral-300 dark:border-neutral-700 pb-4 reveal publication-card"
+							data-type="conference" data-year="2022">
+							<div class="flex justify-between items-baseline mb-1">
+								<span
+									class="font-display text-sm font-medium text-white dark:text-black bg-neutral-800 dark:bg-neutral-300 py-1 px-2 rounded-md">Conference</span>
+								<span class="text-neutral-500 font-display text-sm">2022</span>
+							</div>
+							<h3 class="font-display font-semibold text-2xl my-2">Text analysis of COVID-19 tweets
+							</h3>
+							<p class="text-neutral-600 dark:text-neutral-400 mb-3"><b>P. C. Theocharopoulos</b>, A.
+								Tsoukala, S. V. Georgakopoulos, S.
+								K. Tasoulis, and V. P. Plagianakos</p>
+							<p class="font-medium text-lg mb-3">International Conference on Engineering Applications of
+								Neural Networks</p>
+							<a href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets"
+								target="_blank"
+								class="font-display font-medium text-lg link-arrow animated-underline">Google Scholar
+								<span class="arrow">→</span></a>
+						</article>
+
+						<!-- Empty state message -->
+						<p id="publication-empty" class="text-xl text-neutral-500 font-display" hidden>
+							No publications match your filters.
+						</p>
+					</div>
+				</section>
+
+			</main>
+
+			<!-- FOOTER -->
+			<footer
+				class="w-full mt-24 pt-8 border-t-2 border-neutral-900 dark:border-neutral-200 text-center md:text-left reveal">
+				<p class="text-neutral-600 dark:text-neutral-400">© 2025 Panagiotis C. Theocharopoulos</p>
+			</footer>
+
 		</div>
-	</nav>
+	</div>
 
-	<button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
-
-	<header>
-		<div class="hero">
-			<div class="hero-media">
-					<img src="citations.jpg" alt="Panagiotis C. Theocharopoulos, Lead AI Engineer" class="profile-img" width="240" height="240" decoding="async" fetchpriority="high">
-			</div>
-			<div class="hero-content">
-				<h1>Panagiotis C. Theocharopoulos</h1>
-					<p>AI Engineer @ Covariance | Research Fellow @ UTH | PhD Candidate</p>
-				<div class="buttons">
-					<a href="Theocharopoulos_CV.pdf" class="btn" target="_blank">Short CV</a>
-					<a href="PTheocharopoulos_ACV.pdf" class="btn" target="_blank">Full CV</a>
-				</div>
-				<div class="contact-links">
-					<a href="mailto:panos.t95@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-					<a href="https://linkedin.com/in/ptheochar/" target="_blank"><i class="fab fa-linkedin"></i>
-						LinkedIn</a>
-					<a href="https://github.com/ptheochar" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-					<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank"><i
-							class="fas fa-graduation-cap"></i> Google Scholar</a>
-				</div>
-			</div>
-		</div>
-	</header>
-
-	<main class="page-wrapper">
-		<!-- ADDED: The fade-in class for progressive reveal animation -->
-		<section class="about fade-in" id="about">
-			<h2>About Me</h2>
-			<p class="about-text">
-				I am an AI Engineer and researcher driving innovation at the intersection of academic research and
-				industry applications. My expertise lies in leading complex machine learning projects with
-				specialization in
-				<strong>Large Language Models (LLMs)</strong>, <strong>RAG systems</strong>, and <strong>Natural
-					Language
-					Processing</strong>.
-			</p>
-			<br>
-			<p class="about-text">
-					As a PhD Candidate in Computer Science and Biomedical Informatics at the University of Thessaly, I
-				bridge
-				theoretical research with practical applications, developing state-of-the-art AI solutions for
-				healthcare
-				and precision medicine. I'm passionate about pushing technological boundaries through collaborative
-				innovation.
-			</p>
-		</section>
-
-		<!-- ADDED: The fade-in class for progressive reveal animation -->
-		<section class="experience fade-in" id="experience">
-			<h2>Professional Experience</h2>
-			<div class="role">
-				<h3>AI Engineer</h3>
-				<h4>Covariance, Athens, Greece</h4>
-				<span>Jan 2025 – Present</span>
-				<ul>
-					<li>Lead and manage a high-performing data science team focused on healthcare analytics and AI
-						solutions.</li>
-					<li>Oversee the development of LLM and RAG systems, directing multiple ML projects, and driving
-						technical innovation.</li>
-					<li>Define technical standards, mentor team members, and foster a collaborative environment to
-						achieve
-						project milestones and organizational goals.</li>
-					<li>Build internal APIs for model integration and cross-team deployment.</li>
-					<li>Develop proprietary pipelines for high-accuracy text and table extraction from documents.</li>
-					<li>Author technical proposals aligning solutions with both business and funding objectives.</li>
-				</ul>
-			</div>
-
-			<div class="role">
-				<h3>Senior Data Scientist</h3>
-				<h4>Covariance, Athens, Greece</h4>
-				<span>Feb 2024 – Jan 2025</span>
-				<ul>
-					<li>Led end-to-end machine learning projects and architected advanced LLM and RAG solutions for
-						cutting-edge AI applications.</li>
-					<li>Played a key role in securing funding by authoring proposals for national and European programs
-						.</li>
-					<li>Designed fraud detection systems for processing insurance claims using big data analytics.</li>
-					<li>Developed ensemble models and strategies for imputing missing data in healthcare datasets.</li>
-					<li>Converted raw medical texts into structured, analysis-ready data formats.</li>
-					<li>Enhanced team processes by implementing technical best practices and delivering impactful
-						AI-driven insights in healthcare.</li>
-				</ul>
-			</div>
-
-			<div class="role">
-				<h3>Data Scientist</h3>
-				<h4>Covariance, Athens, Greece</h4>
-				<span>Feb 2021 – Feb 2024</span>
-				<ul>
-					<li>Executed data gathering, ETL processes, data wrangling, and statistical analysis.
-					</li>
-					<li>Built and deployed machine learning models, NLP systems, and web-based data science applications
-						.</li>
-					<li>Collaborated across teams to deliver scalable AI solutions tailored to business needs.
-					</li>
-				</ul>
-			</div>
-
-			<div class="role">
-				<h3>Research Fellow</h3>
-				<h4>University of Thessaly (EU NextGen-EU Project TAEDR-0539180)</h4>
-				<span>Jul 2023 – Present</span>
-				<ul>
-					<li>Developed AI/NLP pipelines for unifying multimodal biomedical data (omics, genetic, clinical).
-					</li>
-					<li>Contributed to a national precision medicine initiative with multi-institutional partners.</li>
-					<li>Developed machine learning methods for integration into intelligent electronic health record
-						systems.</li>
-				</ul>
-			</div>
-
-			<div class="role">
-				<h3>Website Administrator</h3>
-				<h4>University of Thessaly, Department of Mathematics, Lamia, Greece</h4>
-				<span>2019 – 2023</span>
-				<ul>
-					<li>Led website development and design, managed databases and servers, and provided technical
-						support for university digital infrastructure.</li>
-					<li>Ensured uptime and security for all online assets.</li>
-				</ul>
-			</div>
-
-			<div class="role">
-				<h3>IT & Sales Support</h3>
-				<h4>Public, Greece</h4>
-				<span>Dec 2018</span>
-				<ul>
-					<li>Provided technical support and customer service for technology products, with a focus on system
-						management using SAP.</li>
-					<li>Responsible for product sales and promotion, ensuring customer satisfaction and efficient
-						transaction processing.</li>
-				</ul>
-			</div>
-
-			<div class="role">
-				<h3>Information Systems Support Engineer (Internship)</h3>
-				<h4>Naval Hospital of Athens, Athens, Greece</h4>
-				<span>Jul 2017 – Aug 2017</span>
-				<ul>
-					<li>Maintained and optimized servers (Windows, AIX), provided network support for WAN & LAN (up
-						to 2,000 users), and managed MySQL databases.</li>
-					<li>Developed and sustained local web applications, configured network devices (CISCO, HP,
-						Mikrotik),
-						and implemented robust security policies (ACL, Firewall, NAT, VPN).</li>
-					<li>Ensured smooth operation of the Naval Telemedicine System with a focus on connectivity and
-						security
-						.</li>
-				</ul>
-			</div>
-		</section>
-
-		<!-- ADDED: The fade-in class for progressive reveal animation -->
-		<section class="teaching-experience fade-in" id="teaching-experience">
-			<h2>Teaching Experience</h2>
-			<div class="role">
-				<h3>Academic Scholar & Laboratory Teaching Assistant</h3>
-				<h4>University of Thessaly, Greece</h4>
-				<span>2019 – 2024</span>
-				<ul>
-					<li>Lecturer and teaching assistant for:
-						<ul>
-							<li><b>Postgraduate courses:</b> Data Mining and Big Data Analysis in Medicine and Biology,
-								and
-								Programming Subjects.</li>
-							<li><b>Undergraduate courses:</b> Introduction to Programming I, Introduction to Programming
-								II,
-								Numerical Analysis, and Databases.</li>
-						</ul>
-					</li>
-					<li>Designed and delivered laboratory sessions, exams, and course content.</li>
-				</ul>
-			</div>
-		</section>
-
-		<!-- ADDED: The fade-in class for progressive reveal animation -->
-		<section class="education fade-in" id="education">
-			<h2>Education</h2>
-			<div class="role">
-				<h3>PhD in Artificial Intelligence</h3>
-				<h4>University of Thessaly, Greece</h4>
-				<span>Present (Expected 2026)</span>
-				<ul>
-					<li>Thesis: “Development of Deep Learning methods on big data with a focus on Natural Language
-						Processing”.</li>
-				</ul>
-			</div>
-			<div class="role">
-				<h3>MSc in Informatics and Computational Biomedicine</h3>
-				<h4>University of Thessaly, Greece</h4>
-				<span>2020</span>
-				<ul>
-					<li>Minor: Computational Medicine and Biology</li>
-					<li>Thesis: “The EU’s General Data Protection Regulation and the Data Protection Officer in
-						Biomedical
-						Applications”</li>
-				</ul>
-			</div>
-			<div class="role">
-				<h3>Ptychion (4-year Bachelor) in Computer Science and Biomedical Informatics</h3>
-				<h4>University of Thessaly, Greece</h4>
-				<span>2019</span>
-			</div>
-			<div class="role">
-				<h3>Erasmus+ Exchange Student</h3>
-				<h4>Università degli Studi di Perugia, Italy</h4>
-				<span>2016/2017</span>
-			</div>
-		</section>
-
-		<!-- UPDATED: The skills section with the new two-column layout -->
-		<section class="skills fade-in" id="skills">
-			<h2>Skills & Tools</h2>
-
-			<div class="skill-category">
-				<h3>Technical Skills</h3>
-				<div class="skill-tags">
-					<span class="skill-tag">Python</span>
-					<span class="skill-tag">SQL</span>
-					<span class="skill-tag">PyTorch</span>
-					<span class="skill-tag">TensorFlow</span>
-					<span class="skill-tag">NLP</span>
-					<span class="skill-tag">RAG Systems</span>
-					<span class="skill-tag">Git</span>
-					<span class="skill-tag">Microsoft Azure AI</span>
-				</div>
-			</div>
-			<div class="skill-category">
-				<h3>Operating Systems</h3>
-				<div class="skill-tags">
-					<span class="skill-tag">Linux</span>
-					<span class="skill-tag">Unix</span>
-					<span class="skill-tag">Windows</span>
-				</div>
-			</div>
-			<div class="skill-category">
-				<h3>Languages</h3>
-				<div class="skill-tags">
-					<span class="skill-tag">Greek</span>
-					<span class="skill-tag">English</span>
-					<span class="skill-tag">German</span>
-					<span class="skill-tag">Italian</span>
-				</div>
-			</div>
-		</section>
-
-		<!-- ADDED: The fade-in class for progressive reveal animation -->
-		<section class="awards fade-in" id="awards">
-			<h2>Scholarships & Awards</h2>
-			<ul>
-				<li>IEEE CIS Student Travel Grant Award, SSCI 2025</li>
-				<li>Best National Startup of 2022 (Elevate Greece) – Awarded to Covariance</li>
-				<li>Academic Work Scholarship, University of Thessaly (2019–2021)</li>
-				<li>Tuition Fee Exemption Scholarship, MSc degree, 2019</li>
-				<li>Erasmus+ Exchange program participant (2016–2017)</li>
-			</ul>
-		</section>
-
-		<!-- ADDED: The fade-in class for progressive reveal animation -->
-		<section class="research-projects fade-in" id="research-projects">
-			<h2>Research Projects</h2>
-			<div class="role">
-				<h3>Bridging large omics, genetic, and medical data for the wide application of Precision Medicine in
-					Greece
-					(TAEDR-0539180)</h3>
-				<h4>University of Thessaly, B.S.R.C. Fleming, University of Patras, Hellenic Pasteur Institute</h4>
-				<span>2024 – 2025</span>
-				<ul>
-					<li>Role: Research Fellow</li>
-					<li>Funding Source: National Recovery and Resilience Plan (Greece 2.0), Recovery and Resilience Fund
-					</li>
-					<li>Funding Agency: European Union - NextGenerationEU</li>
-				</ul>
-			</div>
-		</section>
-
-		<!-- ADDED: The fade-in class for progressive reveal animation -->
-		<section class="reviewer-experience fade-in" id="reviewer-experience">
-					<h2>Peer Review Service</h2>
-			<div class="role">
-				<h3>Journals</h3>
-				<ul>
-					<li>Neural Computing and Applications (Springer)</li>
-					<li>Cluster Computing (Springer)</li>
-					<li>Social Network Analysis and Mining (Springer)</li>
-					<li>International Journal of Information Technology & Decision Making (World Scientific)</li>
-					<li>Public Health (ScienceDirect)</li>
-					<li>Frontiers in Public Health</li>
-					<li>IEEE Transactions on Signal and Information Processing over Networks</li>
-				</ul>
-				<h3>Conferences</h3>
-				<ul>
-					<li>IEEE Symposium Series on Computational Intelligence (SSCI) 2025</li>
-					<li>International Joint Conference on Neural Networks (IJCNN) 2025</li>
-					<li>26th Engineering Applications and Advances of Artificial Intelligence (EAAAI) 2025</li>
-					<li>22nd IEEE Conference on CI/AI in Bioinformatics and Computational Biology (CIBCB) 2025</li>
-					<li>20th International Conference on Availability, Reliability, and Security (ARES) 2025</li>
-					<li>Pacific Symposium on Biocomputing (PSB) 2026</li>
-				</ul>
-			</div>
-		</section>
-
-		<!-- ADDED: The fade-in class for progressive reveal animation -->
-		<section class="certifications fade-in" id="certifications">
-			<h2>Certifications</h2>
-			<ul>
-				<li>Building RAG Agents with LLMs (NVIDIA, 2024)</li>
-				<li>I2I Spin Out Innovation Programme (University of Galway, 2024)</li>
-				<li>Power BI Financial Reporting & Financial Analysis: A to Z (Udemy, 2024)</li>
-				<li>EHDEN’s OMOP-CDM Data Standardization and ETL Processes (EHDEN, 2022)</li>
-				<li>Pedagogical and Teaching Competence (University of Thessaly, 2019)</li>
-			</ul>
-		</section>
-
-		<!-- ADDED: Filterable publications gallery -->
-		<section class="publications fade-in" id="publications">
-			<div class="section-heading">
-				<h2>Publications</h2>
-				<p>Browse peer-reviewed journal and conference work. Use the filters to focus by type or year.</p>
-			</div>
-
-			<div class="publication-filters" aria-label="Filter publications">
-				<div class="filter-group" role="group" aria-label="Filter by type">
-					<span class="filter-group-label">Type</span>
-					<button class="filter-btn active" type="button" data-filter-group="type" data-filter="all"
-						aria-pressed="true">All Types</button>
-					<button class="filter-btn" type="button" data-filter-group="type" data-filter="journal"
-						aria-pressed="false">Journals</button>
-					<button class="filter-btn" type="button" data-filter-group="type" data-filter="conference"
-						aria-pressed="false">Conferences</button>
-				</div>
-				<div class="filter-group" role="group" aria-label="Filter by year">
-					<span class="filter-group-label">Year</span>
-					<button class="filter-btn active" type="button" data-filter-group="year" data-filter="all"
-						aria-pressed="true">All Years</button>
-					<button class="filter-btn" type="button" data-filter-group="year" data-filter="2025"
-						aria-pressed="false">2025</button>
-					<button class="filter-btn" type="button" data-filter-group="year" data-filter="2024"
-						aria-pressed="false">2024</button>
-					<button class="filter-btn" type="button" data-filter-group="year" data-filter="2023"
-						aria-pressed="false">2023</button>
-					<button class="filter-btn" type="button" data-filter-group="year" data-filter="2022"
-						aria-pressed="false">2022</button>
-				</div>
-			</div>
-
-			<div class="publication-grid" id="publication-grid">
-				<article class="publication-card" data-type="journal" data-year="2025">
-					<div class="publication-meta">
-						<span class="pub-tag">Journal</span>
-						<span class="pub-year">2025</span>
-					</div>
-					<h3 class="publication-title">Large language models for efficient topic modeling</h3>
-					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, P. Anagnostou, S. V. Georgakopoulos, S.
-						K. Tasoulis, and V. P. Plagianakos</p>
-					<p class="publication-venue">Neural Computing and Applications</p>
-					<div class="publication-actions">
-						<a class="pub-link" href="https://doi.org/10.1007/s00521-025-11593-9" target="_blank"
-							rel="noopener noreferrer">View DOI</a>
-						<a class="pub-link"
-							href="https://scholar.google.com/scholar?q=Large+language+models+for+efficient+topic+modeling"
-							target="_blank" rel="noopener noreferrer">Google Scholar</a>
-					</div>
-				</article>
-
-				<article class="publication-card" data-type="journal" data-year="2024">
-					<div class="publication-meta">
-						<span class="pub-tag">Journal</span>
-						<span class="pub-year">2024</span>
-					</div>
-					<h3 class="publication-title">Developing predictive precision medicine models by exploiting
-						real-world data using machine learning methods</h3>
-					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V. Georgakopoulos, A.
-						Karaminas, S. K. Tasoulis, and V. P. Plagianakos</p>
-					<p class="publication-venue">Journal of Applied Statistics</p>
-					<div class="publication-actions">
-						<a class="pub-link" href="https://doi.org/10.1080/02664763.2024.2315451" target="_blank"
-							rel="noopener noreferrer">View DOI</a>
-						<a class="pub-link"
-							href="https://scholar.google.com/scholar?q=Developing+predictive+precision+medicine+models+by+exploiting+real-world+data+using+machine+learning+methods"
-							target="_blank" rel="noopener noreferrer">Google Scholar</a>
-					</div>
-				</article>
-
-				<article class="publication-card" data-type="journal" data-year="2023">
-					<div class="publication-meta">
-						<span class="pub-tag">Journal</span>
-						<span class="pub-year">2023</span>
-					</div>
-					<h3 class="publication-title">Analysing sentiment change detection of Covid-19 tweets</h3>
-					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V. Georgakopoulos, S.
-						K. Tasoulis, and V. P. Plagianakos</p>
-					<p class="publication-venue">Neural Computing and Applications</p>
-					<div class="publication-actions">
-						<a class="pub-link"
-							href="https://scholar.google.com/scholar?q=Analysing+sentiment+change+detection+of+Covid-19+tweets"
-							target="_blank" rel="noopener noreferrer">Google Scholar</a>
-					</div>
-				</article>
-
-				<article class="publication-card" data-type="conference" data-year="2025">
-					<div class="publication-meta">
-						<span class="pub-tag">Conference</span>
-						<span class="pub-year">2025</span>
-					</div>
-					<h3 class="publication-title">Transforming Medical Practice: Harnessing the Power of Big Data and
-						Machine Learning for Predictive Precision Medicine</h3>
-					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V. Georgakopoulos, S.
-						K. Tasoulis, and V. P. Plagianakos</p>
-					<p class="publication-venue">IEEE Symposium Series on Computational Intelligence (SSCI)</p>
-					<div class="publication-actions">
-						<a class="pub-link"
-							href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice:+Harnessing+the+Power+of+Big+Data+and+Machine+Learning+for+Predictive+Precision+Medicine"
-							target="_blank" rel="noopener noreferrer">Google Scholar</a>
-					</div>
-				</article>
-
-				<article class="publication-card" data-type="conference" data-year="2023">
-					<div class="publication-meta">
-						<span class="pub-tag">Conference</span>
-						<span class="pub-year">2023</span>
-					</div>
-					<h3 class="publication-title">Who Writes the Review, Human or AI?</h3>
-					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, S. V. Georgakopoulos, S. K. Tasoulis,
-						and V. P. Plagianakos</p>
-					<p class="publication-venue">IEEE International Conference on Cognitive Informatics and Cognitive
-						Computing (ICCI-CC)</p>
-					<div class="publication-actions">
-						<a class="pub-link"
-							href="https://scholar.google.com/scholar?q=Who+Writes+the+Review,+Human+or+AI%3F"
-							target="_blank" rel="noopener noreferrer">Google Scholar</a>
-					</div>
-				</article>
-
-				<article class="publication-card" data-type="conference" data-year="2023">
-					<div class="publication-meta">
-						<span class="pub-tag">Conference</span>
-						<span class="pub-year">2023</span>
-					</div>
-					<h3 class="publication-title">Detection of Fake Generated Scientific Abstracts</h3>
-					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, P. Anagnostou, A. Tsoukala, S. V.
-						Georgakopoulos, S. K. Tasoulis, and V. P. Plagianakos</p>
-					<p class="publication-venue">IEEE International Conference on Big Data Computing Service and
-						Applications (BigDataService)</p>
-					<div class="publication-actions">
-						<a class="pub-link"
-							href="https://scholar.google.com/scholar?q=Detection+of+Fake+Generated+Scientific+Abstracts"
-							target="_blank" rel="noopener noreferrer">Google Scholar</a>
-					</div>
-				</article>
-
-				<article class="publication-card" data-type="conference" data-year="2022">
-					<div class="publication-meta">
-						<span class="pub-tag">Conference</span>
-						<span class="pub-year">2022</span>
-					</div>
-					<h3 class="publication-title">Text analysis of COVID-19 tweets</h3>
-					<p class="publication-authors"><b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V. Georgakopoulos, S.
-						K. Tasoulis, and V. P. Plagianakos</p>
-					<p class="publication-venue">International Conference on Engineering Applications of Neural Networks
-					</p>
-					<div class="publication-actions">
-						<a class="pub-link" href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets"
-							target="_blank" rel="noopener noreferrer">Google Scholar</a>
-					</div>
-				</article>
-			</div>
-
-			<p class="publication-empty" id="publication-empty" hidden>No publications match your filters yet.</p>
-		</section>
-	</main>
-
+	<!-- JavaScript for animations -->
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
-			// Mobile Menu Toggle
-			const mobileToggle = document.getElementById('mobile-toggle');
-			const navMenu = document.getElementById('nav-menu');
-			const navLinks = document.querySelectorAll('.nav-link');
 
-			mobileToggle.addEventListener('click', function () {
-				navMenu.classList.toggle('active');
-				mobileToggle.classList.toggle('active');
-				const expanded = mobileToggle.classList.contains('active');
-				mobileToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+			const cursorDot = document.getElementById('cursor-dot');
+			const backToTopBtn = document.getElementById('back-to-top');
+			const themeToggleBtn = document.getElementById('theme-toggle');
+			const themeToggleText = document.getElementById('theme-toggle-text');
+			const htmlElement = document.documentElement;
+			const imageContainer = document.getElementById('profile-image-container');
+			const image = document.getElementById('profile-image');
+			const magneticLinks = document.querySelectorAll('[data-magnetic]');
+			const scrollProgress = document.getElementById('scroll-progress');
+
+			// =================================
+			// ==  NEW: NAV SECTION VARS      ==
+			// =================================
+			const sectionNav = document.getElementById('section-nav');
+			const navSectionLinks = Array.from(document.querySelectorAll('.section-nav .nav-link[data-section]'));
+			const sections = navSectionLinks
+				.map(link => {
+					const sectionEl = document.getElementById(link.dataset.section);
+					// Note: This will log warnings for sections in the nav but not on the page
+					if (!sectionEl) {
+						console.warn(`Section not found for link: ${link.dataset.section}`);
+					}
+					return sectionEl;
+				})
+				.filter(Boolean); // Filter out any nulls/undefined
+
+
+			// --- 1. Custom Cursor Logic ---
+			window.addEventListener('mousemove', (e) => {
+				cursorDot.style.left = e.clientX + 'px';
+				cursorDot.style.top = e.clientY + 'px';
 			});
 
-			// Close menu when a link is clicked
-			navLinks.forEach(link => {
-				link.addEventListener('click', function () {
-					if (navMenu.classList.contains('active')) {
-						navMenu.classList.remove('active');
-						mobileToggle.classList.remove('active');
-						mobileToggle.setAttribute('aria-expanded', 'false');
+			const interactiveElements = document.querySelectorAll('a, button, .skill-tag, .filter-btn'); // Added .filter-btn
+			interactiveElements.forEach(el => {
+				el.addEventListener('mouseenter', () => cursorDot.classList.add('is-hovering'));
+				el.addEventListener('mouseleave', () => cursorDot.classList.remove('is-hovering'));
+			});
+
+			// --- 2. Scroll Progress Bar ---
+			window.addEventListener('scroll', () => {
+				const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+				const scrolled = (window.scrollY / windowHeight);
+				scrollProgress.style.transform = `scaleX(${scrolled})`;
+			});
+
+			// --- 3. Intersection Observer for Scroll Animations ---
+			const revealElements = document.querySelectorAll('.reveal');
+			const observer = new IntersectionObserver((entries, observer) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
 					}
 				});
+			}, {
+				threshold: 0.1
 			});
+			revealElements.forEach(el => observer.observe(el));
 
-			// Back-to-Top Button Functionality
-			const backToTopButton = document.getElementById('back-to-top');
+			// --- 4. Hide Loader ---
+			setTimeout(() => {
+				const loader = document.querySelector('.loader');
+				if (loader) loader.style.display = 'none';
+			}, 2500);
+
+			// --- 5. Back to Top Button Logic ---
 			window.addEventListener('scroll', () => {
 				if (window.scrollY > 300) {
-					backToTopButton.classList.add('visible');
+					backToTopBtn.classList.add('is-visible');
 				} else {
-					backToTopButton.classList.remove('visible');
+					backToTopBtn.classList.remove('is-visible');
 				}
 			});
-			backToTopButton.addEventListener('click', () => {
-				window.scrollTo({
-					top: 0,
-					behavior: 'smooth'
-				});
+			backToTopBtn.addEventListener('click', () => {
+				window.scrollTo({ top: 0, behavior: 'smooth' });
 			});
 
-			// Dark Mode Toggle
-			const themeToggle = document.getElementById('theme-toggle');
-			const themeMeta = document.querySelector('meta[name="theme-color"]');
-			const setTheme = (theme) => {
-				document.documentElement.setAttribute('data-theme', theme);
-				localStorage.setItem('theme', theme);
-				themeToggle.checked = (theme === 'dark');
-				// ADDED: Update browser theme color for a more immersive experience
-				if (theme === 'dark') {
-					themeMeta.setAttribute('content', '#0d1117');
+			// --- 6. Dark Mode Logic ---
+			function updateTheme(isDark) {
+				if (isDark) {
+					htmlElement.classList.add('dark');
+					themeToggleText.textContent = 'Light Mode';
+					localStorage.setItem('theme', 'dark');
 				} else {
-					themeMeta.setAttribute('content', '#263849');
+					htmlElement.classList.remove('dark');
+					themeToggleText.textContent = 'Dark Mode';
+					localStorage.setItem('theme', 'light');
 				}
 			}
-			themeToggle.addEventListener('change', () => setTheme(themeToggle.checked ? 'dark' : 'light'));
+
+			themeToggleBtn.addEventListener('click', () => {
+				const isCurrentlyDark = htmlElement.classList.contains('dark');
+				updateTheme(!isCurrentlyDark);
+			});
+
+			// --- 7. Initialize Theme on Page Load ---
 			const savedTheme = localStorage.getItem('theme');
-			const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-			setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+			const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-			// Scroll progress indicator
-			const scrollProgressBar = document.getElementById('scroll-progress');
-			const updateScrollProgress = () => {
-				if (!scrollProgressBar) return;
-				const scrollTop = window.scrollY;
-				const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-				const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
-				scrollProgressBar.style.width = `${progress * 100}%`;
-			};
+			if (savedTheme) {
+				updateTheme(savedTheme === 'dark');
+			} else {
+				updateTheme(prefersDark);
+			}
 
-			updateScrollProgress();
+			// --- 8. Parallax Image Effect ---
+			if (imageContainer && image) {
+				imageContainer.addEventListener('mousemove', (e) => {
+					const rect = imageContainer.getBoundingClientRect();
+					const x = e.clientX - rect.left - rect.width / 2;
+					const y = e.clientY - rect.top - rect.height / 2;
 
-			// Section highlighting for navbar
-			const navSectionLinks = Array.from(document.querySelectorAll('.nav-link[data-section]'));
-			const sections = navSectionLinks
-				.map(link => document.getElementById(link.dataset.section))
-				.filter(Boolean);
-			const navbarEl = document.getElementById('navbar');
+					const rotateY = -x / (rect.width / 2) * 8;
+					const rotateX = y / (rect.height / 2) * 8;
 
-			const setActiveNavLink = (targetLink) => {
-				navSectionLinks.forEach(navLink => {
-					const isActive = navLink === targetLink;
-					navLink.classList.toggle('active', isActive);
-					if (isActive) {
-						navLink.setAttribute('aria-current', 'location');
-					} else {
-						navLink.removeAttribute('aria-current');
-					}
-				});
-			};
-
-			const updateActiveSection = () => {
-				if (!sections.length) {
-					return;
-				}
-
-				const offset = (navbarEl ? navbarEl.offsetHeight : 0) + 48;
-				let activeLink = navSectionLinks[0];
-
-				sections.forEach((section, index) => {
-					const rect = section.getBoundingClientRect();
-					if (rect.top - offset <= 0) {
-						activeLink = navSectionLinks[index];
-					}
+					image.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
 				});
 
-				if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
-					activeLink = navSectionLinks[navSectionLinks.length - 1];
-				}
+				imageContainer.addEventListener('mouseleave', () => {
+					image.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+				});
+			}
 
-				setActiveNavLink(activeLink);
-			};
+			// --- 9. Magnetic Links Effect ---
+			magneticLinks.forEach(link => {
+				const strength = 0.5;
+				link.addEventListener('mousemove', (e) => {
+					const rect = link.getBoundingClientRect();
+					const x = e.clientX - rect.left - rect.width / 2;
+					const y = e.clientY - rect.top - rect.height / 2;
 
-			// Publications filtering
+					const translateX = x * strength;
+					const translateY = y * strength;
+
+					link.style.transform = `translate(${translateX}px, ${translateY}px)`;
+				});
+				link.addEventListener('mouseleave', () => {
+					link.style.transform = 'translate(0, 0)';
+				});
+			});
+
+			// --- 10. Ripple Effect on Buttons ---
+			const rippleButtons = document.querySelectorAll('.ripple');
+			rippleButtons.forEach(button => {
+				button.addEventListener('click', function (e) {
+					const rect = button.getBoundingClientRect();
+					const x = e.clientX - rect.left;
+					const y = e.clientY - rect.top;
+
+					const ripple = document.createElement('span');
+					ripple.style.position = 'absolute';
+					ripple.style.left = x + 'px';
+					ripple.style.top = y + 'px';
+					ripple.style.width = '0';
+					ripple.style.height = '0';
+					ripple.style.borderRadius = '50%';
+					ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+					ripple.style.transform = 'translate(-50%, -50%)';
+					ripple.style.animation = 'ripple-animation 0.6s ease-out';
+
+					button.appendChild(ripple);
+
+					setTimeout(() => ripple.remove(), 600);
+				});
+			});
+
+			// --- 11. PUBLICATION FILTERS LOGIC ---
 			const filterButtons = document.querySelectorAll('.filter-btn');
 			const publicationCards = Array.from(document.querySelectorAll('.publication-card'));
 			const emptyState = document.getElementById('publication-empty');
@@ -659,6 +1689,7 @@
 				publicationCards.forEach(card => {
 					const matchesType = activeFilters.type === 'all' || card.dataset.type === activeFilters.type;
 					const matchesYear = activeFilters.year === 'all' || card.dataset.year === activeFilters.year;
+
 					if (matchesType && matchesYear) {
 						card.style.display = '';
 						visibleCount += 1;
@@ -672,65 +1703,87 @@
 				}
 			};
 
-			if (filterButtons.length) {
+			if (filterButtons.length && publicationCards.length) {
 				filterButtons.forEach(button => {
 					button.addEventListener('click', () => {
 						const group = button.dataset.filterGroup;
 						const value = button.dataset.filter;
-
 						if (!group) return;
+
+
 
 						activeFilters[group] = value;
 
 						document.querySelectorAll(`.filter-btn[data-filter-group="${group}"]`).forEach(groupButton => {
-							const isActive = groupButton === button;
-							groupButton.classList.toggle('active', isActive);
-							groupButton.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+							groupButton.classList.toggle('active', groupButton === button);
 						});
 
 						applyPublicationFilters();
 					});
 				});
-
-				applyPublicationFilters();
 			}
-
-			const handleScroll = () => {
-				updateScrollProgress();
-				updateActiveSection();
+			// =================================
+			// ==  NEW: Sticky Nav Logic      ==
+			// =================================
+			const setActiveNavLink = (targetLink) => {
+				navSectionLinks.forEach(navLink => {
+					const isActive = navLink === targetLink;
+					navLink.classList.toggle('active', isActive);
+				});
 			};
 
-			const handleResize = () => {
-				updateScrollProgress();
-				updateActiveSection();
-			};
+			const updateActiveSection = () => {
+				if (!sections.length) return;
 
-			handleResize();
+				// Offset is height of nav + some padding
+				const offset = (sectionNav ? sectionNav.offsetHeight : 0) + 250; // Increased offset
+				let activeLink = null;
 
-			window.addEventListener('scroll', handleScroll, { passive: true });
-			window.addEventListener('resize', handleResize);
-
-			// Intersection Observer for a clean progressive reveal effect
-			const observer = new IntersectionObserver((entries, observer) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add('visible');
-						observer.unobserve(entry.target);
+				// Find the last section that is above the offset
+				sections.forEach((section, index) => {
+					const rect = section.getBoundingClientRect();
+					if (rect.top - offset <= 0) {
+						activeLink = navSectionLinks[index];
 					}
 				});
-			}, {
-				threshold: 0.15
-			});
 
-			document.querySelectorAll('.fade-in').forEach(el => {
-				observer.observe(el);
-			});
+				// Handle edge case for being at the very top
+				if (window.scrollY < 400) { // Increased top threshold
+					activeLink = null;
+				}
+
+				// Handle edge case for being at the very bottom
+				if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 5) {
+					// Find the link for the last section (publications)
+					const lastLink = navSectionLinks.find(link => link.dataset.section === 'publications');
+					activeLink = lastLink || navSectionLinks[navSectionLinks.length - 1];
+				}
+
+				setActiveNavLink(activeLink);
+			};
+
+			// Update on scroll
+			window.addEventListener('scroll', updateActiveSection, { passive: true });
+
+			// Run once on load
+			updateActiveSection();
+			// === END NEW SCRIPT ===
+
 		});
-	</script>
 
-	<footer>
-		© 2025 Panagiotis C. Theocharopoulos
-	</footer>
+		// Add ripple animation keyframes dynamically
+		const style = document.createElement('style');
+		style.textContent = `
+            @keyframes ripple-animation {
+                to {
+                    width: 300px;
+                    height: 300px;
+                    opacity: 0;
+                }
+            }
+        `;
+		document.head.appendChild(style);
+	</script>
 
 </body>
 
