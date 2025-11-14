@@ -947,6 +947,29 @@
 			background: rgba(255, 255, 255, 0.08);
 			border: 1px solid rgba(255, 255, 255, 0.08);
 		}
+
+		/* Disable custom cursor on touch / coarse pointer devices */
+		@media (pointer: coarse),
+		(hover: none) {
+			body {
+				cursor: auto;
+			}
+
+			.cursor-dot {
+				display: none !important;
+			}
+		}
+
+		/* Optionally also for very small screens */
+		@media (max-width: 767px) {
+			.cursor-dot {
+				display: none !important;
+			}
+
+			body {
+				cursor: auto;
+			}
+		}
 	</style>
 </head>
 
@@ -1733,8 +1756,25 @@
 	<!-- JavaScript for animations -->
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
-
 			const cursorDot = document.getElementById('cursor-dot');
+			// Detect coarse pointer (mobile / touch) and disable custom cursor
+			const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
+
+			if (!isCoarsePointer && cursorDot) {
+				window.addEventListener('mousemove', (e) => {
+					cursorDot.style.left = e.clientX + 'px';
+					cursorDot.style.top = e.clientY + 'px';
+				});
+				const interactiveElements = document.querySelectorAll('a, button, .skill-tag, .filter-btn');
+				interactiveElements.forEach(el => {
+					el.addEventListener('mouseenter', () => cursorDot.classList.add('is-hovering'));
+					el.addEventListener('mouseleave', () => cursorDot.classList.remove('is-hovering'));
+				});
+			} else if (cursorDot) {
+				// Remove element entirely for mobile performance
+				cursorDot.parentNode.removeChild(cursorDot);
+			}
+
 			const backToTopBtn = document.getElementById('back-to-top');
 			const themeToggleBtn = document.getElementById('theme-toggle');
 			const themeToggleText = document.getElementById('theme-toggle-text');
@@ -1764,18 +1804,6 @@
 			const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 			const mobileNav = document.getElementById('mobile-nav');
 			const mobileNavLinks = mobileNav.querySelectorAll('.nav-link');
-
-			// --- 1. Custom Cursor Logic ---
-			window.addEventListener('mousemove', (e) => {
-				cursorDot.style.left = e.clientX + 'px';
-				cursorDot.style.top = e.clientY + 'px';
-			});
-
-			const interactiveElements = document.querySelectorAll('a, button, .skill-tag, .filter-btn'); // Added .filter-btn
-			interactiveElements.forEach(el => {
-				el.addEventListener('mouseenter', () => cursorDot.classList.add('is-hovering'));
-				el.addEventListener('mouseleave', () => cursorDot.classList.remove('is-hovering'));
-			});
 
 			// --- 2. Scroll Progress Bar ---
 			window.addEventListener('scroll', () => {
