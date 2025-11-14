@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Panagiotis C. Theocharopoulos - Creative Portfolio</title>
+	<title>Panagiotis C. Theocharopoulos</title>
 	<!-- Load Tailwind CSS -->
 	<script src="https://cdn.tailwindcss.com"></script>
 	<!-- Load Google Fonts -->
@@ -160,9 +160,11 @@
 		.section-nav {
 			position: fixed;
 			top: 10px;
-			/* Below progress bar */
 			left: 50%;
-			transform: translateX(-50%);
+			transform: translateX(-50%) translateY(-100px);
+			/* start off-screen */
+			opacity: 0;
+			/* start invisible */
 			width: calc(100% - 2rem);
 			max-width: 600px;
 			z-index: 2000;
@@ -174,6 +176,8 @@
 			border-radius: 99px;
 			/* Pill shape */
 			padding: 0.5rem 1rem;
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+			transition: transform 0.5s ease, opacity 0.5s ease;
 
 			/* Hide on mobile initially */
 			display: none;
@@ -577,6 +581,7 @@
 			white-space: nowrap;
 			animation: marquee 20s linear infinite;
 			transition: animation-play-state 0.4s ease;
+			will-change: transform;
 		}
 
 		.marquee:hover .marquee-content {
@@ -615,6 +620,15 @@
 			color: var(--accent-blue);
 			font-size: 1.5rem;
 			line-height: 1.25rem;
+		}
+
+		/* Gradient bullets override for styled-list */
+		.styled-list>li::before {
+			background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+			color: transparent;
 		}
 
 		/* --- Sticky section titles --- */
@@ -676,7 +690,9 @@
 		}
 
 		.parallax-image {
-			transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+			/* smoother spring-like feel */
+			transition: transform 0.6s cubic-bezier(0.2, 1, 0.8, 1);
+			will-change: transform;
 		}
 
 		/* --- Publication Cards with Hover Effects --- */
@@ -988,7 +1004,7 @@
 
 	<!-- Back to Top Button -->
 	<button id="back-to-top" class="back-to-top link-arrow ripple glow-on-hover">
-		Top <span class="arrow">↑</span>
+		<span class="arrow">↑</span>
 	</button>
 
 	<div class="page-content">
@@ -1004,7 +1020,8 @@
 					<!-- Dark Mode Toggle -->
 					<div>
 						<button id="theme-toggle"
-							class="theme-toggle-btn font-display font-medium text-lg uppercase text-neutral-600 dark:text-neutral-400 link-arrow animated-underline">
+							class="theme-toggle-btn font-display font-medium text-lg uppercase text-neutral-600 dark:text-neutral-400 link-arrow animated-underline"
+							aria-label="Toggle color theme">
 							<span id="theme-toggle-text">Light</span>
 						</button>
 					</div>
@@ -1019,10 +1036,10 @@
 						<li><a href="mailto:panos.t95@gmail.com"
 								class="font-display font-medium text-lg social-link animated-underline"
 								data-magnetic>Email <span class="arrow">→</span></a></li>
-						<li><a href="https://linkedin.com/in/ptheochar/" target="_blank"
+						<li><a href="https://linkedin.com/in/ptheocharopoulos/" target="_blank"
 								class="font-display font-medium text-lg social-link animated-underline"
 								data-magnetic>LinkedIn <span class="arrow">→</span></a></li>
-						<li><a href="https://github.com/ptheochar" target="_blank"
+						<li><a href="https://github.com/ptheocharopoulos" target="_blank"
 								class="font-display font-medium text-lg social-link animated-underline"
 								data-magnetic>GitHub <span class="arrow">→</span></a></li>
 						<li><a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank"
@@ -1067,7 +1084,7 @@
 				<section id="about" class="lg:col-span-12 grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-8">
 					<h2
 						class="md:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
-						01. About
+						<span class="gradient-text">01.</span> About
 					</h2>
 
 
@@ -1089,9 +1106,11 @@
 
 					<div class="md:col-span-3 reveal reveal-delay-200 parallax-container" id="profile-image-container">
 						<div class="flex flex-col items-start gap-4">
+							<!-- <img src="citations.jpg" alt="Panagiotis C. Theocharopoulos" -->
+							<!-- class="w-full h-auto rounded-lg grayscale mb-4 parallax-image" id="profile-image"> -->
 							<img src="citations.jpg" alt="Panagiotis C. Theocharopoulos"
-								class="w-full h-auto rounded-lg grayscale mb-4 parallax-image" id="profile-image">
-
+								class="w-full h-auto rounded-lg grayscale hover:grayscale-0 transition-all duration-300 ease-in-out mb-4 parallax-image"
+								id="profile-image">
 							<!-- CV Buttons Removed From Here -->
 
 						</div>
@@ -1106,7 +1125,7 @@
 				<section id="experience" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
 					<h2
 						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
-						02. Experience
+						<span class="gradient-text">02.</span> Experience
 					</h2>
 
 					<div class="lg:col-span-9 space-y-12">
@@ -1132,7 +1151,8 @@
 						</div>
 
 						<!-- Role 2 -->
-						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+						<div
+							class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal reveal-delay-100 glass-card interactive-border-card">
 							<div class="md:col-span-1">
 								<h3 class="font-display font-bold text-xl">Senior Data Scientist</h3>
 								<p class="text-neutral-600 dark:text-neutral-400">Covariance, Athens</p>
@@ -1151,7 +1171,8 @@
 						</div>
 
 						<!-- Role 3 -->
-						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+						<div
+							class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal reveal-delay-200 glass-card interactive-border-card">
 							<div class="md:col-span-1">
 								<h3 class="font-display font-bold text-xl">Data Scientist</h3>
 								<p class="text-neutral-600 dark:text-neutral-400">Covariance, Athens</p>
@@ -1168,7 +1189,8 @@
 						</div>
 
 						<!-- Role 4 -->
-						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+						<div
+							class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal reveal-delay-300 glass-card interactive-border-card">
 							<div class="md:col-span-1">
 								<h3 class="font-display font-bold text-xl">Research Fellow</h3>
 								<p class="text-neutral-600 dark:text-neutral-400">University of Thessaly</p>
@@ -1185,7 +1207,8 @@
 						</div>
 
 						<!-- Role 5 -->
-						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+						<div
+							class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal reveal-delay-400 glass-card interactive-border-card">
 							<div class="md:col-span-1">
 								<h3 class="font-display font-bold text-xl">Website Administrator</h3>
 								<p class="text-neutral-600 dark:text-neutral-400">University of Thessaly</p>
@@ -1201,7 +1224,8 @@
 						</div>
 
 						<!-- Role 7 -->
-						<div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal glass-card interactive-border-card">
+						<div
+							class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal reveal-delay-500 glass-card interactive-border-card">
 							<div class="md:col-span-1">
 								<h3 class="font-display font-bold text-xl">Support Engineer (Intern)</h3>
 								<p class="text-neutral-600 dark:text-neutral-400">Naval Hospital of Athens</p>
@@ -1228,7 +1252,7 @@
 				<section id="teaching" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
 					<h2
 						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
-						03. Teaching
+						<span class="gradient-text">03.</span> Teaching
 					</h2>
 
 					<div class="lg:col-span-9 space-y-12">
@@ -1260,7 +1284,7 @@
 				<section id="skills" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
 					<h2
 						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
-						04. Skills
+						<span class="gradient-text">04.</span> Skills
 					</h2>
 
 					<div class="lg:col-span-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
@@ -1321,25 +1345,25 @@
 				<section id="education" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
 					<h2
 						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
-						05. Education
+						<span class="gradient-text">05.</span> Education
 					</h2>
 
 					<div class="lg:col-span-9 space-y-6 reveal">
-						<div class="reveal reveal-delay-100 glass-card interactive-border-card">
+						<div class="reveal glass-card interactive-border-card">
 							<h3 class="font-display font-bold text-xl">PhD in Artificial Intelligence</h3>
 							<p class="text-neutral-600 dark:text-neutral-400">University of Thessaly (Expected 2026)</p>
 						</div>
-						<div class="reveal reveal-delay-200 glass-card interactive-border-card">
+						<div class="reveal reveal-delay-100 glass-card interactive-border-card">
 							<h3 class="font-display font-bold text-xl">MSc in Informatics & Computational Biomedicine
 							</h3>
 							<p class="text-neutral-600 dark:text-neutral-400">University of Thessaly (2020)</p>
 						</div>
-						<div class="reveal reveal-delay-300 glass-card interactive-border-card">
+						<div class="reveal reveal-delay-200 glass-card interactive-border-card">
 							<h3 class="font-display font-bold text-xl">Ptychion in Computer Science & Biomedical
 								Informatics</h3>
 							<p class="text-neutral-600 dark:text-neutral-400">University of Thessaly (2019)</p>
 						</div>
-						<div class="reveal reveal-delay-400 glass-card interactive-border-card">
+						<div class="reveal reveal-delay-300 glass-card interactive-border-card">
 							<h3 class="font-display font-bold text-xl">Erasmus+ Exchange Student</h3>
 							<p class="text-neutral-600 dark:text-neutral-400">Università degli Studi di Perugia (2017)
 							</p>
@@ -1355,23 +1379,23 @@
 				<section id="awards" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
 					<h2
 						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
-						06. Awards
+						<span class="gradient-text">06.</span> Awards
 					</h2>
 
 					<div class="lg:col-span-9 space-y-6 reveal">
-						<div class="reveal reveal-delay-100 simple-glass-card">
+						<div class="reveal glass-card interactive-border-card">
 							<p class="font-display font-medium text-xl">IEEE CIS Student Travel Grant Award, SSCI 2025
 							</p>
 						</div>
-						<div class="reveal reveal-delay-200 simple-glass-card">
+						<div class="reveal reveal-delay-100 glass-card interactive-border-card">
 							<p class="font-display font-medium text-xl">Best National Startup of 2022 (Elevate Greece) –
 								Awarded to Covariance</p>
 						</div>
-						<div class="reveal reveal-delay-300 simple-glass-card">
+						<div class="reveal reveal-delay-200 glass-card interactive-border-card">
 							<p class="font-display font-medium text-xl">Academic Work Scholarship, University of
 								Thessaly (2019–2021)</p>
 						</div>
-						<div class="reveal reveal-delay-400 simple-glass-card">
+						<div class="reveal reveal-delay-300 glass-card interactive-border-card">
 							<p class="font-display font-medium text-xl">Tuition Fee Exemption Scholarship, MSc degree,
 								2019</p>
 						</div>
@@ -1386,7 +1410,7 @@
 				<section id="research" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
 					<h2
 						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
-						07. Research
+						<span class="gradient-text">07.</span> Research
 					</h2>
 
 					<div class="lg:col-span-9 space-y-12">
@@ -1416,7 +1440,7 @@
 				<section id="review" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
 					<h2
 						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
-						08. Peer Review
+						<span class="gradient-text">08.</span> Peer Review
 					</h2>
 
 					<div class="lg:col-span-9 space-y-6 reveal">
@@ -1454,26 +1478,26 @@
 				<section id="certifications" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
 					<h2
 						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
-						09. Certifications
+						<span class="gradient-text">09.</span> Certifications
 					</h2>
 
 					<div class="lg:col-span-9 space-y-6 reveal">
-						<div class="reveal reveal-delay-100 simple-glass-card">
+						<div class="reveal reveal-delay-100 glass-card interactive-border-card">
 							<p class="font-display font-medium text-xl">Building RAG Agents with LLMs (NVIDIA, 2024)</p>
 						</div>
-						<div class="reveal reveal-delay-200 simple-glass-card">
+						<div class="reveal reveal-delay-200 glass-card interactive-border-card">
 							<p class="font-display font-medium text-xl">I2I Spin Out Innovation Programme (University of
 								Galway, 2024)</p>
 						</div>
-						<div class="reveal reveal-delay-300 simple-glass-card">
+						<div class="reveal reveal-delay-300 glass-card interactive-border-card">
 							<p class="font-display font-medium text-xl">Power BI Financial Reporting & Financial
 								Analysis (Udemy, 2024)</p>
 						</div>
-						<div class="reveal reveal-delay-400 simple-glass-card">
+						<div class="reveal reveal-delay-400 glass-card interactive-border-card">
 							<p class="font-display font-medium text-xl">EHDEN’s OMOP-CDM Data Standardization and ETL
 								Processes (EHDEN, 2022)</p>
 						</div>
-						<div class="reveal reveal-delay-500 simple-glass-card">
+						<div class="reveal reveal-delay-500 glass-card interactive-border-card">
 							<p class="font-display font-medium text-xl">Pedagogical and Teaching Competence (University
 								of Thessaly, 2019)</p>
 						</div>
@@ -1489,7 +1513,7 @@
 				<section id="publications" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
 					<h2
 						class="lg:col-span-3 font-display font-medium text-2xl uppercase tracking-widest sticky-title reveal text-neutral-600 dark:text-neutral-400">
-						10. Publications
+						<span class="gradient-text">10.</span> Publications
 					</h2>
 
 
@@ -1588,7 +1612,7 @@
 							data-type="conference" data-year="2025">
 							<div class="flex justify-between items-baseline mb-1">
 								<span
-									class="font-display text-sm font-medium text-white dark:text-black bg-neutral-800 dark:bg-neutral-300 py-1 px-2 rounded-md">Conference</span>
+									class="font-display text-sm font-medium text-white bg-purple-500 py-1 px-2 rounded-md">Conference</span>
 								<span class="text-neutral-500 font-display text-sm">2025</span>
 							</div>
 							<h3 class="font-display font-semibold text-2xl my-2">Transforming Medical Practice:
@@ -1611,7 +1635,7 @@
 							data-type="conference" data-year="2023">
 							<div class="flex justify-between items-baseline mb-1">
 								<span
-									class="font-display text-sm font-medium text-white dark:text-black bg-neutral-800 dark:bg-neutral-300 py-1 px-2 rounded-md">Conference</span>
+									class="font-display text-sm font-medium text-white bg-purple-500 py-1 px-2 rounded-md">Conference</span>
 								<span class="text-neutral-500 font-display text-sm">2023</span>
 							</div>
 							<h3 class="font-display font-semibold text-2xl my-2">Who Writes the Review, Human or AI?
@@ -1632,7 +1656,7 @@
 							data-type="conference" data-year="2023">
 							<div class="flex justify-between items-baseline mb-1">
 								<span
-									class="font-display text-sm font-medium text-white dark:text-black bg-neutral-800 dark:bg-neutral-300 py-1 px-2 rounded-md">Conference</span>
+									class="font-display text-sm font-medium text-white bg-purple-500 py-1 px-2 rounded-md">Conference</span>
 								<span class="text-neutral-500 font-display text-sm">2023</span>
 							</div>
 							<h3 class="font-display font-semibold text-2xl my-2">Detection of Fake Generated Scientific
@@ -1655,7 +1679,7 @@
 							data-type="conference" data-year="2022">
 							<div class="flex justify-between items-baseline mb-1">
 								<span
-									class="font-display text-sm font-medium text-white dark:text-black bg-neutral-800 dark:bg-neutral-300 py-1 px-2 rounded-md">Conference</span>
+									class="font-display text-sm font-medium text-white bg-purple-500 py-1 px-2 rounded-md">Conference</span>
 								<span class="text-neutral-500 font-display text-sm">2022</span>
 							</div>
 							<h3 class="font-display font-semibold text-2xl my-2">Text analysis of COVID-19 tweets
@@ -1681,9 +1705,26 @@
 			</main>
 
 			<!-- FOOTER -->
-			<footer
-				class="w-full mt-24 pt-8 border-t-2 border-neutral-900 dark:border-neutral-200 text-center md:text-left reveal">
-				<p class="text-neutral-600 dark:text-neutral-400">© 2025 Panagiotis C. Theocharopoulos</p>
+			<footer class="w-full mt-24 pt-8 border-t-2 border-neutral-900 dark:border-neutral-200 reveal">
+				<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+					<p class="text-neutral-600 dark:text-neutral-400 text-center md:text-left">
+						© 2025 Panagiotis C. Theocharopoulos
+					</p>
+					<ul class="flex flex-wrap gap-x-4 gap-y-2 justify-center">
+						<li><a href="mailto:panos.t95@gmail.com"
+								class="font-display font-medium social-link animated-underline" data-magnetic>Email
+								<span class="arrow">→</span></a></li>
+						<li><a href="https://linkedin.com/in/ptheocharopoulos/" target="_blank"
+								class="font-display font-medium social-link animated-underline" data-magnetic>LinkedIn
+								<span class="arrow">→</span></a></li>
+						<li><a href="https://github.com/ptheocharopoulos" target="_blank"
+								class="font-display font-medium social-link animated-underline" data-magnetic>GitHub
+								<span class="arrow">→</span></a></li>
+						<li><a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank"
+								class="font-display font-medium social-link animated-underline" data-magnetic>Scholar
+								<span class="arrow">→</span></a></li>
+					</ul>
+				</div>
 			</footer>
 
 		</div>
@@ -1763,12 +1804,21 @@
 				if (loader) loader.style.display = 'none';
 			}, 2500);
 
-			// --- 5. Back to Top Button Logic ---
+			// --- 5. Back to Top Button + Sticky Nav Animation ---
 			window.addEventListener('scroll', () => {
-				if (window.scrollY > 300) {
+				const scrolledY = window.scrollY;
+				if (scrolledY > 300) {
 					backToTopBtn.classList.add('is-visible');
+					if (sectionNav) {
+						sectionNav.style.opacity = '1';
+						sectionNav.style.transform = 'translateX(-50%) translateY(0)';
+					}
 				} else {
 					backToTopBtn.classList.remove('is-visible');
+					if (sectionNav) {
+						sectionNav.style.opacity = '0';
+						sectionNav.style.transform = 'translateX(-50%) translateY(-100px)';
+					}
 				}
 			});
 			backToTopBtn.addEventListener('click', () => {
@@ -1809,13 +1859,11 @@
 					const rect = imageContainer.getBoundingClientRect();
 					const x = e.clientX - rect.left - rect.width / 2;
 					const y = e.clientY - rect.top - rect.height / 2;
-
-					const rotateY = -x / (rect.width / 2) * 8;
-					const rotateX = y / (rect.height / 2) * 8;
-
-					image.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+					const rotateY = -x / (rect.width / 2) * 4; // reduced from 8
+					const rotateX = y / (rect.height / 2) * 4; // reduced from 8
+					image.style.transform =
+						`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
 				});
-
 				imageContainer.addEventListener('mouseleave', () => {
 					image.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
 				});
