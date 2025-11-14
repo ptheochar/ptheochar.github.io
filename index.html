@@ -767,6 +767,170 @@
 			font-weight: 500;
 			color: var(--text-color);
 		}
+
+		/* --- MOBILE MENU ENHANCEMENTS --- */
+		.mobile-menu-toggle {
+			display: none;
+			flex-direction: column;
+			justify-content: space-around;
+			width: 30px;
+			height: 30px;
+			background: transparent;
+			border: none;
+			cursor: pointer;
+			padding: 0;
+			z-index: 2001;
+		}
+
+		.mobile-menu-toggle span {
+			width: 100%;
+			height: 3px;
+			background: var(--text-color);
+			border-radius: 10px;
+			transition: all 0.3s ease;
+			transform-origin: center;
+		}
+
+		.mobile-menu-toggle.active span:nth-child(1) {
+			transform: rotate(45deg) translate(7px, 7px);
+		}
+
+		.mobile-menu-toggle.active span:nth-child(2) {
+			opacity: 0;
+		}
+
+		.mobile-menu-toggle.active span:nth-child(3) {
+			transform: rotate(-45deg) translate(7px, -7px);
+		}
+
+		.mobile-nav {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100vh;
+			background: var(--bg-color);
+			z-index: 2000;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.4s ease;
+			padding: 2rem;
+		}
+
+		.mobile-nav.active {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.mobile-nav-list {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 2rem;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.mobile-nav .nav-link {
+			font-family: 'Space Grotesk', 'Inter', sans-serif;
+			font-weight: 600;
+			font-size: 1.5rem;
+			color: var(--text-color);
+			text-decoration: none;
+			padding: 0.5rem 1rem;
+			border-radius: 4px;
+			position: relative;
+			opacity: 0.7;
+			transition: opacity 0.3s, color 0.3s;
+		}
+
+		.mobile-nav .nav-link:hover,
+		.mobile-nav .nav-link.active {
+			opacity: 1;
+			color: var(--accent-blue);
+		}
+
+		@media (max-width: 1023px) {
+			.mobile-menu-toggle {
+				display: flex;
+			}
+
+			.header-top-nav {
+				justify-content: space-between;
+			}
+		}
+
+		/* --- ENHANCED LINK STYLES --- */
+		.social-link {
+			position: relative;
+			transition: all 0.3s ease;
+		}
+
+		.social-link:hover {
+			transform: translateY(-3px);
+			color: var(--accent-blue);
+		}
+
+		.social-link::after {
+			content: '';
+			position: absolute;
+			bottom: -2px;
+			left: 0;
+			width: 0;
+			height: 2px;
+			background: var(--accent-blue);
+			transition: width 0.3s ease;
+		}
+
+		.social-link:hover::after {
+			width: 100%;
+		}
+
+		/* --- SECTION LINK ENHANCEMENTS --- */
+		.section-link {
+			position: relative;
+			padding: 0.5rem 1rem;
+			border-radius: 99px;
+			transition: all 0.3s ease;
+			font-weight: 500;
+		}
+
+		.section-link:hover {
+			background: rgba(8, 136, 255, 0.1);
+			transform: translateY(-2px);
+		}
+
+		.section-link.active {
+			background: rgba(8, 136, 255, 0.2);
+			color: var(--accent-blue);
+		}
+
+		/* --- DARK MODE TOGGLE ENHANCEMENT --- */
+		.theme-toggle-btn {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 0.5rem 1rem;
+			border-radius: 99px;
+			background: rgba(255, 255, 255, 0.05);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			transition: all 0.3s ease;
+		}
+
+		.theme-toggle-btn:hover {
+			background: rgba(255, 255, 255, 0.1);
+			transform: translateY(-2px);
+		}
+
+		html.dark .theme-toggle-btn {
+			background: rgba(255, 255, 255, 0.08);
+			border: 1px solid rgba(255, 255, 255, 0.08);
+		}
 	</style>
 </head>
 
@@ -785,15 +949,33 @@
     -->
 	<nav class="section-nav" id="section-nav">
 		<ul class="section-nav-list">
-			<li><a href="#about" class="nav-link" data-section="about">About</a></li>
-			<li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
-			<li><a href="#teaching" class="nav-link" data-section="teaching">Teaching</a></li>
-			<li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
-			<li><a href="#education" class="nav-link" data-section="education">Education</a></li>
-			<li><a href="#publications" class="nav-link" data-section="publications">Publications</a></li>
+			<li><a href="#about" class="nav-link section-link" data-section="about">About</a></li>
+			<li><a href="#experience" class="nav-link section-link" data-section="experience">Experience</a></li>
+			<li><a href="#teaching" class="nav-link section-link" data-section="teaching">Teaching</a></li>
+			<li><a href="#skills" class="nav-link section-link" data-section="skills">Skills</a></li>
+			<li><a href="#education" class="nav-link section-link" data-section="education">Education</a></li>
+			<li><a href="#publications" class="nav-link section-link" data-section="publications">Publications</a></li>
 		</ul>
 	</nav>
 
+	<!-- Mobile Menu Toggle -->
+	<button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
+
+	<!-- Mobile Navigation -->
+	<nav class="mobile-nav" id="mobile-nav">
+		<ul class="mobile-nav-list">
+			<li><a href="#about" class="nav-link section-link" data-section="about">About</a></li>
+			<li><a href="#experience" class="nav-link section-link" data-section="experience">Experience</a></li>
+			<li><a href="#teaching" class="nav-link section-link" data-section="teaching">Teaching</a></li>
+			<li><a href="#skills" class="nav-link section-link" data-section="skills">Skills</a></li>
+			<li><a href="#education" class="nav-link section-link" data-section="education">Education</a></li>
+			<li><a href="#publications" class="nav-link section-link" data-section="publications">Publications</a></li>
+		</ul>
+	</nav>
 
 	<!-- Loader -->
 	<div class="loader">
@@ -817,33 +999,34 @@
 				class="w-full min-h-[70vh] md:min-h-[80vh] flex flex-col justify-between border-b-2 border-neutral-900 dark:border-neutral-200 pb-8 mb-12">
 
 				<!-- Top Nav / Socials -->
-				<nav class="w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+				<nav
+					class="w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-4 header-top-nav">
 					<!-- Dark Mode Toggle -->
 					<div>
 						<button id="theme-toggle"
-							class="font-display font-medium text-lg uppercase text-neutral-600 dark:text-neutral-400 link-arrow animated-underline">
+							class="theme-toggle-btn font-display font-medium text-lg uppercase text-neutral-600 dark:text-neutral-400 link-arrow animated-underline">
 							<span id="theme-toggle-text">Light</span>
 						</button>
 					</div>
 
 					<ul class="flex flex-wrap gap-x-4 gap-y-2 justify-start md:justify-end">
 						<li><a href="Theocharopoulos_CV.pdf" target="_blank"
-								class="font-display font-medium text-lg link-arrow animated-underline"
+								class="font-display font-medium text-lg social-link animated-underline"
 								data-magnetic>Short CV <span class="arrow">→</span></a></li>
 						<li><a href="PTheocharopoulos_ACV.pdf" target="_blank"
-								class="font-display font-medium text-lg link-arrow animated-underline"
+								class="font-display font-medium text-lg social-link animated-underline"
 								data-magnetic>Full CV <span class="arrow">→</span></a></li>
 						<li><a href="mailto:panos.t95@gmail.com"
-								class="font-display font-medium text-lg link-arrow animated-underline"
+								class="font-display font-medium text-lg social-link animated-underline"
 								data-magnetic>Email <span class="arrow">→</span></a></li>
 						<li><a href="https://linkedin.com/in/ptheochar/" target="_blank"
-								class="font-display font-medium text-lg link-arrow animated-underline"
+								class="font-display font-medium text-lg social-link animated-underline"
 								data-magnetic>LinkedIn <span class="arrow">→</span></a></li>
 						<li><a href="https://github.com/ptheochar" target="_blank"
-								class="font-display font-medium text-lg link-arrow animated-underline"
+								class="font-display font-medium text-lg social-link animated-underline"
 								data-magnetic>GitHub <span class="arrow">→</span></a></li>
 						<li><a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank"
-								class="font-display font-medium text-lg link-arrow animated-underline"
+								class="font-display font-medium text-lg social-link animated-underline"
 								data-magnetic>Scholar <span class="arrow">→</span></a></li>
 					</ul>
 				</nav>
@@ -1466,7 +1649,6 @@
 								class="font-display font-medium text-lg link-arrow animated-underline">Google Scholar
 								<span class="arrow">→</span></a>
 						</article>
-
 						<!-- Pub 7 -->
 						<article
 							class="border-b border-neutral-300 dark:border-neutral-700 pb-4 reveal publication-card"
@@ -1537,6 +1719,10 @@
 				})
 				.filter(Boolean); // Filter out any nulls/undefined
 
+			// Mobile menu elements
+			const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+			const mobileNav = document.getElementById('mobile-nav');
+			const mobileNavLinks = mobileNav.querySelectorAll('.nav-link');
 
 			// --- 1. Custom Cursor Logic ---
 			window.addEventListener('mousemove', (e) => {
@@ -1710,8 +1896,6 @@
 						const value = button.dataset.filter;
 						if (!group) return;
 
-
-
 						activeFilters[group] = value;
 
 						document.querySelectorAll(`.filter-btn[data-filter-group="${group}"]`).forEach(groupButton => {
@@ -1722,12 +1906,21 @@
 					});
 				});
 			}
+
 			// =================================
 			// ==  NEW: Sticky Nav Logic      ==
 			// =================================
 			const setActiveNavLink = (targetLink) => {
+				// Update desktop nav
 				navSectionLinks.forEach(navLink => {
 					const isActive = navLink === targetLink;
+					navLink.classList.toggle('active', isActive);
+				});
+
+				// Update mobile nav
+				mobileNavLinks.forEach(navLink => {
+					const isActive = navLink === targetLink ||
+						(targetLink && navLink.getAttribute('href') === targetLink.getAttribute('href'));
 					navLink.classList.toggle('active', isActive);
 				});
 			};
@@ -1767,6 +1960,34 @@
 
 			// Run once on load
 			updateActiveSection();
+
+			// --- MOBILE MENU FUNCTIONALITY ---
+			mobileMenuToggle.addEventListener('click', () => {
+				mobileMenuToggle.classList.toggle('active');
+				mobileNav.classList.toggle('active');
+				document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+			});
+
+			// Close mobile menu when clicking a link
+			mobileNavLinks.forEach(link => {
+				link.addEventListener('click', () => {
+					mobileMenuToggle.classList.remove('active');
+					mobileNav.classList.remove('active');
+					document.body.style.overflow = '';
+				});
+			});
+
+			// Close mobile menu when clicking outside
+			document.addEventListener('click', (e) => {
+				if (mobileNav.classList.contains('active') &&
+					!mobileNav.contains(e.target) &&
+					!mobileMenuToggle.contains(e.target)) {
+					mobileMenuToggle.classList.remove('active');
+					mobileNav.classList.remove('active');
+					document.body.style.overflow = '';
+				}
+			});
+
 			// === END NEW SCRIPT ===
 
 		});
