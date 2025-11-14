@@ -1014,6 +1014,33 @@
 			<li><a href="#education" class="nav-link section-link" data-section="education">Education</a></li>
 			<li><a href="#publications" class="nav-link section-link" data-section="publications">Publications</a></li>
 		</ul>
+		<div class="mt-12">
+			<button id="mobile-theme-toggle"
+				class="theme-toggle-btn font-display font-medium text-lg uppercase text-neutral-600 dark:text-neutral-400 link-arrow animated-underline"
+				aria-label="Toggle color theme">
+				<span id="mobile-theme-toggle-text">Light</span>
+			</button>
+		</div>
+		<ul class="flex flex-col items-center gap-4 mt-10">
+			<li><a href="Theocharopoulos_CV.pdf" target="_blank"
+					class="font-display font-medium text-lg social-link animated-underline" data-magnetic>Short CV <span
+						class="arrow">→</span></a></li>
+			<li><a href="PTheocharopoulos_ACV.pdf" target="_blank"
+					class="font-display font-medium text-lg social-link animated-underline" data-magnetic>Full CV <span
+						class="arrow">→</span></a></li>
+			<li><a href="mailto:panos.t95@gmail.com"
+					class="font-display font-medium text-lg social-link animated-underline" data-magnetic>Email <span
+						class="arrow">→</span></a></li>
+			<li><a href="https://linkedin.com/in/ptheocharopoulos/" target="_blank"
+					class="font-display font-medium text-lg social-link animated-underline" data-magnetic>LinkedIn <span
+						class="arrow">→</span></a></li>
+			<li><a href="https://github.com/ptheocharopoulos" target="_blank"
+					class="font-display font-medium text-lg social-link animated-underline" data-magnetic>GitHub <span
+						class="arrow">→</span></a></li>
+			<li><a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank"
+					class="font-display font-medium text-lg social-link animated-underline" data-magnetic>Scholar <span
+						class="arrow">→</span></a></li>
+		</ul>
 	</nav>
 
 	<!-- Loader -->
@@ -1041,7 +1068,7 @@
 				<nav
 					class="w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-4 header-top-nav">
 					<!-- Dark Mode Toggle -->
-					<div>
+					<div class="hidden md:block">
 						<button id="theme-toggle"
 							class="theme-toggle-btn font-display font-medium text-lg uppercase text-neutral-600 dark:text-neutral-400 link-arrow animated-underline"
 							aria-label="Toggle color theme">
@@ -1049,7 +1076,7 @@
 						</button>
 					</div>
 
-					<ul class="flex flex-wrap gap-x-4 gap-y-2 justify-start md:justify-end">
+					<ul class="hidden md:flex flex-wrap gap-x-4 gap-y-2 justify-start md:justify-end">
 						<li><a href="Theocharopoulos_CV.pdf" target="_blank"
 								class="font-display font-medium text-lg social-link animated-underline"
 								data-magnetic>Short CV <span class="arrow">→</span></a></li>
@@ -1073,7 +1100,7 @@
 
 				<!-- Gigantic Name -->
 				<div class="my-16">
-					<h1 class="text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] font-bold leading-none font-display">
+					<h1 class="text-5xl sm:text-8xl md:text-9xl lg:text-[9.5rem] font-bold leading-none font-display">
 						<span class="h1-line"><span>Panagiotis C.</span></span>
 						<span class="h1-line"><span class="gradient-text">Theocharopoulos</span></span>
 					</h1>
@@ -1082,15 +1109,15 @@
 				<!-- Marquee Subtitle -->
 				<div class="w-full border-y-2 border-neutral-900 dark:border-neutral-200 py-4 marquee">
 					<div class="marquee-content">
-						<span class="text-xl md:text-2xl font-medium font-display">AI Engineer @ Covariance</span>
-						<span class="text-xl md:text-2xl font-medium font-display">Research Fellow @ UTH</span>
-						<span class="text-xl md:text-2xl font-medium font-display">PhD Candidate</span>
-						<span class="text-xl md:text-2xl font-medium font-display">LLMs & RAG Systems</span>
+						<span class="text-lg md:text-2xl font-medium font-display">AI Engineer @ Covariance</span>
+						<span class="text-lg md:text-2xl font-medium font-display">Research Fellow @ UTH</span>
+						<span class="text-lg md:text-2xl font-medium font-display">PhD Candidate</span>
+						<span class="text-lg md:text-2xl font-medium font-display">LLMs & RAG Systems</span>
 						<!-- Duplicate for seamless scroll -->
-						<span class="text-xl md:text-2xl font-medium font-display">AI Engineer @ Covariance</span>
-						<span class="text-xl md:text-2xl font-medium font-display">Research Fellow @ UTH</span>
-						<span class="text-xl md:text-2xl font-medium font-display">PhD Candidate</span>
-						<span class="text-xl md:text-2xl font-medium font-display">LLMs & RAG Systems</span>
+						<span class="text-lg md:text-2xl font-medium font-display">AI Engineer @ Covariance</span>
+						<span class="text-lg md:text-2xl font-medium font-display">Research Fellow @ UTH</span>
+						<span class="text-lg md:text-2xl font-medium font-display">PhD Candidate</span>
+						<span class="text-lg md:text-2xl font-medium font-display">LLMs & RAG Systems</span>
 					</div>
 				</div>
 
@@ -1778,6 +1805,8 @@
 			const backToTopBtn = document.getElementById('back-to-top');
 			const themeToggleBtn = document.getElementById('theme-toggle');
 			const themeToggleText = document.getElementById('theme-toggle-text');
+			const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+			const mobileThemeToggleText = document.getElementById('mobile-theme-toggle-text');
 			const htmlElement = document.documentElement;
 			const imageContainer = document.getElementById('profile-image-container');
 			const image = document.getElementById('profile-image');
@@ -1857,19 +1886,27 @@
 			function updateTheme(isDark) {
 				if (isDark) {
 					htmlElement.classList.add('dark');
-					themeToggleText.textContent = 'Light Mode';
+					if (themeToggleText) themeToggleText.textContent = 'Light Mode';
+					if (mobileThemeToggleText) mobileThemeToggleText.textContent = 'Light Mode';
 					localStorage.setItem('theme', 'dark');
 				} else {
 					htmlElement.classList.remove('dark');
-					themeToggleText.textContent = 'Dark Mode';
+					if (themeToggleText) themeToggleText.textContent = 'Dark Mode';
+					if (mobileThemeToggleText) mobileThemeToggleText.textContent = 'Dark Mode';
 					localStorage.setItem('theme', 'light');
 				}
 			}
 
-			themeToggleBtn.addEventListener('click', () => {
-				const isCurrentlyDark = htmlElement.classList.contains('dark');
-				updateTheme(!isCurrentlyDark);
-			});
+			if (themeToggleBtn) {
+				themeToggleBtn.addEventListener('click', () => {
+					updateTheme(!htmlElement.classList.contains('dark'));
+				});
+			}
+			if (mobileThemeToggleBtn) {
+				mobileThemeToggleBtn.addEventListener('click', () => {
+					updateTheme(!htmlElement.classList.contains('dark'));
+				});
+			}
 
 			// --- 7. Initialize Theme on Page Load ---
 			const savedTheme = localStorage.getItem('theme');
