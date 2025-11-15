@@ -2105,6 +2105,16 @@
 				document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
 			});
 
+			// NEW: Close mobile menu when clicking the menu BACKGROUND
+			mobileNav.addEventListener('click', (e) => {
+				// Check if the click is on the nav background itself, not a child element
+				if (e.target === mobileNav) {
+					mobileMenuToggle.classList.remove('active');
+					mobileNav.classList.remove('active');
+					document.body.style.overflow = '';
+				}
+			});
+
 			// Close mobile menu when clicking a link
 			mobileNavLinks.forEach(link => {
 				link.addEventListener('click', () => {
