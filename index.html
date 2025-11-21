@@ -57,6 +57,12 @@
 			/* Glass vars */
 			--card-bg: rgba(255, 255, 255, 0.6);
 			--card-border: rgba(255, 255, 255, 0.8);
+
+			/* Background texture (light) */
+			--bg-gradients:
+				radial-gradient(circle at 20% 20%, rgba(0, 96, 223, 0.12), transparent 40%),
+				radial-gradient(circle at 80% 30%, rgba(147, 51, 234, 0.1), transparent 45%),
+				radial-gradient(circle at 50% 80%, rgba(8, 145, 178, 0.08), transparent 35%);
 		}
 
 		html.dark {
@@ -72,14 +78,39 @@
 
 			--card-bg: rgba(20, 20, 20, 0.4);
 			--card-border: rgba(255, 255, 255, 0.08);
+
+			/* Background texture (dark) */
+			--bg-gradients:
+				radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.22), transparent 38%),
+				radial-gradient(circle at 80% 30%, rgba(148, 86, 235, 0.18), transparent 45%),
+				radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.12), transparent 35%);
+		}
+
+		html {
+			scroll-padding-top: 8rem;
+			/* Leave room for sticky nav when scrolling to anchors */
 		}
 
 		body {
 			background-color: var(--bg-color);
+			background-image: var(--bg-gradients);
+			background-repeat: no-repeat;
+			background-size: 120% 120%;
 			color: var(--text-color);
 			transition: background-color 0.3s ease, color 0.3s ease;
 			cursor: none;
 			/* Custom cursor active */
+		}
+
+		html.dark body {
+			/* Subtle color without the blurry overlays */
+			background-color: #0c0c12;
+			background-image:
+				radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2), transparent 40%),
+				radial-gradient(circle at 80% 35%, rgba(148, 86, 235, 0.18), transparent 45%),
+				radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.12), transparent 35%);
+			background-repeat: no-repeat;
+			background-size: 120% 120%;
 		}
 
 		/* --- Noise Texture Overlay --- */
@@ -93,6 +124,12 @@
 			z-index: -1;
 			opacity: 0.04;
 			background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+		}
+
+		/* Disable blur overlays; gradients handle both themes */
+		.noise-overlay,
+		.aurora-bg {
+			display: none;
 		}
 
 		/* --- Aurora Background --- */
@@ -560,8 +597,8 @@
 						</p>
 					</div>
 					<div class="reveal delay-200 relative group">
-						<img src="citations.jpg" alt="Panagiotis C. Theocharopoulos"
-							class="relative rounded-xl shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-500 w-full object-cover">
+						<img src="assets/IMG_7283.jpeg" alt="Panagiotis C. Theocharopoulos"
+							class="relative rounded-xl shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-500 w-full object-cover object-[50%_20%]">
 					</div>
 				</div>
 			</section>
@@ -919,7 +956,8 @@
 						<h3
 							class="text-xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
 							Large language models for efficient topic modeling</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, P. Anagnostou, S. V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, P. Anagnostou, S. V.
+							Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">Neural Computing and Applications, 1-19</p>
 						<div class="flex flex-wrap gap-4 items-center mt-4">
 							<a href="https://doi.org/10.1007/s00521-025-11593-9" target="_blank"
@@ -943,7 +981,8 @@
 						<h3
 							class="text-xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
 							Developing predictive precision medicine models by exploiting real-world data</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V. Georgakopoulos, A. Karaminas, S. K. Tasoulis, V. P. Plagianakos</p>
+						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V.
+							Georgakopoulos, A. Karaminas, S. K. Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">Journal of Applied Statistics 51(14), 2980-3003</p>
 						<a href="https://doi.org/10.1080/02664763.2024.2315451" target="_blank"
 							class="text-custom-blue text-sm font-bold hover:underline">View DOI →</a>
@@ -964,7 +1003,8 @@
 						<h3
 							class="text-xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
 							Analysing sentiment change detection of Covid-19 tweets</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V.
+							Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">Neural Computing and Applications 35(29), 21433-21443</p>
 						<div class="flex flex-wrap gap-4 items-center mt-4">
 							<a href="https://scholar.google.com/scholar?q=Analysing+sentiment+change+detection+of+Covid-19+tweets"
@@ -985,9 +1025,12 @@
 						</div>
 						<h3
 							class="text-xl font-display font-bold leading-tight mb-2 group-hover:text-custom-purple transition-colors">
-							Transforming Medical Practice: Harnessing the Power of Big Data and Machine Learning for Predictive Precision Medicine</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V. Georgakopoulos, V. P. Plagianakos, S. K. Tasoulis</p>
-						<p class="opacity-60 text-sm mb-3">2025 IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), 1-7</p>
+							Transforming Medical Practice: Harnessing the Power of Big Data and Machine Learning for
+							Predictive Precision Medicine</h3>
+						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V.
+							Georgakopoulos, V. P. Plagianakos, S. K. Tasoulis</p>
+						<p class="opacity-60 text-sm mb-3">2025 IEEE Symposium on Computational Intelligence in Health
+							and Medicine (CIHM), 1-7</p>
 						<a href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice" target="_blank"
 							class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
 					</article>
@@ -1002,7 +1045,8 @@
 						<h3
 							class="text-xl font-display font-bold leading-tight mb-2 group-hover:text-custom-purple transition-colors">
 							Who Writes the Review, Human or AI?</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. V. Georgakopoulos, S. K.
+							Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">arXiv preprint arXiv:2405.20285</p>
 						<a href="https://scholar.google.com/scholar?q=Who+Writes+the+Review,+Human+or+AI%3F"
 							target="_blank" class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
@@ -1018,8 +1062,10 @@
 						<h3
 							class="text-xl font-display font-bold leading-tight mb-2 group-hover:text-custom-purple transition-colors">
 							Detection of Fake Generated Scientific Abstracts</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, P. Anagnostou, A. Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
-						<p class="opacity-60 text-sm mb-3">2023 IEEE Ninth International Conference on Big Data Computing Service and Applications (BigDataService), 33-39</p>
+						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, P. Anagnostou, A. Tsoukala, S.
+							V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+						<p class="opacity-60 text-sm mb-3">2023 IEEE Ninth International Conference on Big Data
+							Computing Service and Applications (BigDataService), 33-39</p>
 						<a href="https://scholar.google.com/scholar?q=Detection+of+Fake+Generated+Scientific+Abstracts"
 							target="_blank" class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
 					</article>
@@ -1034,8 +1080,10 @@
 						<h3
 							class="text-xl font-display font-bold leading-tight mb-2 group-hover:text-custom-purple transition-colors">
 							Text analysis of COVID-19 tweets</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
-						<p class="opacity-60 text-sm mb-3">International Conference on Engineering Applications of Neural Networks, 517-528</p>
+						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V.
+							Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+						<p class="opacity-60 text-sm mb-3">International Conference on Engineering Applications of
+							Neural Networks, 517-528</p>
 						<a href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets" target="_blank"
 							class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
 					</article>
@@ -1075,7 +1123,8 @@
 		const themeText = document.getElementById('theme-text');
 
 		const updateThemeText = () => {
-			themeText.textContent = html.classList.contains('dark') ? 'Dark' : 'Light';
+			// Show the mode the user can switch to (not the current one)
+			themeText.textContent = html.classList.contains('dark') ? 'Light' : 'Dark';
 		};
 
 		// Check LocalStorage
