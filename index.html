@@ -486,14 +486,12 @@
 	</nav>
 
 	<!-- Mobile Header -->
-	<div class="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 lg:hidden pointer-events-none">
-		<span
-			class="font-display font-bold text-xl pointer-events-auto mix-blend-difference text-custom-text">PT.</span>
-		<button id="mobile-menu-btn"
-			class="pointer-events-auto w-10 h-10 flex flex-col justify-center gap-1.5 items-end group text-custom-text">
-			<span class="w-8 h-0.5 bg-current transition-all group-hover:w-6"></span>
-			<span class="w-6 h-0.5 bg-current transition-all group-hover:w-8"></span>
-		</button>
+		<div class="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 lg:hidden pointer-events-none">
+			<button id="mobile-menu-btn"
+				class="pointer-events-auto w-10 h-10 flex flex-col justify-center gap-1.5 items-end group text-custom-text">
+				<span class="w-8 h-0.5 bg-current transition-all group-hover:w-6"></span>
+				<span class="w-6 h-0.5 bg-current transition-all group-hover:w-8"></span>
+			</button>
 	</div>
 
 	<!-- Mobile Nav Overlay -->
@@ -511,15 +509,22 @@
 			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Education</a>
 		<a href="#publications"
 			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Publications</a>
+		<div class="w-full md:hidden border-t border-current/10 pt-6 mt-2 flex flex-col items-center gap-4 text-sm font-display uppercase tracking-wider">
+			<button id="theme-toggle-mobile"
+				class="px-4 py-2 rounded-full border border-current/30 hover:border-custom-blue transition-colors">
+				<span id="theme-text-mobile">Light</span> Mode
+			</button>
+			<a href="mailto:panos.t95@gmail.com" class="hover:text-custom-blue transition-colors">Get in touch</a>
+		</div>
 	</div>
 
 	<div class="page-content max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pb-24">
 
 		<!-- HERO SECTION -->
-		<header class="min-h-[90vh] flex flex-col justify-center pt-20 relative">
+		<header class="min-h-[90vh] flex flex-col justify-center pt-28 md:pt-20 relative">
 			<!-- Top Utilities -->
 			<div
-				class="absolute top-0 right-0 py-8 flex gap-6 items-center text-sm font-display font-medium opacity-80">
+				class="absolute top-0 right-0 py-8 hidden md:flex gap-6 items-center text-sm font-display font-medium opacity-80">
 				<button id="theme-toggle" class="hover:text-custom-blue transition-colors uppercase tracking-wider">
 					<span id="theme-text">Light</span> Mode
 				</button>
@@ -551,6 +556,10 @@
 			</div>
 
 			<div class="mt-12 flex flex-wrap gap-4 reveal delay-300">
+				<a href="mailto:panos.t95@gmail.com"
+					class="glass-card px-6 py-3 font-display font-medium hover:text-custom-blue transition-colors flex items-center gap-2 magnetic-link">
+					Get in touch <span class="text-lg">↗</span>
+				</a>
 				<a href="https://www.linkedin.com/in/ptheochar/" target="_blank"
 					class="glass-card px-6 py-3 font-display font-medium hover:text-custom-blue transition-colors flex items-center gap-2 magnetic-link">
 					LinkedIn <span class="text-lg">↗</span>
@@ -1121,10 +1130,14 @@
 		const html = document.documentElement;
 		const toggleBtn = document.getElementById('theme-toggle');
 		const themeText = document.getElementById('theme-text');
+		const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+		const themeTextMobile = document.getElementById('theme-text-mobile');
 
 		const updateThemeText = () => {
 			// Show the mode the user can switch to (not the current one)
-			themeText.textContent = html.classList.contains('dark') ? 'Light' : 'Dark';
+			const nextMode = html.classList.contains('dark') ? 'Light' : 'Dark';
+			if (themeText) themeText.textContent = nextMode;
+			if (themeTextMobile) themeTextMobile.textContent = nextMode;
 		};
 
 		// Check LocalStorage
@@ -1134,11 +1147,14 @@
 		}
 		updateThemeText();
 
-		toggleBtn.addEventListener('click', () => {
+		const toggleTheme = () => {
 			html.classList.toggle('dark');
 			localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
 			updateThemeText();
-		});
+		};
+
+		if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
+		if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
 
 		// --- Scroll Progress & Sticky Nav & Back to Top ---
 		const progressBar = document.getElementById('scroll-progress');
