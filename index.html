@@ -5,14 +5,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Panagiotis C. Theocharopoulos</title>
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230060df'/><text x='16' y='22' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='17' fill='white'>PT</text></svg>">
+	<link rel="icon"
+		href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230060df'/><text x='16' y='22' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='17' fill='white'>PT</text></svg>">
 	<!-- Load Tailwind CSS -->
 	<script src="https://cdn.tailwindcss.com"></script>
 	<!-- Load Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:wght@400;600;700&display=swap"
 		rel="stylesheet">
 
 	<!-- Tailwind Config to use your Custom Colors -->
@@ -23,7 +24,7 @@
 				extend: {
 					fontFamily: {
 						sans: ['Inter', 'sans-serif'],
-						display: ['Space Grotesk', 'sans-serif'],
+						display: ['Source Serif 4', 'serif'],
 					},
 					colors: {
 						// We will use CSS variables for these in the style tag below
@@ -43,48 +44,35 @@
 	<style>
 		/* --- VARIABLES --- */
 		:root {
-			/* Light Mode: Darker accents for better contrast against white bg */
-			--accent-blue: #0060df;
-			--accent-purple: #9333ea;
-			--accent-cyan: #0891b2;
+			/* Light Mode: restrained institutional palette */
+			--accent-blue: #0f4c81;
+			--accent-purple: #3d617f;
+			--accent-cyan: #3d617f;
 
-			--bg-color: #f8f7f3;
-			/* Warm off-white */
-			--text-color: #111111;
-			/* Almost black */
-			--border-color: #e5e5e5;
-			--glow-color: rgba(0, 96, 223, 0.2);
-
-			/* Glass vars */
-			--card-bg: rgba(255, 255, 255, 0.6);
-			--card-border: rgba(255, 255, 255, 0.8);
-
-			/* Background texture (light) */
+			--bg-color: #f5f3ee;
+			--text-color: #16212b;
+			--border-color: #d7d9dd;
+			--glow-color: rgba(15, 76, 129, 0.12);
+			--card-bg: rgba(255, 255, 255, 0.84);
+			--card-border: rgba(22, 33, 43, 0.1);
 			--bg-gradients:
-				radial-gradient(circle at 20% 20%, rgba(0, 96, 223, 0.12), transparent 40%),
-				radial-gradient(circle at 80% 30%, rgba(147, 51, 234, 0.1), transparent 45%),
-				radial-gradient(circle at 50% 80%, rgba(8, 145, 178, 0.08), transparent 35%);
+				linear-gradient(180deg, rgba(15, 76, 129, 0.045), transparent 22%),
+				radial-gradient(circle at top right, rgba(15, 76, 129, 0.07), transparent 28%);
 		}
 
 		html.dark {
-			/* Dark Mode: Brighter accents for pop against black bg */
-			--accent-blue: #3b82f6;
-			--accent-purple: #a855f7;
-			--accent-cyan: #06b6d4;
-
-			--bg-color: #111111;
-			--text-color: #f8f7f3;
-			--border-color: #333333;
-			--glow-color: rgba(59, 130, 246, 0.5);
-
-			--card-bg: rgba(20, 20, 20, 0.4);
-			--card-border: rgba(255, 255, 255, 0.13);
-
-			/* Background texture (dark) */
+			--accent-blue: #8ab8df;
+			--accent-purple: #8ea7bc;
+			--accent-cyan: #8ea7bc;
+			--bg-color: #11161d;
+			--text-color: #edf1f5;
+			--border-color: #27303a;
+			--glow-color: rgba(138, 184, 223, 0.18);
+			--card-bg: rgba(18, 24, 31, 0.92);
+			--card-border: rgba(255, 255, 255, 0.09);
 			--bg-gradients:
-				radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.22), transparent 38%),
-				radial-gradient(circle at 80% 30%, rgba(148, 86, 235, 0.18), transparent 45%),
-				radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.12), transparent 35%);
+				linear-gradient(180deg, rgba(138, 184, 223, 0.08), transparent 20%),
+				radial-gradient(circle at top right, rgba(138, 184, 223, 0.12), transparent 26%);
 		}
 
 		html {
@@ -96,88 +84,19 @@
 			background-color: var(--bg-color);
 			background-image: var(--bg-gradients);
 			background-repeat: no-repeat;
-			background-size: 120% 120%;
+			background-size: 100% 100%;
 			color: var(--text-color);
 			transition: background-color 0.3s ease, color 0.3s ease;
-			cursor: none;
-			/* Custom cursor active */
+			text-rendering: optimizeLegibility;
 		}
 
 		html.dark body {
-			/* Subtle color without the blurry overlays */
-			background-color: #0c0c12;
+			background-color: #11161d;
 			background-image:
-				radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2), transparent 40%),
-				radial-gradient(circle at 80% 35%, rgba(148, 86, 235, 0.18), transparent 45%),
-				radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.12), transparent 35%);
+				linear-gradient(180deg, rgba(138, 184, 223, 0.08), transparent 20%),
+				radial-gradient(circle at top right, rgba(138, 184, 223, 0.12), transparent 26%);
 			background-repeat: no-repeat;
-			background-size: 120% 120%;
-		}
-
-		/* --- Noise Texture Overlay --- */
-		.noise-overlay {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			pointer-events: none;
-			z-index: -1;
-			opacity: 0.04;
-			background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-		}
-
-		/* Disable blur overlays; gradients handle both themes */
-		.noise-overlay,
-		.aurora-bg {
-			display: none;
-		}
-
-		/* --- Aurora Background --- */
-		.aurora-bg {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: -2;
-			pointer-events: none;
-			opacity: 0.5;
-		}
-
-		.aurora-blob {
-			position: absolute;
-			border-radius: 50%;
-			filter: blur(80px);
-			animation: float 20s infinite alternate;
-		}
-
-		.blob-1 {
-			top: -10%;
-			left: -10%;
-			width: 50vw;
-			height: 50vw;
-			background: var(--accent-blue);
-			animation-delay: 0s;
-		}
-
-		.blob-2 {
-			bottom: -10%;
-			right: -10%;
-			width: 40vw;
-			height: 40vw;
-			background: var(--accent-purple);
-			animation-delay: -5s;
-		}
-
-		@keyframes float {
-			0% {
-				transform: translate(0, 0) scale(1);
-			}
-
-			100% {
-				transform: translate(20px, 40px) scale(1.1);
-			}
+			background-size: 100% 100%;
 		}
 
 		/* --- Scroll Progress --- */
@@ -192,50 +111,15 @@
 			transform: scaleX(0);
 		}
 
-		/* --- Custom Cursor (FIXED VISIBILITY) --- */
-		.cursor-dot {
-			width: 10px;
-			height: 10px;
-			/* In Light Mode: Black cursor. In Dark Mode: White cursor. */
-			background-color: var(--text-color);
-			position: fixed;
-			border-radius: 50%;
-			pointer-events: none;
-			z-index: 9999;
-			transform: translate(-50%, -50%);
-			transition: width 0.3s, height 0.3s, background-color 0.3s;
-			/* Removed mix-blend-mode: difference to ensure visibility on plain backgrounds */
-		}
-
-		.cursor-dot.hovering {
-			width: 50px;
-			height: 50px;
-			background-color: transparent;
-			border: 1px solid var(--text-color);
-		}
-
-		@media (hover: none) {
-			.cursor-dot {
-				display: none;
-			}
-
-			body {
-				cursor: auto;
-			}
-		}
-
-		/* --- Navigation Pill --- */
 		.nav-pill {
-			background: rgba(255, 255, 255, 0.1);
-			backdrop-filter: blur(16px);
-			-webkit-backdrop-filter: blur(16px);
-			border: 1px solid rgba(255, 255, 255, 0.2);
-			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+			background: rgba(255, 255, 255, 0.78);
+			border: 1px solid var(--border-color);
+			box-shadow: 0 10px 30px rgba(16, 24, 40, 0.05);
 		}
 
 		html.dark .nav-pill {
-			background: rgba(0, 0, 0, 0.4);
-			border: 1px solid rgba(255, 255, 255, 0.1);
+			background: rgba(18, 24, 31, 0.92);
+			border: 1px solid var(--border-color);
 		}
 
 		.nav-link {
@@ -263,86 +147,103 @@
 			border-radius: 50%;
 		}
 
-		/* --- Enhanced Glass Cards --- */
 		.glass-card {
 			background: var(--card-bg);
-			backdrop-filter: blur(12px);
-			-webkit-backdrop-filter: blur(12px);
 			border: 1px solid var(--card-border);
-			border-radius: 16px;
-			transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+			border-radius: 14px;
+			box-shadow: 0 10px 30px rgba(16, 24, 40, 0.04);
+			transition: border-color 0.2s ease, box-shadow 0.2s ease;
 		}
 
 		.glass-card:hover {
-			transform: translateY(-4px);
-			box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
-			border-color: var(--accent-blue);
+			box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+			border-color: rgba(15, 76, 129, 0.22);
 		}
 
-		html.dark .glass-card:hover {
-			box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-		}
-
-		/* --- Simple Glass Cards (no hover lift) --- */
 		.simple-glass-card {
 			background: var(--card-bg);
-			backdrop-filter: blur(12px);
-			-webkit-backdrop-filter: blur(12px);
 			border: 1px solid var(--card-border);
-			border-radius: 16px;
+			border-radius: 14px;
+			box-shadow: 0 10px 30px rgba(16, 24, 40, 0.03);
 		}
 
 		/* --- Animation Delays --- */
-		.delay-100 { transition-delay: 100ms; }
-		.delay-200 { transition-delay: 200ms; }
-		.delay-300 { transition-delay: 300ms; }
+		.delay-100 {
+			transition-delay: 100ms;
+		}
 
-		/* --- Back to Top: Rounded Square --- */
-		.back-to-top { border-radius: 12px !important; }
+		.delay-200 {
+			transition-delay: 200ms;
+		}
 
-		/* --- Primary CTA Button --- */
+		.delay-300 {
+			transition-delay: 300ms;
+		}
+
+		.back-to-top {
+			border-radius: 12px !important;
+		}
+
 		.primary-btn {
 			background-color: var(--text-color);
 			color: var(--bg-color);
-			border-radius: 16px;
-			padding: 0.75rem 1.5rem;
-			font-family: 'Space Grotesk', sans-serif;
-			font-weight: 500;
+			border: 1px solid var(--text-color);
+			border-radius: 10px;
+			padding: 0.8rem 1.35rem;
+			font-family: 'Inter', sans-serif;
+			font-weight: 600;
+			letter-spacing: 0.01em;
 			display: flex;
 			align-items: center;
 			gap: 0.5rem;
-			transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+			transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 		}
+
 		.primary-btn:hover {
 			background-color: var(--accent-blue);
 			color: white;
-			transform: translateY(-2px);
+			border-color: var(--accent-blue);
+			box-shadow: 0 6px 16px var(--glow-color);
 		}
 
 		/* --- Theme Toggle Icon --- */
-		.theme-icon-moon { display: inline-block; }
-		.theme-icon-sun  { display: none; }
-		html.dark .theme-icon-moon { display: none; }
-		html.dark .theme-icon-sun  { display: inline-block; }
+		.theme-icon-moon {
+			display: inline-block;
+		}
+
+		.theme-icon-sun {
+			display: none;
+		}
+
+		html.dark .theme-icon-moon {
+			display: none;
+		}
+
+		html.dark .theme-icon-sun {
+			display: inline-block;
+		}
 
 		/* --- Section Number Accent --- */
-		.section-num { color: var(--accent-blue); opacity: 1; }
+		.section-num {
+			color: var(--accent-blue);
+			opacity: 1;
+		}
 
 		/* --- Skills Section Top Accent --- */
 		#skills {
 			border-top: 1px solid rgba(0, 96, 223, 0.2);
 			padding-top: 3rem;
 		}
+
 		html.dark #skills {
 			border-top-color: rgba(59, 130, 246, 0.2);
 		}
 
-		/* --- Timeline Effect --- */
 		.timeline-item {
 			position: relative;
 			padding-left: 2.5rem;
 			padding-bottom: 3rem;
-			border-left: 2px solid rgba(160, 160, 160, 0.2);
+			border-left: 1px solid rgba(61, 97, 127, 0.22);
 		}
 
 		.timeline-item:last-child {
@@ -351,88 +252,102 @@
 
 		.timeline-dot {
 			position: absolute;
-			left: -6px;
+			left: -5px;
 			top: 6px;
-			width: 10px;
-			height: 10px;
+			width: 8px;
+			height: 8px;
 			border-radius: 50%;
+			background-color: var(--accent-blue) !important;
+			box-shadow: 0 0 0 5px var(--bg-color);
+		}
+
+		.timeline-card {
+			position: relative;
+			overflow: hidden;
+		}
+
+		.timeline-card::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 2px;
 			background: var(--accent-blue);
-			box-shadow: 0 0 0 4px var(--bg-color);
-			transition: transform 0.3s ease;
+			opacity: 0.35;
+		}
+
+		.timeline-date {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.4rem;
+			padding: 0.35rem 0.75rem;
+			border-radius: 999px;
+			border: 1px solid rgba(160, 160, 160, 0.25);
+			background: transparent;
+			font-size: 0.75rem;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+		}
+
+		.timeline-kicker {
+			font-size: 0.8rem;
+			font-weight: 700;
+			letter-spacing: 0.18em;
+			text-transform: uppercase;
+			opacity: 0.55;
+		}
+
+		@media (max-width: 768px) {
+			.timeline-item {
+				padding-left: 1.75rem;
+				padding-bottom: 2rem;
+			}
+
+			.timeline-dot {
+				left: -5px;
+			}
 		}
 
 		/* --- Typography & Gradients --- */
 		.gradient-text {
-			background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-cyan));
+			background: linear-gradient(135deg, var(--accent-blue), #355e82);
 			-webkit-background-clip: text;
 			background-clip: text;
 			-webkit-text-fill-color: transparent;
-			/* Fallback for text visibility if background fails or is too light */
 			color: var(--accent-blue);
-			background-size: 200% 200%;
-			animation: gradient-shift 6s ease infinite;
+			background-size: 100% 100%;
 		}
 
-		@keyframes gradient-shift {
-			0% {
-				background-position: 0% 50%;
-			}
-
-			50% {
-				background-position: 100% 50%;
-			}
-
-			100% {
-				background-position: 0% 50%;
-			}
-		}
-
-		/* --- Skill Tags --- */
-		.skill-tag {
-			position: relative;
-			background: rgba(255, 255, 255, 0.05);
-			border: 1px solid var(--text-color);
-			opacity: 0.8;
-			color: var(--text-color);
-			padding: 0.4rem 1rem;
-			border-radius: 99px;
+		.section-note {
+			max-width: 32rem;
+			margin-top: 1rem;
 			font-size: 0.9rem;
-			transition: all 0.3s ease;
-			overflow: hidden;
-			z-index: 1;
+			line-height: 1.7;
+			opacity: 0.62;
 		}
 
-		.skill-tag::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-			z-index: -1;
-			opacity: 0;
-			transition: opacity 0.3s ease;
+		.capability-list {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 0.75rem;
+			font-size: 0.95rem;
+			line-height: 1.7;
+			opacity: 0.86;
 		}
 
-		.skill-tag:hover {
-			border-color: transparent;
-			color: white;
-			transform: scale(1.05);
-			opacity: 1;
+		.capability-list span {
+			display: block;
+			padding-top: 0.75rem;
+			border-top: 1px solid rgba(61, 97, 127, 0.16);
 		}
 
-		.skill-tag:hover::before {
-			opacity: 1;
-		}
-
-		/* --- Publication Filters --- */
 		.filter-btn {
-			background-color: transparent;
-			border: 1px solid var(--text-color);
+			background-color: rgba(255, 255, 255, 0.4);
+			border: 1px solid var(--border-color);
 			color: var(--text-color);
-			transition: all 0.3s ease;
-			opacity: 0.7;
+			transition: all 0.2s ease;
+			opacity: 0.88;
 		}
 
 		.filter-btn:hover {
@@ -440,9 +355,9 @@
 		}
 
 		.filter-btn.active {
-			background-color: var(--text-color);
-			color: var(--bg-color);
-			border-color: var(--text-color);
+			background-color: var(--accent-blue);
+			color: white;
+			border-color: var(--accent-blue);
 			opacity: 1;
 		}
 
@@ -479,27 +394,6 @@
 			box-shadow: 0 5px 15px var(--glow-color);
 		}
 
-		/* --- Marquee --- */
-		.marquee {
-			overflow: hidden;
-			white-space: nowrap;
-		}
-
-		.marquee-content {
-			display: inline-block;
-			animation: marquee 20s linear infinite;
-		}
-
-		@keyframes marquee {
-			0% {
-				transform: translateX(0);
-			}
-
-			100% {
-				transform: translateX(-50%);
-			}
-		}
-
 		/* Mobile Nav */
 		.mobile-nav-overlay {
 			position: fixed;
@@ -518,31 +412,25 @@
 
 <body class="antialiased overflow-x-hidden selection:bg-custom-blue selection:text-white">
 
-	<!-- Background Elements -->
-	<div class="noise-overlay"></div>
-	<div class="aurora-bg">
-		<div class="aurora-blob blob-1"></div>
-		<div class="aurora-blob blob-2"></div>
-	</div>
 	<div class="scroll-progress" id="scroll-progress"></div>
-	<div class="cursor-dot" id="cursor-dot"></div>
 
 	<!-- Desktop Sticky Nav -->
 	<nav id="section-nav"
 		class="fixed top-6 left-1/2 -translate-x-1/2 z-40 hidden lg:block transition-all duration-500 opacity-0 -translate-y-full">
-		<div class="nav-pill px-6 py-3 rounded-full flex gap-8 items-center">
+		<div class="nav-pill px-6 py-3 rounded-xl flex gap-8 items-center">
 			<a href="#about" class="nav-link font-display text-sm font-medium tracking-wide">About</a>
 			<a href="#experience" class="nav-link font-display text-sm font-medium tracking-wide">Experience</a>
 			<a href="#teaching" class="nav-link font-display text-sm font-medium tracking-wide">Teaching</a>
 			<a href="#skills" class="nav-link font-display text-sm font-medium tracking-wide">Skills</a>
 			<a href="#education" class="nav-link font-display text-sm font-medium tracking-wide">Education</a>
+			<a href="#honors" class="nav-link font-display text-sm font-medium tracking-wide">Honors</a>
 			<a href="#publications" class="nav-link font-display text-sm font-medium tracking-wide">Publications</a>
 		</div>
 	</nav>
 
 	<!-- Mobile Header -->
 	<div class="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 lg:hidden pointer-events-none">
-		<button id="mobile-menu-btn"
+		<button id="mobile-menu-btn" aria-label="Open navigation menu" aria-controls="mobile-nav" aria-expanded="false"
 			class="pointer-events-auto w-10 h-10 flex flex-col justify-center gap-1.5 items-end group text-custom-text">
 			<span class="w-8 h-0.5 bg-current transition-all group-hover:w-6"></span>
 			<span class="w-6 h-0.5 bg-current transition-all group-hover:w-8"></span>
@@ -551,7 +439,8 @@
 
 	<!-- Mobile Nav Overlay -->
 	<div id="mobile-nav" class="mobile-nav-overlay flex flex-col justify-center items-center gap-8 p-8">
-		<button id="mobile-close-btn" class="absolute top-6 right-6 font-display font-bold text-lg">CLOSE</button>
+		<button id="mobile-close-btn" aria-label="Close navigation menu"
+			class="absolute top-6 right-6 font-display font-bold text-lg">CLOSE</button>
 		<a href="#about"
 			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">About</a>
 		<a href="#experience"
@@ -562,14 +451,32 @@
 			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Skills</a>
 		<a href="#education"
 			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Education</a>
+		<a href="#honors"
+			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Honors</a>
 		<a href="#publications"
 			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Publications</a>
 		<div
 			class="w-full lg:hidden border-t border-current/10 pt-6 mt-2 flex flex-col items-center gap-4 text-sm font-display uppercase tracking-wider">
-			<button id="theme-toggle-mobile"
+			<button id="theme-toggle-mobile" aria-label="Toggle color theme"
 				class="px-4 py-2 rounded-full border border-current/30 hover:border-custom-blue transition-colors flex items-center gap-1.5">
-				<svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-				<svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+				<svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+					viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+					stroke-linejoin="round">
+					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+				</svg>
+				<svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+					viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+					stroke-linejoin="round">
+					<circle cx="12" cy="12" r="5" />
+					<line x1="12" y1="1" x2="12" y2="3" />
+					<line x1="12" y1="21" x2="12" y2="23" />
+					<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+					<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+					<line x1="1" y1="12" x2="3" y2="12" />
+					<line x1="21" y1="12" x2="23" y2="12" />
+					<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+					<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+				</svg>
 				<span id="theme-text-mobile">Light</span> Mode
 			</button>
 			<a href="mailto:panos.t95@gmail.com" class="hover:text-custom-blue transition-colors">Get in touch</a>
@@ -583,55 +490,61 @@
 			<!-- Top Utilities -->
 			<div
 				class="absolute top-0 right-0 py-8 hidden md:flex gap-6 items-center text-sm font-display font-medium opacity-80">
-				<button id="theme-toggle" class="hover:text-custom-blue transition-colors uppercase tracking-wider flex items-center gap-1.5">
-					<svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-					<svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+				<button id="theme-toggle" aria-label="Toggle color theme"
+					class="hover:text-custom-blue transition-colors uppercase tracking-wider flex items-center gap-1.5">
+					<svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+						viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+						stroke-linejoin="round">
+						<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+					</svg>
+					<svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+						viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+						stroke-linejoin="round">
+						<circle cx="12" cy="12" r="5" />
+						<line x1="12" y1="1" x2="12" y2="3" />
+						<line x1="12" y1="21" x2="12" y2="23" />
+						<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+						<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+						<line x1="1" y1="12" x2="3" y2="12" />
+						<line x1="21" y1="12" x2="23" y2="12" />
+						<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+						<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+					</svg>
 					<span id="theme-text">Light</span> Mode
 				</button>
 				<div class="h-4 w-[1px] bg-current"></div>
-				<a href="mailto:panos.t95@gmail.com" class="hover:text-custom-blue transition-colors magnetic-link">Get
+				<a href="mailto:panos.t95@gmail.com" class="hover:text-custom-blue transition-colors">Get
 					in
 					touch</a>
 			</div>
 
-			<div class="space-y-4">
+			<div class="space-y-6 max-w-5xl">
 				<h1
 					class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold font-display leading-[0.9] tracking-tight reveal delay-100">
 					Panagiotis<br>
 					<span class="gradient-text">Theocharopoulos</span>
 				</h1>
-				<!-- Marquee Restoration -->
-				<div class="marquee w-full border-y border-custom-text/20 py-3 mt-8 reveal delay-200">
-					<div class="marquee-content font-display font-medium text-lg md:text-xl opacity-80">
-						<span class="mx-6">AI Engineer @ Covariance</span>
-						<span class="mx-6">PhD Candidate</span>
-						<span class="mx-6">LLMs & RAG Systems</span>
-						<span class="mx-6">AI Engineer @ Covariance</span>
-						<span class="mx-6">PhD Candidate</span>
-						<span class="mx-6">LLMs & RAG Systems</span>
-					</div>
-				</div>
 			</div>
 
 			<div class="mt-12 flex flex-wrap gap-4 reveal delay-300">
-				<a href="mailto:panos.t95@gmail.com"
-					class="primary-btn magnetic-link">
+				<a href="mailto:panos.t95@gmail.com" class="primary-btn">
 					Get in touch <span class="text-lg">↗</span>
 				</a>
 				<a href="https://www.linkedin.com/in/ptheochar/" target="_blank" rel="noopener noreferrer"
-					class="glass-card px-6 py-3 font-display font-medium hover:text-custom-blue transition-colors flex items-center gap-2 magnetic-link">
+					class="glass-card px-6 py-3 font-medium hover:text-custom-blue transition-colors flex items-center gap-2">
 					LinkedIn <span class="text-lg">↗</span>
 				</a>
-				<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"
-					class="glass-card px-6 py-3 font-display font-medium hover:text-custom-cyan transition-colors flex items-center gap-2 magnetic-link">
+				<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&amp;hl=en" target="_blank"
+					rel="noopener noreferrer"
+					class="glass-card px-6 py-3 font-medium hover:text-custom-cyan transition-colors flex items-center gap-2">
 					Scholar <span class="text-lg">↗</span>
 				</a>
 				<a href="Theocharopoulos_CV.pdf" target="_blank" rel="noopener noreferrer"
-					class="glass-card px-6 py-3 font-display font-medium hover:text-custom-blue transition-colors flex items-center gap-2 magnetic-link">
+					class="glass-card px-6 py-3 font-medium hover:text-custom-blue transition-colors flex items-center gap-2">
 					Short CV <span class="text-lg">↓</span>
 				</a>
 				<a href="PTheocharopoulos_ACV.pdf" target="_blank" rel="noopener noreferrer"
-					class="glass-card px-6 py-3 font-display font-medium hover:text-custom-blue transition-colors flex items-center gap-2 magnetic-link">
+					class="glass-card px-6 py-3 font-medium hover:text-custom-blue transition-colors flex items-center gap-2">
 					Full CV <span class="text-lg">↓</span>
 				</a>
 			</div>
@@ -642,7 +555,11 @@
 			<!-- ABOUT SECTION -->
 			<section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-12">
 				<div class="lg:col-span-4">
-					<h2 class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50"><span class="section-num">01</span> / About</h2>
+					<h2
+						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
+						<span class="section-num">01</span> / About</h2>
+					<p class="section-note">Research-led profile focused on applied artificial intelligence, healthcare
+						analytics, and translational machine learning.</p>
 				</div>
 				<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 					<div class="space-y-6 text-lg leading-relaxed reveal text-justify">
@@ -654,14 +571,14 @@
 								systems</strong>, and <strong>Natural Language Processing</strong>.
 						</p>
 						<p>
-							As a PhD Candidate in Computer Science and Biomedical Informatics at the University of
-							Thessaly, I bridge theoretical research with practical applications, developing
-							state-of-the-art AI solutions for healthcare and precision medicine.
+							As a doctoral researcher at the University of Thessaly, I bridge theoretical research with
+							practical applications, developing AI solutions for healthcare, precision medicine, and
+							language-intensive systems.
 						</p>
 					</div>
 					<div class="reveal delay-200 relative group">
 						<img src="assets/IMG_7283.jpeg" alt="Panagiotis C. Theocharopoulos"
-							class="relative rounded-xl shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-500 w-full object-cover object-[50%_20%]">
+							class="relative rounded-xl border border-current/10 shadow-lg w-full object-cover object-[50%_20%] grayscale transition-all duration-500 group-hover:grayscale-0">
 					</div>
 				</div>
 			</section>
@@ -669,18 +586,25 @@
 			<!-- EXPERIENCE SECTION (Timeline) -->
 			<section id="experience" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 				<div class="lg:col-span-4">
-					<h2 class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50"><span class="section-num">02</span> / Experience
+					<h2
+						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
+						<span class="section-num">02</span> / Experience
 					</h2>
+					<p class="section-note">Roles spanning AI delivery in production environments and research work in
+						academic settings.</p>
 				</div>
 				<div class="lg:col-span-8 space-y-2 reveal">
 
 					<!-- Covariance (Combined) -->
 					<div class="timeline-item">
 						<div class="timeline-dot bg-custom-blue"></div>
-						<div class="glass-card p-6 md:p-8 relative">
+						<div class="glass-card timeline-card p-6 md:p-8 relative">
 							<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-								<h3 class="text-xl font-display font-bold">Covariance</h3>
-								<span class="text-sm font-mono opacity-60">Feb 2021 — Present</span>
+								<div>
+									<p class="timeline-kicker mb-2">Industry</p>
+									<h3 class="text-xl font-display font-bold">Covariance</h3>
+								</div>
+								<span class="timeline-date">Feb 2021 - Present</span>
 							</div>
 							<div class="space-y-6">
 								<div>
@@ -716,10 +640,13 @@
 					<!-- University of Thessaly -->
 					<div class="timeline-item">
 						<div class="timeline-dot bg-purple-500"></div>
-						<div class="glass-card p-6 md:p-8">
+						<div class="glass-card timeline-card p-6 md:p-8">
 							<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-								<h3 class="text-xl font-display font-bold">University of Thessaly</h3>
-								<span class="text-sm font-mono opacity-60">2019 — 2025</span>
+								<div>
+									<p class="timeline-kicker mb-2">Academic</p>
+									<h3 class="text-xl font-display font-bold">University of Thessaly</h3>
+								</div>
+								<span class="timeline-date">2019 - 2025</span>
 							</div>
 							<div class="space-y-6">
 								<div>
@@ -750,10 +677,13 @@
 					<!-- Support Engineer -->
 					<div class="timeline-item">
 						<div class="timeline-dot bg-custom-blue"></div>
-						<div class="glass-card p-6 md:p-8">
+						<div class="glass-card timeline-card p-6 md:p-8">
 							<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-								<h3 class="text-xl font-display font-bold">Naval Hospital of Athens</h3>
-								<span class="text-sm font-mono opacity-60">Jul 2017 — Aug 2017</span>
+								<div>
+									<p class="timeline-kicker mb-2">Internship</p>
+									<h3 class="text-xl font-display font-bold">Naval Hospital of Athens</h3>
+								</div>
+								<span class="timeline-date">Jul 2017 - Aug 2017</span>
 							</div>
 							<p class="text-sm font-medium opacity-60 uppercase tracking-wide mb-4">Support Engineer
 								(Intern)</p>
@@ -770,7 +700,11 @@
 			<!-- TEACHING SECTION -->
 			<section id="teaching" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 				<div class="lg:col-span-4">
-					<h2 class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50"><span class="section-num">03</span> / Teaching</h2>
+					<h2
+						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
+						<span class="section-num">03</span> / Teaching</h2>
+					<p class="section-note">University teaching support across programming, data mining, and applied
+						computational methods.</p>
 				</div>
 				<div class="lg:col-span-8 reveal">
 					<div class="glass-card p-6 md:p-8">
@@ -828,46 +762,44 @@
 			<!-- SKILLS SECTION -->
 			<section id="skills" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 				<div class="lg:col-span-4">
-					<h2 class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50"><span class="section-num">04</span> / Expertise</h2>
+					<h2
+						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
+						<span class="section-num">04</span> / Expertise</h2>
+					<p class="section-note">Technical focus areas across machine learning research, AI systems, data
+						infrastructure, and communication.</p>
 				</div>
 				<div class="lg:col-span-8">
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
-						<div>
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+						<div class="glass-card p-6">
 							<h3 class="font-display font-bold text-lg mb-6 border-b border-current pb-2 opacity-80">AI &
 								Machine Learning</h3>
-							<div class="flex flex-wrap gap-3">
-								<span class="skill-tag">Python</span>
-								<span class="skill-tag">LLMs</span>
-								<span class="skill-tag">RAG Systems</span>
-								<span class="skill-tag">NLP</span>
-								<span class="skill-tag">PyTorch</span>
-								<span class="skill-tag">TensorFlow</span>
-								<span class="skill-tag">Deep Learning</span>
-								<span class="skill-tag">Computer Vision</span>
+							<div class="capability-list">
+								<span>Large language models and retrieval-augmented generation</span>
+								<span>Natural language processing and language-intensive systems</span>
+								<span>Deep learning workflows in Python, PyTorch, and TensorFlow</span>
+								<span>Applied machine learning for healthcare and precision medicine</span>
 							</div>
 						</div>
-						<div>
+						<div class="glass-card p-6">
 							<h3 class="font-display font-bold text-lg mb-6 border-b border-current pb-2 opacity-80">Data
 								&
 								Infrastructure</h3>
-							<div class="flex flex-wrap gap-3">
-								<span class="skill-tag">SQL</span>
-								<span class="skill-tag">Microsoft Azure AI</span>
-								<span class="skill-tag">Git</span>
-								<span class="skill-tag">Linux</span>
-								<span class="skill-tag">ETL</span>
-								<span class="skill-tag">Big Data</span>
+							<div class="capability-list">
+								<span>SQL, ETL pipelines, and large-scale data preparation</span>
+								<span>Internal APIs and applied AI system integration</span>
+								<span>Linux, Git, and cloud-oriented engineering workflows</span>
+								<span>Microsoft Azure AI and production model deployment support</span>
 							</div>
 						</div>
-						<div>
+						<div class="glass-card p-6">
 							<h3 class="font-display font-bold text-lg mb-6 border-b border-current pb-2 opacity-80">
 								Spoken
 								Languages</h3>
-							<div class="flex flex-wrap gap-3">
-								<span class="skill-tag">Greek (Native)</span>
-								<span class="skill-tag">English (Fluent)</span>
-								<span class="skill-tag">German</span>
-								<span class="skill-tag">Italian</span>
+							<div class="capability-list">
+								<span>Greek, native proficiency</span>
+								<span>English, fluent professional and academic use</span>
+								<span>German, working knowledge</span>
+								<span>Italian, working knowledge</span>
 							</div>
 						</div>
 					</div>
@@ -877,47 +809,100 @@
 			<!-- EDUCATION SECTION -->
 			<section id="education" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 				<div class="lg:col-span-4">
-					<h2 class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50"><span class="section-num">05</span> / Education</h2>
+					<h2
+						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
+						<span class="section-num">05</span> / Education</h2>
+					<p class="section-note">Academic background in artificial intelligence, biomedicine, and
+						computational methods.</p>
 				</div>
-				<div class="lg:col-span-8 space-y-4 reveal">
+				<div class="lg:col-span-8 reveal">
+					<div class="space-y-2">
+						<div class="timeline-item">
+							<div class="timeline-dot bg-custom-blue"></div>
+							<div class="glass-card timeline-card p-6 md:p-8">
+								<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
+									<div>
+										<p class="timeline-kicker mb-2">Doctoral Studies</p>
+										<h3 class="text-xl font-display font-bold">PhD in Artificial Intelligence</h3>
+									</div>
+									<span class="timeline-date">2026</span>
+								</div>
+								<p class="opacity-80">University of Thessaly, Greece</p>
+								<p class="text-sm italic mt-2 opacity-60">Thesis: “Development of Deep Learning methods
+									on big
+									data with a focus on NLP”</p>
+							</div>
+						</div>
 
-					<div class="glass-card p-6">
-						<h3 class="text-xl font-display font-bold">PhD Candidate in NLP & Big Data</h3>
-						<p class="opacity-80">University of Thessaly, Greece (Expected 2026)</p>
-						<p class="text-sm italic mt-2 opacity-60">Thesis: “Development of Deep Learning methods on big
-							data with a focus on NLP”</p>
+						<div class="timeline-item">
+							<div class="timeline-dot bg-purple-500"></div>
+							<div class="glass-card timeline-card p-6 md:p-8">
+								<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
+									<div>
+										<p class="timeline-kicker mb-2">Master's Degree</p>
+										<h3 class="text-xl font-display font-bold">MSc in Informatics & Computational
+											Biomedicine</h3>
+									</div>
+									<span class="timeline-date">2020</span>
+								</div>
+								<p class="opacity-80">University of Thessaly, Greece</p>
+								<p class="text-sm italic mt-2 opacity-60">Minor: Computational Medicine and Biology</p>
+							</div>
+						</div>
+
+						<div class="timeline-item">
+							<div class="timeline-dot bg-custom-cyan"></div>
+							<div class="glass-card timeline-card p-6 md:p-8">
+								<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
+									<div>
+										<p class="timeline-kicker mb-2">Bachelor's Degree</p>
+										<h3 class="text-xl font-display font-bold">BSc in Computer Science & Biomedical
+											Informatics</h3>
+									</div>
+									<span class="timeline-date">2019</span>
+								</div>
+								<p class="opacity-80">University of Thessaly, Greece</p>
+							</div>
+						</div>
+
+						<div class="timeline-item">
+							<div class="timeline-dot bg-neutral-500"></div>
+							<div class="glass-card timeline-card p-6 md:p-8">
+								<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
+									<div>
+										<p class="timeline-kicker mb-2">Exchange Program</p>
+										<h3 class="text-xl font-display font-bold">Erasmus+ Exchange Student</h3>
+									</div>
+									<span class="timeline-date">2017</span>
+								</div>
+								<p class="opacity-80">Università degli Studi di Perugia, Italy</p>
+							</div>
+						</div>
 					</div>
-
-					<div class="glass-card p-6">
-						<h3 class="text-xl font-display font-bold">MSc in Informatics & Computational Biomedicine</h3>
-						<p class="opacity-80">University of Thessaly, Greece (2020)</p>
-						<p class="text-sm italic mt-2 opacity-60">Minor: Computational Medicine and Biology</p>
-					</div>
-
-					<div class="glass-card p-6">
-						<h3 class="text-xl font-display font-bold">BSc in Computer Science & Biomedical Informatics</h3>
-						<p class="opacity-80">University of Thessaly, Greece (2019)</p>
-					</div>
-
-					<div class="glass-card p-6">
-						<h3 class="text-xl font-display font-bold">Erasmus+ Exchange Student</h3>
-						<p class="opacity-80">Università degli Studi di Perugia, Italy (2017)</p>
-					</div>
-
 				</div>
 			</section>
 
 			<!-- AWARDS & RESEARCH & REVIEW & CERTIFICATIONS (Grouped for brevity but separated visually) -->
-			<section id="awards" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+			<section id="honors" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 				<div class="lg:col-span-4">
-					<h2 class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50"><span class="section-num">06</span> / Honors & Activities
+					<h2
+						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
+						<span class="section-num">06</span> / Honors & Activities
 					</h2>
+					<p class="section-note">Recognition, research participation, peer review activity, and professional
+						development.</p>
 				</div>
 				<div class="lg:col-span-8 space-y-12 reveal">
 
 					<!-- Awards -->
 					<div>
-						<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg> Awards</h3>
+						<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2"><svg
+								xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+								<circle cx="12" cy="8" r="6" />
+								<path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+							</svg> Awards</h3>
 						<div class="space-y-4">
 							<div class="glass-card p-4">
 								<p>IEEE CIS Student Travel Grant Award, SSCI 2025</p>
@@ -936,7 +921,19 @@
 
 					<!-- Research -->
 					<div>
-						<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4"/><path d="M9 3h10a2 2 0 0 1 2 2v4"/><path d="M9 3v18"/><path d="M3 9h18"/><path d="M3 15h6"/><path d="M3 21h6"/><circle cx="17" cy="17" r="3"/><path d="m21 21-1.5-1.5"/></svg> Research Projects</h3>
+						<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2"><svg
+								xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+								<path d="M9 3H5a2 2 0 0 0-2 2v4" />
+								<path d="M9 3h10a2 2 0 0 1 2 2v4" />
+								<path d="M9 3v18" />
+								<path d="M3 9h18" />
+								<path d="M3 15h6" />
+								<path d="M3 21h6" />
+								<circle cx="17" cy="17" r="3" />
+								<path d="m21 21-1.5-1.5" />
+							</svg> Research Projects</h3>
 						<div class="glass-card p-6">
 							<div class="flex flex-col md:flex-row justify-between mb-2">
 								<span class="font-bold text-lg">Precision Medicine in Greece</span>
@@ -950,36 +947,15 @@
 						</div>
 					</div>
 
-					<!-- Peer Review -->
-					<!-- <div>
-						<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> Peer Review</h3>
-						<div class="grid grid-cols-1 gap-6">
-							<div class="glass-card p-6">
-								<h4 class="font-bold mb-2">Journals</h4>
-								<ul class="text-sm space-y-1 opacity-80">
-									<li>Neural Computing and Applications</li>
-									<li>Cluster Computing</li>
-									<li>Social Network Analysis and Mining</li>
-									<li>Public Health</li>
-									<li>Frontiers in Public Health</li>
-								</ul>
-							</div>
-							<div class="glass-card p-6">
-								<h4 class="font-bold mb-2">Conferences</h4>
-								<ul class="text-sm space-y-1 opacity-80">
-									<li>IEEE SSCI 2025</li>
-									<li>IJCNN 2025</li>
-									<li>EAAAI 2025</li>
-									<li>ARES 2025</li>
-									<li>PSB 2026</li>
-								</ul>
-							</div>
-						</div>
-					</div> -->
-
 					<div id="review" class="lg:col-span-12 reveal">
 						<div>
-							<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> Peer Review</h3>
+							<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round">
+									<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+									<circle cx="12" cy="12" r="3" />
+								</svg> Peer Review</h3>
 						</div>
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 							<div class="simple-glass-card p-6">
@@ -1042,7 +1018,15 @@
 					</div>
 					<!-- Certifications -->
 					<div>
-						<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h.01"/><path d="M11 15h2"/></svg> Certifications</h3>
+						<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2"><svg
+								xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+								<rect x="3" y="5" width="18" height="14" rx="2" />
+								<path d="M3 10h18" />
+								<path d="M7 15h.01" />
+								<path d="M11 15h2" />
+							</svg> Certifications</h3>
 						<div class="space-y-2">
 							<div class="glass-card px-4 py-2">Building RAG Agents with LLMs (NVIDIA, 2024)</div>
 							<div class="glass-card px-4 py-2">I2I Spin Out Innovation Programme (University of Galway,
@@ -1062,8 +1046,12 @@
 			<!-- PUBLICATIONS SECTION -->
 			<section id="publications" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 				<div class="lg:col-span-4">
-					<h2 class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50"><span class="section-num">07</span> / Publications
+					<h2
+						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
+						<span class="section-num">07</span> / Publications
 					</h2>
+					<p class="section-note">Selected journal and conference publications in natural language
+						processing, healthcare AI, and machine learning.</p>
 
 					<!-- Sticky Filters -->
 					<div class="sticky top-40 mt-8 space-y-6">
@@ -1117,7 +1105,8 @@
 							Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">Neural Computing and Applications, 1-19</p>
 						<div class="flex flex-wrap gap-4 items-center mt-4">
-							<a href="https://doi.org/10.1007/s00521-025-11593-9" target="_blank" rel="noopener noreferrer"
+							<a href="https://doi.org/10.1007/s00521-025-11593-9" target="_blank"
+								rel="noopener noreferrer"
 								class="text-custom-blue text-sm font-bold hover:underline flex items-center gap-1">
 								View DOI <span>→</span>
 							</a>
@@ -1141,8 +1130,9 @@
 						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V.
 							Georgakopoulos, A. Karaminas, S. K. Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">Journal of Applied Statistics 51(14), 2980-3003</p>
-						<a href="https://doi.org/10.1080/02664763.2024.2315451" target="_blank" rel="noopener noreferrer"
-							class="text-custom-blue text-sm font-bold hover:underline">View DOI →</a>
+						<a href="https://doi.org/10.1080/02664763.2024.2315451" target="_blank"
+							rel="noopener noreferrer" class="text-custom-blue text-sm font-bold hover:underline">View
+							DOI →</a>
 					</article>
 
 					<!-- Pub 3 -->
@@ -1159,13 +1149,14 @@
 						</div>
 						<h3
 							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
-							Analysing sentiment change detection of Covid-19 tweets</h3>
+							Analysing sentiment change detection of COVID-19 tweets</h3>
 						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V.
 							Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">Neural Computing and Applications 35(29), 21433-21443</p>
 						<div class="flex flex-wrap gap-4 items-center mt-4">
-							<a href="https://scholar.google.com/scholar?q=Analysing+sentiment+change+detection+of+Covid-19+tweets"
-								target="_blank" rel="noopener noreferrer" class="text-custom-blue text-sm font-bold hover:underline">Scholar →</a>
+							<a href="https://scholar.google.com/scholar?q=Analysing+sentiment+change+detection+of+COVID-19+tweets"
+								target="_blank" rel="noopener noreferrer"
+								class="text-custom-blue text-sm font-bold hover:underline">Scholar →</a>
 							<a href="papers/s00521-023-08662-2.pdf" target="_blank" rel="noopener noreferrer"
 								class="text-custom-purple text-sm font-bold hover:underline flex items-center gap-1 border-l border-current pl-4 opacity-90 hover:opacity-100">
 								Download PDF <span>↓</span>
@@ -1188,7 +1179,8 @@
 							Georgakopoulos, V. P. Plagianakos, S. K. Tasoulis</p>
 						<p class="opacity-60 text-sm mb-3">2025 IEEE Symposium on Computational Intelligence in Health
 							and Medicine (CIHM), 1-7</p>
-						<a href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice" target="_blank" rel="noopener noreferrer"
+						<a href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice" target="_blank"
+							rel="noopener noreferrer"
 							class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
 					</article>
 
@@ -1206,7 +1198,8 @@
 							Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">arXiv preprint arXiv:2405.20285</p>
 						<a href="https://scholar.google.com/scholar?q=Who+Writes+the+Review,+Human+or+AI%3F"
-							target="_blank" rel="noopener noreferrer" class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
+							target="_blank" rel="noopener noreferrer"
+							class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
 					</article>
 
 					<!-- Pub 6 -->
@@ -1224,7 +1217,8 @@
 						<p class="opacity-60 text-sm mb-3">2023 IEEE Ninth International Conference on Big Data
 							Computing Service and Applications (BigDataService), 33-39</p>
 						<a href="https://scholar.google.com/scholar?q=Detection+of+Fake+Generated+Scientific+Abstracts"
-							target="_blank" rel="noopener noreferrer" class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
+							target="_blank" rel="noopener noreferrer"
+							class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
 					</article>
 
 					<!-- Pub 7 -->
@@ -1241,7 +1235,8 @@
 							Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">International Conference on Engineering Applications of
 							Neural Networks, 517-528</p>
-						<a href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets" target="_blank" rel="noopener noreferrer"
+						<a href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets" target="_blank"
+							rel="noopener noreferrer"
 							class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
 					</article>
 
@@ -1252,7 +1247,7 @@
 
 		<!-- FOOTER -->
 		<footer
-			class="mt-32 pt-8 border-t border-current opacity-50 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+			class="mt-32 pt-8 border-t border-current opacity-70 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
 			<p>© <span id="current-year"></span> Panagiotis C. Theocharopoulos</p>
 			<div class="flex gap-6">
 				<a href="mailto:panos.t95@gmail.com" class="hover:text-custom-blue transition-colors">Email</a>
@@ -1266,7 +1261,7 @@
 	</div>
 
 	<!-- Back To Top Button -->
-	<button id="back-to-top" class="back-to-top shadow-lg">
+	<button id="back-to-top" aria-label="Back to top" class="back-to-top shadow-lg">
 		<span>↑</span>
 	</button>
 
@@ -1333,38 +1328,19 @@
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		});
 
-		// --- Custom Cursor ---
-		const cursor = document.getElementById('cursor-dot');
-		const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-		if (!isTouch) {
-			document.addEventListener('mousemove', (e) => {
-				cursor.style.left = e.clientX + 'px';
-				cursor.style.top = e.clientY + 'px';
-			});
-
-			const hoverElements = document.querySelectorAll('a, button, .glass-card, .skill-tag');
-			hoverElements.forEach(el => {
-				el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-				el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
-			});
-		} else {
-			cursor.style.display = 'none';
-		}
-
 		// --- Intersection Observer for Animations ---
 		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.classList.remove('opacity-0', 'translate-y-8');
-					entry.target.classList.add('opacity-100', 'translate-y-0');
-					observer.unobserve(entry.target);
-				}
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.remove('opacity-0', 'translate-y-3');
+						entry.target.classList.add('opacity-100', 'translate-y-0');
+						observer.unobserve(entry.target);
+					}
 			});
 		}, { threshold: 0.1 });
 
 		document.querySelectorAll('.reveal').forEach(el => {
-			el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-8');
+			el.classList.add('transition-all', 'duration-500', 'opacity-0', 'translate-y-3');
 			observer.observe(el);
 		});
 
@@ -1408,6 +1384,7 @@
 
 		function toggleMobileMenu() {
 			mobileNav.classList.toggle('open');
+			mobileMenuBtn.setAttribute('aria-expanded', mobileNav.classList.contains('open') ? 'true' : 'false');
 			document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
 		}
 
@@ -1433,19 +1410,6 @@
 		}, { rootMargin: '-30% 0px -60% 0px' });
 
 		navSections.forEach(section => activeObserver.observe(section));
-
-		// --- Magnetic Link Effect ---
-		document.querySelectorAll('.magnetic-link').forEach(link => {
-			link.addEventListener('mousemove', (e) => {
-				const rect = link.getBoundingClientRect();
-				const x = e.clientX - rect.left - rect.width / 2;
-				const y = e.clientY - rect.top - rect.height / 2;
-				link.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
-			});
-			link.addEventListener('mouseleave', () => {
-				link.style.transform = '';
-			});
-		});
 
 	</script>
 </body>
