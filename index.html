@@ -5,6 +5,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Panagiotis C. Theocharopoulos</title>
+	<meta property="og:title" content="Panagiotis C. Theocharopoulos - AI Engineer & Researcher">
+	<meta property="og:description"
+		content="Research-led profile focused on applied artificial intelligence, healthcare analytics, and translational machine learning.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://ptheochar.github.io/">
+	<meta property="og:image" content="https://ptheochar.github.io/assets/og-image.jpg">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Panagiotis C. Theocharopoulos - AI Engineer & Researcher">
+	<meta name="twitter:description"
+		content="Research-led profile focused on applied artificial intelligence, healthcare analytics, and translational machine learning.">
+	<meta name="twitter:image" content="https://ptheochar.github.io/assets/og-image.jpg">
 	<link rel="icon"
 		href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230060df'/><text x='16' y='22' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='17' fill='white'>PT</text></svg>">
 	<!-- Load Tailwind CSS -->
@@ -46,15 +57,15 @@
 		:root {
 			/* Light Mode: restrained institutional palette */
 			--accent-blue: #0f4c81;
-			--accent-purple: #3d617f;
-			--accent-cyan: #3d617f;
+			--accent-purple: #0f4c81;
+			--accent-cyan: #0f4c81;
 
 			--bg-color: #f5f3ee;
 			--text-color: #16212b;
 			--border-color: #d7d9dd;
 			--glow-color: rgba(15, 76, 129, 0.12);
-			--card-bg: rgba(255, 255, 255, 0.84);
-			--card-border: rgba(22, 33, 43, 0.1);
+			--card-bg: #ffffff;
+			--card-border: #e2e8f0;
 			--bg-gradients:
 				linear-gradient(180deg, rgba(15, 76, 129, 0.045), transparent 22%),
 				radial-gradient(circle at top right, rgba(15, 76, 129, 0.07), transparent 28%);
@@ -62,14 +73,14 @@
 
 		html.dark {
 			--accent-blue: #8ab8df;
-			--accent-purple: #8ea7bc;
-			--accent-cyan: #8ea7bc;
+			--accent-purple: #8ab8df;
+			--accent-cyan: #8ab8df;
 			--bg-color: #11161d;
 			--text-color: #edf1f5;
 			--border-color: #27303a;
 			--glow-color: rgba(138, 184, 223, 0.18);
-			--card-bg: rgba(18, 24, 31, 0.92);
-			--card-border: rgba(255, 255, 255, 0.09);
+			--card-bg: #1e293b;
+			--card-border: #334155;
 			--bg-gradients:
 				linear-gradient(180deg, rgba(138, 184, 223, 0.08), transparent 20%),
 				radial-gradient(circle at top right, rgba(138, 184, 223, 0.12), transparent 26%);
@@ -147,24 +158,19 @@
 			border-radius: 50%;
 		}
 
-		.glass-card {
-			background: var(--card-bg);
+		.glass-card,
+		.simple-glass-card {
+			background-color: var(--card-bg);
 			border: 1px solid var(--card-border);
-			border-radius: 14px;
-			box-shadow: 0 10px 30px rgba(16, 24, 40, 0.04);
-			transition: border-color 0.2s ease, box-shadow 0.2s ease;
+			border-radius: 12px;
+			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+			transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 		}
 
 		.glass-card:hover {
-			box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
-			border-color: rgba(15, 76, 129, 0.22);
-		}
-
-		.simple-glass-card {
-			background: var(--card-bg);
-			border: 1px solid var(--card-border);
-			border-radius: 14px;
-			box-shadow: 0 10px 30px rgba(16, 24, 40, 0.03);
+			box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+			border-color: var(--accent-blue);
+			transform: translateY(-2px);
 		}
 
 		/* --- Animation Delays --- */
@@ -309,16 +315,6 @@
 			}
 		}
 
-		/* --- Typography & Gradients --- */
-		.gradient-text {
-			background: linear-gradient(135deg, var(--accent-blue), #355e82);
-			-webkit-background-clip: text;
-			background-clip: text;
-			-webkit-text-fill-color: transparent;
-			color: var(--accent-blue);
-			background-size: 100% 100%;
-		}
-
 		.section-note {
 			max-width: 32rem;
 			margin-top: 1rem;
@@ -359,6 +355,74 @@
 			color: white;
 			border-color: var(--accent-blue);
 			opacity: 1;
+		}
+
+		.publication-card {
+			transition: opacity 0.3s ease, transform 0.3s ease;
+			will-change: opacity, transform;
+			opacity: 1;
+			transform: scale(1);
+		}
+
+		.publication-card.is-hiding {
+			opacity: 0;
+			transform: scale(0.98);
+		}
+
+		.publication-card.is-hidden {
+			display: none;
+		}
+
+		details.abstract-container {
+			border-top: 1px solid var(--border-color);
+			margin-top: 1rem;
+			padding-top: 1rem;
+		}
+
+		details.abstract-container summary {
+			list-style: none;
+			cursor: pointer;
+			font-size: 0.875rem;
+			font-weight: 600;
+			color: var(--text-color);
+			opacity: 0.8;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			transition: opacity 0.2s ease, color 0.2s ease;
+		}
+
+		details.abstract-container summary::-webkit-details-marker {
+			display: none;
+		}
+
+		details.abstract-container summary:hover {
+			opacity: 1;
+			color: var(--accent-blue);
+		}
+
+		details.abstract-container summary::before {
+			content: "";
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+			background-size: contain;
+			background-repeat: no-repeat;
+			transition: transform 0.3s ease;
+		}
+
+		details.abstract-container[open] summary::before {
+			transform: rotate(180deg);
+		}
+
+		details.abstract-container p {
+			margin-top: 0.75rem;
+			font-size: 0.875rem;
+			line-height: 1.6;
+			opacity: 0.85;
+			padding-left: 1.5rem;
+			border-left: 2px solid var(--accent-blue);
 		}
 
 		/* --- Back to Top Button --- */
@@ -406,6 +470,42 @@
 
 		.mobile-nav-overlay.open {
 			transform: translateX(0);
+		}
+
+		@media print {
+			body {
+				background: white !important;
+				color: black !important;
+			}
+
+			nav,
+			.scroll-progress,
+			#back-to-top,
+			.mobile-nav-overlay,
+			.filter-btn,
+			button,
+			#theme-toggle {
+				display: none !important;
+			}
+
+			.glass-card,
+			.simple-glass-card,
+			.publication-card {
+				border: none !important;
+				box-shadow: none !important;
+				background: transparent !important;
+				padding: 0 !important;
+				margin-bottom: 2.5rem !important;
+				page-break-inside: avoid;
+			}
+
+			a[href^="http"]::after {
+				content: " (" attr(href) ")";
+				font-size: 0.8em;
+				font-family: monospace;
+				color: #555;
+				margin-left: 0.25rem;
+			}
 		}
 	</style>
 </head>
@@ -520,9 +620,9 @@
 
 			<div class="space-y-6 max-w-5xl">
 				<h1
-					class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold font-display leading-[0.9] tracking-tight reveal delay-100">
+					class="text-5xl sm:text-7xl md:text-8xl font-bold font-display leading-[1.1] tracking-tight reveal delay-100 text-custom-text">
 					Panagiotis<br>
-					<span class="gradient-text">Theocharopoulos</span>
+					<span class="text-custom-blue">Theocharopoulos</span>
 				</h1>
 			</div>
 
@@ -536,7 +636,7 @@
 				</a>
 				<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&amp;hl=en" target="_blank"
 					rel="noopener noreferrer"
-					class="glass-card px-6 py-3 font-medium hover:text-custom-cyan transition-colors flex items-center gap-2">
+					class="glass-card px-6 py-3 font-medium hover:text-custom-blue transition-colors flex items-center gap-2">
 					Scholar <span class="text-lg">↗</span>
 				</a>
 				<a href="Theocharopoulos_CV.pdf" target="_blank" rel="noopener noreferrer"
@@ -557,7 +657,8 @@
 				<div class="lg:col-span-4">
 					<h2
 						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
-						<span class="section-num">01</span> / About</h2>
+						<span class="section-num">01</span> / About
+					</h2>
 					<p class="section-note">Research-led profile focused on applied artificial intelligence, healthcare
 						analytics, and translational machine learning.</p>
 				</div>
@@ -593,7 +694,7 @@
 					<p class="section-note">Roles spanning AI delivery in production environments and research work in
 						academic settings.</p>
 				</div>
-				<div class="lg:col-span-8 space-y-2 reveal">
+				<div class="lg:col-span-8 space-y-4 reveal">
 
 					<!-- Covariance (Combined) -->
 					<div class="timeline-item">
@@ -601,14 +702,14 @@
 						<div class="glass-card timeline-card p-6 md:p-8 relative">
 							<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
 								<div>
-									<p class="timeline-kicker mb-2">Industry</p>
+									<p class="timeline-kicker mb-2 text-custom-blue">Industry</p>
 									<h3 class="text-xl font-display font-bold">Covariance</h3>
 								</div>
-								<span class="timeline-date">Feb 2021 - Present</span>
+								<span class="timeline-date font-mono text-xs">Feb 2021 - Present</span>
 							</div>
 							<div class="space-y-6">
 								<div>
-									<h4 class="font-bold text-custom-blue">AI Engineer (Jan 2025 – Present)</h4>
+									<h4 class="font-bold text-custom-text">AI Engineer <span class="opacity-70 font-normal">(Jan 2025 - Present)</span></h4>
 									<ul
 										class="list-disc list-outside ml-5 mt-2 space-y-1 opacity-80 text-sm leading-relaxed">
 										<li>Lead and manage a high-performing data science team focused on healthcare
@@ -620,9 +721,7 @@
 									</ul>
 								</div>
 								<div>
-									<h4 class="font-bold text-custom-blue">Data Scientist (Feb
-										2021 –
-										Jan 2025)</h4>
+									<h4 class="font-bold text-custom-text">Data Scientist <span class="opacity-70 font-normal">(Feb 2021 - Jan 2025)</span></h4>
 									<ul
 										class="list-disc list-outside ml-5 mt-2 space-y-1 opacity-80 text-sm leading-relaxed">
 										<li>Led end-to-end machine learning projects and architected advanced LLM/RAG
@@ -639,18 +738,18 @@
 
 					<!-- University of Thessaly -->
 					<div class="timeline-item">
-						<div class="timeline-dot bg-purple-500"></div>
+						<div class="timeline-dot bg-custom-blue"></div>
 						<div class="glass-card timeline-card p-6 md:p-8">
 							<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
 								<div>
-									<p class="timeline-kicker mb-2">Academic</p>
+									<p class="timeline-kicker mb-2 text-custom-blue">Academic</p>
 									<h3 class="text-xl font-display font-bold">University of Thessaly</h3>
 								</div>
-								<span class="timeline-date">2019 - 2025</span>
+								<span class="timeline-date font-mono text-xs">2019 - 2025</span>
 							</div>
 							<div class="space-y-6">
 								<div>
-									<h4 class="font-bold text-custom-blue">Research Fellow (Apr 2024 — Dec 2025)</h4>
+									<h4 class="font-bold text-custom-text">Research Fellow <span class="opacity-70 font-normal">(Apr 2024 - Dec 2025)</span></h4>
 									<ul
 										class="list-disc list-outside ml-5 mt-2 space-y-1 opacity-80 text-sm leading-relaxed">
 										<li>Contribution to the development and integration of machine learning methods
@@ -662,7 +761,7 @@
 									</ul>
 								</div>
 								<div>
-									<h4 class="font-bold text-custom-blue">Website Administrator (2019 — 2023)</h4>
+									<h4 class="font-bold text-custom-text">Website Administrator <span class="opacity-70 font-normal">(2019 - 2023)</span></h4>
 									<ul
 										class="list-disc list-outside ml-5 mt-2 space-y-1 opacity-80 text-sm leading-relaxed">
 										<li>Led website development/design, managed databases/servers, provided
@@ -680,10 +779,10 @@
 						<div class="glass-card timeline-card p-6 md:p-8">
 							<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
 								<div>
-									<p class="timeline-kicker mb-2">Internship</p>
+									<p class="timeline-kicker mb-2 text-custom-blue">Internship</p>
 									<h3 class="text-xl font-display font-bold">Naval Hospital of Athens</h3>
 								</div>
-								<span class="timeline-date">Jul 2017 - Aug 2017</span>
+								<span class="timeline-date font-mono text-xs">Jul 2017 - Aug 2017</span>
 							</div>
 							<p class="text-sm font-medium opacity-60 uppercase tracking-wide mb-4">Support Engineer
 								(Intern)</p>
@@ -702,7 +801,8 @@
 				<div class="lg:col-span-4">
 					<h2
 						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
-						<span class="section-num">03</span> / Teaching</h2>
+						<span class="section-num">03</span> / Teaching
+					</h2>
 					<p class="section-note">University teaching support across programming, data mining, and applied
 						computational methods.</p>
 				</div>
@@ -710,7 +810,7 @@
 					<div class="glass-card p-6 md:p-8">
 						<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
 							<h3 class="text-xl font-display font-bold">University of Thessaly</h3>
-							<span class="text-sm font-mono opacity-60">2019 — 2025</span>
+							<span class="text-sm font-mono opacity-60">2019 - 2025</span>
 						</div>
 						<p class="text-sm font-medium opacity-60 uppercase tracking-wide mb-6">Teaching Assistant</p>
 
@@ -720,7 +820,7 @@
 								<div>
 									<p class="text-sm font-semibold uppercase tracking-wide opacity-70">University of
 										Thessaly (Postgraduate)</p>
-									<span class="text-xs font-mono opacity-60">2023 — 2025</span>
+									<span class="text-xs font-mono opacity-60">2023 - 2025</span>
 								</div>
 								<ul class="space-y-2 opacity-80">
 									<li>Data Mining and Big Data Analysis in Medicine and Biology</li>
@@ -733,7 +833,7 @@
 								<div>
 									<p class="text-sm font-semibold uppercase tracking-wide opacity-70">Department of
 										Computer Science and Biomedical Informatics</p>
-									<span class="text-xs font-mono opacity-60">2022 — 2023</span>
+									<span class="text-xs font-mono opacity-60">2022 - 2023</span>
 								</div>
 								<ul class="space-y-2 opacity-80">
 									<li>Databases</li>
@@ -745,7 +845,7 @@
 								<div>
 									<p class="text-sm font-semibold uppercase tracking-wide opacity-70">Department of
 										Mathematics</p>
-									<span class="text-xs font-mono opacity-60">2019 — 2024</span>
+									<span class="text-xs font-mono opacity-60">2019 - 2024</span>
 								</div>
 								<ul class="space-y-2 opacity-80">
 									<li>Introduction to Programming I</li>
@@ -764,7 +864,8 @@
 				<div class="lg:col-span-4">
 					<h2
 						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
-						<span class="section-num">04</span> / Expertise</h2>
+						<span class="section-num">04</span> / Expertise
+					</h2>
 					<p class="section-note">Technical focus areas across machine learning research, AI systems, data
 						infrastructure, and communication.</p>
 				</div>
@@ -811,7 +912,8 @@
 				<div class="lg:col-span-4">
 					<h2
 						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
-						<span class="section-num">05</span> / Education</h2>
+						<span class="section-num">05</span> / Education
+					</h2>
 					<p class="section-note">Academic background in artificial intelligence, biomedicine, and
 						computational methods.</p>
 				</div>
@@ -835,7 +937,7 @@
 						</div>
 
 						<div class="timeline-item">
-							<div class="timeline-dot bg-purple-500"></div>
+							<div class="timeline-dot bg-custom-blue"></div>
 							<div class="glass-card timeline-card p-6 md:p-8">
 								<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
 									<div>
@@ -851,7 +953,7 @@
 						</div>
 
 						<div class="timeline-item">
-							<div class="timeline-dot bg-custom-cyan"></div>
+							<div class="timeline-dot bg-custom-blue"></div>
 							<div class="glass-card timeline-card p-6 md:p-8">
 								<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
 									<div>
@@ -908,10 +1010,10 @@
 								<p>IEEE CIS Student Travel Grant Award, SSCI 2025</p>
 							</div>
 							<div class="glass-card p-4">
-								<p>Best National Startup of 2022 (Elevate Greece) – Awarded to Covariance</p>
+								<p>Best National Startup of 2022 (Elevate Greece) - Awarded to Covariance</p>
 							</div>
 							<div class="glass-card p-4">
-								<p>Academic Work Scholarship, University of Thessaly (2019–2021)</p>
+								<p>Academic Work Scholarship, University of Thessaly (2019 - 2021)</p>
 							</div>
 							<div class="glass-card p-4">
 								<p>Tuition Fee Exemption Scholarship, MSc degree, 2019</p>
@@ -937,7 +1039,7 @@
 						<div class="glass-card p-6">
 							<div class="flex flex-col md:flex-row justify-between mb-2">
 								<span class="font-bold text-lg">Precision Medicine in Greece</span>
-								<span class="text-sm opacity-60">2024 – 2025</span>
+								<span class="text-sm opacity-60">2024 - 2025</span>
 							</div>
 							<p class="mb-2">Bridging large omics, genetic, and medical data (TAEDR-0539180)</p>
 							<ul class="list-disc ml-5 text-sm opacity-80">
@@ -955,7 +1057,8 @@
 									stroke-linejoin="round">
 									<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
 									<circle cx="12" cy="12" r="3" />
-								</svg> Peer Review</h3>
+								</svg> Peer Review
+							</h3>
 						</div>
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 							<div class="simple-glass-card p-6">
@@ -1054,7 +1157,7 @@
 						processing, healthcare AI, and machine learning.</p>
 
 					<!-- Sticky Filters -->
-					<div class="sticky top-40 mt-8 space-y-6">
+					<div id="filter-container" class="sticky top-40 mt-8 space-y-6">
 						<div>
 							<p class="text-xs font-bold opacity-50 mb-2">FILTER BY TYPE</p>
 							<div class="flex flex-wrap gap-2">
@@ -1093,7 +1196,7 @@
 								<span
 									class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Journal</span>
 								<span
-									class="text-xs font-bold text-custom-purple uppercase tracking-wider border border-current px-2 py-0.5 rounded">Open
+									class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Open
 									Access</span>
 							</div>
 							<span class="text-xs font-bold opacity-60">2025</span>
@@ -1111,7 +1214,7 @@
 								View DOI <span>→</span>
 							</a>
 							<a href="papers/s00521-025-11593-9.pdf" target="_blank" rel="noopener noreferrer"
-								class="text-custom-purple text-sm font-bold hover:underline flex items-center gap-1 border-l border-current pl-4 opacity-90 hover:opacity-100">
+								class="text-custom-blue text-sm font-bold hover:underline flex items-center gap-1 border-l border-current pl-4 opacity-90 hover:opacity-100">
 								Download PDF <span>↓</span>
 							</a>
 						</div>
@@ -1142,7 +1245,7 @@
 								<span
 									class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Journal</span>
 								<span
-									class="text-xs font-bold text-custom-purple uppercase tracking-wider border border-current px-2 py-0.5 rounded">Open
+									class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Open
 									Access</span>
 							</div>
 							<span class="text-xs font-bold opacity-60">2023</span>
@@ -1158,7 +1261,7 @@
 								target="_blank" rel="noopener noreferrer"
 								class="text-custom-blue text-sm font-bold hover:underline">Scholar →</a>
 							<a href="papers/s00521-023-08662-2.pdf" target="_blank" rel="noopener noreferrer"
-								class="text-custom-purple text-sm font-bold hover:underline flex items-center gap-1 border-l border-current pl-4 opacity-90 hover:opacity-100">
+								class="text-custom-blue text-sm font-bold hover:underline flex items-center gap-1 border-l border-current pl-4 opacity-90 hover:opacity-100">
 								Download PDF <span>↓</span>
 							</a>
 						</div>
@@ -1168,11 +1271,11 @@
 					<article class="glass-card p-8 publication-card group" data-type="conference" data-year="2025">
 						<div class="flex justify-between items-start mb-2">
 							<span
-								class="text-xs font-bold text-custom-purple uppercase tracking-wider border border-current px-2 py-0.5 rounded">Conference</span>
+								class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Conference</span>
 							<span class="text-xs font-bold opacity-60">2025</span>
 						</div>
 						<h3
-							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-purple transition-colors">
+							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
 							Transforming Medical Practice: Harnessing the Power of Big Data and Machine Learning for
 							Predictive Precision Medicine</h3>
 						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V.
@@ -1181,36 +1284,36 @@
 							and Medicine (CIHM), 1-7</p>
 						<a href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice" target="_blank"
 							rel="noopener noreferrer"
-							class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
+							class="text-custom-blue text-sm font-bold hover:underline">Scholar →</a>
 					</article>
 
 					<!-- Pub 5 -->
 					<article class="glass-card p-8 publication-card group" data-type="conference" data-year="2023">
 						<div class="flex justify-between items-start mb-2">
 							<span
-								class="text-xs font-bold text-custom-purple uppercase tracking-wider border border-current px-2 py-0.5 rounded">Conference</span>
+								class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Conference</span>
 							<span class="text-xs font-bold opacity-60">2023</span>
 						</div>
 						<h3
-							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-purple transition-colors">
+							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
 							Who Writes the Review, Human or AI?</h3>
 						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. V. Georgakopoulos, S. K.
 							Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">arXiv preprint arXiv:2405.20285</p>
 						<a href="https://scholar.google.com/scholar?q=Who+Writes+the+Review,+Human+or+AI%3F"
 							target="_blank" rel="noopener noreferrer"
-							class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
+							class="text-custom-blue text-sm font-bold hover:underline">Scholar →</a>
 					</article>
 
 					<!-- Pub 6 -->
 					<article class="glass-card p-8 publication-card group" data-type="conference" data-year="2023">
 						<div class="flex justify-between items-start mb-2">
 							<span
-								class="text-xs font-bold text-custom-purple uppercase tracking-wider border border-current px-2 py-0.5 rounded">Conference</span>
+								class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Conference</span>
 							<span class="text-xs font-bold opacity-60">2023</span>
 						</div>
 						<h3
-							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-purple transition-colors">
+							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
 							Detection of Fake Generated Scientific Abstracts</h3>
 						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, P. Anagnostou, A. Tsoukala, S.
 							V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
@@ -1218,18 +1321,18 @@
 							Computing Service and Applications (BigDataService), 33-39</p>
 						<a href="https://scholar.google.com/scholar?q=Detection+of+Fake+Generated+Scientific+Abstracts"
 							target="_blank" rel="noopener noreferrer"
-							class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
+							class="text-custom-blue text-sm font-bold hover:underline">Scholar →</a>
 					</article>
 
 					<!-- Pub 7 -->
 					<article class="glass-card p-8 publication-card group" data-type="conference" data-year="2022">
 						<div class="flex justify-between items-start mb-2">
 							<span
-								class="text-xs font-bold text-custom-purple uppercase tracking-wider border border-current px-2 py-0.5 rounded">Conference</span>
+								class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Conference</span>
 							<span class="text-xs font-bold opacity-60">2022</span>
 						</div>
 						<h3
-							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-purple transition-colors">
+							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
 							Text analysis of COVID-19 tweets</h3>
 						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V.
 							Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
@@ -1237,7 +1340,7 @@
 							Neural Networks, 517-528</p>
 						<a href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets" target="_blank"
 							rel="noopener noreferrer"
-							class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
+							class="text-custom-blue text-sm font-bold hover:underline">Scholar →</a>
 					</article>
 
 				</div>
@@ -1330,12 +1433,12 @@
 
 		// --- Intersection Observer for Animations ---
 		const observer = new IntersectionObserver((entries) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						entry.target.classList.remove('opacity-0', 'translate-y-3');
-						entry.target.classList.add('opacity-100', 'translate-y-0');
-						observer.unobserve(entry.target);
-					}
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.remove('opacity-0', 'translate-y-3');
+					entry.target.classList.add('opacity-100', 'translate-y-0');
+					observer.unobserve(entry.target);
+				}
 			});
 		}, { threshold: 0.1 });
 
@@ -1344,37 +1447,72 @@
 			observer.observe(el);
 		});
 
-		// --- Publication Filtering ---
-		const filterBtns = document.querySelectorAll('.filter-btn');
+		// --- Hardened Publication Filtering ---
+		const filterContainer = document.getElementById('filter-container');
 		const cards = Array.from(document.querySelectorAll('.publication-card'));
 		const activeFilters = { type: 'all', year: 'all' };
+		let isFiltering = false;
 
-		filterBtns.forEach(btn => {
-			btn.addEventListener('click', () => {
+		if (filterContainer) {
+			filterContainer.addEventListener('click', (e) => {
+				const btn = e.target.closest('.filter-btn');
+
+				if (!btn || isFiltering) return;
+
 				const group = btn.dataset.filterGroup;
 				const value = btn.dataset.filter;
 
-				// UI Update
-				document.querySelectorAll(`.filter-btn[data-filter-group="${group}"]`).forEach(b => b.classList.remove('active'));
+				if (activeFilters[group] === value) return;
+
+				isFiltering = true;
+
+				filterContainer.querySelectorAll(`.filter-btn[data-filter-group="${group}"]`)
+					.forEach(b => b.classList.remove('active'));
 				btn.classList.add('active');
 
-				// Logic Update
 				activeFilters[group] = value;
+
+				let pendingAnimations = 0;
 
 				cards.forEach(card => {
 					const matchType = activeFilters.type === 'all' || card.dataset.type === activeFilters.type;
 					const matchYear = activeFilters.year === 'all' || card.dataset.year === activeFilters.year;
+					const isCurrentlyHidden = card.classList.contains('is-hidden');
 
 					if (matchType && matchYear) {
-						card.style.display = 'block';
-						setTimeout(() => card.style.opacity = '1', 50);
-					} else {
-						card.style.opacity = '0';
-						setTimeout(() => card.style.display = 'none', 300);
+						if (isCurrentlyHidden) {
+							card.classList.remove('is-hidden');
+							card.classList.add('is-hiding');
+							void card.offsetWidth;
+							card.classList.remove('is-hiding');
+						}
+						return;
+					}
+
+					if (!isCurrentlyHidden) {
+						pendingAnimations++;
+						card.classList.add('is-hiding');
+
+						card.addEventListener('transitionend', function handler(event) {
+							if (event.propertyName !== 'opacity') return;
+
+							card.classList.add('is-hidden');
+							pendingAnimations--;
+
+							if (pendingAnimations === 0) {
+								isFiltering = false;
+							}
+						}, { once: true });
 					}
 				});
+
+				if (pendingAnimations === 0) {
+					setTimeout(() => {
+						isFiltering = false;
+					}, 50);
+				}
 			});
-		});
+		}
 
 		// --- Mobile Menu ---
 		const mobileMenuBtn = document.getElementById('mobile-menu-btn');
