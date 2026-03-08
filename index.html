@@ -282,6 +282,20 @@
 			box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
 		}
 
+		/* --- Simple Glass Cards (no hover lift) --- */
+		.simple-glass-card {
+			background: var(--card-bg);
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+			border: 1px solid var(--card-border);
+			border-radius: 16px;
+		}
+
+		/* --- Animation Delays --- */
+		.delay-100 { transition-delay: 100ms; }
+		.delay-200 { transition-delay: 200ms; }
+		.delay-300 { transition-delay: 300ms; }
+
 		/* --- Timeline Effect --- */
 		.timeline-item {
 			position: relative;
@@ -510,7 +524,7 @@
 		<a href="#publications"
 			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Publications</a>
 		<div
-			class="w-full md:hidden border-t border-current/10 pt-6 mt-2 flex flex-col items-center gap-4 text-sm font-display uppercase tracking-wider">
+			class="w-full lg:hidden border-t border-current/10 pt-6 mt-2 flex flex-col items-center gap-4 text-sm font-display uppercase tracking-wider">
 			<button id="theme-toggle-mobile"
 				class="px-4 py-2 rounded-full border border-current/30 hover:border-custom-blue transition-colors">
 				<span id="theme-text-mobile">Light</span> Mode
@@ -559,19 +573,19 @@
 					class="glass-card px-6 py-3 font-display font-medium hover:text-custom-blue transition-colors flex items-center gap-2 magnetic-link">
 					Get in touch <span class="text-lg">↗</span>
 				</a>
-				<a href="https://www.linkedin.com/in/ptheochar/" target="_blank"
+				<a href="https://www.linkedin.com/in/ptheochar/" target="_blank" rel="noopener noreferrer"
 					class="glass-card px-6 py-3 font-display font-medium hover:text-custom-blue transition-colors flex items-center gap-2 magnetic-link">
 					LinkedIn <span class="text-lg">↗</span>
 				</a>
-				<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&amp;hl=en" target="_blank"
+				<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"
 					class="glass-card px-6 py-3 font-display font-medium hover:text-custom-cyan transition-colors flex items-center gap-2 magnetic-link">
 					Scholar <span class="text-lg">↗</span>
 				</a>
-				<a href="Theocharopoulos_CV.pdf" target="_blank"
+				<a href="Theocharopoulos_CV.pdf" target="_blank" rel="noopener noreferrer"
 					class="glass-card px-6 py-3 font-display font-medium hover:text-custom-blue transition-colors flex items-center gap-2 magnetic-link">
 					Short CV <span class="text-lg">↓</span>
 				</a>
-				<a href="PTheocharopoulos_ACV.pdf" target="_blank"
+				<a href="PTheocharopoulos_ACV.pdf" target="_blank" rel="noopener noreferrer"
 					class="glass-card px-6 py-3 font-display font-medium hover:text-custom-blue transition-colors flex items-center gap-2 magnetic-link">
 					Full CV <span class="text-lg">↓</span>
 				</a>
@@ -918,7 +932,7 @@
 						</div>
 					</div> -->
 
-					<section id="review" class="lg:col-span-12 reveal">
+					<div id="review" class="lg:col-span-12 reveal">
 						<div>
 							<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue">Peer Review</h3>
 						</div>
@@ -980,20 +994,20 @@
 								</ul>
 							</div>
 						</div>
-					</section>
+					</div>
 					<!-- Certifications -->
 					<div>
 						<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue">Certifications</h3>
 						<div class="space-y-2">
-							<p class="glass-card px-4 py-2">Building RAG Agents with LLMs (NVIDIA, 2024)</p>
-							<p class="glass-card px-4 py-2">I2I Spin Out Innovation Programme (University of Galway,
+							<div class="glass-card px-4 py-2">Building RAG Agents with LLMs (NVIDIA, 2024)</div>
+							<div class="glass-card px-4 py-2">I2I Spin Out Innovation Programme (University of Galway,
 								2024)
-							</p>
-							<p class="glass-card px-4 py-2">Power BI Financial Reporting & Financial Analysis (Udemy,
+							</div>
+							<div class="glass-card px-4 py-2">Power BI Financial Reporting & Financial Analysis (Udemy,
 								2024)
-							</p>
-							<p class="glass-card px-4 py-2">EHDEN’s OMOP-CDM Data Standardization (EHDEN, 2022)</p>
-							<p class="glass-card px-4 py-2">Pedagogical and Teaching Competence (UTH, 2019)</p>
+							</div>
+							<div class="glass-card px-4 py-2">EHDEN’s OMOP-CDM Data Standardization (EHDEN, 2022)</div>
+							<div class="glass-card px-4 py-2">Pedagogical and Teaching Competence (UTH, 2019)</div>
 						</div>
 					</div>
 
@@ -1058,11 +1072,11 @@
 							Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">Neural Computing and Applications, 1-19</p>
 						<div class="flex flex-wrap gap-4 items-center mt-4">
-							<a href="https://doi.org/10.1007/s00521-025-11593-9" target="_blank"
+							<a href="https://doi.org/10.1007/s00521-025-11593-9" target="_blank" rel="noopener noreferrer"
 								class="text-custom-blue text-sm font-bold hover:underline flex items-center gap-1">
 								View DOI <span>→</span>
 							</a>
-							<a href="papers/s00521-025-11593-9.pdf" target="_blank"
+							<a href="papers/s00521-025-11593-9.pdf" target="_blank" rel="noopener noreferrer"
 								class="text-custom-purple text-sm font-bold hover:underline flex items-center gap-1 border-l border-current pl-4 opacity-90 hover:opacity-100">
 								Download PDF <span>↓</span>
 							</a>
@@ -1082,7 +1096,7 @@
 						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V.
 							Georgakopoulos, A. Karaminas, S. K. Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">Journal of Applied Statistics 51(14), 2980-3003</p>
-						<a href="https://doi.org/10.1080/02664763.2024.2315451" target="_blank"
+						<a href="https://doi.org/10.1080/02664763.2024.2315451" target="_blank" rel="noopener noreferrer"
 							class="text-custom-blue text-sm font-bold hover:underline">View DOI →</a>
 					</article>
 
@@ -1106,8 +1120,8 @@
 						<p class="opacity-60 text-sm mb-3">Neural Computing and Applications 35(29), 21433-21443</p>
 						<div class="flex flex-wrap gap-4 items-center mt-4">
 							<a href="https://scholar.google.com/scholar?q=Analysing+sentiment+change+detection+of+Covid-19+tweets"
-								target="_blank" class="text-custom-blue text-sm font-bold hover:underline">Scholar →</a>
-							<a href="papers/s00521-023-08662-2.pdf" target="_blank"
+								target="_blank" rel="noopener noreferrer" class="text-custom-blue text-sm font-bold hover:underline">Scholar →</a>
+							<a href="papers/s00521-023-08662-2.pdf" target="_blank" rel="noopener noreferrer"
 								class="text-custom-purple text-sm font-bold hover:underline flex items-center gap-1 border-l border-current pl-4 opacity-90 hover:opacity-100">
 								Download PDF <span>↓</span>
 							</a>
@@ -1129,7 +1143,7 @@
 							Georgakopoulos, V. P. Plagianakos, S. K. Tasoulis</p>
 						<p class="opacity-60 text-sm mb-3">2025 IEEE Symposium on Computational Intelligence in Health
 							and Medicine (CIHM), 1-7</p>
-						<a href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice" target="_blank"
+						<a href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice" target="_blank" rel="noopener noreferrer"
 							class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
 					</article>
 
@@ -1147,7 +1161,7 @@
 							Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">arXiv preprint arXiv:2405.20285</p>
 						<a href="https://scholar.google.com/scholar?q=Who+Writes+the+Review,+Human+or+AI%3F"
-							target="_blank" class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
+							target="_blank" rel="noopener noreferrer" class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
 					</article>
 
 					<!-- Pub 6 -->
@@ -1165,7 +1179,7 @@
 						<p class="opacity-60 text-sm mb-3">2023 IEEE Ninth International Conference on Big Data
 							Computing Service and Applications (BigDataService), 33-39</p>
 						<a href="https://scholar.google.com/scholar?q=Detection+of+Fake+Generated+Scientific+Abstracts"
-							target="_blank" class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
+							target="_blank" rel="noopener noreferrer" class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
 					</article>
 
 					<!-- Pub 7 -->
@@ -1182,7 +1196,7 @@
 							Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
 						<p class="opacity-60 text-sm mb-3">International Conference on Engineering Applications of
 							Neural Networks, 517-528</p>
-						<a href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets" target="_blank"
+						<a href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets" target="_blank" rel="noopener noreferrer"
 							class="text-custom-purple text-sm font-bold hover:underline">Scholar →</a>
 					</article>
 
@@ -1198,9 +1212,9 @@
 			<div class="flex gap-6">
 				<a href="mailto:panos.t95@gmail.com" class="hover:text-custom-blue transition-colors">Email</a>
 				<a href="https://www.linkedin.com/in/ptheochar/" target="_blank"
-					class="hover:text-custom-blue transition-colors">LinkedIn</a>
+					class="hover:text-custom-blue transition-colors" rel="noopener noreferrer">LinkedIn</a>
 				<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&amp;hl=en" target="_blank"
-					class="hover:text-custom-blue transition-colors">Scholar</a>
+					class="hover:text-custom-blue transition-colors" rel="noopener noreferrer">Scholar</a>
 			</div>
 		</footer>
 
@@ -1355,6 +1369,38 @@
 		mobileMenuBtn.addEventListener('click', toggleMobileMenu);
 		mobileCloseBtn.addEventListener('click', toggleMobileMenu);
 		mobileLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+
+		// --- Nav Active State ---
+		const navSections = document.querySelectorAll('section[id]');
+		const navLinks = document.querySelectorAll('.nav-link');
+
+		const activeObserver = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					navLinks.forEach(link => {
+						link.classList.remove('active');
+						if (link.getAttribute('href') === '#' + entry.target.id) {
+							link.classList.add('active');
+						}
+					});
+				}
+			});
+		}, { rootMargin: '-30% 0px -60% 0px' });
+
+		navSections.forEach(section => activeObserver.observe(section));
+
+		// --- Magnetic Link Effect ---
+		document.querySelectorAll('.magnetic-link').forEach(link => {
+			link.addEventListener('mousemove', (e) => {
+				const rect = link.getBoundingClientRect();
+				const x = e.clientX - rect.left - rect.width / 2;
+				const y = e.clientY - rect.top - rect.height / 2;
+				link.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+			});
+			link.addEventListener('mouseleave', () => {
+				link.style.transform = '';
+			});
+		});
 
 	</script>
 </body>
