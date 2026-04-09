@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 
 <head>
 	<meta charset="UTF-8">
@@ -26,7 +26,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:wght@400;600;700&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:wght@400;600;700&display=swap"
 		rel="stylesheet">
 
 	<!-- Tailwind Config to use your Custom Colors -->
@@ -38,6 +38,7 @@
 					fontFamily: {
 						sans: ['Inter', 'sans-serif'],
 						display: ['Source Serif 4', 'serif'],
+						mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
 					},
 					colors: {
 						// We will use CSS variables for these in the style tag below
@@ -57,35 +58,36 @@
 	<style>
 		/* --- VARIABLES --- */
 		:root {
-			/* Light Mode: restrained institutional palette */
-			--accent-blue: #0f4c81;
-			--accent-purple: #0f4c81;
-			--accent-cyan: #0f4c81;
+			/* Light Mode: modern, indigo-accented */
+			--accent-blue: #4f46e5;
+			--accent-purple: #7c3aed;
+			--accent-cyan: #4f46e5;
 
-			--bg-color: #f5f3ee;
-			--text-color: #16212b;
-			--border-color: #d7d9dd;
-			--glow-color: rgba(15, 76, 129, 0.12);
+			--bg-color: #f5f4fd;
+			--text-color: #0f0e17;
+			--border-color: #dddaf0;
+			--glow-color: rgba(79, 70, 229, 0.14);
 			--card-bg: #ffffff;
-			--card-border: #e2e8f0;
+			--card-border: #e5e2f5;
 			--bg-gradients:
-				linear-gradient(180deg, rgba(15, 76, 129, 0.045), transparent 22%),
-				radial-gradient(circle at top right, rgba(15, 76, 129, 0.07), transparent 28%);
+				radial-gradient(ellipse at 15% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 55%),
+				radial-gradient(ellipse at 85% 10%, rgba(124, 58, 237, 0.05) 0%, transparent 45%);
 		}
 
 		html.dark {
-			--accent-blue: #8ab8df;
-			--accent-purple: #8ab8df;
-			--accent-cyan: #8ab8df;
-			--bg-color: #11161d;
-			--text-color: #edf1f5;
-			--border-color: #27303a;
-			--glow-color: rgba(138, 184, 223, 0.18);
-			--card-bg: #1e293b;
-			--card-border: #334155;
+			--accent-blue: #818cf8;
+			--accent-purple: #a78bfa;
+			--accent-cyan: #818cf8;
+			--bg-color: #07070f;
+			--text-color: #ece9ff;
+			--border-color: #1b1930;
+			--glow-color: rgba(129, 140, 248, 0.22);
+			--card-bg: #0e0c1e;
+			--card-border: #201d35;
 			--bg-gradients:
-				linear-gradient(180deg, rgba(138, 184, 223, 0.08), transparent 20%),
-				radial-gradient(circle at top right, rgba(138, 184, 223, 0.12), transparent 26%);
+				radial-gradient(ellipse at 15% 0%, rgba(99, 102, 241, 0.22) 0%, transparent 55%),
+				radial-gradient(ellipse at 85% 10%, rgba(139, 92, 246, 0.14) 0%, transparent 45%),
+				radial-gradient(ellipse at 50% 100%, rgba(99, 102, 241, 0.06) 0%, transparent 50%);
 		}
 
 		html {
@@ -124,10 +126,8 @@
 		}
 
 		html.dark body {
-			background-color: #11161d;
-			background-image:
-				linear-gradient(180deg, rgba(138, 184, 223, 0.08), transparent 20%),
-				radial-gradient(circle at top right, rgba(138, 184, 223, 0.12), transparent 26%);
+			background-color: var(--bg-color);
+			background-image: var(--bg-gradients);
 			background-repeat: no-repeat;
 			background-size: 100% 100%;
 		}
@@ -137,22 +137,27 @@
 			position: fixed;
 			top: 0;
 			left: 0;
-			height: 3px;
-			background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+			height: 2px;
+			background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), #22d3ee);
 			z-index: 9999;
 			transform-origin: left;
 			transform: scaleX(0);
 		}
 
 		.nav-pill {
-			background: rgba(255, 255, 255, 0.78);
-			border: 1px solid var(--border-color);
-			box-shadow: 0 10px 30px rgba(16, 24, 40, 0.05);
+			background: rgba(245, 244, 253, 0.88);
+			border: 1px solid rgba(221, 218, 240, 0.8);
+			box-shadow: 0 4px 24px rgba(79, 70, 229, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04);
+			backdrop-filter: blur(20px) saturate(180%);
+			-webkit-backdrop-filter: blur(20px) saturate(180%);
 		}
 
 		html.dark .nav-pill {
-			background: rgba(18, 24, 31, 0.92);
-			border: 1px solid var(--border-color);
+			background: rgba(7, 7, 15, 0.88);
+			border: 1px solid rgba(27, 25, 48, 0.9);
+			box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.03);
+			backdrop-filter: blur(20px) saturate(180%);
+			-webkit-backdrop-filter: blur(20px) saturate(180%);
 		}
 
 		.nav-link {
@@ -185,13 +190,40 @@
 			background-color: var(--card-bg);
 			border: 1px solid var(--card-border);
 			border-radius: 12px;
-			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+			box-shadow:
+				0 1px 2px rgba(0, 0, 0, 0.04),
+				0 4px 12px rgba(0, 0, 0, 0.06),
+				0 8px 24px rgba(0, 0, 0, 0.03);
 			transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 		}
 
+		html.dark .glass-card,
+		html.dark .simple-glass-card {
+			box-shadow:
+				0 1px 1px rgba(0, 0, 0, 0.7),
+				0 4px 8px rgba(0, 0, 0, 0.5),
+				0 12px 28px rgba(0, 0, 0, 0.4),
+				inset 0 1px 0 rgba(255, 255, 255, 0.04);
+		}
+
 		.glass-card:hover {
-			box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+			box-shadow:
+				0 4px 12px rgba(0, 0, 0, 0.08),
+				0 8px 24px rgba(0, 0, 0, 0.06),
+				0 0 0 1px var(--accent-blue);
 			border-color: var(--accent-blue);
+			transform: translateY(-2px);
+		}
+
+		html.dark .glass-card:hover {
+			box-shadow:
+				0 1px 1px rgba(0, 0, 0, 0.7),
+				0 8px 20px rgba(0, 0, 0, 0.6),
+				0 20px 48px rgba(0, 0, 0, 0.4),
+				0 0 0 1px rgba(129, 140, 248, 0.4),
+				inset 0 1px 0 rgba(255, 255, 255, 0.06),
+				0 0 32px rgba(129, 140, 248, 0.07);
+			border-color: rgba(129, 140, 248, 0.5);
 			transform: translateY(-2px);
 		}
 
@@ -209,13 +241,13 @@
 		}
 
 		.back-to-top {
-			border-radius: 12px !important;
+			border-radius: 10px;
 		}
 
 		.primary-btn {
-			background-color: var(--text-color);
-			color: var(--bg-color);
-			border: 1px solid var(--text-color);
+			background-color: var(--accent-blue);
+			color: #ffffff;
+			border: 1px solid var(--accent-blue);
 			border-radius: 10px;
 			padding: 0.8rem 1.35rem;
 			font-family: 'Inter', sans-serif;
@@ -224,14 +256,14 @@
 			display: flex;
 			align-items: center;
 			gap: 0.5rem;
-			transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+			transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 		}
 
 		.primary-btn:hover {
-			background-color: var(--accent-blue);
-			color: white;
-			border-color: var(--accent-blue);
-			box-shadow: 0 6px 16px var(--glow-color);
+			background-color: var(--accent-purple);
+			border-color: var(--accent-purple);
+			box-shadow: 0 8px 24px var(--glow-color);
+			transform: translateY(-1px);
 		}
 
 		.primary-btn:active {
@@ -273,19 +305,19 @@
 
 		/* --- Skills Section Top Accent --- */
 		#skills {
-			border-top: 1px solid rgba(0, 96, 223, 0.2);
+			border-top: 1px solid rgba(79, 70, 229, 0.15);
 			padding-top: 3rem;
 		}
 
 		html.dark #skills {
-			border-top-color: rgba(59, 130, 246, 0.2);
+			border-top-color: rgba(129, 140, 248, 0.18);
 		}
 
 		.timeline-item {
 			position: relative;
 			padding-left: 2.5rem;
 			padding-bottom: 3rem;
-			border-left: 1px solid rgba(61, 97, 127, 0.22);
+			border-left: 1px solid rgba(79, 70, 229, 0.2);
 		}
 
 		.timeline-item:last-child {
@@ -296,11 +328,16 @@
 			position: absolute;
 			left: -5px;
 			top: 6px;
-			width: 8px;
-			height: 8px;
+			width: 10px;
+			height: 10px;
 			border-radius: 50%;
 			background-color: var(--accent-blue) !important;
-			box-shadow: 0 0 0 5px var(--bg-color);
+			box-shadow: 0 0 0 3px var(--bg-color), 0 0 0 5px rgba(79, 70, 229, 0.2);
+			transition: box-shadow 0.3s ease;
+		}
+
+		html.dark .timeline-dot {
+			box-shadow: 0 0 0 3px var(--bg-color), 0 0 14px rgba(129, 140, 248, 0.55);
 		}
 
 		.timeline-card {
@@ -421,6 +458,7 @@
 			color: white;
 			border-color: var(--accent-blue);
 			opacity: 1;
+			box-shadow: 0 0 16px var(--glow-color);
 		}
 
 		.publication-card {
@@ -496,12 +534,12 @@
 			position: fixed;
 			bottom: 2rem;
 			right: 2rem;
-			background-color: var(--text-color);
-			color: var(--bg-color);
-			border: 2px solid var(--text-color);
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
+			background-color: var(--accent-blue);
+			color: #ffffff;
+			border: 1px solid var(--accent-blue);
+			width: 44px;
+			height: 44px;
+			border-radius: 10px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -510,7 +548,7 @@
 			transform: translateY(20px);
 			transition: all 0.3s ease;
 			pointer-events: none;
-			font-size: 1.5rem;
+			font-size: 1.2rem;
 		}
 
 		.back-to-top.is-visible {
@@ -520,8 +558,10 @@
 		}
 
 		.back-to-top:hover {
-			transform: translateY(-5px);
-			box-shadow: 0 5px 15px var(--glow-color);
+			background-color: var(--accent-purple);
+			border-color: var(--accent-purple);
+			transform: translateY(-4px);
+			box-shadow: 0 8px 24px var(--glow-color);
 		}
 
 		/* Mobile Nav */
@@ -572,6 +612,37 @@
 				color: #555;
 				margin-left: 0.25rem;
 			}
+		}
+		/* --- Hero Dot Grid (Dark Mode) --- */
+		html.dark header::before {
+			content: '';
+			position: absolute;
+			top: -5%;
+			left: -10%;
+			right: -10%;
+			bottom: 0;
+			background-image: radial-gradient(circle, rgba(129, 140, 248, 0.13) 1px, transparent 1px);
+			background-size: 36px 36px;
+			-webkit-mask-image: radial-gradient(ellipse at 38% 55%, rgba(0, 0, 0, 0.6) 0%, transparent 70%);
+			mask-image: radial-gradient(ellipse at 38% 55%, rgba(0, 0, 0, 0.6) 0%, transparent 70%);
+			pointer-events: none;
+			z-index: 0;
+		}
+
+		/* --- Name Glow (Dark Mode) --- */
+		html.dark h1 .text-custom-blue {
+			text-shadow: 0 0 80px rgba(129, 140, 248, 0.45), 0 0 160px rgba(129, 140, 248, 0.2);
+		}
+
+		/* --- Timeline border (Dark Mode) --- */
+		html.dark .timeline-item {
+			border-left-color: rgba(129, 140, 248, 0.18);
+		}
+
+		/* --- Publication badge fill --- */
+		html.dark .publication-card span.border {
+			background-color: rgba(129, 140, 248, 0.1);
+			border-color: rgba(129, 140, 248, 0.3);
 		}
 	</style>
 </head>
@@ -1465,10 +1536,10 @@
 			if (themeTextMobile) themeTextMobile.textContent = nextMode;
 		};
 
-		// Check LocalStorage
+		// Default dark; respect explicit user preference
 		const savedTheme = localStorage.getItem('theme');
-		if (savedTheme === 'dark') {
-			html.classList.add('dark');
+		if (savedTheme === 'light') {
+			html.classList.remove('dark');
 		}
 		updateThemeText();
 
