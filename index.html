@@ -6,30 +6,26 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Panagiotis C. Theocharopoulos</title>
 	<meta name="description"
-		content="Panagiotis C. Theocharopoulos is an AI Engineer and Doctoral Researcher specializing in Large Language Models, applied artificial intelligence, and healthcare analytics.">
-	<meta property="og:title" content="Panagiotis C. Theocharopoulos - AI Engineer & Researcher">
-	<meta property="og:description"
-		content="Research-led profile focused on applied artificial intelligence, healthcare analytics, and translational machine learning.">
+		content="Panagiotis C. Theocharopoulos — AI Engineer and PhD researcher specialising in Large Language Models, NLP, and healthcare AI.">
+	<meta property="og:title" content="Panagiotis C. Theocharopoulos">
+	<meta property="og:description" content="AI Engineer & PhD — LLMs · NLP · Healthcare AI">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://ptheochar.github.io/">
 	<meta property="og:image" content="https://ptheochar.github.io/assets/IMG_7283.jpeg">
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Panagiotis C. Theocharopoulos - AI Engineer & Researcher">
-	<meta name="twitter:description"
-		content="Research-led profile focused on applied artificial intelligence, healthcare analytics, and translational machine learning.">
+	<meta name="twitter:title" content="Panagiotis C. Theocharopoulos">
+	<meta name="twitter:description" content="AI Engineer & PhD — LLMs · NLP · Healthcare AI">
 	<meta name="twitter:image" content="https://ptheochar.github.io/assets/IMG_7283.jpeg">
 	<link rel="icon"
-		href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230060df'/><text x='16' y='22' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='17' fill='white'>PT</text></svg>">
-	<!-- Load Tailwind CSS -->
+		href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230891b2'/><text x='16' y='22' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='17' fill='white'>PT</text></svg>">
+
 	<script src="https://cdn.tailwindcss.com"></script>
-	<!-- Load Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:wght@400;600;700&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
 		rel="stylesheet">
 
-	<!-- Tailwind Config to use your Custom Colors -->
 	<script>
 		tailwind.config = {
 			darkMode: 'class',
@@ -38,16 +34,7 @@
 					fontFamily: {
 						sans: ['Inter', 'sans-serif'],
 						display: ['Source Serif 4', 'serif'],
-					},
-					colors: {
-						// We will use CSS variables for these in the style tag below
-						custom: {
-							bg: 'var(--bg-color)',
-							text: 'var(--text-color)',
-							blue: 'var(--accent-blue)',
-							purple: 'var(--accent-purple)',
-							cyan: 'var(--accent-cyan)',
-						}
+						mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
 					}
 				}
 			}
@@ -55,462 +42,922 @@
 	</script>
 
 	<style>
-		/* --- VARIABLES --- */
+		/* ── TOKENS ───────────────────────────────────── */
 		:root {
-			/* Light Mode: restrained institutional palette */
-			--accent-blue: #0f4c81;
-			--accent-purple: #0f4c81;
-			--accent-cyan: #0f4c81;
-
-			--bg-color: #f5f3ee;
-			--text-color: #16212b;
-			--border-color: #d7d9dd;
-			--glow-color: rgba(15, 76, 129, 0.12);
-			--card-bg: #ffffff;
-			--card-border: #e2e8f0;
-			--bg-gradients:
-				linear-gradient(180deg, rgba(15, 76, 129, 0.045), transparent 22%),
-				radial-gradient(circle at top right, rgba(15, 76, 129, 0.07), transparent 28%);
+			--bg: #f9f8f6;
+			--bg2: #f2f1ef;
+			--surface: #ffffff;
+			--surface2: #f5f4f2;
+			--border: #e4e3df;
+			--border-hi: #c9c7c0;
+			--t1: #18181b;
+			--t2: #52525b;
+			--t3: #a1a1aa;
+			--accent: #0891b2;
+			--accent2: #0e7490;
+			--accent3: #6366f1;
+			--glow: rgba(8, 145, 178, 0.14);
+			--subtle: rgba(8, 145, 178, 0.07);
 		}
 
 		html.dark {
-			--accent-blue: #8ab8df;
-			--accent-purple: #8ab8df;
-			--accent-cyan: #8ab8df;
-			--bg-color: #11161d;
-			--text-color: #edf1f5;
-			--border-color: #27303a;
-			--glow-color: rgba(138, 184, 223, 0.18);
-			--card-bg: #1e293b;
-			--card-border: #334155;
-			--bg-gradients:
-				linear-gradient(180deg, rgba(138, 184, 223, 0.08), transparent 20%),
-				radial-gradient(circle at top right, rgba(138, 184, 223, 0.12), transparent 26%);
+			--bg:        #141414;
+			--bg2:       #1a1a1a;
+			--surface:   #1f1f1f;
+			--surface2:  #262626;
+			--border:    #2e2e2e;
+			--border-hi: #3d3d3d;
+			--t1:        #f0efe9;
+			--t2:        #9c9c96;
+			--t3:        #58584f;
+			--accent:    #2dd4bf;
+			--accent2:   #0d9488;
+			--accent3:   #a78bfa;
+			--glow:      rgba(45,212,191,0.15);
+			--subtle:    rgba(45,212,191,0.08);
 		}
 
+		/* ── BASE ─────────────────────────────────────── */
 		html {
-			scroll-padding-top: 8rem;
-			/* Leave room for sticky nav when scrolling to anchors */
-		}
-
-		/* --- Custom Scrollbar --- */
-		::-webkit-scrollbar {
-			width: 12px;
-		}
-
-		::-webkit-scrollbar-track {
-			background: var(--bg-color);
-		}
-
-		::-webkit-scrollbar-thumb {
-			background-color: var(--border-color);
-			border-radius: 10px;
-			border: 3px solid var(--bg-color);
-			transition: background-color 0.2s ease;
-		}
-
-		::-webkit-scrollbar-thumb:hover {
-			background-color: var(--accent-blue);
+			scroll-padding-top: 5.5rem;
 		}
 
 		body {
-			background-color: var(--bg-color);
-			background-image: var(--bg-gradients);
-			background-repeat: no-repeat;
-			background-size: 100% 100%;
-			color: var(--text-color);
-			transition: background-color 0.3s ease, color 0.3s ease;
+			background-color: var(--bg);
+			color: var(--t1);
+			transition: background-color .3s, color .3s;
+			-webkit-font-smoothing: antialiased;
 			text-rendering: optimizeLegibility;
 		}
 
-		html.dark body {
-			background-color: #11161d;
-			background-image:
-				linear-gradient(180deg, rgba(138, 184, 223, 0.08), transparent 20%),
-				radial-gradient(circle at top right, rgba(138, 184, 223, 0.12), transparent 26%);
-			background-repeat: no-repeat;
-			background-size: 100% 100%;
+		/* ── GRAIN ────────────────────────────────────── */
+		body::before {
+			content: '';
+			position: fixed; inset: 0;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+			background-size: 280px 280px;
+			opacity: .038;
+			pointer-events: none; z-index: 99998;
+		}
+		html.dark body::before { opacity: 0; }
+
+		/* Ambient gradient */
+		body::after {
+			content: '';
+			position: fixed;
+			inset: 0;
+			background: radial-gradient(ellipse 70% 40% at 100% 0%, rgba(8,145,178,.04) 0%, transparent 60%);
+			pointer-events: none;
+			z-index: 0;
+		}
+		html.dark body::after {
+			background:
+				radial-gradient(ellipse 55% 35% at 5% 0%, rgba(45,212,191,.05) 0%, transparent 55%),
+				radial-gradient(ellipse 35% 25% at 95% 5%, rgba(167,139,250,.04) 0%, transparent 50%);
 		}
 
-		/* --- Scroll Progress --- */
+		/* ── SCROLLBAR ────────────────────────────────── */
+		::-webkit-scrollbar {
+			width: 5px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: var(--bg);
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: var(--border-hi);
+			border-radius: 999px;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+			background: var(--accent);
+		}
+
+		/* ── PROGRESS BAR ─────────────────────────────── */
 		.scroll-progress {
 			position: fixed;
 			top: 0;
 			left: 0;
-			height: 3px;
-			background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-			z-index: 9999;
+			height: 2px;
+			background: linear-gradient(90deg, var(--accent), var(--accent3));
+			z-index: 99999;
 			transform-origin: left;
 			transform: scaleX(0);
 		}
 
+		/* ── NAV ──────────────────────────────────────── */
 		.nav-pill {
-			background: rgba(255, 255, 255, 0.78);
-			border: 1px solid var(--border-color);
-			box-shadow: 0 10px 30px rgba(16, 24, 40, 0.05);
+			background: rgba(255, 255, 255, .75);
+			border: 1px solid rgba(228, 227, 223, .6);
+			box-shadow: 0 4px 24px rgba(0, 0, 0, .04), 0 1px 2px rgba(0, 0, 0, .04);
+			backdrop-filter: blur(24px) saturate(200%);
+			-webkit-backdrop-filter: blur(24px) saturate(200%);
 		}
 
 		html.dark .nav-pill {
-			background: rgba(18, 24, 31, 0.92);
-			border: 1px solid var(--border-color);
+			background: rgba(26, 28, 34, .75);
+			border-color: rgba(255, 255, 255, .08);
+			box-shadow: 0 4px 24px rgba(0, 0, 0, .4);
 		}
 
 		.nav-link {
-			position: relative;
-			opacity: 0.6;
-			transition: opacity 0.3s, color 0.3s;
-			color: var(--text-color);
+			font-size: .8125rem;
+			letter-spacing: .01em;
+			font-weight: 500;
+			color: var(--t2);
+			transition: color .2s;
 		}
 
 		.nav-link:hover,
 		.nav-link.active {
-			opacity: 1;
-			color: var(--accent-blue);
+			color: var(--accent);
+		}
+
+		.nav-link.active {
+			position: relative;
 		}
 
 		.nav-link.active::after {
 			content: '';
 			position: absolute;
-			bottom: -4px;
+			bottom: -5px;
 			left: 50%;
 			transform: translateX(-50%);
-			width: 4px;
-			height: 4px;
-			background: var(--accent-blue);
+			width: 3px;
+			height: 3px;
+			background: var(--accent);
 			border-radius: 50%;
 		}
 
-		.glass-card,
-		.simple-glass-card {
-			background-color: var(--card-bg);
-			border: 1px solid var(--card-border);
-			border-radius: 12px;
-			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-			transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+		/* ── HERO ─────────────────────────────────────── */
+		@keyframes heroFadeUp {
+			from {
+				opacity: 0;
+				transform: translateY(24px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
 		}
 
-		.glass-card:hover {
-			box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
-			border-color: var(--accent-blue);
-			transform: translateY(-2px);
+		.hero-animate {
+			opacity: 0;
+			animation: heroFadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 		}
 
-		/* --- Animation Delays --- */
-		.delay-100 {
-			transition-delay: 100ms;
+		.hero-section {
+			position: relative;
+			min-height: 100vh;
+			display: grid;
+			grid-template-columns: 1fr auto;
+			align-items: center;
+			gap: 4rem;
+			padding-top: 7rem;
+			padding-bottom: 4rem;
 		}
 
-		.delay-200 {
-			transition-delay: 200ms;
+		@media (max-width: 900px) {
+			.hero-section {
+				grid-template-columns: 1fr;
+				gap: 3rem;
+			}
 		}
 
-		.delay-300 {
-			transition-delay: 300ms;
+		.hero-badge {
+			display: inline-flex;
+			align-items: center;
+			gap: .5rem;
+			padding: .3rem .8rem;
+			border-radius: 999px;
+			border: 1px solid var(--border);
+			background: var(--surface);
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .68rem;
+			font-weight: 500;
+			color: var(--t2);
+			letter-spacing: .05em;
+			text-transform: uppercase;
+			margin-bottom: 2rem;
 		}
 
-		.back-to-top {
-			border-radius: 12px !important;
+		.hero-badge-dot {
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			background: var(--accent);
+			flex-shrink: 0;
 		}
 
-		.primary-btn {
-			background-color: var(--text-color);
-			color: var(--bg-color);
-			border: 1px solid var(--text-color);
-			border-radius: 10px;
-			padding: 0.8rem 1.35rem;
+		.hero-name {
 			font-family: 'Inter', sans-serif;
-			font-weight: 600;
-			letter-spacing: 0.01em;
+			font-weight: 800;
+			line-height: 1.0;
+			letter-spacing: -.04em;
+			color: var(--t1);
+			font-size: clamp(2.4rem, 5.5vw, 4.25rem);
+		}
+
+		.hero-name-line2 {
+			display: block;
+			background: linear-gradient(135deg, var(--accent), var(--accent3));
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			color: transparent;
+		}
+
+		.hero-role {
+			font-family: 'Source Serif 4', serif;
+			font-style: italic;
+			font-size: clamp(.95rem, 1.8vw, 1.2rem);
+			color: var(--t2);
+			margin-top: 1.1rem;
+		}
+
+		.hero-bio {
+			font-size: .9375rem;
+			line-height: 1.75;
+			color: var(--t2);
+			margin-top: .875rem;
+			max-width: 48ch;
+		}
+
+		.hero-links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .5rem;
+			margin-top: 2rem;
+		}
+
+		/* ── BUTTONS ──────────────────────────────────── */
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			gap: .375rem;
+			padding: .525rem 1.05rem;
+			border-radius: 8px;
+			font-size: .875rem;
+			font-weight: 500;
+			transition: all .18s ease;
+			white-space: nowrap;
+		}
+
+		.btn-primary {
+			background: var(--accent);
+			color: #fff;
+			border: 1px solid var(--accent);
+		}
+
+		.btn-primary:hover {
+			background: var(--accent2);
+			border-color: var(--accent2);
+			transform: translateY(-1px);
+			box-shadow: 0 4px 16px var(--glow);
+		}
+
+		.btn-ghost {
+			background: var(--surface);
+			color: var(--t1);
+			border: 1px solid var(--border);
+		}
+
+		html.dark .btn-ghost {
+			background: var(--surface2);
+		}
+
+		.btn-ghost:hover {
+			border-color: var(--accent);
+			color: var(--accent);
+			transform: translateY(-1px);
+		}
+
+		/* ── HERO PHOTO ───────────────────────────────── */
+		.hero-photo-wrap {
+			width: min(300px, 40vw);
+			flex-shrink: 0;
+		}
+
+		@media (max-width: 900px) {
+			.hero-photo-wrap {
+				width: min(220px, 55vw);
+				margin: 0 auto;
+			}
+		}
+
+		.hero-photo-frame {
+			position: relative;
+			border-radius: 18px;
+			overflow: hidden;
+			border: 1px solid var(--border);
+			box-shadow: 0 4px 24px rgba(0, 0, 0, .08);
+		}
+
+		html.dark .hero-photo-frame {
+			box-shadow: 0 4px 24px rgba(0, 0, 0, .4), 0 0 0 1px rgba(255, 255, 255, .04);
+		}
+
+		.hero-photo-frame img {
+			width: 100%;
+			display: block;
+			object-fit: cover;
+			object-position: 50% 20%;
+			aspect-ratio: 3/4;
+			transition: transform .6s cubic-bezier(0.2, 0.8, 0.2, 1);
+		}
+
+		.hero-photo-frame:hover img {
+			transform: scale(1.03);
+		}
+
+		/* ── SECTION LAYOUT ───────────────────────────── */
+		.section-wrap {
+			padding-top: 6rem;
+			padding-bottom: .5rem;
+		}
+
+		.section-header {
 			display: flex;
 			align-items: center;
-			gap: 0.5rem;
-			transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+			gap: 1rem;
+			margin-bottom: 2.5rem;
 		}
 
-		.primary-btn:hover {
-			background-color: var(--accent-blue);
-			color: white;
-			border-color: var(--accent-blue);
-			box-shadow: 0 6px 16px var(--glow-color);
+		.section-title {
+			font-family: 'Source Serif 4', serif;
+			font-size: clamp(1.4rem, 2.5vw, 1.875rem);
+			font-weight: 700;
+			letter-spacing: -.02em;
+			color: var(--t1);
+			white-space: nowrap;
 		}
 
-		.primary-btn:active {
-			transform: scale(0.97);
+		.section-rule {
+			flex: 1;
+			height: 1px;
+			background: linear-gradient(90deg, var(--border), transparent);
 		}
 
-		/* --- Theme Toggle Icon --- */
-		#theme-toggle svg,
-		#theme-toggle-mobile svg {
-			transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-		}
-
-		#theme-toggle:hover svg,
-		#theme-toggle-mobile:hover svg {
-			transform: rotate(30deg);
-		}
-
-		.theme-icon-moon {
-			display: inline-block;
-		}
-
-		.theme-icon-sun {
-			display: none;
-		}
-
-		html.dark .theme-icon-moon {
-			display: none;
-		}
-
-		html.dark .theme-icon-sun {
-			display: inline-block;
-		}
-
-		/* --- Section Number Accent --- */
-		.section-num {
-			color: var(--accent-blue);
-			opacity: 1;
-		}
-
-		/* --- Skills Section Top Accent --- */
-		#skills {
-			border-top: 1px solid rgba(0, 96, 223, 0.2);
-			padding-top: 3rem;
-		}
-
-		html.dark #skills {
-			border-top-color: rgba(59, 130, 246, 0.2);
-		}
-
-		.timeline-item {
-			position: relative;
-			padding-left: 2.5rem;
-			padding-bottom: 3rem;
-			border-left: 1px solid rgba(61, 97, 127, 0.22);
-		}
-
-		.timeline-item:last-child {
-			border-left: 2px solid transparent;
-		}
-
-		.timeline-dot {
-			position: absolute;
-			left: -5px;
-			top: 6px;
-			width: 8px;
-			height: 8px;
-			border-radius: 50%;
-			background-color: var(--accent-blue) !important;
-			box-shadow: 0 0 0 5px var(--bg-color);
-		}
-
-		.timeline-card {
-			position: relative;
+		/* ── STAT GRID ────────────────────────────────── */
+		.stat-grid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1px;
+			background: var(--border);
+			border: 1px solid var(--border);
+			border-radius: 12px;
 			overflow: hidden;
 		}
 
-		.timeline-card::before {
+		@media (max-width: 560px) {
+			.stat-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		.stat-item {
+			background: var(--surface);
+			padding: 1.25rem 1.375rem;
+		}
+
+		html.dark .stat-item {
+			background: var(--surface2);
+		}
+
+		.stat-val {
+			font-family: 'Inter', sans-serif;
+			font-size: 1.75rem;
+			font-weight: 800;
+			color: var(--accent);
+			letter-spacing: -.04em;
+			line-height: 1;
+		}
+
+		.stat-lbl {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .65rem;
+			letter-spacing: .07em;
+			text-transform: uppercase;
+			color: var(--t3);
+			margin-top: .3rem;
+		}
+
+		/* ── CARDS (shared) ───────────────────────────── */
+		.card {
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			transition: border-color .3s, box-shadow .3s, transform .3s cubic-bezier(0.2, 0.8, 0.2, 1);
+		}
+
+		html.dark .card {
+			background: var(--surface2);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(255, 255, 255, .03);
+		}
+
+		.card-hover:hover {
+			border-color: var(--accent);
+			transform: translateY(-2px);
+			box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+		}
+
+		html.dark .card-hover:hover {
+			box-shadow: 0 8px 24px rgba(0, 0, 0, .4), 0 0 0 1px rgba(34, 211, 238, .2),
+				inset 0 1px 0 rgba(255, 255, 255, .04);
+		}
+
+		/* ── EXPERIENCE ───────────────────────────────── */
+		.exp-head {
+			padding: 1.25rem 1.5rem;
+			border-bottom: 1px solid var(--border);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
+			flex-wrap: wrap;
+		}
+
+		.exp-kicker {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .62rem;
+			font-weight: 500;
+			letter-spacing: .1em;
+			text-transform: uppercase;
+			color: var(--accent);
+			background: var(--subtle);
+			border: 1px solid rgba(8, 145, 178, .15);
+			padding: .18rem .55rem;
+			border-radius: 4px;
+		}
+
+		html.dark .exp-kicker {
+			border-color: rgba(34, 211, 238, .2);
+		}
+
+		.exp-company {
+			font-family: 'Inter', sans-serif;
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: var(--t1);
+		}
+
+		.exp-date {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .65rem;
+			color: var(--t3);
+			letter-spacing: .04em;
+			white-space: nowrap;
+			padding: .25rem .6rem;
+			border: 1px solid var(--border);
+			border-radius: 6px;
+			background: var(--bg);
+		}
+
+		html.dark .exp-date {
+			background: var(--bg2);
+		}
+
+		.exp-body {
+			padding: 1.25rem 1.5rem;
+		}
+
+		.role-block {
+			padding: .75rem 0;
+			border-top: 1px solid var(--border);
+		}
+
+		.role-block:first-child {
+			border-top: none;
+			padding-top: 0;
+		}
+
+		.role-title {
+			font-size: .9rem;
+			font-weight: 600;
+			color: var(--t1);
+		}
+
+		.role-period {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .65rem;
+			color: var(--t3);
+			margin-top: .1rem;
+		}
+
+		.role-bullets {
+			margin-top: .5rem;
+			list-style: none;
+			padding: 0;
+		}
+
+		.role-bullets li {
+			display: flex;
+			gap: .5rem;
+			font-size: .875rem;
+			color: var(--t2);
+			line-height: 1.65;
+			padding: .15rem 0;
+		}
+
+		.role-bullets li::before {
+			content: '–';
+			color: var(--accent);
+			flex-shrink: 0;
+			opacity: .6;
+		}
+
+		/* ── TEACHING ─────────────────────────────────── */
+		.teach-row {
+			display: grid;
+			grid-template-columns: 200px 1fr;
+			gap: 1.25rem;
+			padding: 1rem 1.5rem;
+			border-top: 1px solid var(--border);
+		}
+
+		.teach-row:first-child {
+			border-top: none;
+		}
+
+		@media (max-width: 580px) {
+			.teach-row {
+				grid-template-columns: 1fr;
+				gap: .35rem;
+			}
+		}
+
+		/* ── SKILLS ───────────────────────────────────── */
+		.skills-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.125rem;
+		}
+
+		@media (max-width: 860px) {
+			.skills-grid {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
+
+		@media (max-width: 520px) {
+			.skills-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		.skill-head {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .65rem;
+			font-weight: 600;
+			letter-spacing: .09em;
+			text-transform: uppercase;
+			color: var(--t3);
+			margin-bottom: .875rem;
+		}
+
+		.tag-cloud {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .325rem;
+		}
+
+		.tag {
+			display: inline-block;
+			padding: .25rem .6rem;
+			border-radius: 6px;
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .75rem;
+			font-weight: 500;
+			background: var(--surface2);
+			border: 1px solid var(--border);
+			color: var(--t2);
+			transition: all .15s ease;
+		}
+
+		html.dark .tag {
+			background: var(--bg2);
+			border-color: var(--border-hi);
+		}
+
+		.tag:hover {
+			border-color: var(--accent);
+			color: var(--accent);
+			background: var(--subtle);
+		}
+
+		/* ── EDUCATION ────────────────────────────────── */
+		.edu-list {
+			position: relative;
+			padding-left: 1.75rem;
+		}
+
+		.edu-list::before {
 			content: '';
 			position: absolute;
 			left: 0;
-			top: 0;
+			top: 8px;
 			bottom: 0;
-			width: 2px;
-			background: var(--accent-blue);
-			opacity: 0.35;
+			width: 1px;
+			background: var(--border);
 		}
 
-		.timeline-date {
+		.edu-item {
+			position: relative;
+			padding-bottom: 2rem;
+		}
+
+		.edu-item::before {
+			content: '';
+			position: absolute;
+			left: -2.125rem;
+			top: 7px;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: var(--accent);
+			box-shadow: 0 0 0 3px var(--bg);
+		}
+
+		html.dark .edu-item::before {
+			box-shadow: 0 0 0 3px var(--bg), 0 0 8px var(--glow);
+		}
+
+		.edu-year {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .65rem;
+			color: var(--accent);
+			letter-spacing: .08em;
+			margin-bottom: .25rem;
+		}
+
+		.edu-degree {
+			font-size: 1rem;
+			font-weight: 600;
+			color: var(--t1);
+		}
+
+		.edu-meta {
+			font-size: .875rem;
+			color: var(--t2);
+			margin-top: .15rem;
+		}
+
+		.edu-note {
+			font-size: .8rem;
+			color: var(--t3);
+			font-style: italic;
+			margin-top: .15rem;
+		}
+
+		/* ── HONORS ───────────────────────────────────── */
+		.honor-row {
+			display: flex;
+			align-items: flex-start;
+			gap: .875rem;
+			padding: .75rem 0;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.honor-row:last-child {
+			border-bottom: none;
+		}
+
+		.honor-icon {
+			width: 28px;
+			height: 28px;
+			border-radius: 7px;
+			background: var(--subtle);
+			border: 1px solid rgba(8, 145, 178, .15);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+			color: var(--accent);
+		}
+
+		html.dark .honor-icon {
+			border-color: rgba(34, 211, 238, .2);
+		}
+
+		/* ── REVIEW ───────────────────────────────────── */
+		.review-item {
+			padding: .5rem 0;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.review-item:last-child {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+
+		.review-item:first-child {
+			padding-top: 0;
+		}
+
+		.rev-name {
+			font-size: .875rem;
+			font-weight: 600;
+			color: var(--t1);
+		}
+
+		.rev-pub {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .68rem;
+			color: var(--t3);
+		}
+
+		/* ── CERTIFICATIONS ───────────────────────────── */
+		.cert-item {
+			display: flex;
+			align-items: center;
+			gap: .75rem;
+			padding: .75rem 1rem;
+			border-radius: 9px;
+			border: 1px solid var(--border);
+			background: var(--surface);
+			font-size: .875rem;
+			color: var(--t2);
+			transition: border-color .18s, color .18s;
+		}
+
+		html.dark .cert-item {
+			background: var(--surface2);
+		}
+
+		.cert-item:hover {
+			border-color: var(--accent);
+			color: var(--t1);
+		}
+
+		.cert-dot {
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background: var(--accent);
+			flex-shrink: 0;
+		}
+
+		/* ── PUBLICATIONS ─────────────────────────────── */
+		.pub-title {
+			font-family: 'Source Serif 4', serif;
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: var(--t1);
+			line-height: 1.35;
+			letter-spacing: -.01em;
+			margin-top: .75rem;
+			transition: color .2s;
+		}
+
+		.card-hover:hover .pub-title {
+			color: var(--accent);
+		}
+
+		.pub-authors {
+			font-size: .84rem;
+			color: var(--t2);
+			margin-top: .4rem;
+			line-height: 1.55;
+		}
+
+		.pub-venue {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .7rem;
+			color: var(--t3);
+			margin-top: .3rem;
+		}
+
+		.pub-links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .5rem;
+			margin-top: 1rem;
+			padding-top: .875rem;
+			border-top: 1px solid var(--border);
+		}
+
+		.pub-link {
+			font-size: .8rem;
+			font-weight: 600;
+			color: var(--accent);
+			transition: color .18s;
+		}
+
+		.pub-link:hover {
+			color: var(--accent2);
+		}
+
+		.pub-link+.pub-link {
+			padding-left: .5rem;
+			border-left: 1px solid var(--border);
+		}
+
+		.pub-badge {
 			display: inline-flex;
 			align-items: center;
-			gap: 0.4rem;
-			padding: 0.35rem 0.75rem;
-			border-radius: 999px;
-			border: 1px solid rgba(160, 160, 160, 0.25);
-			background: transparent;
-			font-size: 0.75rem;
-			letter-spacing: 0.08em;
+			padding: .16rem .5rem;
+			border-radius: 4px;
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .62rem;
+			font-weight: 500;
+			letter-spacing: .07em;
 			text-transform: uppercase;
+			background: var(--subtle);
+			color: var(--accent);
+			border: 1px solid rgba(8, 145, 178, .15);
 		}
 
-		.timeline-kicker {
-			font-size: 0.8rem;
-			font-weight: 700;
-			letter-spacing: 0.18em;
-			text-transform: uppercase;
-			opacity: 0.55;
+		html.dark .pub-badge {
+			border-color: rgba(34, 211, 238, .2);
+			background: rgba(34, 211, 238, .07);
 		}
 
-		@media (max-width: 768px) {
-			.timeline-item {
-				padding-left: 1.75rem;
-				padding-bottom: 2rem;
-			}
-
-			.timeline-dot {
-				left: -5px;
-			}
+		.pub-badge-conf {
+			background: rgba(99, 102, 241, .07);
+			color: var(--accent3);
+			border-color: rgba(99, 102, 241, .2);
 		}
 
-		.section-note {
-			max-width: 32rem;
-			margin-top: 1rem;
-			font-size: 0.9rem;
-			line-height: 1.7;
-			opacity: 0.62;
+		.pub-badge-oa {
+			background: rgba(34, 197, 94, .07);
+			color: #15803d;
+			border-color: rgba(34, 197, 94, .2);
 		}
 
-		.capability-list {
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 0.75rem;
-			font-size: 0.95rem;
-			line-height: 1.7;
-			opacity: 0.86;
+		html.dark .pub-badge-oa {
+			color: #4ade80;
 		}
 
-		.capability-list span {
-			display: block;
-			padding-top: 0.75rem;
-			border-top: 1px solid rgba(61, 97, 127, 0.16);
-			opacity: 0;
-			transform: translateY(8px);
-			transition: opacity 0.5s ease, transform 0.5s ease, color 0.2s ease;
+		.pub-yr {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .65rem;
+			color: var(--t3);
 		}
 
-		.reveal.opacity-100 .capability-list span {
-			opacity: 1;
-			transform: translateY(0);
-		}
-
-		.capability-list span:nth-child(1) {
-			transition-delay: 150ms;
-		}
-
-		.capability-list span:nth-child(2) {
-			transition-delay: 250ms;
-		}
-
-		.capability-list span:nth-child(3) {
-			transition-delay: 350ms;
-		}
-
-		.capability-list span:nth-child(4) {
-			transition-delay: 450ms;
-		}
-
-		.reveal.opacity-100 .capability-list span:hover {
-			color: var(--accent-blue);
-			transform: translateX(4px);
-			transition-delay: 0ms;
-		}
-
+		/* Filter buttons */
 		.filter-btn {
-			background-color: rgba(255, 255, 255, 0.4);
-			border: 1px solid var(--border-color);
-			color: var(--text-color);
-			transition: all 0.2s ease;
-			opacity: 0.88;
+			padding: .3rem .8rem;
+			border-radius: 999px;
+			font-size: .8rem;
+			font-weight: 500;
+			border: 1px solid var(--border);
+			background: var(--surface);
+			color: var(--t2);
+			transition: all .15s;
+			cursor: pointer;
+		}
+
+		html.dark .filter-btn {
+			background: var(--surface2);
 		}
 
 		.filter-btn:hover {
-			opacity: 1;
+			border-color: var(--accent);
+			color: var(--accent);
 		}
 
 		.filter-btn.active {
-			background-color: var(--accent-blue);
-			color: white;
-			border-color: var(--accent-blue);
-			opacity: 1;
+			background: var(--accent);
+			color: #fff;
+			border-color: var(--accent);
+			box-shadow: 0 0 12px var(--glow);
 		}
 
 		.publication-card {
-			transition: opacity 0.3s ease, transform 0.3s ease;
-			will-change: opacity, transform;
-			opacity: 1;
-			transform: scale(1);
+			transition: opacity .3s, transform .3s;
 		}
 
 		.publication-card.is-hiding {
 			opacity: 0;
-			transform: scale(0.98);
+			transform: scale(.98);
 		}
 
 		.publication-card.is-hidden {
 			display: none;
 		}
 
-		details.abstract-container {
-			border-top: 1px solid var(--border-color);
-			margin-top: 1rem;
-			padding-top: 1rem;
-		}
-
-		details.abstract-container summary {
-			list-style: none;
-			cursor: pointer;
-			font-size: 0.875rem;
-			font-weight: 600;
-			color: var(--text-color);
-			opacity: 0.8;
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
-			transition: opacity 0.2s ease, color 0.2s ease;
-		}
-
-		details.abstract-container summary::-webkit-details-marker {
-			display: none;
-		}
-
-		details.abstract-container summary:hover {
-			opacity: 1;
-			color: var(--accent-blue);
-		}
-
-		details.abstract-container summary::before {
-			content: "";
-			display: inline-block;
-			width: 16px;
-			height: 16px;
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-			background-size: contain;
-			background-repeat: no-repeat;
-			transition: transform 0.3s ease;
-		}
-
-		details.abstract-container[open] summary::before {
-			transform: rotate(180deg);
-		}
-
-		details.abstract-container p {
-			margin-top: 0.75rem;
-			font-size: 0.875rem;
-			line-height: 1.6;
-			opacity: 0.85;
-			padding-left: 1.5rem;
-			border-left: 2px solid var(--accent-blue);
-		}
-
-		/* --- Back to Top Button --- */
+		/* ── BACK TO TOP ──────────────────────────────── */
 		.back-to-top {
 			position: fixed;
-			bottom: 2rem;
-			right: 2rem;
-			background-color: var(--text-color);
-			color: var(--bg-color);
-			border: 2px solid var(--text-color);
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
+			bottom: 1.75rem;
+			right: 1.75rem;
+			width: 38px;
+			height: 38px;
+			border-radius: 9px;
+			background: var(--accent);
+			color: #fff;
+			border: 1px solid var(--accent);
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			z-index: 1000;
+			font-size: .875rem;
 			opacity: 0;
-			transform: translateY(20px);
-			transition: all 0.3s ease;
+			transform: translateY(16px);
+			transition: all .3s;
 			pointer-events: none;
-			font-size: 1.5rem;
 		}
 
 		.back-to-top.is-visible {
@@ -520,24 +967,158 @@
 		}
 
 		.back-to-top:hover {
-			transform: translateY(-5px);
-			box-shadow: 0 5px 15px var(--glow-color);
+			background: var(--accent2);
+			border-color: var(--accent2);
+			transform: translateY(-2px);
+			box-shadow: 0 4px 16px var(--glow);
 		}
 
-		/* Mobile Nav */
+		/* ── MOBILE NAV ───────────────────────────────── */
 		.mobile-nav-overlay {
 			position: fixed;
 			inset: 0;
-			background: var(--bg-color);
+			background: var(--bg);
 			z-index: 50;
 			transform: translateX(100%);
-			transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+			transition: transform .4s cubic-bezier(.7, 0, .3, 1);
 		}
 
 		.mobile-nav-overlay.open {
 			transform: translateX(0);
 		}
 
+		/* ── THEME ICONS ──────────────────────────────── */
+		.icon-moon {
+			display: inline-block;
+		}
+
+		.icon-sun {
+			display: none;
+		}
+
+		html.dark .icon-moon {
+			display: none;
+		}
+
+		html.dark .icon-sun {
+			display: inline-block;
+		}
+
+		/* ── SECTION DIVIDER ──────────────────────────── */
+		.skills-wrap {
+			border-top: 1px solid var(--border);
+		}
+
+		/* ── HERO BLOB ────────────────────────────────── */
+		.hero-blob {
+			position: absolute;
+			top: -10%; right: -5%;
+			width: min(520px, 70vw); height: min(520px, 70vw);
+			border-radius: 50%;
+			background: radial-gradient(circle at 40% 40%,
+				rgba(8,145,178,.12) 0%,
+				rgba(99,102,241,.07) 50%,
+				transparent 72%);
+			filter: blur(48px);
+			pointer-events: none; z-index: 0;
+			animation: blobDrift 14s ease-in-out infinite alternate;
+		}
+		html.dark .hero-blob {
+			background: radial-gradient(circle at 40% 40%,
+				rgba(45,212,191,.10) 0%,
+				rgba(167,139,250,.06) 50%,
+				transparent 72%);
+		}
+		@keyframes blobDrift {
+			0%   { transform: translate(0,0) scale(1); }
+			33%  { transform: translate(-3%,4%) scale(1.04); }
+			66%  { transform: translate(3%,-3%) scale(.97); }
+			100% { transform: translate(-2%,2%) scale(1.02); }
+		}
+
+		/* ── TYPING CURSOR ─────────────────────────── */
+		.typing-cursor {
+			display: inline-block;
+			width: 2px; height: 1.1em;
+			background: var(--accent);
+			margin-left: 3px;
+			vertical-align: text-bottom;
+			animation: blink .9s step-end infinite;
+		}
+		@keyframes blink {
+			0%, 100% { opacity: 1; }
+			50%       { opacity: 0; }
+		}
+
+		/* ── PULSE DOT (current role) ──────────────── */
+		.pulse-dot {
+			display: inline-flex; align-items: center;
+			width: 8px; height: 8px; border-radius: 50%;
+			background: #22c55e; flex-shrink: 0;
+			position: relative;
+		}
+		.pulse-dot::after {
+			content: '';
+			position: absolute; inset: -3px;
+			border-radius: 50%;
+			background: rgba(34,197,94,.35);
+			animation: pulseRing 1.8s ease-out infinite;
+		}
+		@keyframes pulseRing {
+			0%   { transform: scale(.7); opacity: .8; }
+			100% { transform: scale(1.8); opacity: 0; }
+		}
+
+		/* ── PUB CARD ACCENT BORDERS ───────────────── */
+		.publication-card[data-type="journal"] {
+			border-left: 3px solid var(--accent);
+		}
+		.publication-card[data-type="conference"] {
+			border-left: 3px solid var(--accent3);
+		}
+
+		/* ── SECTION ANCHOR ────────────────────────── */
+		.section-anchor {
+			opacity: 0;
+			transition: opacity .2s;
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .75rem; color: var(--accent);
+			text-decoration: none; margin-left: .5rem;
+			vertical-align: middle;
+		}
+		.section-header:hover .section-anchor { opacity: 1; }
+
+		/* ── STAGGERED CHILDREN ────────────────────── */
+		.stagger-child {
+			opacity: 0;
+			transform: translateY(14px);
+			transition: opacity .5s ease, transform .5s ease;
+		}
+		.stagger-child.visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		/* ── THESIS PULL-QUOTE ──────────────────────── */
+		.thesis-quote {
+			margin-top: .6rem;
+			padding: .6rem 1rem;
+			border-left: 2px solid var(--accent);
+			background: var(--subtle);
+			border-radius: 0 6px 6px 0;
+			font-family: 'Source Serif 4', serif;
+			font-style: italic;
+			font-size: .9rem;
+			color: var(--t2);
+			line-height: 1.55;
+		}
+
+		/* ── PHOTO DARK MODE ───────────────────────────── */
+		html.dark .hero-photo-frame img {
+			filter: saturate(0.88) brightness(0.94);
+		}
+
+		/* ── PRINT ────────────────────────────────────── */
 		@media print {
 			body {
 				background: white !important;
@@ -550,89 +1131,51 @@
 			.mobile-nav-overlay,
 			.filter-btn,
 			button,
-			#theme-toggle {
+			.hero-badge,
+			.back-to-top {
 				display: none !important;
 			}
 
-			.glass-card,
-			.simple-glass-card,
-			.publication-card {
+			.card {
 				border: none !important;
 				box-shadow: none !important;
-				background: transparent !important;
-				padding: 0 !important;
-				margin-bottom: 2.5rem !important;
-				page-break-inside: avoid;
+				break-inside: avoid;
 			}
 
 			a[href^="http"]::after {
 				content: " (" attr(href) ")";
-				font-size: 0.8em;
-				font-family: monospace;
+				font-size: .75em;
 				color: #555;
-				margin-left: 0.25rem;
 			}
 		}
 	</style>
 </head>
 
-<body class="antialiased overflow-x-hidden selection:bg-custom-blue selection:text-white">
+<body class="antialiased overflow-x-hidden">
 
 	<div class="scroll-progress" id="scroll-progress"></div>
 
-	<!-- Desktop Sticky Nav -->
+	<!-- Desktop Nav -->
 	<nav id="section-nav"
-		class="fixed top-6 left-1/2 -translate-x-1/2 z-40 hidden lg:block transition-all duration-500 opacity-0 -translate-y-full">
-		<div class="nav-pill px-6 py-3 rounded-xl flex gap-8 items-center">
-			<a href="#about" class="nav-link font-display text-sm font-medium tracking-wide">About</a>
-			<a href="#experience" class="nav-link font-display text-sm font-medium tracking-wide">Experience</a>
-			<a href="#teaching" class="nav-link font-display text-sm font-medium tracking-wide">Teaching</a>
-			<a href="#skills" class="nav-link font-display text-sm font-medium tracking-wide">Skills</a>
-			<a href="#education" class="nav-link font-display text-sm font-medium tracking-wide">Education</a>
-			<a href="#honors" class="nav-link font-display text-sm font-medium tracking-wide">Honors</a>
-			<a href="#publications" class="nav-link font-display text-sm font-medium tracking-wide">Publications</a>
-		</div>
-	</nav>
-
-	<!-- Mobile Header -->
-	<div class="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 lg:hidden pointer-events-none">
-		<button id="mobile-menu-btn" aria-label="Open navigation menu" aria-controls="mobile-nav" aria-expanded="false"
-			class="pointer-events-auto w-10 h-10 flex flex-col justify-center gap-1.5 items-end group text-custom-text">
-			<span class="w-8 h-0.5 bg-current transition-all group-hover:w-6"></span>
-			<span class="w-6 h-0.5 bg-current transition-all group-hover:w-8"></span>
-		</button>
-	</div>
-
-	<!-- Mobile Nav Overlay -->
-	<div id="mobile-nav" class="mobile-nav-overlay flex flex-col justify-center items-center gap-8 p-8">
-		<button id="mobile-close-btn" aria-label="Close navigation menu"
-			class="absolute top-6 right-6 font-display font-bold text-lg">CLOSE</button>
-		<a href="#about"
-			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">About</a>
-		<a href="#experience"
-			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Experience</a>
-		<a href="#teaching"
-			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Teaching</a>
-		<a href="#skills"
-			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Skills</a>
-		<a href="#education"
-			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Education</a>
-		<a href="#honors"
-			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Honors</a>
-		<a href="#publications"
-			class="text-3xl font-display font-bold hover:text-custom-blue transition-colors mobile-link">Publications</a>
-		<div
-			class="w-full lg:hidden border-t border-current/10 pt-6 mt-2 flex flex-col items-center gap-4 text-sm font-display uppercase tracking-wider">
-			<button id="theme-toggle-mobile" aria-label="Toggle color theme"
-				class="px-4 py-2 rounded-full border border-current/30 hover:border-custom-blue transition-colors flex items-center gap-1.5">
-				<svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-					viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-					stroke-linejoin="round">
+		class="fixed top-5 left-1/2 -translate-x-1/2 z-40 hidden lg:flex transition-all duration-500 opacity-0 -translate-y-full">
+		<div class="nav-pill px-6 py-2.5 rounded-2xl flex gap-6 items-center">
+			<a href="#about" class="nav-link">About</a>
+			<a href="#experience" class="nav-link">Experience</a>
+			<a href="#teaching" class="nav-link">Teaching</a>
+			<a href="#skills" class="nav-link">Skills</a>
+			<a href="#education" class="nav-link">Education</a>
+			<a href="#honors" class="nav-link">Honors</a>
+			<a href="#publications" class="nav-link">Publications</a>
+			<div class="w-px h-3 opacity-20" style="background:var(--t1)"></div>
+			<button id="theme-toggle" aria-label="Toggle theme"
+				class="flex items-center gap-1.5 font-mono text-xs font-bold tracking-widest uppercase transition-opacity opacity-50 hover:opacity-100"
+				style="color:var(--t1)">
+				<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
+					fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
 				</svg>
-				<svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-					viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-					stroke-linejoin="round">
+				<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
+					fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<circle cx="12" cy="12" r="5" />
 					<line x1="12" y1="1" x2="12" y2="3" />
 					<line x1="12" y1="21" x2="12" y2="23" />
@@ -643,833 +1186,794 @@
 					<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
 					<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
 				</svg>
-				<span id="theme-text-mobile">Light</span> Mode
+				<span id="theme-text">Dark</span>
 			</button>
-			<a href="mailto:panos.t95@gmail.com" class="hover:text-custom-blue transition-colors">Get in touch</a>
 		</div>
+	</nav>
+
+	<!-- Mobile Header -->
+	<div
+		class="fixed top-0 left-0 w-full px-5 py-5 flex justify-between items-center z-50 lg:hidden pointer-events-none">
+		<button id="mobile-menu-btn" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false"
+			class="pointer-events-auto w-9 h-9 flex flex-col justify-center gap-1.5 items-end group"
+			style="color:var(--t1)">
+			<span class="w-6 h-0.5 transition-all group-hover:w-4" style="background:var(--t1)"></span>
+			<span class="w-4 h-0.5 transition-all group-hover:w-6" style="background:var(--t1)"></span>
+		</button>
 	</div>
 
-	<div class="page-content max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pb-24">
+	<!-- Mobile Nav -->
+	<div id="mobile-nav" class="mobile-nav-overlay flex flex-col justify-center items-center gap-6 p-8">
+		<button id="mobile-close-btn" aria-label="Close menu"
+			class="absolute top-5 right-6 font-mono text-xs font-bold tracking-widest uppercase opacity-50 hover:opacity-100 transition-opacity"
+			style="color:var(--t1)">Close</button>
+		<a href="#about"
+			class="text-2xl font-sans font-bold hover:text-current opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">About</a>
+		<a href="#experience"
+			class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">Experience</a>
+		<a href="#teaching"
+			class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">Teaching</a>
+		<a href="#skills"
+			class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">Skills</a>
+		<a href="#education"
+			class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">Education</a>
+		<a href="#honors"
+			class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">Honors</a>
+		<a href="#publications"
+			class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">Publications</a>
+		<button id="theme-toggle-mobile" aria-label="Toggle theme"
+			class="mt-4 px-5 py-2 rounded-full border font-mono text-xs font-bold tracking-widest uppercase flex items-center gap-2"
+			style="border-color:var(--border);color:var(--t2)">
+			<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
+				fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+			</svg>
+			<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
+				fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="12" cy="12" r="5" />
+				<line x1="12" y1="1" x2="12" y2="3" />
+				<line x1="12" y1="21" x2="12" y2="23" />
+				<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+				<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+				<line x1="1" y1="12" x2="3" y2="12" />
+				<line x1="21" y1="12" x2="23" y2="12" />
+				<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+				<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+			</svg>
+			<span id="theme-text-mobile">Dark</span>
+		</button>
+	</div>
 
-		<!-- HERO SECTION -->
-		<header class="min-h-[90vh] flex flex-col justify-center pt-28 md:pt-20 relative">
-			<!-- Top Utilities -->
-			<div
-				class="absolute top-0 right-0 py-8 hidden md:flex gap-6 items-center text-sm font-display font-medium opacity-80">
-				<button id="theme-toggle" aria-label="Toggle color theme"
-					class="hover:text-custom-blue transition-colors uppercase tracking-wider flex items-center gap-1.5">
-					<svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-						viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-						stroke-linejoin="round">
-						<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-					</svg>
-					<svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-						viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-						stroke-linejoin="round">
-						<circle cx="12" cy="12" r="5" />
-						<line x1="12" y1="1" x2="12" y2="3" />
-						<line x1="12" y1="21" x2="12" y2="23" />
-						<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-						<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-						<line x1="1" y1="12" x2="3" y2="12" />
-						<line x1="21" y1="12" x2="23" y2="12" />
-						<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-						<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-					</svg>
-					<span id="theme-text">Light</span> Mode
-				</button>
-				<div class="h-4 w-[1px] bg-current"></div>
-				<a href="mailto:panos.t95@gmail.com" class="hover:text-custom-blue transition-colors">Get
-					in
-					touch</a>
-			</div>
+	<!-- ═══════════════ PAGE ═══════════════ -->
+	<div class="relative z-10 max-w-5xl mx-auto px-6 sm:px-10 lg:px-14 pb-24">
 
-			<div class="space-y-6 max-w-5xl">
-				<h1
-					class="text-5xl sm:text-7xl md:text-8xl font-bold font-display leading-[1.1] tracking-tight reveal delay-100 text-custom-text">
-					Panagiotis<br>
-					<span class="text-custom-blue">Theocharopoulos</span>
+		<!-- HERO -->
+		<section class="hero-section">
+			<div class="hero-blob"></div>
+			<div style="position:relative;z-index:1">
+				<div class="hero-badge hero-animate" style="animation-delay: 0.1s">
+					<span class="hero-badge-dot"></span>
+					AI Engineer · PhD · 2026
+				</div>
+				<h1 class="hero-name hero-animate" style="animation-delay: 0.2s">
+					Panagiotis C.
+					<span class="hero-name-line2">Theocharopoulos</span>
 				</h1>
+				<p class="hero-role hero-animate" style="animation-delay: 0.3s"><span id="typing-role"></span><span class="typing-cursor"></span></p>
+				<p class="hero-bio hero-animate" style="animation-delay: 0.4s">
+					AI Engineer at Covariance, applying research in Large Language Models, NLP, and healthcare AI to production systems.
+				</p>
+				<div class="hero-links hero-animate" style="animation-delay: 0.5s">
+					<a href="mailto:panos.t95@gmail.com" class="btn btn-primary magnetic">Get in touch ↗</a>
+					<a href="https://www.linkedin.com/in/ptheochar/" target="_blank" rel="noopener noreferrer"
+						class="btn btn-ghost">LinkedIn ↗</a>
+					<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank"
+						rel="noopener noreferrer" class="btn btn-ghost">Scholar ↗</a>
+					<a href="Theocharopoulos_CV.pdf" target="_blank" rel="noopener noreferrer"
+						class="btn btn-ghost">Short CV ↓</a>
+					<a href="PTheocharopoulos_ACV.pdf" target="_blank" rel="noopener noreferrer"
+						class="btn btn-ghost">Full CV ↓</a>
+				</div>
+			</div><!-- /inner z-index wrapper -->
+			<div class="hero-photo-wrap hero-animate" style="animation-delay: 0.3s; position:relative; z-index:1">
+				<div class="hero-photo-frame">
+					<img src="assets/IMG_7283.jpeg" alt="Panagiotis C. Theocharopoulos" fetchpriority="high"
+						decoding="sync">
+				</div>
 			</div>
+		</section>
 
-			<div class="mt-12 flex flex-wrap gap-4 reveal delay-300">
-				<a href="mailto:panos.t95@gmail.com" class="primary-btn">
-					Get in touch <span class="text-lg">↗</span>
-				</a>
-				<a href="https://www.linkedin.com/in/ptheochar/" target="_blank" rel="noopener noreferrer"
-					class="glass-card px-6 py-3 font-medium hover:text-custom-blue transition-colors flex items-center gap-2">
-					LinkedIn <span class="text-lg">↗</span>
-				</a>
-				<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&amp;hl=en" target="_blank"
-					rel="noopener noreferrer"
-					class="glass-card px-6 py-3 font-medium hover:text-custom-blue transition-colors flex items-center gap-2">
-					Scholar <span class="text-lg">↗</span>
-				</a>
-				<a href="Theocharopoulos_CV.pdf" target="_blank" rel="noopener noreferrer"
-					class="glass-card px-6 py-3 font-medium hover:text-custom-blue transition-colors flex items-center gap-2">
-					Short CV <span class="text-lg">↓</span>
-				</a>
-				<a href="PTheocharopoulos_ACV.pdf" target="_blank" rel="noopener noreferrer"
-					class="glass-card px-6 py-3 font-medium hover:text-custom-blue transition-colors flex items-center gap-2">
-					Full CV <span class="text-lg">↓</span>
-				</a>
-			</div>
-		</header>
+		<main>
 
-		<main class="space-y-32">
+			<!-- ABOUT -->
+			<section id="about" class="section-wrap reveal">
+				<div class="section-header">
 
-			<!-- ABOUT SECTION -->
-			<section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-12">
-				<div class="lg:col-span-4">
-					<h2
-						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
-						<span class="section-num">01</span> / About
-					</h2>
-					<p class="section-note">Research-led profile focused on applied artificial intelligence, healthcare
-						analytics, and translational machine learning.</p>
+					<h2 class="section-title">About<a href="#about" class="section-anchor">#</a></h2>
+					<div class="section-rule"></div>
 				</div>
-				<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-					<div class="space-y-6 text-lg leading-relaxed reveal text-justify">
-						<p>
-							I am an <span class="font-bold text-custom-blue">AI Engineer</span> and researcher driving
-							innovation at the intersection of academic
-							research and industry applications. My expertise lies in leading complex machine learning
-							projects with specialization in <strong>Large Language Models (LLMs)</strong>, <strong>RAG
-								systems</strong>, and <strong>Natural Language Processing</strong>.
-						</p>
-						<p>
-							As a doctoral researcher at the University of Thessaly, I bridge theoretical research with
-							practical applications, developing AI solutions for healthcare, precision medicine, and
-							language-intensive systems.
-						</p>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+					<div class="space-y-3.5 text-base leading-relaxed" style="color:var(--t2)">
+						<p>I am an <strong style="color:var(--t1);font-weight:600">AI Engineer</strong> and researcher
+							at the intersection of academic research and industry. My expertise lies in leading complex
+							machine learning projects with specialisation in <strong
+								style="color:var(--t1);font-weight:600">Large Language Models</strong>, <strong
+								style="color:var(--t1);font-weight:600">RAG systems</strong>, and <strong
+								style="color:var(--t1);font-weight:600">Natural Language Processing</strong>.</p>
+						<p>Holding a PhD from the University of Thessaly, I bridge theoretical research with practical
+							applications, developing AI solutions for healthcare, precision medicine, and
+							language-intensive systems.</p>
 					</div>
-					<div class="reveal delay-200 relative group">
-						<img src="assets/IMG_7283.jpeg" alt="Panagiotis C. Theocharopoulos" fetchpriority="high"
-							decoding="sync"
-							class="relative rounded-xl border border-current/10 shadow-lg w-full object-cover object-[50%_20%] grayscale transition-all duration-500 group-hover:grayscale-0">
+					<div class="space-y-3.5 text-base leading-relaxed" style="color:var(--t2)">
+						<p>My research focuses on applying deep learning to real-world biomedical problems — from topic
+							modelling with LLMs to predictive models for precision medicine. I have contributed to
+							nationally and EU-funded initiatives and maintain an active record of peer review across
+							top-tier venues.</p>
+					</div>
+				</div>
+				<div class="stat-grid">
+					<div class="stat-item">
+						<div class="stat-val" data-count="7">0</div>
+						<div class="stat-lbl">Publications</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-val" data-count="4" data-suffix="+">0</div>
+						<div class="stat-lbl">Years Industry</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-val" data-count="10" data-suffix="+">0</div>
+						<div class="stat-lbl">Venues Reviewed</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-val">PhD</div>
+						<div class="stat-lbl">Graduated 2026</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- EXPERIENCE SECTION (Timeline) -->
-			<section id="experience" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-				<div class="lg:col-span-4">
-					<h2
-						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
-						<span class="section-num">02</span> / Experience
-					</h2>
-					<p class="section-note">Roles spanning AI delivery in production environments and research work in
-						academic settings.</p>
+			<!-- EXPERIENCE -->
+			<section id="experience" class="section-wrap reveal">
+				<div class="section-header">
+
+					<h2 class="section-title">Experience<a href="#experience" class="section-anchor">#</a></h2>
+					<div class="section-rule"></div>
 				</div>
-				<div class="lg:col-span-8 space-y-4 reveal">
+				<div class="space-y-3">
 
-					<!-- Covariance (Combined) -->
-					<div class="timeline-item">
-						<div class="timeline-dot bg-custom-blue"></div>
-						<div class="glass-card timeline-card p-6 md:p-8 relative">
-							<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-								<div>
-									<p class="timeline-kicker mb-2 text-custom-blue">Industry</p>
-									<h3 class="text-xl font-display font-bold">Covariance</h3>
-								</div>
-								<span class="timeline-date font-mono text-xs">Feb 2021 - Present</span>
+					<div class="card card-hover">
+						<div class="exp-head">
+							<div class="flex items-center gap-2.5 flex-wrap">
+								<span class="exp-kicker">Industry</span>
+								<h3 class="exp-company">Covariance</h3>
 							</div>
-							<div class="space-y-6">
-								<div>
-									<h4 class="font-bold text-custom-text">AI Engineer <span
-											class="opacity-70 font-normal">(Jan 2025 - Present)</span></h4>
-									<ul
-										class="list-disc list-outside ml-5 mt-2 space-y-1 opacity-80 text-sm leading-relaxed">
-										<li>Lead and manage a high-performing data science team focused on healthcare
-											analytics.
-										</li>
-										<li>Oversee development of LLM and RAG systems.</li>
-										<li>Define technical standards and mentor team members.</li>
-										<li>Build internal APIs for model integration.</li>
-									</ul>
-								</div>
-								<div>
-									<h4 class="font-bold text-custom-text">Data Scientist <span
-											class="opacity-70 font-normal">(Feb 2021 - Jan 2025)</span></h4>
-									<ul
-										class="list-disc list-outside ml-5 mt-2 space-y-1 opacity-80 text-sm leading-relaxed">
-										<li>Led end-to-end machine learning projects and architected advanced LLM/RAG
-											solutions.
-										</li>
-										<li>Authored proposals for national/European funding.</li>
-										<li>Designed fraud detection systems for insurance claims.</li>
-										<li>Executed ETL processes and built web-based data science apps.</li>
-									</ul>
-								</div>
-							</div>
+							<span class="exp-date">Feb 2021 — Present</span>
 						</div>
-					</div>
-
-					<!-- University of Thessaly -->
-					<div class="timeline-item">
-						<div class="timeline-dot bg-custom-blue"></div>
-						<div class="glass-card timeline-card p-6 md:p-8">
-							<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-								<div>
-									<p class="timeline-kicker mb-2 text-custom-blue">Academic</p>
-									<h3 class="text-xl font-display font-bold">University of Thessaly</h3>
-								</div>
-								<span class="timeline-date font-mono text-xs">2019 - 2025</span>
-							</div>
-							<div class="space-y-6">
-								<div>
-									<h4 class="font-bold text-custom-text">Research Fellow <span
-											class="opacity-70 font-normal">(Apr 2024 - Dec 2025)</span></h4>
-									<ul
-										class="list-disc list-outside ml-5 mt-2 space-y-1 opacity-80 text-sm leading-relaxed">
-										<li>Contribution to the development and integration of machine learning methods
-											in the
-											intelligent electronic health record system. Linking big omics data to the
-											intelligent electronic health record. Contribute to the development of an
-											intelligent new patient registry mechanism.</li>
-										<li>Contributed to a national precision medicine initiative.</li>
-									</ul>
-								</div>
-								<div>
-									<h4 class="font-bold text-custom-text">Website Administrator <span
-											class="opacity-70 font-normal">(2019 - 2023)</span></h4>
-									<ul
-										class="list-disc list-outside ml-5 mt-2 space-y-1 opacity-80 text-sm leading-relaxed">
-										<li>Led website development/design, managed databases/servers, provided
-											technical
-											support.</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Support Engineer -->
-					<div class="timeline-item">
-						<div class="timeline-dot bg-custom-blue"></div>
-						<div class="glass-card timeline-card p-6 md:p-8">
-							<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-								<div>
-									<p class="timeline-kicker mb-2 text-custom-blue">Internship</p>
-									<h3 class="text-xl font-display font-bold">Naval Hospital of Athens</h3>
-								</div>
-								<span class="timeline-date font-mono text-xs">Jul 2017 - Aug 2017</span>
-							</div>
-							<p class="text-sm font-medium opacity-60 uppercase tracking-wide mb-4">Support Engineer
-								(Intern)</p>
-							<ul class="list-disc list-outside ml-5 space-y-1 opacity-80">
-								<li>Maintained servers (Windows, AIX), network support, MySQL databases.</li>
-								<li>Configured network devices (CISCO, HP, Mikrotik).</li>
-							</ul>
-						</div>
-					</div>
-
-				</div>
-			</section>
-
-			<!-- TEACHING SECTION -->
-			<section id="teaching" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-				<div class="lg:col-span-4">
-					<h2
-						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
-						<span class="section-num">03</span> / Teaching
-					</h2>
-					<p class="section-note">University teaching support across programming, data mining, and applied
-						computational methods.</p>
-				</div>
-				<div class="lg:col-span-8 reveal">
-					<div class="glass-card p-6 md:p-8">
-						<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-							<h3 class="text-xl font-display font-bold">University of Thessaly</h3>
-							<span class="text-sm font-mono opacity-60">2019 - 2025</span>
-						</div>
-						<p class="text-sm font-medium opacity-60 uppercase tracking-wide mb-6">Teaching Assistant</p>
-
-						<div class="grid grid-cols-1 gap-4">
-							<div
-								class="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-4 border-t border-custom-text/10 pt-4">
-								<div>
-									<p class="text-sm font-semibold uppercase tracking-wide opacity-70">University of
-										Thessaly (Postgraduate)</p>
-									<span class="text-xs font-mono opacity-60">2023 - 2025</span>
-								</div>
-								<ul class="space-y-2 opacity-80">
-									<li>Data Mining and Big Data Analysis in Medicine and Biology</li>
-									<li>Programming Subjects</li>
+						<div class="exp-body">
+							<div class="role-block">
+								<div class="role-title flex items-center gap-2">AI Engineer <span class="pulse-dot" title="Current role"></span></div>
+								<div class="role-period">Jan 2025 — Present</div>
+								<ul class="role-bullets">
+									<li>Lead and manage a high-performing data science team focused on healthcare
+										analytics.</li>
+									<li>Oversee development of LLM and RAG systems for production environments.</li>
+									<li>Define technical standards, architect solutions, and mentor team members.</li>
+									<li>Build internal APIs for model integration and deployment.</li>
 								</ul>
 							</div>
-
-							<div
-								class="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-4 border-t border-custom-text/10 pt-4">
-								<div>
-									<p class="text-sm font-semibold uppercase tracking-wide opacity-70">Department of
-										Computer Science and Biomedical Informatics</p>
-									<span class="text-xs font-mono opacity-60">2022 - 2023</span>
-								</div>
-								<ul class="space-y-2 opacity-80">
-									<li>Databases</li>
-								</ul>
-							</div>
-
-							<div
-								class="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-4 border-t border-custom-text/10 pt-4">
-								<div>
-									<p class="text-sm font-semibold uppercase tracking-wide opacity-70">Department of
-										Mathematics</p>
-									<span class="text-xs font-mono opacity-60">2019 - 2024</span>
-								</div>
-								<ul class="space-y-2 opacity-80">
-									<li>Introduction to Programming I</li>
-									<li>Introduction to Programming II</li>
-									<li>Numerical Analysis</li>
+							<div class="role-block">
+								<div class="role-title">Data Scientist</div>
+								<div class="role-period">Feb 2021 — Jan 2025</div>
+								<ul class="role-bullets">
+									<li>Led end-to-end machine learning projects and architected advanced LLM/RAG
+										solutions.</li>
+									<li>Authored proposals for national and European funding initiatives.</li>
+									<li>Designed fraud detection systems for insurance claims processing.</li>
+									<li>Executed ETL pipelines and built web-based data science applications.</li>
 								</ul>
 							</div>
 						</div>
 					</div>
+
+					<div class="card card-hover">
+						<div class="exp-head">
+							<div class="flex items-center gap-2.5 flex-wrap">
+								<span class="exp-kicker">Academic</span>
+								<h3 class="exp-company">University of Thessaly</h3>
+							</div>
+							<span class="exp-date">2019 — 2025</span>
+						</div>
+						<div class="exp-body">
+							<div class="role-block">
+								<div class="role-title">Research Fellow</div>
+								<div class="role-period">Apr 2024 — Dec 2025</div>
+								<ul class="role-bullets">
+									<li>Developed and integrated ML methods in an intelligent electronic health record
+										system.</li>
+									<li>Linked large omics and genetic data to a national precision medicine initiative
+										(TAEDR-0539180).</li>
+									<li>Contributed to the design of an intelligent patient registry mechanism.</li>
+								</ul>
+							</div>
+							<div class="role-block">
+								<div class="role-title">Website Administrator</div>
+								<div class="role-period">2019 — 2023</div>
+								<ul class="role-bullets">
+									<li>Led website development and design, managed databases and servers, provided
+										technical support.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="card card-hover">
+						<div class="exp-head">
+							<div class="flex items-center gap-2.5 flex-wrap">
+								<span class="exp-kicker">Internship</span>
+								<h3 class="exp-company">Naval Hospital of Athens</h3>
+							</div>
+							<span class="exp-date">Jul — Aug 2017</span>
+						</div>
+						<div class="exp-body">
+							<div class="role-block">
+								<div class="role-title">Support Engineer (Intern)</div>
+								<ul class="role-bullets">
+									<li>Maintained servers (Windows, AIX) and MySQL databases, provided network support.
+									</li>
+									<li>Configured network devices including CISCO, HP, and Mikrotik equipment.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</section>
 
+			<!-- TEACHING -->
+			<section id="teaching" class="section-wrap reveal">
+				<div class="section-header">
 
-			<!-- SKILLS SECTION -->
-			<section id="skills" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-				<div class="lg:col-span-4">
-					<h2
-						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
-						<span class="section-num">04</span> / Expertise
-					</h2>
-					<p class="section-note">Technical focus areas across machine learning research, AI systems, data
-						infrastructure, and communication.</p>
+					<h2 class="section-title">Teaching<a href="#teaching" class="section-anchor">#</a></h2>
+					<div class="section-rule"></div>
 				</div>
-				<div class="lg:col-span-8">
-					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
-						<div class="glass-card p-6">
-							<h3 class="font-display font-bold text-lg mb-6 border-b border-current pb-2 opacity-80">AI &
-								Machine Learning</h3>
-							<div class="capability-list">
-								<span>Large language models and retrieval-augmented generation</span>
-								<span>Natural language processing and language-intensive systems</span>
-								<span>Deep learning workflows in Python, PyTorch, and TensorFlow</span>
-								<span>Applied machine learning for healthcare and precision medicine</span>
-							</div>
-						</div>
-						<div class="glass-card p-6">
-							<h3 class="font-display font-bold text-lg mb-6 border-b border-current pb-2 opacity-80">Data
-								&
-								Infrastructure</h3>
-							<div class="capability-list">
-								<span>SQL, ETL pipelines, and large-scale data preparation</span>
-								<span>Internal APIs and applied AI system integration</span>
-								<span>Linux, Git, and cloud-oriented engineering workflows</span>
-								<span>Microsoft Azure AI and production model deployment support</span>
-							</div>
-						</div>
-						<div class="glass-card p-6">
-							<h3 class="font-display font-bold text-lg mb-6 border-b border-current pb-2 opacity-80">
-								Spoken
-								Languages</h3>
-							<div class="capability-list">
-								<span>Greek, native proficiency</span>
-								<span>English, fluent professional and academic use</span>
-								<span>German, working knowledge</span>
-								<span>Italian, working knowledge</span>
-							</div>
-						</div>
+				<div class="card overflow-hidden">
+					<div class="px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
+						style="border-bottom:1px solid var(--border)">
+						<h3 class="font-sans font-bold text-base" style="color:var(--t1)">University of Thessaly</h3>
+						<span class="font-mono text-xs" style="color:var(--t3)">Teaching Assistant · 2019 — 2026</span>
 					</div>
-				</div>
-			</section>
-
-			<!-- EDUCATION SECTION -->
-			<section id="education" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-				<div class="lg:col-span-4">
-					<h2
-						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
-						<span class="section-num">05</span> / Education
-					</h2>
-					<p class="section-note">Academic background in artificial intelligence, biomedicine, and
-						computational methods.</p>
-				</div>
-				<div class="lg:col-span-8 reveal">
-					<div class="space-y-2">
-						<div class="timeline-item">
-							<div class="timeline-dot bg-custom-blue"></div>
-							<div class="glass-card timeline-card p-6 md:p-8">
-								<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-									<div>
-										<p class="timeline-kicker mb-2">Doctoral Studies</p>
-										<h3 class="text-xl font-display font-bold">PhD in Artificial Intelligence</h3>
-									</div>
-									<span class="timeline-date">2026</span>
-								</div>
-								<p class="opacity-80">University of Thessaly, Greece</p>
-								<p class="text-sm italic mt-2 opacity-60">Thesis: “Development of Deep Learning methods
-									on big
-									data with a focus on NLP”</p>
-							</div>
-						</div>
-
-						<div class="timeline-item">
-							<div class="timeline-dot bg-custom-blue"></div>
-							<div class="glass-card timeline-card p-6 md:p-8">
-								<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-									<div>
-										<p class="timeline-kicker mb-2">Master's Degree</p>
-										<h3 class="text-xl font-display font-bold">MSc in Informatics & Computational
-											Biomedicine</h3>
-									</div>
-									<span class="timeline-date">2020</span>
-								</div>
-								<p class="opacity-80">University of Thessaly, Greece</p>
-								<p class="text-sm italic mt-2 opacity-60">Minor: Computational Medicine and Biology</p>
-							</div>
-						</div>
-
-						<div class="timeline-item">
-							<div class="timeline-dot bg-custom-blue"></div>
-							<div class="glass-card timeline-card p-6 md:p-8">
-								<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-									<div>
-										<p class="timeline-kicker mb-2">Bachelor's Degree</p>
-										<h3 class="text-xl font-display font-bold">Ptychion (4-year Bachelor) in
-											Computer Science & Biomedical
-											Informatics</h3>
-									</div>
-									<span class="timeline-date">2019</span>
-								</div>
-								<p class="opacity-80">University of Thessaly, Greece</p>
-							</div>
-						</div>
-
-						<div class="timeline-item">
-							<div class="timeline-dot bg-neutral-500"></div>
-							<div class="glass-card timeline-card p-6 md:p-8">
-								<div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-									<div>
-										<p class="timeline-kicker mb-2">Exchange Program</p>
-										<h3 class="text-xl font-display font-bold">Erasmus+ Exchange Student</h3>
-									</div>
-									<span class="timeline-date">2017</span>
-								</div>
-								<p class="opacity-80">Università degli Studi di Perugia, Italy</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- AWARDS & RESEARCH & REVIEW & CERTIFICATIONS (Grouped for brevity but separated visually) -->
-			<section id="honors" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-				<div class="lg:col-span-4">
-					<h2
-						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
-						<span class="section-num">06</span> / Honors & Activities
-					</h2>
-					<p class="section-note">Recognition, research participation, peer review activity, and professional
-						development.</p>
-				</div>
-				<div class="lg:col-span-8 space-y-12 reveal">
-
-					<!-- Awards -->
-					<div>
-						<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2"><svg
-								xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
-								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-								stroke-linejoin="round">
-								<circle cx="12" cy="8" r="6" />
-								<path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
-							</svg> Awards</h3>
-						<div class="space-y-4">
-							<div class="glass-card p-4">
-								<p>IEEE CIS Student Travel Grant Award, SSCI 2025</p>
-							</div>
-							<div class="glass-card p-4">
-								<p>Best National Startup of 2022 (Elevate Greece) - Awarded to Covariance</p>
-							</div>
-							<div class="glass-card p-4">
-								<p>Academic Work Scholarship, University of Thessaly (2019 - 2021)</p>
-							</div>
-							<div class="glass-card p-4">
-								<p>Tuition Fee Exemption Scholarship, MSc degree, 2019</p>
-							</div>
-						</div>
-					</div>
-
-					<!-- Research -->
-					<div>
-						<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2"><svg
-								xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
-								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-								stroke-linejoin="round">
-								<path d="M9 3H5a2 2 0 0 0-2 2v4" />
-								<path d="M9 3h10a2 2 0 0 1 2 2v4" />
-								<path d="M9 3v18" />
-								<path d="M3 9h18" />
-								<path d="M3 15h6" />
-								<path d="M3 21h6" />
-								<circle cx="17" cy="17" r="3" />
-								<path d="m21 21-1.5-1.5" />
-							</svg> Research Projects</h3>
-						<div class="glass-card p-6">
-							<div class="flex flex-col md:flex-row justify-between mb-2">
-								<span class="font-bold text-lg">Precision Medicine in Greece</span>
-								<span class="text-sm opacity-60">2024 - 2025</span>
-							</div>
-							<p class="mb-2">Bridging large omics, genetic, and medical data (TAEDR-0539180)</p>
-							<ul class="list-disc ml-5 text-sm opacity-80">
-								<li><b>Role:</b> Research Fellow</li>
-								<li><b>Funding:</b> European Union - NextGenerationEU</li>
-							</ul>
-						</div>
-					</div>
-
-					<div id="review" class="lg:col-span-12 reveal">
+					<div class="teach-row">
 						<div>
-							<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
-									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-									stroke-linejoin="round">
-									<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-									<circle cx="12" cy="12" r="3" />
-								</svg> Peer Review
-							</h3>
+							<p class="text-sm font-semibold" style="color:var(--t2)">MSc in Artificial Intelligence and Applications</p>
+							<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">2026</p>
 						</div>
-						<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-							<div class="simple-glass-card p-6">
-								<h3 class="font-display font-bold text-xl mb-4 text-neutral-800 dark:text-neutral-100">
-									Journals</h3>
-								<ul class="text-sm space-y-3">
-									<li>
-										<span class="block font-semibold">Neural Computing and Applications</span>
-										<span class="block text-xs opacity-70">Springer</span>
-									</li>
-									<li>
-										<span class="block font-semibold">Scientific Reports</span>
-										<span class="block text-xs opacity-70">Nature Portfolio</span>
-									</li>
-									<li>
-										<span class="block font-semibold">IEEE Trans. on Signal and Info.
-											Processing</span>
-										<span class="block text-xs opacity-70">IEEE</span>
-									</li>
-									<li>
-										<span class="block font-semibold">Cluster Computing</span>
-										<span class="block text-xs opacity-70">Springer</span>
-									</li>
-									<li>
-										<span class="block font-semibold">Social Network Analysis and Mining</span>
-										<span class="block text-xs opacity-70">Springer</span>
-									</li>
-									<li>
-										<span class="block font-semibold">Information Systems Frontiers</span>
-										<span class="block text-xs opacity-70">Springer</span>
-									</li>
-									<li>
-										<span class="block font-semibold">Int. Journal of IT & Decision Making</span>
-										<span class="block text-xs opacity-70">World Scientific</span>
-									</li>
-									<li>
-										<span class="block font-semibold">Public Health</span>
-										<span class="block text-xs opacity-70">Elsevier</span>
-									</li>
-									<li>
-										<span class="block font-semibold">Frontiers in Public Health</span>
-										<span class="block text-xs opacity-70">Frontiers</span>
-									</li>
-									<li>
-										<span class="block font-semibold">Exploration of Digital Health Technologies (EDHT)</span>
-										<span class="block text-xs opacity-70">Open Exploration</span>
-									</li>
-								</ul>
+						<ul class="space-y-1 text-sm" style="color:var(--t2)">
+							<li>Artificial Intelligence Systems</li>
+						</ul>
+					</div>
+					<div class="teach-row">
+						<div>
+							<p class="text-sm font-semibold" style="color:var(--t2)">MSc in Informatics &amp; Computational Biomedicine</p>
+							<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">2023 — 2025</p>
+						</div>
+						<ul class="space-y-1 text-sm" style="color:var(--t2)">
+							<li>Data Mining and Big Data Analysis in Medicine and Biology</li>
+							<li>Programming Subjects</li>
+						</ul>
+					</div>
+					<div class="teach-row">
+						<div>
+							<p class="text-sm font-semibold" style="color:var(--t2)">Dept. of CS &amp; Biomedical Informatics</p>
+							<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">2022 — 2023</p>
+						</div>
+						<ul class="space-y-1 text-sm" style="color:var(--t2)">
+							<li>Databases</li>
+						</ul>
+					</div>
+					<div class="teach-row">
+						<div>
+							<p class="text-sm font-semibold" style="color:var(--t2)">Department of Mathematics</p>
+							<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">2019 — 2024</p>
+						</div>
+						<ul class="space-y-1 text-sm" style="color:var(--t2)">
+							<li>Introduction to Programming I &amp; II</li>
+							<li>Numerical Analysis</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- SKILLS -->
+			<section id="skills" class="section-wrap reveal skills-wrap">
+				<div class="section-header">
+
+					<h2 class="section-title">Expertise<a href="#skills" class="section-anchor">#</a></h2>
+					<div class="section-rule"></div>
+				</div>
+				<div class="skills-grid">
+					<div class="card p-5">
+						<div class="skill-head">AI &amp; Machine Learning</div>
+						<div class="tag-cloud">
+							<span class="tag">Python</span>
+							<span class="tag">PyTorch</span>
+							<span class="tag">TensorFlow</span>
+							<span class="tag">Hugging Face</span>
+							<span class="tag">LLMs</span>
+							<span class="tag">RAG</span>
+							<span class="tag">NLP</span>
+							<span class="tag">Topic Modeling</span>
+							<span class="tag">Scikit-learn</span>
+							<span class="tag">Deep Learning</span>
+						</div>
+					</div>
+					<div class="card p-5">
+						<div class="skill-head">Data &amp; Infrastructure</div>
+						<div class="tag-cloud">
+							<span class="tag">SQL</span>
+							<span class="tag">ETL Pipelines</span>
+							<span class="tag">Azure AI</span>
+							<span class="tag">REST APIs</span>
+							<span class="tag">Linux</span>
+							<span class="tag">Git</span>
+							<span class="tag">Power BI</span>
+							<span class="tag">OMOP-CDM</span>
+						</div>
+					</div>
+					<div class="card p-5">
+						<div class="skill-head">Languages</div>
+						<div class="tag-cloud">
+							<span class="tag">Greek</span>
+							<span class="tag">English</span>
+							<span class="tag">German</span>
+							<span class="tag">Italian</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- EDUCATION -->
+			<section id="education" class="section-wrap reveal">
+				<div class="section-header">
+
+					<h2 class="section-title">Education<a href="#education" class="section-anchor">#</a></h2>
+					<div class="section-rule"></div>
+				</div>
+				<div class="edu-list">
+					<div class="edu-item">
+						<div class="edu-year">2026</div>
+						<div class="edu-degree">PhD in Artificial Intelligence</div>
+						<div class="edu-meta">University of Thessaly, Greece</div>
+						<div class="thesis-quote">"Development of Deep Learning methods on big data with a focus on NLP"</div>
+					</div>
+					<div class="edu-item">
+						<div class="edu-year">2020</div>
+						<div class="edu-degree">MSc in Informatics &amp; Computational Biomedicine</div>
+						<div class="edu-meta">University of Thessaly, Greece</div>
+						<div class="edu-note">Minor: Computational Medicine and Biology</div>
+					</div>
+					<div class="edu-item">
+						<div class="edu-year">2019</div>
+						<div class="edu-degree">Ptychion in Computer Science &amp; Biomedical Informatics <span
+								style="font-weight:400;color:var(--t3)">(4-year BSc)</span></div>
+						<div class="edu-meta">University of Thessaly, Greece</div>
+					</div>
+					<div class="edu-item">
+						<div class="edu-year">2017</div>
+						<div class="edu-degree">Erasmus+ Exchange Student</div>
+						<div class="edu-meta">Università degli Studi di Perugia, Italy</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- HONORS -->
+			<section id="honors" class="section-wrap reveal">
+				<div class="section-header">
+
+					<h2 class="section-title">Honors &amp; Activities<a href="#honors" class="section-anchor">#</a></h2>
+					<div class="section-rule"></div>
+				</div>
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+					<div class="space-y-8">
+						<!-- Awards -->
+						<div>
+							<h3 class="font-mono text-xs font-bold tracking-widest uppercase mb-3"
+								style="color:var(--t3)">Awards</h3>
+							<div>
+								<div class="honor-row">
+									<div class="honor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13"
+											height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+											stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="8" r="6" />
+											<path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+										</svg></div>
+									<div>
+										<p class="text-sm font-medium" style="color:var(--t1)">IEEE CIS Student Travel
+											Grant Award</p>
+										<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">SSCI 2025</p>
+									</div>
+								</div>
+								<div class="honor-row">
+									<div class="honor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13"
+											height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+											stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="8" r="6" />
+											<path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+										</svg></div>
+									<div>
+										<p class="text-sm font-medium" style="color:var(--t1)">Best National Startup of
+											2022 — Elevate Greece</p>
+										<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">Awarded to
+											Covariance</p>
+									</div>
+								</div>
+								<div class="honor-row">
+									<div class="honor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13"
+											height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+											stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="8" r="6" />
+											<path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+										</svg></div>
+									<div>
+										<p class="text-sm font-medium" style="color:var(--t1)">Academic Work Scholarship
+										</p>
+										<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">University of
+											Thessaly · 2019 — 2021</p>
+									</div>
+								</div>
+								<div class="honor-row">
+									<div class="honor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13"
+											height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+											stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="8" r="6" />
+											<path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+										</svg></div>
+									<div>
+										<p class="text-sm font-medium" style="color:var(--t1)">Tuition Fee Exemption
+											Scholarship</p>
+										<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">MSc degree · 2019
+										</p>
+									</div>
+								</div>
 							</div>
-							<div class="simple-glass-card p-6">
-								<h3 class="font-display font-bold text-xl mb-4 text-neutral-800 dark:text-neutral-100">
-									Conferences</h3>
-								<ul class="text-sm space-y-2 opacity-80">
-									<li>IEEE WCCI 2026</li>
-									<li>IEEE SSCI 2025</li>
-									<li>IJCNN 2025</li>
-									<li>EAAAI 2025</li>
-									<li>IEEE CIBCB 2025</li>
-									<li>ARES 2025</li>
-									<li>PSB 2026</li>
-								</ul>
+						</div>
+
+						<!-- Research -->
+						<div>
+							<h3 class="font-mono text-xs font-bold tracking-widest uppercase mb-3"
+								style="color:var(--t3)">Research Projects</h3>
+							<div class="card card-hover">
+								<div class="exp-head">
+									<h3 class="exp-company" style="font-size:.975rem">Precision Medicine in Greece</h3>
+									<span class="exp-date">2024 — 2025</span>
+								</div>
+								<div class="exp-body" style="padding-top:.875rem;padding-bottom:.875rem">
+									<p class="text-sm mb-2.5" style="color:var(--t2)">Bridging large omics, genetic, and
+										medical data (TAEDR-0539180)</p>
+									<ul class="role-bullets">
+										<li><strong style="color:var(--t1)">Role:</strong> Research Fellow</li>
+										<li><strong style="color:var(--t1)">Funding:</strong> European Union —
+											NextGenerationEU</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<!-- Certifications -->
+						<div>
+							<h3 class="font-mono text-xs font-bold tracking-widest uppercase mb-3"
+								style="color:var(--t3)">Certifications</h3>
+							<div class="space-y-1.5">
+								<div class="cert-item">
+									<div class="cert-dot"></div>Building RAG Agents with LLMs<span
+										class="font-mono text-xs ml-auto pl-3 flex-shrink-0"
+										style="color:var(--t3)">NVIDIA · 2024</span>
+								</div>
+								<div class="cert-item">
+									<div class="cert-dot"></div>I2I Spin Out Innovation Programme<span
+										class="font-mono text-xs ml-auto pl-3 flex-shrink-0"
+										style="color:var(--t3)">Univ. of Galway · 2024</span>
+								</div>
+								<div class="cert-item">
+									<div class="cert-dot"></div>Power BI Financial Reporting &amp; Analysis<span
+										class="font-mono text-xs ml-auto pl-3 flex-shrink-0"
+										style="color:var(--t3)">Udemy · 2024</span>
+								</div>
+								<div class="cert-item">
+									<div class="cert-dot"></div>EHDEN OMOP-CDM Data Standardization<span
+										class="font-mono text-xs ml-auto pl-3 flex-shrink-0"
+										style="color:var(--t3)">EHDEN · 2022</span>
+								</div>
+								<div class="cert-item">
+									<div class="cert-dot"></div>Pedagogical and Teaching Competence<span
+										class="font-mono text-xs ml-auto pl-3 flex-shrink-0" style="color:var(--t3)">UTH
+										· 2019</span>
+								</div>
 							</div>
 						</div>
 					</div>
-					<!-- Certifications -->
+
+					<!-- Peer Review -->
 					<div>
-						<h3 class="font-display font-bold text-2xl mb-6 text-custom-blue flex items-center gap-2"><svg
-								xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
-								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-								stroke-linejoin="round">
-								<rect x="3" y="5" width="18" height="14" rx="2" />
-								<path d="M3 10h18" />
-								<path d="M7 15h.01" />
-								<path d="M11 15h2" />
-							</svg> Certifications</h3>
-						<div class="space-y-2">
-							<div class="glass-card px-4 py-2">Building RAG Agents with LLMs (NVIDIA, 2024)</div>
-							<div class="glass-card px-4 py-2">I2I Spin Out Innovation Programme (University of Galway,
-								2024)
+						<h3 class="font-mono text-xs font-bold tracking-widest uppercase mb-3" style="color:var(--t3)">
+							Peer Review</h3>
+						<div class="space-y-3">
+							<div class="card p-5">
+								<h4 class="font-mono text-xs font-bold tracking-widest uppercase mb-3"
+									style="color:var(--t3)">Journals</h4>
+								<div>
+									<div class="review-item">
+										<div class="rev-name">Neural Computing and Applications</div>
+										<div class="rev-pub">Springer</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Scientific Reports</div>
+										<div class="rev-pub">Nature Portfolio</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">IEEE Trans. on Signal and Information Processing</div>
+										<div class="rev-pub">IEEE</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Cluster Computing</div>
+										<div class="rev-pub">Springer</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Social Network Analysis and Mining</div>
+										<div class="rev-pub">Springer</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Information Systems Frontiers</div>
+										<div class="rev-pub">Springer</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Int. Journal of IT &amp; Decision Making</div>
+										<div class="rev-pub">World Scientific</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Public Health</div>
+										<div class="rev-pub">Elsevier</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Frontiers in Public Health</div>
+										<div class="rev-pub">Frontiers</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Exploration of Digital Health Technologies</div>
+										<div class="rev-pub">Open Exploration</div>
+									</div>
+								</div>
 							</div>
-							<div class="glass-card px-4 py-2">Power BI Financial Reporting & Financial Analysis (Udemy,
-								2024)
+							<div class="card p-5">
+								<h4 class="font-mono text-xs font-bold tracking-widest uppercase mb-3"
+									style="color:var(--t3)">Conferences</h4>
+								<div class="tag-cloud">
+									<span class="tag">IEEE WCCI 2026</span>
+									<span class="tag">IEEE SSCI 2025</span>
+									<span class="tag">IJCNN 2025</span>
+									<span class="tag">EAAAI 2025</span>
+									<span class="tag">IEEE CIBCB 2025</span>
+									<span class="tag">ARES 2025</span>
+									<span class="tag">PSB 2026</span>
+								</div>
 							</div>
-							<div class="glass-card px-4 py-2">EHDEN’s OMOP-CDM Data Standardization (EHDEN, 2022)</div>
-							<div class="glass-card px-4 py-2">Pedagogical and Teaching Competence (UTH, 2019)</div>
 						</div>
 					</div>
 
 				</div>
 			</section>
 
-			<!-- PUBLICATIONS SECTION -->
-			<section id="publications" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-				<div class="lg:col-span-4">
-					<h2
-						class="sticky top-32 text-sm font-bold uppercase tracking-widest opacity-50 border-l-2 border-custom-blue pl-3">
-						<span class="section-num">07</span> / Publications
-					</h2>
-					<p class="section-note">Selected journal and conference publications in natural language
-						processing, healthcare AI, and machine learning.</p>
+			<!-- PUBLICATIONS -->
+			<section id="publications" class="section-wrap reveal">
+				<div class="section-header">
 
-					<!-- Sticky Filters -->
-					<div id="filter-container" class="sticky top-40 mt-8 space-y-6">
+					<h2 class="section-title">Publications<a href="#publications" class="section-anchor">#</a></h2>
+					<div class="section-rule"></div>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-[160px_1fr] gap-8">
+					<!-- Filters -->
+					<div class="lg:sticky lg:top-24 self-start space-y-4">
 						<div>
-							<p class="text-xs font-bold opacity-50 mb-2">FILTER BY TYPE</p>
-							<div class="flex flex-wrap gap-2">
-								<button class="filter-btn active px-3 py-1 rounded-full text-sm"
-									data-filter-group="type" data-filter="all">All</button>
-								<button class="filter-btn px-3 py-1 rounded-full text-sm" data-filter-group="type"
+							<p class="font-mono text-xs font-bold tracking-widest uppercase mb-2"
+								style="color:var(--t3)">Type</p>
+							<div class="flex flex-wrap gap-1.5">
+								<button class="filter-btn active" data-filter-group="type"
+									data-filter="all">All</button>
+								<button class="filter-btn" data-filter-group="type"
 									data-filter="journal">Journals</button>
-								<button class="filter-btn px-3 py-1 rounded-full text-sm" data-filter-group="type"
+								<button class="filter-btn" data-filter-group="type"
 									data-filter="conference">Conferences</button>
 							</div>
 						</div>
 						<div>
-							<p class="text-xs font-bold opacity-50 mb-2">FILTER BY YEAR</p>
-							<div class="flex flex-wrap gap-2">
-								<button class="filter-btn active px-3 py-1 rounded-full text-sm"
-									data-filter-group="year" data-filter="all">All</button>
-								<button class="filter-btn px-3 py-1 rounded-full text-sm" data-filter-group="year"
-									data-filter="2025">2025</button>
-								<button class="filter-btn px-3 py-1 rounded-full text-sm" data-filter-group="year"
-									data-filter="2024">2024</button>
-								<button class="filter-btn px-3 py-1 rounded-full text-sm" data-filter-group="year"
-									data-filter="2023">2023</button>
-								<button class="filter-btn px-3 py-1 rounded-full text-sm" data-filter-group="year"
-									data-filter="2022">2022</button>
+							<p class="font-mono text-xs font-bold tracking-widest uppercase mb-2"
+								style="color:var(--t3)">Year</p>
+							<div class="flex flex-wrap gap-1.5">
+								<button class="filter-btn active" data-filter-group="year"
+									data-filter="all">All</button>
+								<button class="filter-btn" data-filter-group="year" data-filter="2025">2025</button>
+								<button class="filter-btn" data-filter-group="year" data-filter="2024">2024</button>
+								<button class="filter-btn" data-filter-group="year" data-filter="2023">2023</button>
+								<button class="filter-btn" data-filter-group="year" data-filter="2022">2022</button>
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="lg:col-span-8 space-y-6" id="publication-grid">
+					<!-- Cards -->
+					<div class="space-y-3" id="publication-grid">
 
-					<!-- Pub 1 -->
-					<article class="glass-card p-8 publication-card group" data-type="journal" data-year="2025">
-						<div class="flex justify-between items-start mb-2">
-							<div class="flex gap-2">
-								<span
-									class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Journal</span>
-								<span
-									class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Open
-									Access</span>
+						<article class="card card-hover p-6 publication-card" data-type="journal" data-year="2025">
+							<div class="flex flex-wrap items-center justify-between gap-2">
+								<div class="flex items-center gap-1.5">
+									<span class="pub-badge">Journal</span>
+									<span class="pub-badge pub-badge-oa">Open Access</span>
+								</div>
+								<span class="pub-yr">2025</span>
 							</div>
-							<span class="text-xs font-bold opacity-60">2025</span>
-						</div>
-						<h3
-							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
-							Large language models for efficient topic modeling</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, P. Anagnostou, S. V.
-							Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
-						<p class="opacity-60 text-sm mb-3">Neural Computing and Applications, 1-19</p>
-						<div class="flex flex-wrap gap-4 items-center mt-4">
-							<a href="https://doi.org/10.1007/s00521-025-11593-9" target="_blank"
-								rel="noopener noreferrer"
-								class="text-custom-blue text-sm font-bold hover:underline flex items-center gap-1">
-								View DOI <span>→</span>
-							</a>
-							<a href="papers/s00521-025-11593-9.pdf" target="_blank" rel="noopener noreferrer"
-								class="text-custom-blue text-sm font-bold hover:underline flex items-center gap-1 border-l border-current pl-4 opacity-90 hover:opacity-100">
-								Download PDF <span>↓</span>
-							</a>
-						</div>
-					</article>
-
-					<!-- Pub 2 -->
-					<article class="glass-card p-8 publication-card group" data-type="journal" data-year="2024">
-						<div class="flex justify-between items-start mb-2">
-							<span
-								class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Journal</span>
-							<span class="text-xs font-bold opacity-60">2024</span>
-						</div>
-						<h3
-							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
-							Developing predictive precision medicine models by exploiting real-world data</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V.
-							Georgakopoulos, A. Karaminas, S. K. Tasoulis, V. P. Plagianakos</p>
-						<p class="opacity-60 text-sm mb-3">Journal of Applied Statistics 51(14), 2980-3003</p>
-						<a href="https://doi.org/10.1080/02664763.2024.2315451" target="_blank"
-							rel="noopener noreferrer" class="text-custom-blue text-sm font-bold hover:underline">View
-							DOI →</a>
-					</article>
-
-					<!-- Pub 3 -->
-					<article class="glass-card p-8 publication-card group" data-type="journal" data-year="2023">
-						<div class="flex justify-between items-start mb-2">
-							<div class="flex gap-2">
-								<span
-									class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Journal</span>
-								<span
-									class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Open
-									Access</span>
+							<h3 class="pub-title">Large language models for efficient topic modeling</h3>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, P. Anagnostou, S. V.
+								Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+							<p class="pub-venue">Neural Computing and Applications, 1–19</p>
+							<div class="pub-links">
+								<a href="https://doi.org/10.1007/s00521-025-11593-9" target="_blank"
+									rel="noopener noreferrer" class="pub-link">View DOI →</a>
+								<a href="papers/s00521-025-11593-9.pdf" target="_blank" rel="noopener noreferrer"
+									class="pub-link">PDF ↓</a>
 							</div>
-							<span class="text-xs font-bold opacity-60">2023</span>
-						</div>
-						<h3
-							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
-							Analysing sentiment change detection of COVID-19 tweets</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V.
-							Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
-						<p class="opacity-60 text-sm mb-3">Neural Computing and Applications 35(29), 21433-21443</p>
-						<div class="flex flex-wrap gap-4 items-center mt-4">
-							<a href="https://scholar.google.com/scholar?q=Analysing+sentiment+change+detection+of+COVID-19+tweets"
-								target="_blank" rel="noopener noreferrer"
-								class="text-custom-blue text-sm font-bold hover:underline">Scholar →</a>
-							<a href="papers/s00521-023-08662-2.pdf" target="_blank" rel="noopener noreferrer"
-								class="text-custom-blue text-sm font-bold hover:underline flex items-center gap-1 border-l border-current pl-4 opacity-90 hover:opacity-100">
-								Download PDF <span>↓</span>
-							</a>
-						</div>
-					</article>
+						</article>
 
-					<!-- Pub 4 -->
-					<article class="glass-card p-8 publication-card group" data-type="conference" data-year="2025">
-						<div class="flex justify-between items-start mb-2">
-							<span
-								class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Conference</span>
-							<span class="text-xs font-bold opacity-60">2025</span>
-						</div>
-						<h3
-							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
-							Transforming Medical Practice: Harnessing the Power of Big Data and Machine Learning for
-							Predictive Precision Medicine</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. Bersimis, S. V.
-							Georgakopoulos, V. P. Plagianakos, S. K. Tasoulis</p>
-						<p class="opacity-60 text-sm mb-3">2025 IEEE Symposium on Computational Intelligence in Health
-							and Medicine (CIHM), 1-7</p>
-						<a href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice" target="_blank"
-							rel="noopener noreferrer" class="text-custom-blue text-sm font-bold hover:underline">Scholar
-							→</a>
-					</article>
+						<article class="card card-hover p-6 publication-card" data-type="journal" data-year="2024">
+							<div class="flex flex-wrap items-center justify-between gap-2">
+								<span class="pub-badge">Journal</span>
+								<span class="pub-yr">2024</span>
+							</div>
+							<h3 class="pub-title">Developing predictive precision medicine models by exploiting
+								real-world data</h3>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, S. Bersimis, S. V.
+								Georgakopoulos, A. Karaminas, S. K. Tasoulis, V. P. Plagianakos</p>
+							<p class="pub-venue">Journal of Applied Statistics 51(14), 2980–3003</p>
+							<div class="pub-links">
+								<a href="https://doi.org/10.1080/02664763.2024.2315451" target="_blank"
+									rel="noopener noreferrer" class="pub-link">View DOI →</a>
+							</div>
+						</article>
 
-					<!-- Pub 5 -->
-					<article class="glass-card p-8 publication-card group" data-type="conference" data-year="2023">
-						<div class="flex justify-between items-start mb-2">
-							<span
-								class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Conference</span>
-							<span class="text-xs font-bold opacity-60">2023</span>
-						</div>
-						<h3
-							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
-							Who Writes the Review, Human or AI?</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, S. V. Georgakopoulos, S. K.
-							Tasoulis, V. P. Plagianakos</p>
-						<p class="opacity-60 text-sm mb-3">arXiv preprint arXiv:2405.20285</p>
-						<a href="https://scholar.google.com/scholar?q=Who+Writes+the+Review,+Human+or+AI%3F"
-							target="_blank" rel="noopener noreferrer"
-							class="text-custom-blue text-sm font-bold hover:underline">Scholar →</a>
-					</article>
+						<article class="card card-hover p-6 publication-card" data-type="journal" data-year="2023">
+							<div class="flex flex-wrap items-center justify-between gap-2">
+								<div class="flex items-center gap-1.5">
+									<span class="pub-badge">Journal</span>
+									<span class="pub-badge pub-badge-oa">Open Access</span>
+								</div>
+								<span class="pub-yr">2023</span>
+							</div>
+							<h3 class="pub-title">Analysing sentiment change detection of COVID-19 tweets</h3>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, A. Tsoukala, S. V.
+								Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+							<p class="pub-venue">Neural Computing and Applications 35(29), 21433–21443</p>
+							<div class="pub-links">
+								<a href="https://scholar.google.com/scholar?q=Analysing+sentiment+change+detection+of+COVID-19+tweets"
+									target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
+								<a href="papers/s00521-023-08662-2.pdf" target="_blank" rel="noopener noreferrer"
+									class="pub-link">PDF ↓</a>
+							</div>
+						</article>
 
-					<!-- Pub 6 -->
-					<article class="glass-card p-8 publication-card group" data-type="conference" data-year="2023">
-						<div class="flex justify-between items-start mb-2">
-							<span
-								class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Conference</span>
-							<span class="text-xs font-bold opacity-60">2023</span>
-						</div>
-						<h3
-							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
-							Detection of Fake Generated Scientific Abstracts</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, P. Anagnostou, A. Tsoukala, S.
-							V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
-						<p class="opacity-60 text-sm mb-3">2023 IEEE Ninth International Conference on Big Data
-							Computing Service and Applications (BigDataService), 33-39</p>
-						<a href="https://scholar.google.com/scholar?q=Detection+of+Fake+Generated+Scientific+Abstracts"
-							target="_blank" rel="noopener noreferrer"
-							class="text-custom-blue text-sm font-bold hover:underline">Scholar →</a>
-					</article>
+						<article class="card card-hover p-6 publication-card" data-type="conference" data-year="2025">
+							<div class="flex flex-wrap items-center justify-between gap-2">
+								<span class="pub-badge pub-badge-conf">Conference</span>
+								<span class="pub-yr">2025</span>
+							</div>
+							<h3 class="pub-title">Transforming Medical Practice: Harnessing the Power of Big Data and
+								Machine Learning for Predictive Precision Medicine</h3>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, S. Bersimis, S. V.
+								Georgakopoulos, V. P. Plagianakos, S. K. Tasoulis</p>
+							<p class="pub-venue">2025 IEEE Symposium on Computational Intelligence in Health and
+								Medicine (CIHM), 1–7</p>
+							<div class="pub-links">
+								<a href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice"
+									target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
+							</div>
+						</article>
 
-					<!-- Pub 7 -->
-					<article class="glass-card p-8 publication-card group" data-type="conference" data-year="2022">
-						<div class="flex justify-between items-start mb-2">
-							<span
-								class="text-xs font-bold text-custom-blue uppercase tracking-wider border border-current px-2 py-0.5 rounded">Conference</span>
-							<span class="text-xs font-bold opacity-60">2022</span>
-						</div>
-						<h3
-							class="text-2xl font-display font-bold leading-tight mb-2 group-hover:text-custom-blue transition-colors">
-							Text analysis of COVID-19 tweets</h3>
-						<p class="opacity-80 text-sm mb-3"><b>P. C. Theocharopoulos</b>, A. Tsoukala, S. V.
-							Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
-						<p class="opacity-60 text-sm mb-3">International Conference on Engineering Applications of
-							Neural Networks, 517-528</p>
-						<a href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets" target="_blank"
-							rel="noopener noreferrer" class="text-custom-blue text-sm font-bold hover:underline">Scholar
-							→</a>
-					</article>
+						<article class="card card-hover p-6 publication-card" data-type="conference" data-year="2024">
+							<div class="flex flex-wrap items-center justify-between gap-2">
+								<span class="pub-badge pub-badge-conf">Conference</span>
+								<span class="pub-yr">2024</span>
+							</div>
+							<h3 class="pub-title">Who Writes the Review, Human or AI?</h3>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, S. V. Georgakopoulos, S. K.
+								Tasoulis, V. P. Plagianakos</p>
+							<p class="pub-venue">arXiv preprint arXiv:2405.20285</p>
+							<div class="pub-links">
+								<a href="https://scholar.google.com/scholar?q=Who+Writes+the+Review,+Human+or+AI%3F"
+									target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
+							</div>
+						</article>
 
+						<article class="card card-hover p-6 publication-card" data-type="conference" data-year="2023">
+							<div class="flex flex-wrap items-center justify-between gap-2">
+								<span class="pub-badge pub-badge-conf">Conference</span>
+								<span class="pub-yr">2023</span>
+							</div>
+							<h3 class="pub-title">Detection of Fake Generated Scientific Abstracts</h3>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, P. Anagnostou, A. Tsoukala,
+								S. V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+							<p class="pub-venue">2023 IEEE Ninth International Conference on Big Data Computing Service
+								and Applications (BigDataService), 33–39</p>
+							<div class="pub-links">
+								<a href="https://scholar.google.com/scholar?q=Detection+of+Fake+Generated+Scientific+Abstracts"
+									target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
+							</div>
+						</article>
+
+						<article class="card card-hover p-6 publication-card" data-type="conference" data-year="2022">
+							<div class="flex flex-wrap items-center justify-between gap-2">
+								<span class="pub-badge pub-badge-conf">Conference</span>
+								<span class="pub-yr">2022</span>
+							</div>
+							<h3 class="pub-title">Text analysis of COVID-19 tweets</h3>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, A. Tsoukala, S. V.
+								Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+							<p class="pub-venue">International Conference on Engineering Applications of Neural
+								Networks, 517–528</p>
+							<div class="pub-links">
+								<a href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets"
+									target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
+							</div>
+						</article>
+
+					</div>
 				</div>
 			</section>
 
 		</main>
 
-		<!-- FOOTER -->
-		<footer
-			class="mt-32 pt-8 border-t border-current opacity-70 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-			<p>© <span id="current-year"></span> Panagiotis C. Theocharopoulos</p>
-			<div class="flex gap-6">
-				<a href="mailto:panos.t95@gmail.com" class="hover:text-custom-blue transition-colors">Email</a>
-				<a href="https://www.linkedin.com/in/ptheochar/" target="_blank"
-					class="hover:text-custom-blue transition-colors" rel="noopener noreferrer">LinkedIn</a>
-				<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&amp;hl=en" target="_blank"
-					class="hover:text-custom-blue transition-colors" rel="noopener noreferrer">Scholar</a>
+		<!-- Footer -->
+		<footer class="mt-24 pb-12" style="border-top:1px solid var(--border)">
+			<div class="pt-10 flex flex-col sm:flex-row sm:items-end justify-between gap-8">
+				<div>
+					<p class="font-sans font-bold text-xl tracking-tight" style="color:var(--t1);letter-spacing:-.02em">Panagiotis C. Theocharopoulos</p>
+					<p class="font-mono text-xs mt-1" style="color:var(--t3)">AI Engineer · PhD · LLMs · NLP · Healthcare AI</p>
+				</div>
+				<div class="flex flex-col items-start sm:items-end gap-3">
+					<div class="flex gap-5 font-mono text-xs font-medium">
+						<a href="mailto:panos.t95@gmail.com" class="transition-colors" style="color:var(--t2)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--t2)'">Email</a>
+						<a href="https://www.linkedin.com/in/ptheochar/" target="_blank" rel="noopener noreferrer" class="transition-colors" style="color:var(--t2)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--t2)'">LinkedIn</a>
+						<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="transition-colors" style="color:var(--t2)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--t2)'">Scholar</a>
+						<a href="Theocharopoulos_CV.pdf" target="_blank" rel="noopener noreferrer" class="transition-colors" style="color:var(--t2)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--t2)'">CV</a>
+					</div>
+					<p class="font-mono text-xs" style="color:var(--t3)">© <span id="current-year"></span> — Built with care</p>
+				</div>
 			</div>
+		</footer>
 		</footer>
 
 	</div>
 
-	<!-- Back To Top Button -->
-	<button id="back-to-top" aria-label="Back to top" class="back-to-top shadow-lg">
-		<span>↑</span>
-	</button>
+	<button id="back-to-top" aria-label="Back to top" class="back-to-top">↑</button>
 
-	<!-- SCRIPTS -->
 	<script>
-		// --- Theme Management ---
+		// ── Theme ─────────────────────────────────────────
 		const html = document.documentElement;
-		const toggleBtn = document.getElementById('theme-toggle');
 		const themeText = document.getElementById('theme-text');
-		const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 		const themeTextMobile = document.getElementById('theme-text-mobile');
 		const currentYearEl = document.getElementById('current-year');
-
-		if (currentYearEl) {
-			currentYearEl.textContent = new Date().getFullYear();
-		}
+		if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
 
 		const updateThemeText = () => {
-			// Show the mode the user can switch to (not the current one)
-			const nextMode = html.classList.contains('dark') ? 'Light' : 'Dark';
-			if (themeText) themeText.textContent = nextMode;
-			if (themeTextMobile) themeTextMobile.textContent = nextMode;
+			const next = html.classList.contains('dark') ? 'Light' : 'Dark';
+			if (themeText) themeText.textContent = next;
+			if (themeTextMobile) themeTextMobile.textContent = next;
 		};
-
-		// Check LocalStorage
-		const savedTheme = localStorage.getItem('theme');
-		if (savedTheme === 'dark') {
-			html.classList.add('dark');
-		}
+		const saved = localStorage.getItem('theme');
+		if (saved === 'dark') html.classList.add('dark');
 		updateThemeText();
 
 		const toggleTheme = () => {
@@ -1477,155 +1981,170 @@
 			localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
 			updateThemeText();
 		};
+		document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+		document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
 
-		if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
-		if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
-
-		// --- Scroll Progress & Sticky Nav & Back to Top ---
+		// ── Scroll ────────────────────────────────────────
 		const progressBar = document.getElementById('scroll-progress');
 		const nav = document.getElementById('section-nav');
 		const backToTop = document.getElementById('back-to-top');
 
 		window.addEventListener('scroll', () => {
-			// Progress Bar
-			const scrollTop = window.scrollY;
-			const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-			const scrollPercent = scrollTop / docHeight;
-			progressBar.style.transform = `scaleX(${scrollPercent})`;
-
-			// Sticky Nav Visibility
-			if (scrollTop > 300) {
+			const s = window.scrollY;
+			const h = document.documentElement.scrollHeight - window.innerHeight;
+			if (progressBar) progressBar.style.transform = `scaleX(${s / h})`;
+			if (s > 280) {
 				nav.classList.remove('opacity-0', '-translate-y-full');
 				backToTop.classList.add('is-visible');
 			} else {
 				nav.classList.add('opacity-0', '-translate-y-full');
 				backToTop.classList.remove('is-visible');
 			}
-		});
+		}, { passive: true });
+		backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-		backToTop.addEventListener('click', () => {
-			window.scrollTo({ top: 0, behavior: 'smooth' });
-		});
-
-		// --- Intersection Observer for Animations ---
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.classList.remove('opacity-0', 'translate-y-3');
-					entry.target.classList.add('opacity-100', 'translate-y-0');
-					observer.unobserve(entry.target);
+		// ── Reveal ────────────────────────────────────────
+		const revealObs = new IntersectionObserver((entries) => {
+			entries.forEach(e => {
+				if (e.isIntersecting) {
+					e.target.classList.remove('opacity-0', 'translate-y-4');
+					e.target.classList.add('opacity-100', 'translate-y-0');
+					revealObs.unobserve(e.target);
 				}
 			});
-		}, { threshold: 0.1 });
-
+		}, { threshold: 0.07 });
 		document.querySelectorAll('.reveal').forEach(el => {
-			el.classList.add('transition-all', 'duration-500', 'opacity-0', 'translate-y-3');
-			observer.observe(el);
+			el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+			revealObs.observe(el);
 		});
 
-		// --- Hardened Publication Filtering ---
-		const filterContainer = document.getElementById('filter-container');
-		const cards = Array.from(document.querySelectorAll('.publication-card'));
-		const activeFilters = { type: 'all', year: 'all' };
-		let isFiltering = false;
-
-		if (filterContainer) {
-			filterContainer.addEventListener('click', (e) => {
-				const btn = e.target.closest('.filter-btn');
-
-				if (!btn || isFiltering) return;
-
-				const group = btn.dataset.filterGroup;
-				const value = btn.dataset.filter;
-
-				if (activeFilters[group] === value) return;
-
-				isFiltering = true;
-
-				filterContainer.querySelectorAll(`.filter-btn[data-filter-group="${group}"]`)
-					.forEach(b => b.classList.remove('active'));
-				btn.classList.add('active');
-
-				activeFilters[group] = value;
-
-				let pendingAnimations = 0;
-
-				cards.forEach(card => {
-					const matchType = activeFilters.type === 'all' || card.dataset.type === activeFilters.type;
-					const matchYear = activeFilters.year === 'all' || card.dataset.year === activeFilters.year;
-					const isCurrentlyHidden = card.classList.contains('is-hidden');
-
-					if (matchType && matchYear) {
-						if (isCurrentlyHidden) {
-							card.classList.remove('is-hidden');
-							card.classList.add('is-hiding');
-							void card.offsetWidth;
-							card.classList.remove('is-hiding');
-						}
-						return;
-					}
-
-					if (!isCurrentlyHidden) {
-						pendingAnimations++;
-						card.classList.add('is-hiding');
-
-						card.addEventListener('transitionend', function handler(event) {
-							if (event.propertyName !== 'opacity') return;
-
-							card.classList.add('is-hidden');
-							pendingAnimations--;
-
-							if (pendingAnimations === 0) {
-								isFiltering = false;
-							}
-						}, { once: true });
-					}
-				});
-
-				if (pendingAnimations === 0) {
-					setTimeout(() => {
-						isFiltering = false;
-					}, 50);
-				}
-			});
-		}
-
-		// --- Mobile Menu ---
-		const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-		const mobileNav = document.getElementById('mobile-nav');
-		const mobileCloseBtn = document.getElementById('mobile-close-btn');
-		const mobileLinks = document.querySelectorAll('.mobile-link');
-
-		function toggleMobileMenu() {
-			mobileNav.classList.toggle('open');
-			mobileMenuBtn.setAttribute('aria-expanded', mobileNav.classList.contains('open') ? 'true' : 'false');
-			document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-		}
-
-		mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-		mobileCloseBtn.addEventListener('click', toggleMobileMenu);
-		mobileLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
-
-		// --- Nav Active State ---
-		const navSections = document.querySelectorAll('section[id]');
+		// ── Nav active ────────────────────────────────────
 		const navLinks = document.querySelectorAll('.nav-link');
-
-		const activeObserver = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					navLinks.forEach(link => {
-						link.classList.remove('active');
-						if (link.getAttribute('href') === '#' + entry.target.id) {
-							link.classList.add('active');
-						}
+		const activeObs = new IntersectionObserver((entries) => {
+			entries.forEach(e => {
+				if (e.isIntersecting) {
+					navLinks.forEach(l => {
+						l.classList.remove('active');
+						if (l.getAttribute('href') === '#' + e.target.id) l.classList.add('active');
 					});
 				}
 			});
 		}, { rootMargin: '-30% 0px -60% 0px' });
+		document.querySelectorAll('section[id]').forEach(s => activeObs.observe(s));
 
-		navSections.forEach(section => activeObserver.observe(section));
+		// ── Publication filter ────────────────────────────
+		const pubCards = Array.from(document.querySelectorAll('.publication-card'));
+		const activeFilters = { type: 'all', year: 'all' };
+		let isFiltering = false;
 
+		document.querySelectorAll('.filter-btn').forEach(btn => {
+			btn.addEventListener('click', () => {
+				if (isFiltering) return;
+				const group = btn.dataset.filterGroup;
+				const value = btn.dataset.filter;
+				if (activeFilters[group] === value) return;
+				isFiltering = true;
+				document.querySelectorAll(`.filter-btn[data-filter-group="${group}"]`).forEach(b => b.classList.remove('active'));
+				btn.classList.add('active');
+				activeFilters[group] = value;
+				let pending = 0;
+				pubCards.forEach(card => {
+					const match = (activeFilters.type === 'all' || card.dataset.type === activeFilters.type)
+						&& (activeFilters.year === 'all' || card.dataset.year === activeFilters.year);
+					const hidden = card.classList.contains('is-hidden');
+					if (match) {
+						if (hidden) { card.classList.remove('is-hidden'); void card.offsetWidth; card.classList.remove('is-hiding'); }
+					} else if (!hidden) {
+						pending++;
+						card.classList.add('is-hiding');
+						card.addEventListener('transitionend', function h(e) {
+							if (e.propertyName !== 'opacity') return;
+							card.classList.add('is-hidden');
+							if (--pending === 0) isFiltering = false;
+						}, { once: true });
+					}
+				});
+				if (pending === 0) setTimeout(() => { isFiltering = false; }, 50);
+			});
+		});
+
+		// ── Mobile menu ───────────────────────────────────
+		const mobileNav = document.getElementById('mobile-nav');
+		const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+		const toggleMenu = () => {
+			mobileNav.classList.toggle('open');
+			mobileMenuBtn.setAttribute('aria-expanded', mobileNav.classList.contains('open'));
+			document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+		};
+		document.getElementById('mobile-menu-btn')?.addEventListener('click', toggleMenu);
+		document.getElementById('mobile-close-btn')?.addEventListener('click', toggleMenu);
+		document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', toggleMenu));
+
+		// ── Typing role ───────────────────────────────────
+		const roles = ['AI Engineer', 'NLP Researcher', 'LLM Engineer', 'Healthcare AI'];
+		const typingEl = document.getElementById('typing-role');
+		let roleIdx = 0, charIdx = 0, deleting = false;
+		function typeLoop() {
+			const current = roles[roleIdx];
+			if (!deleting) {
+				typingEl.textContent = current.slice(0, ++charIdx);
+				if (charIdx === current.length) { deleting = true; setTimeout(typeLoop, 2000); return; }
+				setTimeout(typeLoop, 68);
+			} else {
+				typingEl.textContent = current.slice(0, --charIdx);
+				if (charIdx === 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; setTimeout(typeLoop, 400); return; }
+				setTimeout(typeLoop, 38);
+			}
+		}
+		setTimeout(typeLoop, 1200);
+
+		// ── Count-up stats ────────────────────────────────
+		const countEls = document.querySelectorAll('[data-count]');
+		const countObs = new IntersectionObserver((entries) => {
+			entries.forEach(e => {
+				if (!e.isIntersecting) return;
+				const el = e.target;
+				const target = +el.dataset.count;
+				const suffix = el.dataset.suffix || '';
+				const dur = 1200, step = 16;
+				const steps = dur / step;
+				let cur = 0;
+				const inc = () => {
+					cur = Math.min(cur + target / steps, target);
+					el.textContent = Math.round(cur) + suffix;
+					if (cur < target) setTimeout(inc, step);
+				};
+				inc();
+				countObs.unobserve(el);
+			});
+		}, { threshold: 0.5 });
+		countEls.forEach(el => countObs.observe(el));
+
+		// ── Staggered children ────────────────────────────
+		const staggerTargets = [
+			'#experience .space-y-3',
+			'#publication-grid',
+			'.skills-grid',
+			'.edu-list',
+			'#honors .space-y-1\\.5',
+		];
+		document.querySelectorAll(staggerTargets.join(', ')).forEach(parent => {
+			Array.from(parent.children).forEach((child, i) => {
+				child.classList.add('stagger-child');
+				child.style.transitionDelay = (i * 80) + 'ms';
+			});
+		});
+		const staggerObs = new IntersectionObserver((entries) => {
+			entries.forEach(e => {
+				if (e.isIntersecting) {
+					e.target.querySelectorAll('.stagger-child').forEach(c => c.classList.add('visible'));
+					staggerObs.unobserve(e.target);
+				}
+			});
+		}, { threshold: 0.05 });
+		document.querySelectorAll(staggerTargets.join(', ')).forEach(el => staggerObs.observe(el));
 	</script>
+
 </body>
 
 </html>
