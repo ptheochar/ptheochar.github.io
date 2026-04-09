@@ -5,7 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Panagiotis C. Theocharopoulos</title>
-	<meta name="description" content="Panagiotis C. Theocharopoulos — AI Engineer and PhD researcher specialising in Large Language Models, NLP, and healthcare AI.">
+	<meta name="description"
+		content="Panagiotis C. Theocharopoulos — AI Engineer and PhD researcher specialising in Large Language Models, NLP, and healthcare AI.">
 	<meta property="og:title" content="Panagiotis C. Theocharopoulos">
 	<meta property="og:description" content="AI Engineer & PhD — LLMs · NLP · Healthcare AI">
 	<meta property="og:type" content="website">
@@ -15,12 +16,15 @@
 	<meta name="twitter:title" content="Panagiotis C. Theocharopoulos">
 	<meta name="twitter:description" content="AI Engineer & PhD — LLMs · NLP · Healthcare AI">
 	<meta name="twitter:image" content="https://ptheochar.github.io/assets/IMG_7283.jpeg">
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230891b2'/><text x='16' y='22' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='17' fill='white'>PT</text></svg>">
+	<link rel="icon"
+		href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230891b2'/><text x='16' y='22' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='17' fill='white'>PT</text></svg>">
 
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+		rel="stylesheet">
 
 	<script>
 		tailwind.config = {
@@ -28,9 +32,9 @@
 			theme: {
 				extend: {
 					fontFamily: {
-						sans:    ['Inter', 'sans-serif'],
+						sans: ['Inter', 'sans-serif'],
 						display: ['Source Serif 4', 'serif'],
-						mono:    ['JetBrains Mono', 'ui-monospace', 'monospace'],
+						mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
 					}
 				}
 			}
@@ -40,40 +44,44 @@
 	<style>
 		/* ── TOKENS ───────────────────────────────────── */
 		:root {
-			--bg:        #f9f8f6;
-			--bg2:       #f2f1ef;
-			--surface:   #ffffff;
-			--surface2:  #f5f4f2;
-			--border:    #e4e3df;
+			--bg: #f9f8f6;
+			--bg2: #f2f1ef;
+			--surface: #ffffff;
+			--surface2: #f5f4f2;
+			--border: #e4e3df;
 			--border-hi: #c9c7c0;
-			--t1:        #18181b;
-			--t2:        #52525b;
-			--t3:        #a1a1aa;
-			--accent:    #0891b2;
-			--accent2:   #0e7490;
-			--accent3:   #6366f1;
-			--glow:      rgba(8,145,178,0.14);
-			--subtle:    rgba(8,145,178,0.07);
+			--t1: #18181b;
+			--t2: #52525b;
+			--t3: #a1a1aa;
+			--accent: #0891b2;
+			--accent2: #0e7490;
+			--accent3: #6366f1;
+			--glow: rgba(8, 145, 178, 0.14);
+			--subtle: rgba(8, 145, 178, 0.07);
 		}
+
 		html.dark {
-			--bg:        #1a1c22;
-			--bg2:       #21242c;
-			--surface:   #272a33;
-			--surface2:  #2d3040;
-			--border:    #363b48;
-			--border-hi: #454c5e;
-			--t1:        #f0f1f5;
-			--t2:        #9ba3b8;
-			--t3:        #5c6480;
-			--accent:    #22d3ee;
-			--accent2:   #06b6d4;
-			--accent3:   #818cf8;
-			--glow:      rgba(34,211,238,0.16);
-			--subtle:    rgba(34,211,238,0.08);
+			--bg:        #141414;
+			--bg2:       #1a1a1a;
+			--surface:   #1f1f1f;
+			--surface2:  #262626;
+			--border:    #2e2e2e;
+			--border-hi: #3d3d3d;
+			--t1:        #f0efe9;
+			--t2:        #9c9c96;
+			--t3:        #58584f;
+			--accent:    #2dd4bf;
+			--accent2:   #0d9488;
+			--accent3:   #a78bfa;
+			--glow:      rgba(45,212,191,0.15);
+			--subtle:    rgba(45,212,191,0.08);
 		}
 
 		/* ── BASE ─────────────────────────────────────── */
-		html { scroll-padding-top: 5.5rem; }
+		html {
+			scroll-padding-top: 5.5rem;
+		}
+
 		body {
 			background-color: var(--bg);
 			color: var(--t1);
@@ -81,60 +89,125 @@
 			-webkit-font-smoothing: antialiased;
 			text-rendering: optimizeLegibility;
 		}
-		/* Very subtle warm gradient in light mode */
-		body::after {
+
+		/* ── GRAIN ────────────────────────────────────── */
+		body::before {
 			content: '';
 			position: fixed; inset: 0;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+			background-size: 280px 280px;
+			opacity: .038;
+			pointer-events: none; z-index: 99998;
+		}
+		html.dark body::before { opacity: 0; }
+
+		/* Ambient gradient */
+		body::after {
+			content: '';
+			position: fixed;
+			inset: 0;
 			background: radial-gradient(ellipse 70% 40% at 100% 0%, rgba(8,145,178,.04) 0%, transparent 60%);
-			pointer-events: none; z-index: 0;
+			pointer-events: none;
+			z-index: 0;
 		}
 		html.dark body::after {
 			background:
-				radial-gradient(ellipse 60% 40% at 5% 0%, rgba(34,211,238,.07) 0%, transparent 55%),
-				radial-gradient(ellipse 40% 30% at 95% 5%, rgba(99,102,241,.05) 0%, transparent 50%);
+				radial-gradient(ellipse 55% 35% at 5% 0%, rgba(45,212,191,.05) 0%, transparent 55%),
+				radial-gradient(ellipse 35% 25% at 95% 5%, rgba(167,139,250,.04) 0%, transparent 50%);
 		}
 
 		/* ── SCROLLBAR ────────────────────────────────── */
-		::-webkit-scrollbar { width: 5px; }
-		::-webkit-scrollbar-track { background: var(--bg); }
-		::-webkit-scrollbar-thumb { background: var(--border-hi); border-radius: 999px; }
-		::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+		::-webkit-scrollbar {
+			width: 5px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: var(--bg);
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: var(--border-hi);
+			border-radius: 999px;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+			background: var(--accent);
+		}
 
 		/* ── PROGRESS BAR ─────────────────────────────── */
 		.scroll-progress {
-			position: fixed; top: 0; left: 0; height: 2px;
+			position: fixed;
+			top: 0;
+			left: 0;
+			height: 2px;
 			background: linear-gradient(90deg, var(--accent), var(--accent3));
-			z-index: 99999; transform-origin: left; transform: scaleX(0);
+			z-index: 99999;
+			transform-origin: left;
+			transform: scaleX(0);
 		}
 
 		/* ── NAV ──────────────────────────────────────── */
 		.nav-pill {
-			background: rgba(249,248,246,.92);
-			border: 1px solid var(--border);
-			box-shadow: 0 1px 12px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
-			backdrop-filter: blur(20px) saturate(180%);
-			-webkit-backdrop-filter: blur(20px) saturate(180%);
+			background: rgba(255, 255, 255, .75);
+			border: 1px solid rgba(228, 227, 223, .6);
+			box-shadow: 0 4px 24px rgba(0, 0, 0, .04), 0 1px 2px rgba(0, 0, 0, .04);
+			backdrop-filter: blur(24px) saturate(200%);
+			-webkit-backdrop-filter: blur(24px) saturate(200%);
 		}
+
 		html.dark .nav-pill {
-			background: rgba(17,17,19,.92);
-			border-color: var(--border);
-			box-shadow: 0 1px 16px rgba(0,0,0,.4);
+			background: rgba(26, 28, 34, .75);
+			border-color: rgba(255, 255, 255, .08);
+			box-shadow: 0 4px 24px rgba(0, 0, 0, .4);
 		}
+
 		.nav-link {
-			font-size: .8125rem; letter-spacing: .01em; font-weight: 500;
-			color: var(--t2); transition: color .2s;
+			font-size: .8125rem;
+			letter-spacing: .01em;
+			font-weight: 500;
+			color: var(--t2);
+			transition: color .2s;
 		}
-		.nav-link:hover, .nav-link.active { color: var(--accent); }
-		.nav-link.active { position: relative; }
+
+		.nav-link:hover,
+		.nav-link.active {
+			color: var(--accent);
+		}
+
+		.nav-link.active {
+			position: relative;
+		}
+
 		.nav-link.active::after {
 			content: '';
-			position: absolute; bottom: -5px; left: 50%;
+			position: absolute;
+			bottom: -5px;
+			left: 50%;
 			transform: translateX(-50%);
-			width: 3px; height: 3px;
-			background: var(--accent); border-radius: 50%;
+			width: 3px;
+			height: 3px;
+			background: var(--accent);
+			border-radius: 50%;
 		}
 
 		/* ── HERO ─────────────────────────────────────── */
+		@keyframes heroFadeUp {
+			from {
+				opacity: 0;
+				transform: translateY(24px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.hero-animate {
+			opacity: 0;
+			animation: heroFadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+		}
+
 		.hero-section {
 			position: relative;
 			min-height: 100vh;
@@ -145,24 +218,35 @@
 			padding-top: 7rem;
 			padding-bottom: 4rem;
 		}
+
 		@media (max-width: 900px) {
-			.hero-section { grid-template-columns: 1fr; gap: 3rem; }
+			.hero-section {
+				grid-template-columns: 1fr;
+				gap: 3rem;
+			}
 		}
 
 		.hero-badge {
-			display: inline-flex; align-items: center; gap: .5rem;
+			display: inline-flex;
+			align-items: center;
+			gap: .5rem;
 			padding: .3rem .8rem;
 			border-radius: 999px;
 			border: 1px solid var(--border);
 			background: var(--surface);
 			font-family: 'JetBrains Mono', monospace;
-			font-size: .68rem; font-weight: 500;
+			font-size: .68rem;
+			font-weight: 500;
 			color: var(--t2);
-			letter-spacing: .05em; text-transform: uppercase;
+			letter-spacing: .05em;
+			text-transform: uppercase;
 			margin-bottom: 2rem;
 		}
+
 		.hero-badge-dot {
-			width: 6px; height: 6px; border-radius: 50%;
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
 			background: var(--accent);
 			flex-shrink: 0;
 		}
@@ -175,9 +259,14 @@
 			color: var(--t1);
 			font-size: clamp(2.4rem, 5.5vw, 4.25rem);
 		}
+
 		.hero-name-line2 {
-			color: var(--accent);
 			display: block;
+			background: linear-gradient(135deg, var(--accent), var(--accent3));
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			color: transparent;
 		}
 
 		.hero-role {
@@ -187,40 +276,61 @@
 			color: var(--t2);
 			margin-top: 1.1rem;
 		}
+
 		.hero-bio {
-			font-size: .9375rem; line-height: 1.75;
+			font-size: .9375rem;
+			line-height: 1.75;
 			color: var(--t2);
-			margin-top: .875rem; max-width: 48ch;
+			margin-top: .875rem;
+			max-width: 48ch;
 		}
+
 		.hero-links {
-			display: flex; flex-wrap: wrap; gap: .5rem;
+			display: flex;
+			flex-wrap: wrap;
+			gap: .5rem;
 			margin-top: 2rem;
 		}
 
 		/* ── BUTTONS ──────────────────────────────────── */
 		.btn {
-			display: inline-flex; align-items: center; gap: .375rem;
+			display: inline-flex;
+			align-items: center;
+			gap: .375rem;
 			padding: .525rem 1.05rem;
 			border-radius: 8px;
-			font-size: .875rem; font-weight: 500;
-			transition: all .18s ease; white-space: nowrap;
+			font-size: .875rem;
+			font-weight: 500;
+			transition: all .18s ease;
+			white-space: nowrap;
 		}
+
 		.btn-primary {
-			background: var(--accent); color: #fff;
+			background: var(--accent);
+			color: #fff;
 			border: 1px solid var(--accent);
 		}
+
 		.btn-primary:hover {
-			background: var(--accent2); border-color: var(--accent2);
+			background: var(--accent2);
+			border-color: var(--accent2);
 			transform: translateY(-1px);
 			box-shadow: 0 4px 16px var(--glow);
 		}
+
 		.btn-ghost {
-			background: var(--surface); color: var(--t1);
+			background: var(--surface);
+			color: var(--t1);
 			border: 1px solid var(--border);
 		}
-		html.dark .btn-ghost { background: var(--surface2); }
+
+		html.dark .btn-ghost {
+			background: var(--surface2);
+		}
+
 		.btn-ghost:hover {
-			border-color: var(--accent); color: var(--accent);
+			border-color: var(--accent);
+			color: var(--accent);
 			transform: translateY(-1px);
 		}
 
@@ -229,67 +339,108 @@
 			width: min(300px, 40vw);
 			flex-shrink: 0;
 		}
+
 		@media (max-width: 900px) {
 			.hero-photo-wrap {
 				width: min(220px, 55vw);
 				margin: 0 auto;
 			}
 		}
+
 		.hero-photo-frame {
 			position: relative;
 			border-radius: 18px;
 			overflow: hidden;
 			border: 1px solid var(--border);
-			box-shadow: 0 4px 24px rgba(0,0,0,.08);
+			box-shadow: 0 4px 24px rgba(0, 0, 0, .08);
 		}
+
 		html.dark .hero-photo-frame {
-			box-shadow: 0 4px 24px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.04);
+			box-shadow: 0 4px 24px rgba(0, 0, 0, .4), 0 0 0 1px rgba(255, 255, 255, .04);
 		}
+
 		.hero-photo-frame img {
-			width: 100%; display: block;
-			object-fit: cover; object-position: 50% 20%;
+			width: 100%;
+			display: block;
+			object-fit: cover;
+			object-position: 50% 20%;
 			aspect-ratio: 3/4;
+			transition: transform .6s cubic-bezier(0.2, 0.8, 0.2, 1);
+		}
+
+		.hero-photo-frame:hover img {
+			transform: scale(1.03);
 		}
 
 		/* ── SECTION LAYOUT ───────────────────────────── */
-		.section-wrap { padding-top: 6rem; padding-bottom: .5rem; }
+		.section-wrap {
+			padding-top: 6rem;
+			padding-bottom: .5rem;
+		}
 
 		.section-header {
-			display: flex; align-items: center; gap: 1rem;
+			display: flex;
+			align-items: center;
+			gap: 1rem;
 			margin-bottom: 2.5rem;
 		}
-		.section-num {
-			font-family: 'JetBrains Mono', monospace;
-			font-size: .68rem; font-weight: 500;
-			color: var(--accent); letter-spacing: .1em;
-			flex-shrink: 0;
-		}
+
 		.section-title {
 			font-family: 'Source Serif 4', serif;
 			font-size: clamp(1.4rem, 2.5vw, 1.875rem);
-			font-weight: 700; letter-spacing: -.02em;
-			color: var(--t1); white-space: nowrap;
+			font-weight: 700;
+			letter-spacing: -.02em;
+			color: var(--t1);
+			white-space: nowrap;
 		}
-		.section-rule { flex: 1; height: 1px; background: var(--border); }
+
+		.section-rule {
+			flex: 1;
+			height: 1px;
+			background: linear-gradient(90deg, var(--border), transparent);
+		}
 
 		/* ── STAT GRID ────────────────────────────────── */
 		.stat-grid {
-			display: grid; grid-template-columns: repeat(4,1fr);
-			gap: 1px; background: var(--border);
-			border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1px;
+			background: var(--border);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			overflow: hidden;
 		}
-		@media (max-width: 560px) { .stat-grid { grid-template-columns: repeat(2,1fr); } }
-		.stat-item { background: var(--surface); padding: 1.25rem 1.375rem; }
-		html.dark .stat-item { background: var(--surface2); }
+
+		@media (max-width: 560px) {
+			.stat-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		.stat-item {
+			background: var(--surface);
+			padding: 1.25rem 1.375rem;
+		}
+
+		html.dark .stat-item {
+			background: var(--surface2);
+		}
+
 		.stat-val {
 			font-family: 'Inter', sans-serif;
-			font-size: 1.75rem; font-weight: 800;
-			color: var(--accent); letter-spacing: -.04em; line-height: 1;
+			font-size: 1.75rem;
+			font-weight: 800;
+			color: var(--accent);
+			letter-spacing: -.04em;
+			line-height: 1;
 		}
+
 		.stat-lbl {
 			font-family: 'JetBrains Mono', monospace;
-			font-size: .65rem; letter-spacing: .07em;
-			text-transform: uppercase; color: var(--t3);
+			font-size: .65rem;
+			letter-spacing: .07em;
+			text-transform: uppercase;
+			color: var(--t3);
 			margin-top: .3rem;
 		}
 
@@ -298,257 +449,704 @@
 			background: var(--surface);
 			border: 1px solid var(--border);
 			border-radius: 12px;
-			transition: border-color .2s, box-shadow .2s;
+			transition: border-color .3s, box-shadow .3s, transform .3s cubic-bezier(0.2, 0.8, 0.2, 1);
 		}
+
 		html.dark .card {
 			background: var(--surface2);
-			box-shadow: 0 1px 3px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.03);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(255, 255, 255, .03);
 		}
-		.card-hover:hover { border-color: var(--accent); }
+
+		.card-hover:hover {
+			border-color: var(--accent);
+			transform: translateY(-2px);
+			box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+		}
+
 		html.dark .card-hover:hover {
-			box-shadow: 0 4px 20px rgba(0,0,0,.4), 0 0 0 1px rgba(34,211,238,.2),
-				inset 0 1px 0 rgba(255,255,255,.04);
+			box-shadow: 0 8px 24px rgba(0, 0, 0, .4), 0 0 0 1px rgba(34, 211, 238, .2),
+				inset 0 1px 0 rgba(255, 255, 255, .04);
 		}
 
 		/* ── EXPERIENCE ───────────────────────────────── */
 		.exp-head {
 			padding: 1.25rem 1.5rem;
 			border-bottom: 1px solid var(--border);
-			display: flex; align-items: center;
-			justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
+			flex-wrap: wrap;
 		}
+
 		.exp-kicker {
 			font-family: 'JetBrains Mono', monospace;
-			font-size: .62rem; font-weight: 500;
-			letter-spacing: .1em; text-transform: uppercase;
-			color: var(--accent); background: var(--subtle);
-			border: 1px solid rgba(8,145,178,.15);
-			padding: .18rem .55rem; border-radius: 4px;
+			font-size: .62rem;
+			font-weight: 500;
+			letter-spacing: .1em;
+			text-transform: uppercase;
+			color: var(--accent);
+			background: var(--subtle);
+			border: 1px solid rgba(8, 145, 178, .15);
+			padding: .18rem .55rem;
+			border-radius: 4px;
 		}
-		html.dark .exp-kicker { border-color: rgba(34,211,238,.2); }
+
+		html.dark .exp-kicker {
+			border-color: rgba(34, 211, 238, .2);
+		}
+
 		.exp-company {
 			font-family: 'Inter', sans-serif;
-			font-size: 1.1rem; font-weight: 700; color: var(--t1);
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: var(--t1);
 		}
+
 		.exp-date {
 			font-family: 'JetBrains Mono', monospace;
-			font-size: .65rem; color: var(--t3); letter-spacing: .04em;
-			white-space: nowrap; padding: .25rem .6rem;
-			border: 1px solid var(--border); border-radius: 6px;
+			font-size: .65rem;
+			color: var(--t3);
+			letter-spacing: .04em;
+			white-space: nowrap;
+			padding: .25rem .6rem;
+			border: 1px solid var(--border);
+			border-radius: 6px;
 			background: var(--bg);
 		}
-		html.dark .exp-date { background: var(--bg2); }
-		.exp-body { padding: 1.25rem 1.5rem; }
-		.role-block { padding: .75rem 0; border-top: 1px solid var(--border); }
-		.role-block:first-child { border-top: none; padding-top: 0; }
-		.role-title { font-size: .9rem; font-weight: 600; color: var(--t1); }
+
+		html.dark .exp-date {
+			background: var(--bg2);
+		}
+
+		.exp-body {
+			padding: 1.25rem 1.5rem;
+		}
+
+		.role-block {
+			padding: .75rem 0;
+			border-top: 1px solid var(--border);
+		}
+
+		.role-block:first-child {
+			border-top: none;
+			padding-top: 0;
+		}
+
+		.role-title {
+			font-size: .9rem;
+			font-weight: 600;
+			color: var(--t1);
+		}
+
 		.role-period {
 			font-family: 'JetBrains Mono', monospace;
-			font-size: .65rem; color: var(--t3); margin-top: .1rem;
+			font-size: .65rem;
+			color: var(--t3);
+			margin-top: .1rem;
 		}
-		.role-bullets { margin-top: .5rem; list-style: none; padding: 0; }
+
+		.role-bullets {
+			margin-top: .5rem;
+			list-style: none;
+			padding: 0;
+		}
+
 		.role-bullets li {
-			display: flex; gap: .5rem;
-			font-size: .875rem; color: var(--t2);
-			line-height: 1.65; padding: .15rem 0;
+			display: flex;
+			gap: .5rem;
+			font-size: .875rem;
+			color: var(--t2);
+			line-height: 1.65;
+			padding: .15rem 0;
 		}
+
 		.role-bullets li::before {
-			content: '–'; color: var(--accent); flex-shrink: 0; opacity: .6;
+			content: '–';
+			color: var(--accent);
+			flex-shrink: 0;
+			opacity: .6;
 		}
 
 		/* ── TEACHING ─────────────────────────────────── */
 		.teach-row {
-			display: grid; grid-template-columns: 200px 1fr;
-			gap: 1.25rem; padding: 1rem 1.5rem;
+			display: grid;
+			grid-template-columns: 200px 1fr;
+			gap: 1.25rem;
+			padding: 1rem 1.5rem;
 			border-top: 1px solid var(--border);
 		}
-		.teach-row:first-child { border-top: none; }
-		@media (max-width: 580px) { .teach-row { grid-template-columns: 1fr; gap: .35rem; } }
+
+		.teach-row:first-child {
+			border-top: none;
+		}
+
+		@media (max-width: 580px) {
+			.teach-row {
+				grid-template-columns: 1fr;
+				gap: .35rem;
+			}
+		}
 
 		/* ── SKILLS ───────────────────────────────────── */
 		.skills-grid {
-			display: grid; grid-template-columns: repeat(3,1fr); gap: 1.125rem;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.125rem;
 		}
-		@media (max-width: 860px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
-		@media (max-width: 520px) { .skills-grid { grid-template-columns: 1fr; } }
+
+		@media (max-width: 860px) {
+			.skills-grid {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
+
+		@media (max-width: 520px) {
+			.skills-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+
 		.skill-head {
 			font-family: 'JetBrains Mono', monospace;
-			font-size: .65rem; font-weight: 600;
-			letter-spacing: .09em; text-transform: uppercase;
-			color: var(--t3); margin-bottom: .875rem;
+			font-size: .65rem;
+			font-weight: 600;
+			letter-spacing: .09em;
+			text-transform: uppercase;
+			color: var(--t3);
+			margin-bottom: .875rem;
 		}
-		.tag-cloud { display: flex; flex-wrap: wrap; gap: .325rem; }
+
+		.tag-cloud {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .325rem;
+		}
+
 		.tag {
 			display: inline-block;
-			padding: .25rem .6rem; border-radius: 6px;
+			padding: .25rem .6rem;
+			border-radius: 6px;
 			font-family: 'JetBrains Mono', monospace;
-			font-size: .75rem; font-weight: 500;
-			background: var(--bg); border: 1px solid var(--border);
-			color: var(--t2); transition: all .15s ease;
+			font-size: .75rem;
+			font-weight: 500;
+			background: var(--surface2);
+			border: 1px solid var(--border);
+			color: var(--t2);
+			transition: all .15s ease;
 		}
-		html.dark .tag { background: var(--bg2); border-color: var(--border-hi); }
-		.tag:hover { border-color: var(--accent); color: var(--accent); background: var(--subtle); }
+
+		html.dark .tag {
+			background: var(--bg2);
+			border-color: var(--border-hi);
+		}
+
+		.tag:hover {
+			border-color: var(--accent);
+			color: var(--accent);
+			background: var(--subtle);
+		}
 
 		/* ── EDUCATION ────────────────────────────────── */
-		.edu-list { position: relative; padding-left: 1.75rem; }
-		.edu-list::before {
-			content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
-			width: 1px; background: var(--border);
+		.edu-list {
+			position: relative;
+			padding-left: 1.75rem;
 		}
-		.edu-item { position: relative; padding-bottom: 2rem; }
+
+		.edu-list::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 8px;
+			bottom: 0;
+			width: 1px;
+			background: var(--border);
+		}
+
+		.edu-item {
+			position: relative;
+			padding-bottom: 2rem;
+		}
+
 		.edu-item::before {
-			content: ''; position: absolute; left: -2.125rem; top: 7px;
-			width: 8px; height: 8px; border-radius: 50%;
+			content: '';
+			position: absolute;
+			left: -2.125rem;
+			top: 7px;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
 			background: var(--accent);
 			box-shadow: 0 0 0 3px var(--bg);
 		}
-		html.dark .edu-item::before { box-shadow: 0 0 0 3px var(--bg), 0 0 8px var(--glow); }
+
+		html.dark .edu-item::before {
+			box-shadow: 0 0 0 3px var(--bg), 0 0 8px var(--glow);
+		}
+
 		.edu-year {
 			font-family: 'JetBrains Mono', monospace;
-			font-size: .65rem; color: var(--accent);
-			letter-spacing: .08em; margin-bottom: .25rem;
+			font-size: .65rem;
+			color: var(--accent);
+			letter-spacing: .08em;
+			margin-bottom: .25rem;
 		}
-		.edu-degree { font-size: 1rem; font-weight: 600; color: var(--t1); }
-		.edu-meta { font-size: .875rem; color: var(--t2); margin-top: .15rem; }
-		.edu-note { font-size: .8rem; color: var(--t3); font-style: italic; margin-top: .15rem; }
+
+		.edu-degree {
+			font-size: 1rem;
+			font-weight: 600;
+			color: var(--t1);
+		}
+
+		.edu-meta {
+			font-size: .875rem;
+			color: var(--t2);
+			margin-top: .15rem;
+		}
+
+		.edu-note {
+			font-size: .8rem;
+			color: var(--t3);
+			font-style: italic;
+			margin-top: .15rem;
+		}
 
 		/* ── HONORS ───────────────────────────────────── */
 		.honor-row {
-			display: flex; align-items: flex-start; gap: .875rem;
-			padding: .75rem 0; border-bottom: 1px solid var(--border);
+			display: flex;
+			align-items: flex-start;
+			gap: .875rem;
+			padding: .75rem 0;
+			border-bottom: 1px solid var(--border);
 		}
-		.honor-row:last-child { border-bottom: none; }
+
+		.honor-row:last-child {
+			border-bottom: none;
+		}
+
 		.honor-icon {
-			width: 28px; height: 28px; border-radius: 7px;
-			background: var(--subtle); border: 1px solid rgba(8,145,178,.15);
-			display: flex; align-items: center; justify-content: center;
-			flex-shrink: 0; color: var(--accent);
+			width: 28px;
+			height: 28px;
+			border-radius: 7px;
+			background: var(--subtle);
+			border: 1px solid rgba(8, 145, 178, .15);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+			color: var(--accent);
 		}
-		html.dark .honor-icon { border-color: rgba(34,211,238,.2); }
+
+		html.dark .honor-icon {
+			border-color: rgba(34, 211, 238, .2);
+		}
 
 		/* ── REVIEW ───────────────────────────────────── */
-		.review-item { padding: .5rem 0; border-bottom: 1px solid var(--border); }
-		.review-item:last-child { border-bottom: none; padding-bottom: 0; }
-		.review-item:first-child { padding-top: 0; }
-		.rev-name { font-size: .875rem; font-weight: 600; color: var(--t1); }
-		.rev-pub { font-family: 'JetBrains Mono', monospace; font-size: .68rem; color: var(--t3); }
+		.review-item {
+			padding: .5rem 0;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.review-item:last-child {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+
+		.review-item:first-child {
+			padding-top: 0;
+		}
+
+		.rev-name {
+			font-size: .875rem;
+			font-weight: 600;
+			color: var(--t1);
+		}
+
+		.rev-pub {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .68rem;
+			color: var(--t3);
+		}
 
 		/* ── CERTIFICATIONS ───────────────────────────── */
 		.cert-item {
-			display: flex; align-items: center; gap: .75rem;
-			padding: .75rem 1rem; border-radius: 9px;
-			border: 1px solid var(--border); background: var(--surface);
-			font-size: .875rem; color: var(--t2);
+			display: flex;
+			align-items: center;
+			gap: .75rem;
+			padding: .75rem 1rem;
+			border-radius: 9px;
+			border: 1px solid var(--border);
+			background: var(--surface);
+			font-size: .875rem;
+			color: var(--t2);
 			transition: border-color .18s, color .18s;
 		}
-		html.dark .cert-item { background: var(--surface2); }
-		.cert-item:hover { border-color: var(--accent); color: var(--t1); }
-		.cert-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+		html.dark .cert-item {
+			background: var(--surface2);
+		}
+
+		.cert-item:hover {
+			border-color: var(--accent);
+			color: var(--t1);
+		}
+
+		.cert-dot {
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background: var(--accent);
+			flex-shrink: 0;
+		}
 
 		/* ── PUBLICATIONS ─────────────────────────────── */
 		.pub-title {
 			font-family: 'Source Serif 4', serif;
-			font-size: 1.1rem; font-weight: 700;
-			color: var(--t1); line-height: 1.35; letter-spacing: -.01em;
-			margin-top: .75rem; transition: color .2s;
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: var(--t1);
+			line-height: 1.35;
+			letter-spacing: -.01em;
+			margin-top: .75rem;
+			transition: color .2s;
 		}
-		.card-hover:hover .pub-title { color: var(--accent); }
-		.pub-authors { font-size: .84rem; color: var(--t2); margin-top: .4rem; line-height: 1.55; }
+
+		.card-hover:hover .pub-title {
+			color: var(--accent);
+		}
+
+		.pub-authors {
+			font-size: .84rem;
+			color: var(--t2);
+			margin-top: .4rem;
+			line-height: 1.55;
+		}
+
 		.pub-venue {
 			font-family: 'JetBrains Mono', monospace;
-			font-size: .7rem; color: var(--t3); margin-top: .3rem;
+			font-size: .7rem;
+			color: var(--t3);
+			margin-top: .3rem;
 		}
+
 		.pub-links {
-			display: flex; flex-wrap: wrap; gap: .5rem;
-			margin-top: 1rem; padding-top: .875rem;
+			display: flex;
+			flex-wrap: wrap;
+			gap: .5rem;
+			margin-top: 1rem;
+			padding-top: .875rem;
 			border-top: 1px solid var(--border);
 		}
+
 		.pub-link {
-			font-size: .8rem; font-weight: 600;
-			color: var(--accent); transition: color .18s;
+			font-size: .8rem;
+			font-weight: 600;
+			color: var(--accent);
+			transition: color .18s;
 		}
-		.pub-link:hover { color: var(--accent2); }
-		.pub-link + .pub-link { padding-left: .5rem; border-left: 1px solid var(--border); }
+
+		.pub-link:hover {
+			color: var(--accent2);
+		}
+
+		.pub-link+.pub-link {
+			padding-left: .5rem;
+			border-left: 1px solid var(--border);
+		}
 
 		.pub-badge {
-			display: inline-flex; align-items: center;
-			padding: .16rem .5rem; border-radius: 4px;
+			display: inline-flex;
+			align-items: center;
+			padding: .16rem .5rem;
+			border-radius: 4px;
 			font-family: 'JetBrains Mono', monospace;
-			font-size: .62rem; font-weight: 500;
-			letter-spacing: .07em; text-transform: uppercase;
-			background: var(--subtle); color: var(--accent);
-			border: 1px solid rgba(8,145,178,.15);
+			font-size: .62rem;
+			font-weight: 500;
+			letter-spacing: .07em;
+			text-transform: uppercase;
+			background: var(--subtle);
+			color: var(--accent);
+			border: 1px solid rgba(8, 145, 178, .15);
 		}
-		html.dark .pub-badge { border-color: rgba(34,211,238,.2); background: rgba(34,211,238,.07); }
+
+		html.dark .pub-badge {
+			border-color: rgba(34, 211, 238, .2);
+			background: rgba(34, 211, 238, .07);
+		}
+
 		.pub-badge-conf {
-			background: rgba(99,102,241,.07); color: var(--accent3);
-			border-color: rgba(99,102,241,.2);
+			background: rgba(99, 102, 241, .07);
+			color: var(--accent3);
+			border-color: rgba(99, 102, 241, .2);
 		}
+
 		.pub-badge-oa {
-			background: rgba(34,197,94,.07); color: #15803d;
-			border-color: rgba(34,197,94,.2);
+			background: rgba(34, 197, 94, .07);
+			color: #15803d;
+			border-color: rgba(34, 197, 94, .2);
 		}
-		html.dark .pub-badge-oa { color: #4ade80; }
-		.pub-yr { font-family: 'JetBrains Mono', monospace; font-size: .65rem; color: var(--t3); }
+
+		html.dark .pub-badge-oa {
+			color: #4ade80;
+		}
+
+		.pub-yr {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .65rem;
+			color: var(--t3);
+		}
 
 		/* Filter buttons */
 		.filter-btn {
-			padding: .3rem .8rem; border-radius: 999px;
-			font-size: .8rem; font-weight: 500;
-			border: 1px solid var(--border); background: var(--surface); color: var(--t2);
-			transition: all .15s; cursor: pointer;
+			padding: .3rem .8rem;
+			border-radius: 999px;
+			font-size: .8rem;
+			font-weight: 500;
+			border: 1px solid var(--border);
+			background: var(--surface);
+			color: var(--t2);
+			transition: all .15s;
+			cursor: pointer;
 		}
-		html.dark .filter-btn { background: var(--surface2); }
-		.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+		html.dark .filter-btn {
+			background: var(--surface2);
+		}
+
+		.filter-btn:hover {
+			border-color: var(--accent);
+			color: var(--accent);
+		}
+
 		.filter-btn.active {
-			background: var(--accent); color: #fff; border-color: var(--accent);
+			background: var(--accent);
+			color: #fff;
+			border-color: var(--accent);
 			box-shadow: 0 0 12px var(--glow);
 		}
-		.publication-card { transition: opacity .3s, transform .3s; }
-		.publication-card.is-hiding { opacity: 0; transform: scale(.98); }
-		.publication-card.is-hidden { display: none; }
+
+		.publication-card {
+			transition: opacity .3s, transform .3s;
+		}
+
+		.publication-card.is-hiding {
+			opacity: 0;
+			transform: scale(.98);
+		}
+
+		.publication-card.is-hidden {
+			display: none;
+		}
 
 		/* ── BACK TO TOP ──────────────────────────────── */
 		.back-to-top {
-			position: fixed; bottom: 1.75rem; right: 1.75rem;
-			width: 38px; height: 38px; border-radius: 9px;
-			background: var(--accent); color: #fff;
+			position: fixed;
+			bottom: 1.75rem;
+			right: 1.75rem;
+			width: 38px;
+			height: 38px;
+			border-radius: 9px;
+			background: var(--accent);
+			color: #fff;
 			border: 1px solid var(--accent);
-			display: flex; align-items: center; justify-content: center;
-			z-index: 1000; font-size: .875rem;
-			opacity: 0; transform: translateY(16px);
-			transition: all .3s; pointer-events: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 1000;
+			font-size: .875rem;
+			opacity: 0;
+			transform: translateY(16px);
+			transition: all .3s;
+			pointer-events: none;
 		}
-		.back-to-top.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+		.back-to-top.is-visible {
+			opacity: 1;
+			transform: translateY(0);
+			pointer-events: auto;
+		}
+
 		.back-to-top:hover {
-			background: var(--accent2); border-color: var(--accent2);
-			transform: translateY(-2px); box-shadow: 0 4px 16px var(--glow);
+			background: var(--accent2);
+			border-color: var(--accent2);
+			transform: translateY(-2px);
+			box-shadow: 0 4px 16px var(--glow);
 		}
 
 		/* ── MOBILE NAV ───────────────────────────────── */
 		.mobile-nav-overlay {
-			position: fixed; inset: 0; background: var(--bg); z-index: 50;
+			position: fixed;
+			inset: 0;
+			background: var(--bg);
+			z-index: 50;
 			transform: translateX(100%);
-			transition: transform .4s cubic-bezier(.7,0,.3,1);
+			transition: transform .4s cubic-bezier(.7, 0, .3, 1);
 		}
-		.mobile-nav-overlay.open { transform: translateX(0); }
+
+		.mobile-nav-overlay.open {
+			transform: translateX(0);
+		}
 
 		/* ── THEME ICONS ──────────────────────────────── */
-		.icon-moon { display: inline-block; }
-		.icon-sun  { display: none; }
-		html.dark .icon-moon { display: none; }
-		html.dark .icon-sun  { display: inline-block; }
+		.icon-moon {
+			display: inline-block;
+		}
+
+		.icon-sun {
+			display: none;
+		}
+
+		html.dark .icon-moon {
+			display: none;
+		}
+
+		html.dark .icon-sun {
+			display: inline-block;
+		}
 
 		/* ── SECTION DIVIDER ──────────────────────────── */
-		.skills-wrap { border-top: 1px solid var(--border); }
+		.skills-wrap {
+			border-top: 1px solid var(--border);
+		}
+
+		/* ── HERO BLOB ────────────────────────────────── */
+		.hero-blob {
+			position: absolute;
+			top: -10%; right: -5%;
+			width: min(520px, 70vw); height: min(520px, 70vw);
+			border-radius: 50%;
+			background: radial-gradient(circle at 40% 40%,
+				rgba(8,145,178,.12) 0%,
+				rgba(99,102,241,.07) 50%,
+				transparent 72%);
+			filter: blur(48px);
+			pointer-events: none; z-index: 0;
+			animation: blobDrift 14s ease-in-out infinite alternate;
+		}
+		html.dark .hero-blob {
+			background: radial-gradient(circle at 40% 40%,
+				rgba(45,212,191,.10) 0%,
+				rgba(167,139,250,.06) 50%,
+				transparent 72%);
+		}
+		@keyframes blobDrift {
+			0%   { transform: translate(0,0) scale(1); }
+			33%  { transform: translate(-3%,4%) scale(1.04); }
+			66%  { transform: translate(3%,-3%) scale(.97); }
+			100% { transform: translate(-2%,2%) scale(1.02); }
+		}
+
+		/* ── TYPING CURSOR ─────────────────────────── */
+		.typing-cursor {
+			display: inline-block;
+			width: 2px; height: 1.1em;
+			background: var(--accent);
+			margin-left: 3px;
+			vertical-align: text-bottom;
+			animation: blink .9s step-end infinite;
+		}
+		@keyframes blink {
+			0%, 100% { opacity: 1; }
+			50%       { opacity: 0; }
+		}
+
+		/* ── PULSE DOT (current role) ──────────────── */
+		.pulse-dot {
+			display: inline-flex; align-items: center;
+			width: 8px; height: 8px; border-radius: 50%;
+			background: #22c55e; flex-shrink: 0;
+			position: relative;
+		}
+		.pulse-dot::after {
+			content: '';
+			position: absolute; inset: -3px;
+			border-radius: 50%;
+			background: rgba(34,197,94,.35);
+			animation: pulseRing 1.8s ease-out infinite;
+		}
+		@keyframes pulseRing {
+			0%   { transform: scale(.7); opacity: .8; }
+			100% { transform: scale(1.8); opacity: 0; }
+		}
+
+		/* ── PUB CARD ACCENT BORDERS ───────────────── */
+		.publication-card[data-type="journal"] {
+			border-left: 3px solid var(--accent);
+		}
+		.publication-card[data-type="conference"] {
+			border-left: 3px solid var(--accent3);
+		}
+
+		/* ── SECTION ANCHOR ────────────────────────── */
+		.section-anchor {
+			opacity: 0;
+			transition: opacity .2s;
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .75rem; color: var(--accent);
+			text-decoration: none; margin-left: .5rem;
+			vertical-align: middle;
+		}
+		.section-header:hover .section-anchor { opacity: 1; }
+
+		/* ── STAGGERED CHILDREN ────────────────────── */
+		.stagger-child {
+			opacity: 0;
+			transform: translateY(14px);
+			transition: opacity .5s ease, transform .5s ease;
+		}
+		.stagger-child.visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		/* ── THESIS PULL-QUOTE ──────────────────────── */
+		.thesis-quote {
+			margin-top: .6rem;
+			padding: .6rem 1rem;
+			border-left: 2px solid var(--accent);
+			background: var(--subtle);
+			border-radius: 0 6px 6px 0;
+			font-family: 'Source Serif 4', serif;
+			font-style: italic;
+			font-size: .9rem;
+			color: var(--t2);
+			line-height: 1.55;
+		}
+
+		/* ── PHOTO DARK MODE ───────────────────────────── */
+		html.dark .hero-photo-frame img {
+			filter: saturate(0.88) brightness(0.94);
+		}
 
 		/* ── PRINT ────────────────────────────────────── */
 		@media print {
-			body { background: white !important; color: black !important; }
-			nav, .scroll-progress, #back-to-top, .mobile-nav-overlay,
-			.filter-btn, button, .hero-badge, .back-to-top { display: none !important; }
-			.card { border: none !important; box-shadow: none !important; break-inside: avoid; }
-			a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .75em; color: #555; }
+			body {
+				background: white !important;
+				color: black !important;
+			}
+
+			nav,
+			.scroll-progress,
+			#back-to-top,
+			.mobile-nav-overlay,
+			.filter-btn,
+			button,
+			.hero-badge,
+			.back-to-top {
+				display: none !important;
+			}
+
+			.card {
+				border: none !important;
+				box-shadow: none !important;
+				break-inside: avoid;
+			}
+
+			a[href^="http"]::after {
+				content: " (" attr(href) ")";
+				font-size: .75em;
+				color: #555;
+			}
 		}
 	</style>
 </head>
@@ -561,26 +1159,41 @@
 	<nav id="section-nav"
 		class="fixed top-5 left-1/2 -translate-x-1/2 z-40 hidden lg:flex transition-all duration-500 opacity-0 -translate-y-full">
 		<div class="nav-pill px-6 py-2.5 rounded-2xl flex gap-6 items-center">
-			<a href="#about"        class="nav-link">About</a>
-			<a href="#experience"   class="nav-link">Experience</a>
-			<a href="#teaching"     class="nav-link">Teaching</a>
-			<a href="#skills"       class="nav-link">Skills</a>
-			<a href="#education"    class="nav-link">Education</a>
-			<a href="#honors"       class="nav-link">Honors</a>
+			<a href="#about" class="nav-link">About</a>
+			<a href="#experience" class="nav-link">Experience</a>
+			<a href="#teaching" class="nav-link">Teaching</a>
+			<a href="#skills" class="nav-link">Skills</a>
+			<a href="#education" class="nav-link">Education</a>
+			<a href="#honors" class="nav-link">Honors</a>
 			<a href="#publications" class="nav-link">Publications</a>
 			<div class="w-px h-3 opacity-20" style="background:var(--t1)"></div>
 			<button id="theme-toggle" aria-label="Toggle theme"
 				class="flex items-center gap-1.5 font-mono text-xs font-bold tracking-widest uppercase transition-opacity opacity-50 hover:opacity-100"
 				style="color:var(--t1)">
-				<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-				<svg class="icon-sun"  xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+				<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
+					fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+				</svg>
+				<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
+					fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<circle cx="12" cy="12" r="5" />
+					<line x1="12" y1="1" x2="12" y2="3" />
+					<line x1="12" y1="21" x2="12" y2="23" />
+					<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+					<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+					<line x1="1" y1="12" x2="3" y2="12" />
+					<line x1="21" y1="12" x2="23" y2="12" />
+					<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+					<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+				</svg>
 				<span id="theme-text">Dark</span>
 			</button>
 		</div>
 	</nav>
 
 	<!-- Mobile Header -->
-	<div class="fixed top-0 left-0 w-full px-5 py-5 flex justify-between items-center z-50 lg:hidden pointer-events-none">
+	<div
+		class="fixed top-0 left-0 w-full px-5 py-5 flex justify-between items-center z-50 lg:hidden pointer-events-none">
 		<button id="mobile-menu-btn" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false"
 			class="pointer-events-auto w-9 h-9 flex flex-col justify-center gap-1.5 items-end group"
 			style="color:var(--t1)">
@@ -594,18 +1207,46 @@
 		<button id="mobile-close-btn" aria-label="Close menu"
 			class="absolute top-5 right-6 font-mono text-xs font-bold tracking-widest uppercase opacity-50 hover:opacity-100 transition-opacity"
 			style="color:var(--t1)">Close</button>
-		<a href="#about"        class="text-2xl font-sans font-bold hover:text-current opacity-60 hover:opacity-100 transition-opacity mobile-link" style="color:var(--t1)">About</a>
-		<a href="#experience"   class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link" style="color:var(--t1)">Experience</a>
-		<a href="#teaching"     class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link" style="color:var(--t1)">Teaching</a>
-		<a href="#skills"       class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link" style="color:var(--t1)">Skills</a>
-		<a href="#education"    class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link" style="color:var(--t1)">Education</a>
-		<a href="#honors"       class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link" style="color:var(--t1)">Honors</a>
-		<a href="#publications" class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link" style="color:var(--t1)">Publications</a>
+		<a href="#about"
+			class="text-2xl font-sans font-bold hover:text-current opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">About</a>
+		<a href="#experience"
+			class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">Experience</a>
+		<a href="#teaching"
+			class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">Teaching</a>
+		<a href="#skills"
+			class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">Skills</a>
+		<a href="#education"
+			class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">Education</a>
+		<a href="#honors"
+			class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">Honors</a>
+		<a href="#publications"
+			class="text-2xl font-sans font-bold opacity-60 hover:opacity-100 transition-opacity mobile-link"
+			style="color:var(--t1)">Publications</a>
 		<button id="theme-toggle-mobile" aria-label="Toggle theme"
 			class="mt-4 px-5 py-2 rounded-full border font-mono text-xs font-bold tracking-widest uppercase flex items-center gap-2"
 			style="border-color:var(--border);color:var(--t2)">
-			<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-			<svg class="icon-sun"  xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+			<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
+				fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+			</svg>
+			<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
+				fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="12" cy="12" r="5" />
+				<line x1="12" y1="1" x2="12" y2="3" />
+				<line x1="12" y1="21" x2="12" y2="23" />
+				<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+				<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+				<line x1="1" y1="12" x2="3" y2="12" />
+				<line x1="21" y1="12" x2="23" y2="12" />
+				<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+				<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+			</svg>
 			<span id="theme-text-mobile">Dark</span>
 		</button>
 	</div>
@@ -615,30 +1256,36 @@
 
 		<!-- HERO -->
 		<section class="hero-section">
-			<div>
-				<div class="hero-badge">
+			<div class="hero-blob"></div>
+			<div style="position:relative;z-index:1">
+				<div class="hero-badge hero-animate" style="animation-delay: 0.1s">
 					<span class="hero-badge-dot"></span>
 					AI Engineer · PhD · 2026
 				</div>
-				<h1 class="hero-name">
+				<h1 class="hero-name hero-animate" style="animation-delay: 0.2s">
 					Panagiotis C.
 					<span class="hero-name-line2">Theocharopoulos</span>
 				</h1>
-				<p class="hero-role">AI Engineer &amp; Researcher</p>
-				<p class="hero-bio">
-					Building production LLM and RAG systems at Covariance while conducting research in natural language processing and healthcare AI.
+				<p class="hero-role hero-animate" style="animation-delay: 0.3s"><span id="typing-role"></span><span class="typing-cursor"></span></p>
+				<p class="hero-bio hero-animate" style="animation-delay: 0.4s">
+					AI Engineer at Covariance, applying research in Large Language Models, NLP, and healthcare AI to production systems.
 				</p>
-				<div class="hero-links">
-					<a href="mailto:panos.t95@gmail.com" class="btn btn-primary">Get in touch ↗</a>
-					<a href="https://www.linkedin.com/in/ptheochar/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn ↗</a>
-					<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Scholar ↗</a>
-					<a href="Theocharopoulos_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Short CV ↓</a>
-					<a href="PTheocharopoulos_ACV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Full CV ↓</a>
+				<div class="hero-links hero-animate" style="animation-delay: 0.5s">
+					<a href="mailto:panos.t95@gmail.com" class="btn btn-primary magnetic">Get in touch ↗</a>
+					<a href="https://www.linkedin.com/in/ptheochar/" target="_blank" rel="noopener noreferrer"
+						class="btn btn-ghost">LinkedIn ↗</a>
+					<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank"
+						rel="noopener noreferrer" class="btn btn-ghost">Scholar ↗</a>
+					<a href="Theocharopoulos_CV.pdf" target="_blank" rel="noopener noreferrer"
+						class="btn btn-ghost">Short CV ↓</a>
+					<a href="PTheocharopoulos_ACV.pdf" target="_blank" rel="noopener noreferrer"
+						class="btn btn-ghost">Full CV ↓</a>
 				</div>
-			</div>
-			<div class="hero-photo-wrap">
+			</div><!-- /inner z-index wrapper -->
+			<div class="hero-photo-wrap hero-animate" style="animation-delay: 0.3s; position:relative; z-index:1">
 				<div class="hero-photo-frame">
-					<img src="assets/IMG_7283.jpeg" alt="Panagiotis C. Theocharopoulos" fetchpriority="high" decoding="sync">
+					<img src="assets/IMG_7283.jpeg" alt="Panagiotis C. Theocharopoulos" fetchpriority="high"
+						decoding="sync">
 				</div>
 			</div>
 		</section>
@@ -648,32 +1295,54 @@
 			<!-- ABOUT -->
 			<section id="about" class="section-wrap reveal">
 				<div class="section-header">
-					<span class="section-num">01</span>
-					<h2 class="section-title">About</h2>
+
+					<h2 class="section-title">About<a href="#about" class="section-anchor">#</a></h2>
 					<div class="section-rule"></div>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
 					<div class="space-y-3.5 text-base leading-relaxed" style="color:var(--t2)">
-						<p>I am an <strong style="color:var(--t1);font-weight:600">AI Engineer</strong> and researcher at the intersection of academic research and industry. My expertise lies in leading complex machine learning projects with specialisation in <strong style="color:var(--t1);font-weight:600">Large Language Models</strong>, <strong style="color:var(--t1);font-weight:600">RAG systems</strong>, and <strong style="color:var(--t1);font-weight:600">Natural Language Processing</strong>.</p>
-						<p>Holding a PhD from the University of Thessaly, I bridge theoretical research with practical applications, developing AI solutions for healthcare, precision medicine, and language-intensive systems.</p>
+						<p>I am an <strong style="color:var(--t1);font-weight:600">AI Engineer</strong> and researcher
+							at the intersection of academic research and industry. My expertise lies in leading complex
+							machine learning projects with specialisation in <strong
+								style="color:var(--t1);font-weight:600">Large Language Models</strong>, <strong
+								style="color:var(--t1);font-weight:600">RAG systems</strong>, and <strong
+								style="color:var(--t1);font-weight:600">Natural Language Processing</strong>.</p>
+						<p>Holding a PhD from the University of Thessaly, I bridge theoretical research with practical
+							applications, developing AI solutions for healthcare, precision medicine, and
+							language-intensive systems.</p>
 					</div>
 					<div class="space-y-3.5 text-base leading-relaxed" style="color:var(--t2)">
-						<p>My research focuses on applying deep learning to real-world biomedical problems — from topic modelling with LLMs to predictive models for precision medicine. I have contributed to nationally and EU-funded initiatives and maintain an active record of peer review across top-tier venues.</p>
+						<p>My research focuses on applying deep learning to real-world biomedical problems — from topic
+							modelling with LLMs to predictive models for precision medicine. I have contributed to
+							nationally and EU-funded initiatives and maintain an active record of peer review across
+							top-tier venues.</p>
 					</div>
 				</div>
 				<div class="stat-grid">
-					<div class="stat-item"><div class="stat-val">7</div><div class="stat-lbl">Publications</div></div>
-					<div class="stat-item"><div class="stat-val">4+</div><div class="stat-lbl">Years Industry</div></div>
-					<div class="stat-item"><div class="stat-val">10+</div><div class="stat-lbl">Venues Reviewed</div></div>
-					<div class="stat-item"><div class="stat-val">PhD</div><div class="stat-lbl">Graduated 2026</div></div>
+					<div class="stat-item">
+						<div class="stat-val" data-count="7">0</div>
+						<div class="stat-lbl">Publications</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-val" data-count="4" data-suffix="+">0</div>
+						<div class="stat-lbl">Years Industry</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-val" data-count="10" data-suffix="+">0</div>
+						<div class="stat-lbl">Venues Reviewed</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-val">PhD</div>
+						<div class="stat-lbl">Graduated 2026</div>
+					</div>
 				</div>
 			</section>
 
 			<!-- EXPERIENCE -->
 			<section id="experience" class="section-wrap reveal">
 				<div class="section-header">
-					<span class="section-num">02</span>
-					<h2 class="section-title">Experience</h2>
+
+					<h2 class="section-title">Experience<a href="#experience" class="section-anchor">#</a></h2>
 					<div class="section-rule"></div>
 				</div>
 				<div class="space-y-3">
@@ -688,10 +1357,11 @@
 						</div>
 						<div class="exp-body">
 							<div class="role-block">
-								<div class="role-title">AI Engineer</div>
+								<div class="role-title flex items-center gap-2">AI Engineer <span class="pulse-dot" title="Current role"></span></div>
 								<div class="role-period">Jan 2025 — Present</div>
 								<ul class="role-bullets">
-									<li>Lead and manage a high-performing data science team focused on healthcare analytics.</li>
+									<li>Lead and manage a high-performing data science team focused on healthcare
+										analytics.</li>
 									<li>Oversee development of LLM and RAG systems for production environments.</li>
 									<li>Define technical standards, architect solutions, and mentor team members.</li>
 									<li>Build internal APIs for model integration and deployment.</li>
@@ -701,7 +1371,8 @@
 								<div class="role-title">Data Scientist</div>
 								<div class="role-period">Feb 2021 — Jan 2025</div>
 								<ul class="role-bullets">
-									<li>Led end-to-end machine learning projects and architected advanced LLM/RAG solutions.</li>
+									<li>Led end-to-end machine learning projects and architected advanced LLM/RAG
+										solutions.</li>
 									<li>Authored proposals for national and European funding initiatives.</li>
 									<li>Designed fraud detection systems for insurance claims processing.</li>
 									<li>Executed ETL pipelines and built web-based data science applications.</li>
@@ -723,8 +1394,10 @@
 								<div class="role-title">Research Fellow</div>
 								<div class="role-period">Apr 2024 — Dec 2025</div>
 								<ul class="role-bullets">
-									<li>Developed and integrated ML methods in an intelligent electronic health record system.</li>
-									<li>Linked large omics and genetic data to a national precision medicine initiative (TAEDR-0539180).</li>
+									<li>Developed and integrated ML methods in an intelligent electronic health record
+										system.</li>
+									<li>Linked large omics and genetic data to a national precision medicine initiative
+										(TAEDR-0539180).</li>
 									<li>Contributed to the design of an intelligent patient registry mechanism.</li>
 								</ul>
 							</div>
@@ -732,7 +1405,8 @@
 								<div class="role-title">Website Administrator</div>
 								<div class="role-period">2019 — 2023</div>
 								<ul class="role-bullets">
-									<li>Led website development and design, managed databases and servers, provided technical support.</li>
+									<li>Led website development and design, managed databases and servers, provided
+										technical support.</li>
 								</ul>
 							</div>
 						</div>
@@ -750,7 +1424,8 @@
 							<div class="role-block">
 								<div class="role-title">Support Engineer (Intern)</div>
 								<ul class="role-bullets">
-									<li>Maintained servers (Windows, AIX) and MySQL databases, provided network support.</li>
+									<li>Maintained servers (Windows, AIX) and MySQL databases, provided network support.
+									</li>
 									<li>Configured network devices including CISCO, HP, and Mikrotik equipment.</li>
 								</ul>
 							</div>
@@ -763,18 +1438,28 @@
 			<!-- TEACHING -->
 			<section id="teaching" class="section-wrap reveal">
 				<div class="section-header">
-					<span class="section-num">03</span>
-					<h2 class="section-title">Teaching</h2>
+
+					<h2 class="section-title">Teaching<a href="#teaching" class="section-anchor">#</a></h2>
 					<div class="section-rule"></div>
 				</div>
 				<div class="card overflow-hidden">
-					<div class="px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1" style="border-bottom:1px solid var(--border)">
+					<div class="px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
+						style="border-bottom:1px solid var(--border)">
 						<h3 class="font-sans font-bold text-base" style="color:var(--t1)">University of Thessaly</h3>
-						<span class="font-mono text-xs" style="color:var(--t3)">Teaching Assistant · 2019 — 2025</span>
+						<span class="font-mono text-xs" style="color:var(--t3)">Teaching Assistant · 2019 — 2026</span>
 					</div>
 					<div class="teach-row">
 						<div>
-							<p class="text-sm font-semibold" style="color:var(--t2)">Postgraduate Programme</p>
+							<p class="text-sm font-semibold" style="color:var(--t2)">MSc in Artificial Intelligence and Applications</p>
+							<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">2026</p>
+						</div>
+						<ul class="space-y-1 text-sm" style="color:var(--t2)">
+							<li>Artificial Intelligence Systems</li>
+						</ul>
+					</div>
+					<div class="teach-row">
+						<div>
+							<p class="text-sm font-semibold" style="color:var(--t2)">MSc in Informatics &amp; Computational Biomedicine</p>
 							<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">2023 — 2025</p>
 						</div>
 						<ul class="space-y-1 text-sm" style="color:var(--t2)">
@@ -807,8 +1492,8 @@
 			<!-- SKILLS -->
 			<section id="skills" class="section-wrap reveal skills-wrap">
 				<div class="section-header">
-					<span class="section-num">04</span>
-					<h2 class="section-title">Expertise</h2>
+
+					<h2 class="section-title">Expertise<a href="#skills" class="section-anchor">#</a></h2>
 					<div class="section-rule"></div>
 				</div>
 				<div class="skills-grid">
@@ -843,10 +1528,10 @@
 					<div class="card p-5">
 						<div class="skill-head">Languages</div>
 						<div class="tag-cloud">
-							<span class="tag">Greek — Native</span>
-							<span class="tag">English — Fluent</span>
-							<span class="tag">German — Working</span>
-							<span class="tag">Italian — Working</span>
+							<span class="tag">Greek</span>
+							<span class="tag">English</span>
+							<span class="tag">German</span>
+							<span class="tag">Italian</span>
 						</div>
 					</div>
 				</div>
@@ -855,8 +1540,8 @@
 			<!-- EDUCATION -->
 			<section id="education" class="section-wrap reveal">
 				<div class="section-header">
-					<span class="section-num">05</span>
-					<h2 class="section-title">Education</h2>
+
+					<h2 class="section-title">Education<a href="#education" class="section-anchor">#</a></h2>
 					<div class="section-rule"></div>
 				</div>
 				<div class="edu-list">
@@ -864,7 +1549,7 @@
 						<div class="edu-year">2026</div>
 						<div class="edu-degree">PhD in Artificial Intelligence</div>
 						<div class="edu-meta">University of Thessaly, Greece</div>
-						<div class="edu-note">"Development of Deep Learning methods on big data with a focus on NLP"</div>
+						<div class="thesis-quote">"Development of Deep Learning methods on big data with a focus on NLP"</div>
 					</div>
 					<div class="edu-item">
 						<div class="edu-year">2020</div>
@@ -874,7 +1559,8 @@
 					</div>
 					<div class="edu-item">
 						<div class="edu-year">2019</div>
-						<div class="edu-degree">Ptychion in Computer Science &amp; Biomedical Informatics <span style="font-weight:400;color:var(--t3)">(4-year BSc)</span></div>
+						<div class="edu-degree">Ptychion in Computer Science &amp; Biomedical Informatics <span
+								style="font-weight:400;color:var(--t3)">(4-year BSc)</span></div>
 						<div class="edu-meta">University of Thessaly, Greece</div>
 					</div>
 					<div class="edu-item">
@@ -888,8 +1574,8 @@
 			<!-- HONORS -->
 			<section id="honors" class="section-wrap reveal">
 				<div class="section-header">
-					<span class="section-num">06</span>
-					<h2 class="section-title">Honors &amp; Activities</h2>
+
+					<h2 class="section-title">Honors &amp; Activities<a href="#honors" class="section-anchor">#</a></h2>
 					<div class="section-rule"></div>
 				</div>
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -897,40 +1583,83 @@
 					<div class="space-y-8">
 						<!-- Awards -->
 						<div>
-							<h3 class="font-mono text-xs font-bold tracking-widest uppercase mb-3" style="color:var(--t3)">Awards</h3>
+							<h3 class="font-mono text-xs font-bold tracking-widest uppercase mb-3"
+								style="color:var(--t3)">Awards</h3>
 							<div>
 								<div class="honor-row">
-									<div class="honor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-									<div><p class="text-sm font-medium" style="color:var(--t1)">IEEE CIS Student Travel Grant Award</p><p class="font-mono text-xs mt-0.5" style="color:var(--t3)">SSCI 2025</p></div>
+									<div class="honor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13"
+											height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+											stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="8" r="6" />
+											<path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+										</svg></div>
+									<div>
+										<p class="text-sm font-medium" style="color:var(--t1)">IEEE CIS Student Travel
+											Grant Award</p>
+										<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">SSCI 2025</p>
+									</div>
 								</div>
 								<div class="honor-row">
-									<div class="honor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-									<div><p class="text-sm font-medium" style="color:var(--t1)">Best National Startup of 2022 — Elevate Greece</p><p class="font-mono text-xs mt-0.5" style="color:var(--t3)">Awarded to Covariance</p></div>
+									<div class="honor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13"
+											height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+											stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="8" r="6" />
+											<path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+										</svg></div>
+									<div>
+										<p class="text-sm font-medium" style="color:var(--t1)">Best National Startup of
+											2022 — Elevate Greece</p>
+										<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">Awarded to
+											Covariance</p>
+									</div>
 								</div>
 								<div class="honor-row">
-									<div class="honor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-									<div><p class="text-sm font-medium" style="color:var(--t1)">Academic Work Scholarship</p><p class="font-mono text-xs mt-0.5" style="color:var(--t3)">University of Thessaly · 2019 — 2021</p></div>
+									<div class="honor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13"
+											height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+											stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="8" r="6" />
+											<path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+										</svg></div>
+									<div>
+										<p class="text-sm font-medium" style="color:var(--t1)">Academic Work Scholarship
+										</p>
+										<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">University of
+											Thessaly · 2019 — 2021</p>
+									</div>
 								</div>
 								<div class="honor-row">
-									<div class="honor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-									<div><p class="text-sm font-medium" style="color:var(--t1)">Tuition Fee Exemption Scholarship</p><p class="font-mono text-xs mt-0.5" style="color:var(--t3)">MSc degree · 2019</p></div>
+									<div class="honor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13"
+											height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+											stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="8" r="6" />
+											<path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+										</svg></div>
+									<div>
+										<p class="text-sm font-medium" style="color:var(--t1)">Tuition Fee Exemption
+											Scholarship</p>
+										<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">MSc degree · 2019
+										</p>
+									</div>
 								</div>
 							</div>
 						</div>
 
 						<!-- Research -->
 						<div>
-							<h3 class="font-mono text-xs font-bold tracking-widest uppercase mb-3" style="color:var(--t3)">Research Projects</h3>
+							<h3 class="font-mono text-xs font-bold tracking-widest uppercase mb-3"
+								style="color:var(--t3)">Research Projects</h3>
 							<div class="card card-hover">
 								<div class="exp-head">
 									<h3 class="exp-company" style="font-size:.975rem">Precision Medicine in Greece</h3>
 									<span class="exp-date">2024 — 2025</span>
 								</div>
 								<div class="exp-body" style="padding-top:.875rem;padding-bottom:.875rem">
-									<p class="text-sm mb-2.5" style="color:var(--t2)">Bridging large omics, genetic, and medical data (TAEDR-0539180)</p>
+									<p class="text-sm mb-2.5" style="color:var(--t2)">Bridging large omics, genetic, and
+										medical data (TAEDR-0539180)</p>
 									<ul class="role-bullets">
 										<li><strong style="color:var(--t1)">Role:</strong> Research Fellow</li>
-										<li><strong style="color:var(--t1)">Funding:</strong> European Union — NextGenerationEU</li>
+										<li><strong style="color:var(--t1)">Funding:</strong> European Union —
+											NextGenerationEU</li>
 									</ul>
 								</div>
 							</div>
@@ -938,38 +1667,92 @@
 
 						<!-- Certifications -->
 						<div>
-							<h3 class="font-mono text-xs font-bold tracking-widest uppercase mb-3" style="color:var(--t3)">Certifications</h3>
+							<h3 class="font-mono text-xs font-bold tracking-widest uppercase mb-3"
+								style="color:var(--t3)">Certifications</h3>
 							<div class="space-y-1.5">
-								<div class="cert-item"><div class="cert-dot"></div>Building RAG Agents with LLMs<span class="font-mono text-xs ml-auto pl-3 flex-shrink-0" style="color:var(--t3)">NVIDIA · 2024</span></div>
-								<div class="cert-item"><div class="cert-dot"></div>I2I Spin Out Innovation Programme<span class="font-mono text-xs ml-auto pl-3 flex-shrink-0" style="color:var(--t3)">Univ. of Galway · 2024</span></div>
-								<div class="cert-item"><div class="cert-dot"></div>Power BI Financial Reporting &amp; Analysis<span class="font-mono text-xs ml-auto pl-3 flex-shrink-0" style="color:var(--t3)">Udemy · 2024</span></div>
-								<div class="cert-item"><div class="cert-dot"></div>EHDEN OMOP-CDM Data Standardization<span class="font-mono text-xs ml-auto pl-3 flex-shrink-0" style="color:var(--t3)">EHDEN · 2022</span></div>
-								<div class="cert-item"><div class="cert-dot"></div>Pedagogical and Teaching Competence<span class="font-mono text-xs ml-auto pl-3 flex-shrink-0" style="color:var(--t3)">UTH · 2019</span></div>
+								<div class="cert-item">
+									<div class="cert-dot"></div>Building RAG Agents with LLMs<span
+										class="font-mono text-xs ml-auto pl-3 flex-shrink-0"
+										style="color:var(--t3)">NVIDIA · 2024</span>
+								</div>
+								<div class="cert-item">
+									<div class="cert-dot"></div>I2I Spin Out Innovation Programme<span
+										class="font-mono text-xs ml-auto pl-3 flex-shrink-0"
+										style="color:var(--t3)">Univ. of Galway · 2024</span>
+								</div>
+								<div class="cert-item">
+									<div class="cert-dot"></div>Power BI Financial Reporting &amp; Analysis<span
+										class="font-mono text-xs ml-auto pl-3 flex-shrink-0"
+										style="color:var(--t3)">Udemy · 2024</span>
+								</div>
+								<div class="cert-item">
+									<div class="cert-dot"></div>EHDEN OMOP-CDM Data Standardization<span
+										class="font-mono text-xs ml-auto pl-3 flex-shrink-0"
+										style="color:var(--t3)">EHDEN · 2022</span>
+								</div>
+								<div class="cert-item">
+									<div class="cert-dot"></div>Pedagogical and Teaching Competence<span
+										class="font-mono text-xs ml-auto pl-3 flex-shrink-0" style="color:var(--t3)">UTH
+										· 2019</span>
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<!-- Peer Review -->
 					<div>
-						<h3 class="font-mono text-xs font-bold tracking-widest uppercase mb-3" style="color:var(--t3)">Peer Review</h3>
+						<h3 class="font-mono text-xs font-bold tracking-widest uppercase mb-3" style="color:var(--t3)">
+							Peer Review</h3>
 						<div class="space-y-3">
 							<div class="card p-5">
-								<h4 class="font-mono text-xs font-bold tracking-widest uppercase mb-3" style="color:var(--t3)">Journals</h4>
+								<h4 class="font-mono text-xs font-bold tracking-widest uppercase mb-3"
+									style="color:var(--t3)">Journals</h4>
 								<div>
-									<div class="review-item"><div class="rev-name">Neural Computing and Applications</div><div class="rev-pub">Springer</div></div>
-									<div class="review-item"><div class="rev-name">Scientific Reports</div><div class="rev-pub">Nature Portfolio</div></div>
-									<div class="review-item"><div class="rev-name">IEEE Trans. on Signal and Information Processing</div><div class="rev-pub">IEEE</div></div>
-									<div class="review-item"><div class="rev-name">Cluster Computing</div><div class="rev-pub">Springer</div></div>
-									<div class="review-item"><div class="rev-name">Social Network Analysis and Mining</div><div class="rev-pub">Springer</div></div>
-									<div class="review-item"><div class="rev-name">Information Systems Frontiers</div><div class="rev-pub">Springer</div></div>
-									<div class="review-item"><div class="rev-name">Int. Journal of IT &amp; Decision Making</div><div class="rev-pub">World Scientific</div></div>
-									<div class="review-item"><div class="rev-name">Public Health</div><div class="rev-pub">Elsevier</div></div>
-									<div class="review-item"><div class="rev-name">Frontiers in Public Health</div><div class="rev-pub">Frontiers</div></div>
-									<div class="review-item"><div class="rev-name">Exploration of Digital Health Technologies</div><div class="rev-pub">Open Exploration</div></div>
+									<div class="review-item">
+										<div class="rev-name">Neural Computing and Applications</div>
+										<div class="rev-pub">Springer</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Scientific Reports</div>
+										<div class="rev-pub">Nature Portfolio</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">IEEE Trans. on Signal and Information Processing</div>
+										<div class="rev-pub">IEEE</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Cluster Computing</div>
+										<div class="rev-pub">Springer</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Social Network Analysis and Mining</div>
+										<div class="rev-pub">Springer</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Information Systems Frontiers</div>
+										<div class="rev-pub">Springer</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Int. Journal of IT &amp; Decision Making</div>
+										<div class="rev-pub">World Scientific</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Public Health</div>
+										<div class="rev-pub">Elsevier</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Frontiers in Public Health</div>
+										<div class="rev-pub">Frontiers</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">Exploration of Digital Health Technologies</div>
+										<div class="rev-pub">Open Exploration</div>
+									</div>
 								</div>
 							</div>
 							<div class="card p-5">
-								<h4 class="font-mono text-xs font-bold tracking-widest uppercase mb-3" style="color:var(--t3)">Conferences</h4>
+								<h4 class="font-mono text-xs font-bold tracking-widest uppercase mb-3"
+									style="color:var(--t3)">Conferences</h4>
 								<div class="tag-cloud">
 									<span class="tag">IEEE WCCI 2026</span>
 									<span class="tag">IEEE SSCI 2025</span>
@@ -989,8 +1772,8 @@
 			<!-- PUBLICATIONS -->
 			<section id="publications" class="section-wrap reveal">
 				<div class="section-header">
-					<span class="section-num">07</span>
-					<h2 class="section-title">Publications</h2>
+
+					<h2 class="section-title">Publications<a href="#publications" class="section-anchor">#</a></h2>
 					<div class="section-rule"></div>
 				</div>
 
@@ -998,17 +1781,23 @@
 					<!-- Filters -->
 					<div class="lg:sticky lg:top-24 self-start space-y-4">
 						<div>
-							<p class="font-mono text-xs font-bold tracking-widest uppercase mb-2" style="color:var(--t3)">Type</p>
+							<p class="font-mono text-xs font-bold tracking-widest uppercase mb-2"
+								style="color:var(--t3)">Type</p>
 							<div class="flex flex-wrap gap-1.5">
-								<button class="filter-btn active" data-filter-group="type" data-filter="all">All</button>
-								<button class="filter-btn" data-filter-group="type" data-filter="journal">Journals</button>
-								<button class="filter-btn" data-filter-group="type" data-filter="conference">Conferences</button>
+								<button class="filter-btn active" data-filter-group="type"
+									data-filter="all">All</button>
+								<button class="filter-btn" data-filter-group="type"
+									data-filter="journal">Journals</button>
+								<button class="filter-btn" data-filter-group="type"
+									data-filter="conference">Conferences</button>
 							</div>
 						</div>
 						<div>
-							<p class="font-mono text-xs font-bold tracking-widest uppercase mb-2" style="color:var(--t3)">Year</p>
+							<p class="font-mono text-xs font-bold tracking-widest uppercase mb-2"
+								style="color:var(--t3)">Year</p>
 							<div class="flex flex-wrap gap-1.5">
-								<button class="filter-btn active" data-filter-group="year" data-filter="all">All</button>
+								<button class="filter-btn active" data-filter-group="year"
+									data-filter="all">All</button>
 								<button class="filter-btn" data-filter-group="year" data-filter="2025">2025</button>
 								<button class="filter-btn" data-filter-group="year" data-filter="2024">2024</button>
 								<button class="filter-btn" data-filter-group="year" data-filter="2023">2023</button>
@@ -1029,11 +1818,14 @@
 								<span class="pub-yr">2025</span>
 							</div>
 							<h3 class="pub-title">Large language models for efficient topic modeling</h3>
-							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, P. Anagnostou, S. V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, P. Anagnostou, S. V.
+								Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
 							<p class="pub-venue">Neural Computing and Applications, 1–19</p>
 							<div class="pub-links">
-								<a href="https://doi.org/10.1007/s00521-025-11593-9" target="_blank" rel="noopener noreferrer" class="pub-link">View DOI →</a>
-								<a href="papers/s00521-025-11593-9.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">PDF ↓</a>
+								<a href="https://doi.org/10.1007/s00521-025-11593-9" target="_blank"
+									rel="noopener noreferrer" class="pub-link">View DOI →</a>
+								<a href="papers/s00521-025-11593-9.pdf" target="_blank" rel="noopener noreferrer"
+									class="pub-link">PDF ↓</a>
 							</div>
 						</article>
 
@@ -1042,11 +1834,14 @@
 								<span class="pub-badge">Journal</span>
 								<span class="pub-yr">2024</span>
 							</div>
-							<h3 class="pub-title">Developing predictive precision medicine models by exploiting real-world data</h3>
-							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, S. Bersimis, S. V. Georgakopoulos, A. Karaminas, S. K. Tasoulis, V. P. Plagianakos</p>
+							<h3 class="pub-title">Developing predictive precision medicine models by exploiting
+								real-world data</h3>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, S. Bersimis, S. V.
+								Georgakopoulos, A. Karaminas, S. K. Tasoulis, V. P. Plagianakos</p>
 							<p class="pub-venue">Journal of Applied Statistics 51(14), 2980–3003</p>
 							<div class="pub-links">
-								<a href="https://doi.org/10.1080/02664763.2024.2315451" target="_blank" rel="noopener noreferrer" class="pub-link">View DOI →</a>
+								<a href="https://doi.org/10.1080/02664763.2024.2315451" target="_blank"
+									rel="noopener noreferrer" class="pub-link">View DOI →</a>
 							</div>
 						</article>
 
@@ -1059,11 +1854,14 @@
 								<span class="pub-yr">2023</span>
 							</div>
 							<h3 class="pub-title">Analysing sentiment change detection of COVID-19 tweets</h3>
-							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, A. Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, A. Tsoukala, S. V.
+								Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
 							<p class="pub-venue">Neural Computing and Applications 35(29), 21433–21443</p>
 							<div class="pub-links">
-								<a href="https://scholar.google.com/scholar?q=Analysing+sentiment+change+detection+of+COVID-19+tweets" target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
-								<a href="papers/s00521-023-08662-2.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">PDF ↓</a>
+								<a href="https://scholar.google.com/scholar?q=Analysing+sentiment+change+detection+of+COVID-19+tweets"
+									target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
+								<a href="papers/s00521-023-08662-2.pdf" target="_blank" rel="noopener noreferrer"
+									class="pub-link">PDF ↓</a>
 							</div>
 						</article>
 
@@ -1072,24 +1870,30 @@
 								<span class="pub-badge pub-badge-conf">Conference</span>
 								<span class="pub-yr">2025</span>
 							</div>
-							<h3 class="pub-title">Transforming Medical Practice: Harnessing the Power of Big Data and Machine Learning for Predictive Precision Medicine</h3>
-							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, S. Bersimis, S. V. Georgakopoulos, V. P. Plagianakos, S. K. Tasoulis</p>
-							<p class="pub-venue">2025 IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), 1–7</p>
+							<h3 class="pub-title">Transforming Medical Practice: Harnessing the Power of Big Data and
+								Machine Learning for Predictive Precision Medicine</h3>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, S. Bersimis, S. V.
+								Georgakopoulos, V. P. Plagianakos, S. K. Tasoulis</p>
+							<p class="pub-venue">2025 IEEE Symposium on Computational Intelligence in Health and
+								Medicine (CIHM), 1–7</p>
 							<div class="pub-links">
-								<a href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice" target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
+								<a href="https://scholar.google.com/scholar?q=Transforming+Medical+Practice"
+									target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
 							</div>
 						</article>
 
-						<article class="card card-hover p-6 publication-card" data-type="conference" data-year="2023">
+						<article class="card card-hover p-6 publication-card" data-type="conference" data-year="2024">
 							<div class="flex flex-wrap items-center justify-between gap-2">
 								<span class="pub-badge pub-badge-conf">Conference</span>
-								<span class="pub-yr">2023</span>
+								<span class="pub-yr">2024</span>
 							</div>
 							<h3 class="pub-title">Who Writes the Review, Human or AI?</h3>
-							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, S. V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, S. V. Georgakopoulos, S. K.
+								Tasoulis, V. P. Plagianakos</p>
 							<p class="pub-venue">arXiv preprint arXiv:2405.20285</p>
 							<div class="pub-links">
-								<a href="https://scholar.google.com/scholar?q=Who+Writes+the+Review,+Human+or+AI%3F" target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
+								<a href="https://scholar.google.com/scholar?q=Who+Writes+the+Review,+Human+or+AI%3F"
+									target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
 							</div>
 						</article>
 
@@ -1099,10 +1903,13 @@
 								<span class="pub-yr">2023</span>
 							</div>
 							<h3 class="pub-title">Detection of Fake Generated Scientific Abstracts</h3>
-							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, P. Anagnostou, A. Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
-							<p class="pub-venue">2023 IEEE Ninth International Conference on Big Data Computing Service and Applications (BigDataService), 33–39</p>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, P. Anagnostou, A. Tsoukala,
+								S. V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+							<p class="pub-venue">2023 IEEE Ninth International Conference on Big Data Computing Service
+								and Applications (BigDataService), 33–39</p>
 							<div class="pub-links">
-								<a href="https://scholar.google.com/scholar?q=Detection+of+Fake+Generated+Scientific+Abstracts" target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
+								<a href="https://scholar.google.com/scholar?q=Detection+of+Fake+Generated+Scientific+Abstracts"
+									target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
 							</div>
 						</article>
 
@@ -1112,10 +1919,13 @@
 								<span class="pub-yr">2022</span>
 							</div>
 							<h3 class="pub-title">Text analysis of COVID-19 tweets</h3>
-							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, A. Tsoukala, S. V. Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
-							<p class="pub-venue">International Conference on Engineering Applications of Neural Networks, 517–528</p>
+							<p class="pub-authors"><strong>P. C. Theocharopoulos</strong>, A. Tsoukala, S. V.
+								Georgakopoulos, S. K. Tasoulis, V. P. Plagianakos</p>
+							<p class="pub-venue">International Conference on Engineering Applications of Neural
+								Networks, 517–528</p>
 							<div class="pub-links">
-								<a href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets" target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
+								<a href="https://scholar.google.com/scholar?q=Text+analysis+of+COVID-19+tweets"
+									target="_blank" rel="noopener noreferrer" class="pub-link">Scholar →</a>
 							</div>
 						</article>
 
@@ -1126,14 +1936,23 @@
 		</main>
 
 		<!-- Footer -->
-		<footer class="mt-20 py-7 flex flex-col sm:flex-row justify-between items-center gap-3"
-			style="border-top:1px solid var(--border)">
-			<p class="font-mono text-xs" style="color:var(--t3)">© <span id="current-year"></span> Panagiotis C. Theocharopoulos</p>
-			<div class="flex gap-4 font-mono text-xs" style="color:var(--t3)">
-				<a href="mailto:panos.t95@gmail.com" class="hover:opacity-100 opacity-60 transition-opacity" style="color:var(--t2)">Email</a>
-				<a href="https://www.linkedin.com/in/ptheochar/" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 opacity-60 transition-opacity" style="color:var(--t2)">LinkedIn</a>
-				<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 opacity-60 transition-opacity" style="color:var(--t2)">Scholar</a>
+		<footer class="mt-24 pb-12" style="border-top:1px solid var(--border)">
+			<div class="pt-10 flex flex-col sm:flex-row sm:items-end justify-between gap-8">
+				<div>
+					<p class="font-sans font-bold text-xl tracking-tight" style="color:var(--t1);letter-spacing:-.02em">Panagiotis C. Theocharopoulos</p>
+					<p class="font-mono text-xs mt-1" style="color:var(--t3)">AI Engineer · PhD · LLMs · NLP · Healthcare AI</p>
+				</div>
+				<div class="flex flex-col items-start sm:items-end gap-3">
+					<div class="flex gap-5 font-mono text-xs font-medium">
+						<a href="mailto:panos.t95@gmail.com" class="transition-colors" style="color:var(--t2)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--t2)'">Email</a>
+						<a href="https://www.linkedin.com/in/ptheochar/" target="_blank" rel="noopener noreferrer" class="transition-colors" style="color:var(--t2)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--t2)'">LinkedIn</a>
+						<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="transition-colors" style="color:var(--t2)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--t2)'">Scholar</a>
+						<a href="Theocharopoulos_CV.pdf" target="_blank" rel="noopener noreferrer" class="transition-colors" style="color:var(--t2)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--t2)'">CV</a>
+					</div>
+					<p class="font-mono text-xs" style="color:var(--t3)">© <span id="current-year"></span> — Built with care</p>
+				</div>
 			</div>
+		</footer>
 		</footer>
 
 	</div>
@@ -1167,8 +1986,8 @@
 
 		// ── Scroll ────────────────────────────────────────
 		const progressBar = document.getElementById('scroll-progress');
-		const nav         = document.getElementById('section-nav');
-		const backToTop   = document.getElementById('back-to-top');
+		const nav = document.getElementById('section-nav');
+		const backToTop = document.getElementById('back-to-top');
 
 		window.addEventListener('scroll', () => {
 			const s = window.scrollY;
@@ -1231,7 +2050,7 @@
 				let pending = 0;
 				pubCards.forEach(card => {
 					const match = (activeFilters.type === 'all' || card.dataset.type === activeFilters.type)
-					           && (activeFilters.year  === 'all' || card.dataset.year  === activeFilters.year);
+						&& (activeFilters.year === 'all' || card.dataset.year === activeFilters.year);
 					const hidden = card.classList.contains('is-hidden');
 					if (match) {
 						if (hidden) { card.classList.remove('is-hidden'); void card.offsetWidth; card.classList.remove('is-hiding'); }
@@ -1250,7 +2069,7 @@
 		});
 
 		// ── Mobile menu ───────────────────────────────────
-		const mobileNav    = document.getElementById('mobile-nav');
+		const mobileNav = document.getElementById('mobile-nav');
 		const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 		const toggleMenu = () => {
 			mobileNav.classList.toggle('open');
@@ -1260,7 +2079,72 @@
 		document.getElementById('mobile-menu-btn')?.addEventListener('click', toggleMenu);
 		document.getElementById('mobile-close-btn')?.addEventListener('click', toggleMenu);
 		document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', toggleMenu));
+
+		// ── Typing role ───────────────────────────────────
+		const roles = ['AI Engineer', 'NLP Researcher', 'LLM Engineer', 'Healthcare AI'];
+		const typingEl = document.getElementById('typing-role');
+		let roleIdx = 0, charIdx = 0, deleting = false;
+		function typeLoop() {
+			const current = roles[roleIdx];
+			if (!deleting) {
+				typingEl.textContent = current.slice(0, ++charIdx);
+				if (charIdx === current.length) { deleting = true; setTimeout(typeLoop, 2000); return; }
+				setTimeout(typeLoop, 68);
+			} else {
+				typingEl.textContent = current.slice(0, --charIdx);
+				if (charIdx === 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; setTimeout(typeLoop, 400); return; }
+				setTimeout(typeLoop, 38);
+			}
+		}
+		setTimeout(typeLoop, 1200);
+
+		// ── Count-up stats ────────────────────────────────
+		const countEls = document.querySelectorAll('[data-count]');
+		const countObs = new IntersectionObserver((entries) => {
+			entries.forEach(e => {
+				if (!e.isIntersecting) return;
+				const el = e.target;
+				const target = +el.dataset.count;
+				const suffix = el.dataset.suffix || '';
+				const dur = 1200, step = 16;
+				const steps = dur / step;
+				let cur = 0;
+				const inc = () => {
+					cur = Math.min(cur + target / steps, target);
+					el.textContent = Math.round(cur) + suffix;
+					if (cur < target) setTimeout(inc, step);
+				};
+				inc();
+				countObs.unobserve(el);
+			});
+		}, { threshold: 0.5 });
+		countEls.forEach(el => countObs.observe(el));
+
+		// ── Staggered children ────────────────────────────
+		const staggerTargets = [
+			'#experience .space-y-3',
+			'#publication-grid',
+			'.skills-grid',
+			'.edu-list',
+			'#honors .space-y-1\\.5',
+		];
+		document.querySelectorAll(staggerTargets.join(', ')).forEach(parent => {
+			Array.from(parent.children).forEach((child, i) => {
+				child.classList.add('stagger-child');
+				child.style.transitionDelay = (i * 80) + 'ms';
+			});
+		});
+		const staggerObs = new IntersectionObserver((entries) => {
+			entries.forEach(e => {
+				if (e.isIntersecting) {
+					e.target.querySelectorAll('.stagger-child').forEach(c => c.classList.add('visible'));
+					staggerObs.unobserve(e.target);
+				}
+			});
+		}, { threshold: 0.05 });
+		document.querySelectorAll(staggerTargets.join(', ')).forEach(el => staggerObs.observe(el));
 	</script>
 
 </body>
+
 </html>
