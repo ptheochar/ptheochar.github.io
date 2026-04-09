@@ -61,20 +61,20 @@
 		}
 
 		html.dark {
-			--bg:        #141414;
-			--bg2:       #1a1a1a;
-			--surface:   #1f1f1f;
-			--surface2:  #262626;
-			--border:    #2e2e2e;
+			--bg: #141414;
+			--bg2: #1a1a1a;
+			--surface: #1f1f1f;
+			--surface2: #262626;
+			--border: #2e2e2e;
 			--border-hi: #3d3d3d;
-			--t1:        #f0efe9;
-			--t2:        #9c9c96;
-			--t3:        #58584f;
-			--accent:    #2dd4bf;
-			--accent2:   #0d9488;
-			--accent3:   #a78bfa;
-			--glow:      rgba(45,212,191,0.15);
-			--subtle:    rgba(45,212,191,0.08);
+			--t1: #f0efe9;
+			--t2: #9c9c96;
+			--t3: #58584f;
+			--accent: #2dd4bf;
+			--accent2: #0d9488;
+			--accent3: #a78bfa;
+			--glow: rgba(45, 212, 191, 0.15);
+			--subtle: rgba(45, 212, 191, 0.08);
 		}
 
 		/* ── BASE ─────────────────────────────────────── */
@@ -93,27 +93,33 @@
 		/* ── GRAIN ────────────────────────────────────── */
 		body::before {
 			content: '';
-			position: fixed; inset: 0;
+			position: fixed;
+			inset: 0;
 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
 			background-size: 280px 280px;
 			opacity: .038;
-			pointer-events: none; z-index: 99998;
+			pointer-events: none;
+			z-index: 99998;
 		}
-		html.dark body::before { opacity: 0; }
+
+		html.dark body::before {
+			opacity: 0;
+		}
 
 		/* Ambient gradient */
 		body::after {
 			content: '';
 			position: fixed;
 			inset: 0;
-			background: radial-gradient(ellipse 70% 40% at 100% 0%, rgba(8,145,178,.04) 0%, transparent 60%);
+			background: radial-gradient(ellipse 70% 40% at 100% 0%, rgba(8, 145, 178, .04) 0%, transparent 60%);
 			pointer-events: none;
 			z-index: 0;
 		}
+
 		html.dark body::after {
 			background:
-				radial-gradient(ellipse 55% 35% at 5% 0%, rgba(45,212,191,.05) 0%, transparent 55%),
-				radial-gradient(ellipse 35% 25% at 95% 5%, rgba(167,139,250,.04) 0%, transparent 50%);
+				radial-gradient(ellipse 55% 35% at 5% 0%, rgba(45, 212, 191, .05) 0%, transparent 55%),
+				radial-gradient(ellipse 35% 25% at 95% 5%, rgba(167, 139, 250, .04) 0%, transparent 50%);
 		}
 
 		/* ── SCROLLBAR ────────────────────────────────── */
@@ -226,6 +232,16 @@
 			}
 		}
 
+		@keyframes shimmer {
+			0% {
+				background-position: -200% center;
+			}
+
+			100% {
+				background-position: 200% center;
+			}
+		}
+
 		.hero-badge {
 			display: inline-flex;
 			align-items: center;
@@ -233,7 +249,12 @@
 			padding: .3rem .8rem;
 			border-radius: 999px;
 			border: 1px solid var(--border);
-			background: var(--surface);
+			background: linear-gradient(105deg,
+					var(--surface) 40%,
+					rgba(8, 145, 178, .08) 50%,
+					var(--surface) 60%);
+			background-size: 200% auto;
+			animation: shimmer 4s linear infinite;
 			font-family: 'JetBrains Mono', monospace;
 			font-size: .68rem;
 			font-weight: 500;
@@ -241,6 +262,15 @@
 			letter-spacing: .05em;
 			text-transform: uppercase;
 			margin-bottom: 2rem;
+		}
+
+		html.dark .hero-badge {
+			background: linear-gradient(105deg,
+					var(--surface) 40%,
+					rgba(45, 212, 191, .07) 50%,
+					var(--surface) 60%);
+			background-size: 200% auto;
+			animation: shimmer 4s linear infinite;
 		}
 
 		.hero-badge-dot {
@@ -278,8 +308,8 @@
 		}
 
 		.hero-bio {
-			font-size: .9375rem;
-			line-height: 1.75;
+			font-size: 1rem;
+			line-height: 1.8;
 			color: var(--t2);
 			margin-top: .875rem;
 			max-width: 48ch;
@@ -349,10 +379,18 @@
 
 		.hero-photo-frame {
 			position: relative;
-			border-radius: 18px;
+			border-radius: 28px;
 			overflow: hidden;
 			border: 1px solid var(--border);
 			box-shadow: 0 4px 24px rgba(0, 0, 0, .08);
+			transition: box-shadow .3s, outline-color .3s;
+			outline: 2px solid transparent;
+			outline-offset: 5px;
+		}
+
+		.hero-photo-frame:hover {
+			outline-color: var(--accent);
+			box-shadow: 0 8px 32px var(--glow);
 		}
 
 		html.dark .hero-photo-frame {
@@ -387,17 +425,42 @@
 
 		.section-title {
 			font-family: 'Source Serif 4', serif;
-			font-size: clamp(1.4rem, 2.5vw, 1.875rem);
+			font-size: clamp(1.65rem, 3vw, 2.25rem);
 			font-weight: 700;
-			letter-spacing: -.02em;
+			letter-spacing: -.025em;
 			color: var(--t1);
 			white-space: nowrap;
+			position: relative;
+			padding-bottom: .35rem;
+		}
+
+		.section-title::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 2rem;
+			height: 2px;
+			background: var(--accent);
+			border-radius: 999px;
 		}
 
 		.section-rule {
 			flex: 1;
+			overflow: hidden;
 			height: 1px;
-			background: linear-gradient(90deg, var(--border), transparent);
+			position: relative;
+			margin-left: .5rem;
+		}
+
+		.section-rule::after {
+			content: '';
+			display: block;
+			height: 1px;
+			background: repeating-linear-gradient(90deg,
+					var(--border) 0px, var(--border) 3px,
+					transparent 3px, transparent 8px);
+			opacity: .7;
 		}
 
 		/* ── STAT GRID ────────────────────────────────── */
@@ -470,8 +533,10 @@
 
 		/* ── EXPERIENCE ───────────────────────────────── */
 		.exp-head {
-			padding: 1.25rem 1.5rem;
+			padding: 1.25rem 1.5rem 1.25rem 1.75rem;
 			border-bottom: 1px solid var(--border);
+			border-left: 3px solid var(--accent);
+			border-radius: 12px 12px 0 0;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -569,22 +634,105 @@
 		}
 
 		/* ── TEACHING ─────────────────────────────────── */
-		.teach-row {
+		.teaching-stack {
 			display: grid;
-			grid-template-columns: 200px 1fr;
-			gap: 1.25rem;
-			padding: 1rem 1.5rem;
-			border-top: 1px solid var(--border);
+			gap: 1rem;
 		}
 
-		.teach-row:first-child {
+		.teach-card-head {
+			padding: 1.2rem 1.5rem 1.05rem 1.75rem;
+			border-bottom: 1px solid var(--border);
+			border-left: 3px solid var(--accent);
+			border-radius: 12px 12px 0 0;
+		}
+
+		.teach-role {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .62rem;
+			font-weight: 600;
+			letter-spacing: .1em;
+			text-transform: uppercase;
+			color: var(--accent);
+		}
+
+		.teach-table-wrap {
+			overflow-x: auto;
+		}
+
+		.teach-table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		.teach-table th,
+		.teach-table td {
+			padding: 1rem 1.5rem;
+			border-top: 1px solid var(--border);
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.teach-table thead th {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .62rem;
+			font-weight: 600;
+			letter-spacing: .09em;
+			text-transform: uppercase;
+			color: var(--t3);
+			background: var(--surface2);
 			border-top: none;
 		}
 
-		@media (max-width: 580px) {
-			.teach-row {
-				grid-template-columns: 1fr;
-				gap: .35rem;
+		html.dark .teach-table thead th {
+			background: rgba(255, 255, 255, .02);
+		}
+
+		.teach-cell-title {
+			font-size: .93rem;
+			font-weight: 600;
+			color: var(--t1);
+			line-height: 1.45;
+		}
+
+		.teach-cell-subtitle {
+			font-size: .82rem;
+			color: var(--t2);
+			margin-top: .18rem;
+			line-height: 1.5;
+		}
+
+		.teach-year {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: .64rem;
+			letter-spacing: .04em;
+			color: var(--t3);
+		}
+
+		.teach-course-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .5rem;
+		}
+
+		.teach-course {
+			display: inline-flex;
+			align-items: center;
+			padding: .38rem .7rem;
+			border-radius: 999px;
+			border: 1px solid var(--border);
+			background: var(--surface2);
+			font-size: .82rem;
+			line-height: 1.35;
+			color: var(--t2);
+		}
+
+		html.dark .teach-course {
+			background: rgba(255, 255, 255, .02);
+		}
+
+		@media (max-width: 760px) {
+			.teach-table {
+				min-width: 720px;
 			}
 		}
 
@@ -1012,67 +1160,107 @@
 		/* ── HERO BLOB ────────────────────────────────── */
 		.hero-blob {
 			position: absolute;
-			top: -10%; right: -5%;
-			width: min(520px, 70vw); height: min(520px, 70vw);
+			top: -10%;
+			right: -5%;
+			width: min(520px, 70vw);
+			height: min(520px, 70vw);
 			border-radius: 50%;
 			background: radial-gradient(circle at 40% 40%,
-				rgba(8,145,178,.12) 0%,
-				rgba(99,102,241,.07) 50%,
-				transparent 72%);
+					rgba(8, 145, 178, .12) 0%,
+					rgba(99, 102, 241, .07) 50%,
+					transparent 72%);
 			filter: blur(48px);
-			pointer-events: none; z-index: 0;
+			pointer-events: none;
+			z-index: 0;
 			animation: blobDrift 14s ease-in-out infinite alternate;
 		}
+
 		html.dark .hero-blob {
 			background: radial-gradient(circle at 40% 40%,
-				rgba(45,212,191,.10) 0%,
-				rgba(167,139,250,.06) 50%,
-				transparent 72%);
+					rgba(45, 212, 191, .10) 0%,
+					rgba(167, 139, 250, .06) 50%,
+					transparent 72%);
 		}
+
 		@keyframes blobDrift {
-			0%   { transform: translate(0,0) scale(1); }
-			33%  { transform: translate(-3%,4%) scale(1.04); }
-			66%  { transform: translate(3%,-3%) scale(.97); }
-			100% { transform: translate(-2%,2%) scale(1.02); }
+			0% {
+				transform: translate(0, 0) scale(1);
+			}
+
+			33% {
+				transform: translate(-3%, 4%) scale(1.04);
+			}
+
+			66% {
+				transform: translate(3%, -3%) scale(.97);
+			}
+
+			100% {
+				transform: translate(-2%, 2%) scale(1.02);
+			}
 		}
 
 		/* ── TYPING CURSOR ─────────────────────────── */
 		.typing-cursor {
 			display: inline-block;
-			width: 2px; height: 1.1em;
+			width: 2px;
+			height: 1.1em;
 			background: var(--accent);
 			margin-left: 3px;
 			vertical-align: text-bottom;
 			animation: blink .9s step-end infinite;
 		}
+
 		@keyframes blink {
-			0%, 100% { opacity: 1; }
-			50%       { opacity: 0; }
+
+			0%,
+			100% {
+				opacity: 1;
+			}
+
+			50% {
+				opacity: 0;
+			}
 		}
 
 		/* ── PULSE DOT (current role) ──────────────── */
 		.pulse-dot {
-			display: inline-flex; align-items: center;
-			width: 8px; height: 8px; border-radius: 50%;
-			background: #22c55e; flex-shrink: 0;
+			display: inline-flex;
+			align-items: center;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: #22c55e;
+			flex-shrink: 0;
 			position: relative;
 		}
+
 		.pulse-dot::after {
 			content: '';
-			position: absolute; inset: -3px;
+			position: absolute;
+			inset: -3px;
 			border-radius: 50%;
-			background: rgba(34,197,94,.35);
+			background: rgba(34, 197, 94, .35);
 			animation: pulseRing 1.8s ease-out infinite;
 		}
+
 		@keyframes pulseRing {
-			0%   { transform: scale(.7); opacity: .8; }
-			100% { transform: scale(1.8); opacity: 0; }
+			0% {
+				transform: scale(.7);
+				opacity: .8;
+			}
+
+			100% {
+				transform: scale(1.8);
+				opacity: 0;
+			}
 		}
 
 		/* ── PUB CARD ACCENT BORDERS ───────────────── */
 		.publication-card[data-type="journal"] {
 			border-left: 3px solid var(--accent);
 		}
+
 		.publication-card[data-type="conference"] {
 			border-left: 3px solid var(--accent3);
 		}
@@ -1082,11 +1270,16 @@
 			opacity: 0;
 			transition: opacity .2s;
 			font-family: 'JetBrains Mono', monospace;
-			font-size: .75rem; color: var(--accent);
-			text-decoration: none; margin-left: .5rem;
+			font-size: .75rem;
+			color: var(--accent);
+			text-decoration: none;
+			margin-left: .5rem;
 			vertical-align: middle;
 		}
-		.section-header:hover .section-anchor { opacity: 1; }
+
+		.section-header:hover .section-anchor {
+			opacity: 1;
+		}
 
 		/* ── STAGGERED CHILDREN ────────────────────── */
 		.stagger-child {
@@ -1094,6 +1287,7 @@
 			transform: translateY(14px);
 			transition: opacity .5s ease, transform .5s ease;
 		}
+
 		.stagger-child.visible {
 			opacity: 1;
 			transform: translateY(0);
@@ -1266,20 +1460,22 @@
 					Panagiotis C.
 					<span class="hero-name-line2">Theocharopoulos</span>
 				</h1>
-				<p class="hero-role hero-animate" style="animation-delay: 0.3s"><span id="typing-role"></span><span class="typing-cursor"></span></p>
+				<p class="hero-role hero-animate" style="animation-delay: 0.3s"><span id="typing-role"></span><span
+						class="typing-cursor"></span></p>
 				<p class="hero-bio hero-animate" style="animation-delay: 0.4s">
-					AI Engineer at Covariance, applying research in Large Language Models, NLP, and healthcare AI to production systems.
+					AI Engineer at Covariance, applying research in Large Language Models, NLP, and healthcare AI to
+					production systems.
 				</p>
 				<div class="hero-links hero-animate" style="animation-delay: 0.5s">
-					<a href="mailto:panos.t95@gmail.com" class="btn btn-primary magnetic">Get in touch ↗</a>
+					<a href="mailto:panos.t95@gmail.com" class="btn btn-primary magnetic">Get in touch</a>
 					<a href="https://www.linkedin.com/in/ptheochar/" target="_blank" rel="noopener noreferrer"
-						class="btn btn-ghost">LinkedIn ↗</a>
+						class="btn btn-ghost">LinkedIn</a>
 					<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank"
-						rel="noopener noreferrer" class="btn btn-ghost">Scholar ↗</a>
+						rel="noopener noreferrer" class="btn btn-ghost">Scholar</a>
 					<a href="Theocharopoulos_CV.pdf" target="_blank" rel="noopener noreferrer"
-						class="btn btn-ghost">Short CV ↓</a>
+						class="btn btn-ghost">Short CV</a>
 					<a href="PTheocharopoulos_ACV.pdf" target="_blank" rel="noopener noreferrer"
-						class="btn btn-ghost">Full CV ↓</a>
+						class="btn btn-ghost">Full CV</a>
 				</div>
 			</div><!-- /inner z-index wrapper -->
 			<div class="hero-photo-wrap hero-animate" style="animation-delay: 0.3s; position:relative; z-index:1">
@@ -1300,18 +1496,19 @@
 					<div class="section-rule"></div>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-					<div class="space-y-3.5 text-base leading-relaxed" style="color:var(--t2)">
-						<p>I am an <strong style="color:var(--t1);font-weight:600">AI Engineer</strong> and researcher
+					<div class="space-y-3.5 text-base leading-loose" style="color:var(--t2)">
+						<p>I am an <strong style="color:var(--accent);font-weight:600">AI Engineer</strong> and
+							researcher
 							at the intersection of academic research and industry. My expertise lies in leading complex
 							machine learning projects with specialisation in <strong
-								style="color:var(--t1);font-weight:600">Large Language Models</strong>, <strong
-								style="color:var(--t1);font-weight:600">RAG systems</strong>, and <strong
-								style="color:var(--t1);font-weight:600">Natural Language Processing</strong>.</p>
+								style="color:var(--accent);font-weight:600">Large Language Models</strong>, <strong
+								style="color:var(--accent);font-weight:600">RAG systems</strong>, and <strong
+								style="color:var(--accent);font-weight:600">Natural Language Processing</strong>.</p>
 						<p>Holding a PhD from the University of Thessaly, I bridge theoretical research with practical
 							applications, developing AI solutions for healthcare, precision medicine, and
 							language-intensive systems.</p>
 					</div>
-					<div class="space-y-3.5 text-base leading-relaxed" style="color:var(--t2)">
+					<div class="space-y-3.5 text-base leading-loose" style="color:var(--t2)">
 						<p>My research focuses on applying deep learning to real-world biomedical problems — from topic
 							modelling with LLMs to predictive models for precision medicine. I have contributed to
 							nationally and EU-funded initiatives and maintain an active record of peer review across
@@ -1357,7 +1554,8 @@
 						</div>
 						<div class="exp-body">
 							<div class="role-block">
-								<div class="role-title flex items-center gap-2">AI Engineer <span class="pulse-dot" title="Current role"></span></div>
+								<div class="role-title flex items-center gap-2">AI Engineer <span class="pulse-dot"
+										title="Current role"></span></div>
 								<div class="role-period">Jan 2025 — Present</div>
 								<ul class="role-bullets">
 									<li>Lead and manage a high-performing data science team focused on healthcare
@@ -1442,49 +1640,107 @@
 					<h2 class="section-title">Teaching<a href="#teaching" class="section-anchor">#</a></h2>
 					<div class="section-rule"></div>
 				</div>
-				<div class="card overflow-hidden">
-					<div class="px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
-						style="border-bottom:1px solid var(--border)">
-						<h3 class="font-sans font-bold text-base" style="color:var(--t1)">University of Thessaly</h3>
-						<span class="font-mono text-xs" style="color:var(--t3)">Teaching Assistant · 2019 — 2026</span>
-					</div>
-					<div class="teach-row">
-						<div>
-							<p class="text-sm font-semibold" style="color:var(--t2)">MSc in Artificial Intelligence and Applications</p>
-							<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">2026</p>
+				<div class="teaching-stack">
+					<div class="card card-hover overflow-hidden">
+						<div class="teach-card-head">
+							<p class="teach-role">Guest Lecturer</p>
 						</div>
-						<ul class="space-y-1 text-sm" style="color:var(--t2)">
-							<li>Artificial Intelligence Systems</li>
-						</ul>
-					</div>
-					<div class="teach-row">
-						<div>
-							<p class="text-sm font-semibold" style="color:var(--t2)">MSc in Informatics &amp; Computational Biomedicine</p>
-							<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">2023 — 2025</p>
+						<div class="teach-table-wrap">
+							<table class="teach-table">
+								<thead>
+									<tr>
+										<th>University</th>
+										<th>Program</th>
+										<th>Course</th>
+										<th>Years</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<p class="teach-cell-title">University of Thessaly</p>
+										</td>
+										<td>
+											<p class="teach-cell-title">MSc in Artificial Intelligence and Applications</p>
+											<p class="teach-cell-subtitle">Graduate teaching</p>
+										</td>
+										<td>
+											<div class="teach-course-list">
+												<span class="teach-course">Artificial Intelligence Systems</span>
+											</div>
+										</td>
+										<td><span class="teach-year">2026</span></td>
+									</tr>
+									<tr>
+										<td>
+											<p class="teach-cell-title">University of Thessaly</p>
+										</td>
+										<td>
+											<p class="teach-cell-title">MSc in Informatics &amp; Computational Biomedicine</p>
+											<p class="teach-cell-subtitle">Graduate teaching</p>
+										</td>
+										<td>
+											<div class="teach-course-list">
+												<span class="teach-course">Data Mining and Big Data Analysis in Medicine and Biology</span>
+												<span class="teach-course">Programming Subjects</span>
+											</div>
+										</td>
+										<td><span class="teach-year">2023 — 2025</span></td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-						<ul class="space-y-1 text-sm" style="color:var(--t2)">
-							<li>Data Mining and Big Data Analysis in Medicine and Biology</li>
-							<li>Programming Subjects</li>
-						</ul>
 					</div>
-					<div class="teach-row">
-						<div>
-							<p class="text-sm font-semibold" style="color:var(--t2)">Dept. of CS &amp; Biomedical Informatics</p>
-							<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">2022 — 2023</p>
+
+					<div class="card card-hover overflow-hidden">
+						<div class="teach-card-head">
+							<p class="teach-role">Teaching Assistant</p>
 						</div>
-						<ul class="space-y-1 text-sm" style="color:var(--t2)">
-							<li>Databases</li>
-						</ul>
-					</div>
-					<div class="teach-row">
-						<div>
-							<p class="text-sm font-semibold" style="color:var(--t2)">Department of Mathematics</p>
-							<p class="font-mono text-xs mt-0.5" style="color:var(--t3)">2019 — 2024</p>
+						<div class="teach-table-wrap">
+							<table class="teach-table">
+								<thead>
+									<tr>
+										<th>University</th>
+										<th>Department / Program</th>
+										<th>Course</th>
+										<th>Years</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<p class="teach-cell-title">University of Thessaly</p>
+										</td>
+										<td>
+											<p class="teach-cell-title">Department of Computer Science &amp; Biomedical Informatics</p>
+											<p class="teach-cell-subtitle">Undergraduate teaching support</p>
+										</td>
+										<td>
+											<div class="teach-course-list">
+												<span class="teach-course">Databases</span>
+											</div>
+										</td>
+										<td><span class="teach-year">2022 — 2023</span></td>
+									</tr>
+									<tr>
+										<td>
+											<p class="teach-cell-title">University of Thessaly</p>
+										</td>
+										<td>
+											<p class="teach-cell-title">Department of Mathematics</p>
+											<p class="teach-cell-subtitle">Undergraduate teaching support</p>
+										</td>
+										<td>
+											<div class="teach-course-list">
+												<span class="teach-course">Introduction to Programming I &amp; II</span>
+												<span class="teach-course">Numerical Analysis</span>
+											</div>
+										</td>
+										<td><span class="teach-year">2019 — 2024</span></td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-						<ul class="space-y-1 text-sm" style="color:var(--t2)">
-							<li>Introduction to Programming I &amp; II</li>
-							<li>Numerical Analysis</li>
-						</ul>
 					</div>
 				</div>
 			</section>
@@ -1549,7 +1805,8 @@
 						<div class="edu-year">2026</div>
 						<div class="edu-degree">PhD in Artificial Intelligence</div>
 						<div class="edu-meta">University of Thessaly, Greece</div>
-						<div class="thesis-quote">"Development of Deep Learning methods on big data with a focus on NLP"</div>
+						<div class="thesis-quote">"Development of Deep Learning methods on big data with a focus on NLP"
+						</div>
 					</div>
 					<div class="edu-item">
 						<div class="edu-year">2020</div>
@@ -1559,8 +1816,8 @@
 					</div>
 					<div class="edu-item">
 						<div class="edu-year">2019</div>
-						<div class="edu-degree">Ptychion in Computer Science &amp; Biomedical Informatics <span
-								style="font-weight:400;color:var(--t3)">(4-year BSc)</span></div>
+						<div class="edu-degree">Ptychion (4-year BSc) in Computer Science &amp; Biomedical Informatics
+						</div>
 						<div class="edu-meta">University of Thessaly, Greece</div>
 					</div>
 					<div class="edu-item">
@@ -1747,6 +2004,10 @@
 									<div class="review-item">
 										<div class="rev-name">Exploration of Digital Health Technologies</div>
 										<div class="rev-pub">Open Exploration</div>
+									</div>
+									<div class="review-item">
+										<div class="rev-name">IEEE Open Journal of the Computer Society</div>
+										<div class="rev-pub">IEEE</div>
 									</div>
 								</div>
 							</div>
@@ -1939,17 +2200,31 @@
 		<footer class="mt-24 pb-12" style="border-top:1px solid var(--border)">
 			<div class="pt-10 flex flex-col sm:flex-row sm:items-end justify-between gap-8">
 				<div>
-					<p class="font-sans font-bold text-xl tracking-tight" style="color:var(--t1);letter-spacing:-.02em">Panagiotis C. Theocharopoulos</p>
-					<p class="font-mono text-xs mt-1" style="color:var(--t3)">AI Engineer · PhD · LLMs · NLP · Healthcare AI</p>
+					<p class="font-sans font-bold text-xl tracking-tight" style="color:var(--t1);letter-spacing:-.02em">
+						Panagiotis C. Theocharopoulos</p>
+					<p class="font-mono text-xs mt-1" style="color:var(--t3)">AI Engineer · PhD · LLMs · NLP ·
+						Healthcare AI</p>
 				</div>
 				<div class="flex flex-col items-start sm:items-end gap-3">
 					<div class="flex gap-5 font-mono text-xs font-medium">
-						<a href="mailto:panos.t95@gmail.com" class="transition-colors" style="color:var(--t2)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--t2)'">Email</a>
-						<a href="https://www.linkedin.com/in/ptheochar/" target="_blank" rel="noopener noreferrer" class="transition-colors" style="color:var(--t2)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--t2)'">LinkedIn</a>
-						<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="transition-colors" style="color:var(--t2)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--t2)'">Scholar</a>
-						<a href="Theocharopoulos_CV.pdf" target="_blank" rel="noopener noreferrer" class="transition-colors" style="color:var(--t2)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--t2)'">CV</a>
+						<a href="mailto:panos.t95@gmail.com" class="transition-colors" style="color:var(--t2)"
+							onmouseover="this.style.color='var(--accent)'"
+							onmouseout="this.style.color='var(--t2)'">Email</a>
+						<a href="https://www.linkedin.com/in/ptheochar/" target="_blank" rel="noopener noreferrer"
+							class="transition-colors" style="color:var(--t2)"
+							onmouseover="this.style.color='var(--accent)'"
+							onmouseout="this.style.color='var(--t2)'">LinkedIn</a>
+						<a href="https://scholar.google.com/citations?user=CkZQFGwAAAAJ&hl=en" target="_blank"
+							rel="noopener noreferrer" class="transition-colors" style="color:var(--t2)"
+							onmouseover="this.style.color='var(--accent)'"
+							onmouseout="this.style.color='var(--t2)'">Scholar</a>
+						<a href="Theocharopoulos_CV.pdf" target="_blank" rel="noopener noreferrer"
+							class="transition-colors" style="color:var(--t2)"
+							onmouseover="this.style.color='var(--accent)'"
+							onmouseout="this.style.color='var(--t2)'">CV</a>
 					</div>
-					<p class="font-mono text-xs" style="color:var(--t3)">© <span id="current-year"></span> — Built with care</p>
+					<p class="font-mono text-xs" style="color:var(--t3)">© <span id="current-year"></span> — Built with
+						care</p>
 				</div>
 			</div>
 		</footer>
