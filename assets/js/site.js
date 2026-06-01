@@ -8,7 +8,7 @@
 	const themeLabels = document.querySelectorAll('[data-theme-label]');
 
 	function updateThemeLabels() {
-		const next = html.classList.contains('dark') ? 'Light' : 'Dark';
+		const next = html.classList.contains('dark') ? 'light' : 'dark';
 		themeLabels.forEach((el) => { el.textContent = next; });
 	}
 
@@ -103,13 +103,20 @@
 		mobileNav.classList.toggle('is-open', open);
 		mobileNav.setAttribute('aria-hidden', String(!open));
 		menuBtn.setAttribute('aria-expanded', String(open));
+		document.body.classList.toggle('menu-open', open);
 		document.body.style.overflow = open ? 'hidden' : '';
 	}
 
 	if (menuBtn) menuBtn.addEventListener('click', () => setMenuOpen(!mobileNav.classList.contains('is-open')));
 	if (closeBtn) closeBtn.addEventListener('click', () => setMenuOpen(false));
+	document.querySelectorAll('[data-close-menu]').forEach((el) => {
+		el.addEventListener('click', () => setMenuOpen(false));
+	});
 	document.querySelectorAll('.mobile-nav-link').forEach((l) => {
 		l.addEventListener('click', () => setMenuOpen(false));
+	});
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && mobileNav?.classList.contains('is-open')) setMenuOpen(false);
 	});
 
 	// ── Publication filters ───────────────────────────

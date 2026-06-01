@@ -58,7 +58,7 @@
 			<button type="button" class="theme-btn" data-theme-toggle aria-label="Toggle color theme">
 				<span class="material-symbols-outlined icon-moon" aria-hidden="true">dark_mode</span>
 				<span class="material-symbols-outlined icon-sun" aria-hidden="true">light_mode</span>
-				<span data-theme-label>Dark</span>
+				<span data-theme-label>dark</span>
 			</button>
 		</div>
 	</nav>
@@ -67,18 +67,34 @@
 		aria-expanded="false"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
 
 	<div id="mobile-nav" class="mobile-nav" aria-hidden="true">
-		<button type="button" id="mobile-close-btn" class="mobile-close" aria-label="Close menu"><span
-				class="material-symbols-outlined" aria-hidden="true">close</span></button>
-		<a href="#about" class="mobile-nav-link">About</a>
-		<a href="#experience" class="mobile-nav-link">Experience</a>
-		<a href="#teaching" class="mobile-nav-link">Teaching</a>
-		<a href="#expertise" class="mobile-nav-link">Expertise</a>
-		<a href="#education" class="mobile-nav-link">Education</a>
-		<a href="#honors" class="mobile-nav-link">Honors</a>
-		<a href="#publications" class="mobile-nav-link">Publications</a>
-		<button type="button" class="theme-btn" data-theme-toggle aria-label="Toggle color theme">
-			<span data-theme-label>Dark</span> mode
-		</button>
+		<div class="mobile-nav__backdrop" data-close-menu aria-hidden="true"></div>
+		<div class="mobile-nav__panel" role="dialog" aria-modal="true" aria-label="Site menu">
+			<header class="mobile-nav__header">
+				<div class="mobile-nav__brand">
+					<p class="mobile-nav__name">Panagiotis C. Theocharopoulos</p>
+					<p class="mobile-nav__tagline">AI Engineer · PhD</p>
+				</div>
+				<button type="button" id="mobile-close-btn" class="mobile-nav__close" aria-label="Close menu">
+					<span class="material-symbols-outlined" aria-hidden="true">close</span>
+				</button>
+			</header>
+			<nav class="mobile-nav__links" aria-label="Mobile">
+				<a href="#about" class="mobile-nav-link">About</a>
+				<a href="#experience" class="mobile-nav-link">Experience</a>
+				<a href="#teaching" class="mobile-nav-link">Teaching</a>
+				<a href="#expertise" class="mobile-nav-link">Expertise</a>
+				<a href="#education" class="mobile-nav-link">Education</a>
+				<a href="#honors" class="mobile-nav-link">Honors</a>
+				<a href="#publications" class="mobile-nav-link">Publications</a>
+			</nav>
+			<footer class="mobile-nav__footer">
+				<button type="button" class="mobile-theme-btn" data-theme-toggle aria-label="Toggle color theme">
+					<span class="material-symbols-outlined icon-moon" aria-hidden="true">dark_mode</span>
+					<span class="material-symbols-outlined icon-sun" aria-hidden="true">light_mode</span>
+					<span class="mobile-theme-btn__text">Switch to <span data-theme-label>dark</span> mode</span>
+				</button>
+			</footer>
+		</div>
 	</div>
 
 	<div class="page">
