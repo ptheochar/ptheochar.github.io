@@ -1,5 +1,5 @@
 {
-  "name": "P. Theocharopoulos",
+  "name": "Panagiotis C. Theocharopoulos",
   "short_name": "PT",
   "icons": [
     {
@@ -14,7 +14,8 @@
       "purpose": "any maskable"
     }
   ],
-  "theme_color": "#0E1930",
-  "background_color": "#0E1930",
-  "display": "standalone"
+  "theme_color": "#0d9488",
+  "background_color": "#f4fbf9",
+  "display": "standalone",
+  "start_url": "/"
 }
